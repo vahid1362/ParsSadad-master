@@ -1,0 +1,32 @@
+﻿
+<div class="box box-primary direct-chat direct-chat-primary">
+    <div class="box-header with-border" id="chat">
+        <h3 class="box-title">پیام رسان</h3>
+        <div class="box-tools pull-right">
+
+        </div>
+        <form id="frm-send-message" action="#">
+            <!-- /.box-header -->
+            <div class="box-body">
+                <!-- Conversations are loaded here -->
+                <div id="divscroll" onload="scrollToBottom()" class="direct-chat-messages">
+                    <ul id="messages"></ul>
+                </div>
+            </div>
+            <!-- /.box-body -->
+            <div class="box-footer">
+                <form action="#" method="post">
+                    <div class="input-group">
+                        <input type="text" id="message" name="message" placeholder="متن پیام...." class="form-control">
+                        <span class="input-group-btn">
+                            <button type="submit" id="send" class="btn btn-primary btn-flat">
+                                ارسال
+                                <i class="fa fa-paper-plane"></i>
+                            </button>
+                        </span>
+                    </div>
+                </form>
+            </div>
+        </form>
+    </div>
+</div>

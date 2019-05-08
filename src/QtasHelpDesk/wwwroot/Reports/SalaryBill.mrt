@@ -1,0 +1,2890 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<StiSerializer version="1.02" type="Net" application="StiReport">
+  <Dictionary Ref="1" type="Dictionary" isKey="true">
+    <BusinessObjects isList="true" count="1">
+      <PersonalSalaryAndLoanInfoDto Ref="2" type="Stimulsoft.Report.Dictionary.StiBusinessObject" isKey="true">
+        <Alias>PersonalSalaryAndLoanInfoDto</Alias>
+        <BusinessObjects isList="true" count="0" />
+        <Category />
+        <Columns isList="true" count="91">
+          <value>ExtraWorkAmount,اضافه_x0020_کار,System.Decimal</value>
+          <value>ExtraWorkHour,ساعت,System.Int32</value>
+          <value>MissionAmount,ماموریت,System.Decimal</value>
+          <value>ProfitSharingAmount,پاداش_x0020_مدیریت,System.Decimal</value>
+          <value>NationalCelebrityAmount,اعیاد_x0020_ملی_x0020_مذهبی,System.Decimal</value>
+          <value>KaranehAmount,کارانه,System.Decimal</value>
+          <value>DiffAmount,مابه_x0020_التفاوت,System.Decimal</value>
+          <value>PersonalPaymentAmount,پرداخت_x0020_موردی,System.Decimal</value>
+          <value>SumIncome,جمع_x0020_درآمد,System.Decimal</value>
+          <value>SumSalary,جمع_x0020_حقوق,System.Decimal</value>
+          <value>WorkDaysCount,روزهای_x0020_کارکرد,System.Int32</value>
+          <value>MosaedehAmount,مساعده,System.Decimal</value>
+          <value>OtherDeductionAmount,سایرکسورات,System.Decimal</value>
+          <value>CarityAmount,خیریه,System.Decimal</value>
+          <value>ClerkSSInsuranceAmount,بیمه_x0020_کارمند,System.Decimal</value>
+          <value>SupplementaryInsuranceAmount,بیمه_x0020_تکمیلی,System.Decimal</value>
+          <value>TaxAmount,مالیات,System.Decimal</value>
+          <value>TaxableAmount,مشمول_x0020_مالیات,System.Decimal</value>
+          <value>RefahiAmount,رفاهی,System.Decimal</value>
+          <value>SumLoanInstalmentAmount,وامها,System.Decimal</value>
+          <value>NetPayableAmount,خالص_x0020_پرداختی,System.Decimal</value>
+          <value>SumDeductions,جمع_x0020_کسورات,System.Decimal</value>
+          <value>Param17Amount,System.Decimal</value>
+          <value>Param16Amount,System.Decimal</value>
+          <value>Param15Amount,System.Decimal</value>
+          <value>Param14Amount,System.Decimal</value>
+          <value>Param13Amount,System.Decimal</value>
+          <value>Param12Amount,System.Decimal</value>
+          <value>Param11Amount,System.Decimal</value>
+          <value>Param10Amount,System.Decimal</value>
+          <value>Param9Amount,System.Decimal</value>
+          <value>Param8Amount,System.Decimal</value>
+          <value>Param7Amount,System.Decimal</value>
+          <value>Param6Amount,System.Decimal</value>
+          <value>Param5Amount,System.Decimal</value>
+          <value>Param4Amount,System.Decimal</value>
+          <value>Param3Amount,System.Decimal</value>
+          <value>Param2Amount,System.Decimal</value>
+          <value>Param1Amount,System.Decimal</value>
+          <value>EmployeeTypeStr,نوع_x0020_استخدام,System.String</value>
+          <value>FullName,نام_x0020_و_x0020_نام_x0020_خانوادگی,System.String</value>
+          <value>CertificationId,ش_x0020_ش,System.String</value>
+          <value>PerCode,ک_x0020_پ,System.Int32</value>
+          <value>PrePaidTax,تعدیل_x0020_مالیات,System.Decimal</value>
+          <value>SumThisYearClerkInsurance,جمع_x0020_بیمه_x0020_تا_x0020_ماه_x0020_جاری,System.Decimal</value>
+          <value>SumThisYearTax,جمع_x0020_مالیات_x0020_تا_x0020_ماه_x0020_جاری,System.Decimal</value>
+          <value>SumThisYearTaxable,جمع_x0020_مشمول_x0020_مالیات_x0020_تا_x0020_ماه_x0020_جاری,System.Decimal</value>
+          <value>Loan1Instalment,مبلغ_x0020_قسط_x0020_وام_x0020_نوع_x0020_1,System.Decimal</value>
+          <value>Loan2Instalment,مبلغ_x0020_قسط_x0020_وام_x0020_نوع_x0020_2,System.Decimal</value>
+          <value>Loan3Instalment,مبلغ_x0020_قسط_x0020_وام_x0020_نوع_x0020_3,System.Decimal</value>
+          <value>Loan4Instalment,مبلغ_x0020_قسط_x0020_وام_x0020_نوع4,System.Decimal</value>
+          <value>Loan5Instalment,مبلغ_x0020_قسط_x0020_وام_x0020_نوع5,System.Decimal</value>
+          <value>Loan6Instalment,مبلغ_x0020_قسط_x0020_وام_x0020_نوع6,System.Decimal</value>
+          <value>Loan7Instalment,مبلغ_x0020_قسط_x0020_وام_x0020_نوع7,System.Decimal</value>
+          <value>Loan8Instalment,مبلغ_x0020_قسط_x0020_وام_x0020_نوع8,System.Decimal</value>
+          <value>Loan9Instalment,مبلغ_x0020_قسط_x0020_وام_x0020_نوع9,System.Decimal</value>
+          <value>Loan1InstalmentTotalCount,تعدادکل_x0020_اقساط_x0020_وام_x0020_نوع1,System.Decimal</value>
+          <value>Loan2InstalmentTotalCount,تعدادکل_x0020_اقساط_x0020_وام_x0020_نوع2,System.Decimal</value>
+          <value>Loan3InstalmentTotalCount,تعدادکل_x0020_اقساط_x0020_وام_x0020_نوع3,System.Decimal</value>
+          <value>Loan4InstalmentTotalCount,تعدادکل_x0020_اقساط_x0020_وام_x0020_نوع4,System.Decimal</value>
+          <value>Loan5InstalmentTotalCount,تعدادکل_x0020_اقساط_x0020_وام_x0020_نوع5,System.Decimal</value>
+          <value>Loan6InstalmentTotalCount,تعدادکل_x0020_اقساط_x0020_وام_x0020_نوع6,System.Decimal</value>
+          <value>Loan7InstalmentTotalCount,تعدادکل_x0020_اقساط_x0020_وام_x0020_نوع7,System.Decimal</value>
+          <value>Loan8InstalmentTotalCount,تعدادکل_x0020_اقساط_x0020_وام_x0020_نوع8,System.Decimal</value>
+          <value>Loan9InstalmentTotalCount,تعدادکل_x0020_اقساط_x0020_وام_x0020_نوع9,System.Decimal</value>
+          <value>Loan1InstalmentPaidCount,تعداداقساط_x0020_پرداختی_x0020_وام_x0020_نوع1,System.Decimal</value>
+          <value>Loan2InstalmentPaidCount,تعداداقساط_x0020_پرداختی_x0020_وام_x0020_نوع2,System.Decimal</value>
+          <value>Loan3InstalmentPaidCount,تعداداقساط_x0020_پرداختی_x0020_وام_x0020_نوع3,System.Decimal</value>
+          <value>Loan4InstalmentPaidCount,تعداداقساط_x0020_پرداختی_x0020_وام_x0020_نوع4,System.Decimal</value>
+          <value>Loan5InstalmentPaidCount,تعداداقساط_x0020_پرداختی_x0020_وام_x0020_نوع5,System.Decimal</value>
+          <value>Loan6InstalmentPaidCount,تعداداقساط_x0020_پرداختی_x0020_وام_x0020_نوع6,System.Decimal</value>
+          <value>Loan7InstalmentPaidCount,تعداداقساط_x0020_پرداختی_x0020_وام_x0020_نوع7,System.Decimal</value>
+          <value>Loan8InstalmentPaidCount,تعداداقساط_x0020_پرداختی_x0020_وام_x0020_نوع8,System.Decimal</value>
+          <value>Loan9InstalmentPaidCount,تعداداقساط_x0020_پرداختی_x0020_وام_x0020_نوع9,System.Decimal</value>
+          <value>Loan1RemainedAmount,مانده_x0020_وام_x0020_نوع_x0020_1,System.Decimal</value>
+          <value>Loan2RemainedAmount,مانده_x0020_وام_x0020_نوع_x0020_2,System.Decimal</value>
+          <value>Loan3RemainedAmount,مانده_x0020_وام_x0020_نوع_x0020_3,System.Decimal</value>
+          <value>Loan4RemainedAmount,مانده_x0020_وام_x0020_نوع_x0020_4,System.Decimal</value>
+          <value>Loan5RemainedAmount,مانده_x0020_وام_x0020_نوع_x0020_5,System.Decimal</value>
+          <value>Loan6RemainedAmount,مانده_x0020_وام_x0020_نوع_x0020_6,System.Decimal</value>
+          <value>Loan7RemainedAmount,مانده_x0020_وام_x0020_نوع_x0020_7,System.Decimal</value>
+          <value>Loan8RemainedAmount,مانده_x0020_وام_x0020_نوع_x0020_8,System.Decimal</value>
+          <value>Loan9RemainedAmount,مانده_x0020_وام_x0020_نوع_x0020_9,System.Decimal</value>
+          <value>PerBranch,محل_x0020_پرداخت,System.String</value>
+          <value>PerAccountNo,شماره_x0020_حساب,System.String</value>
+          <value>PerAccountType,نوع_x0020_حساب,System.String</value>
+          <value>OrganArea,محل_x0020_خدمت,System.String</value>
+          <value>EndYearAmount,عیدی_x0020_پایان_x0020_سال,System.Decimal</value>
+          <value>Param18Amount,System.Decimal</value>
+          <value>OrganAreaCode,کد_x0020_محل_x0020_خدمت,System.Int32</value>
+          <value>Param19Amount,System.Decimal</value>
+        </Columns>
+        <Dictionary isRef="1" />
+        <Guid>979086d9d39a47a0968c6697716c47b5</Guid>
+        <Name>PersonalSalaryAndLoanInfoDto</Name>
+      </PersonalSalaryAndLoanInfoDto>
+    </BusinessObjects>
+    <Databases isList="true" count="0" />
+    <DataSources isList="true" count="0" />
+    <Relations isList="true" count="0" />
+    <Report isRef="0" />
+    <Resources isList="true" count="0" />
+    <Variables isList="true" count="32">
+      <value>,YearMonth,سال_x0020_و_x0020_ماه_x0020_حقوق,,System.String,,False,False,False,False</value>
+      <value>,OrganName,نام_x0020_سازمان,,System.String,,False,False,False,False</value>
+      <value>,ReportDate,تاریخ_x0020_گزارش,,System.String,,False,False,False,False</value>
+      <value>,ParamName1,ParamName1,,System.String,,False,False,False,False</value>
+      <value>,ParamName2,ParamName2,,System.String,,False,False,False,False</value>
+      <value>,ParamName3,ParamName3,,System.String,,False,False,False,False</value>
+      <value>,ParamName4,ParamName4,,System.String,,False,False,False,False</value>
+      <value>,ParamName5,ParamName5,,System.String,,False,False,False,False</value>
+      <value>,ParamName6,ParamName6,,System.String,,False,False,False,False</value>
+      <value>,ParamName7,ParamName7,,System.String,,False,False,False,False</value>
+      <value>,ParamName8,ParamName8,,System.String,,False,False,False,False</value>
+      <value>,ParamName9,ParamName9,,System.String,,False,False,False,False</value>
+      <value>,ParamName10,ParamName10,,System.String,,False,False,False,False</value>
+      <value>,ParamName11,ParamName11,,System.String,,False,False,False,False</value>
+      <value>,ParamName12,ParamName12,,System.String,,False,False,False,False</value>
+      <value>,ParamName13,ParamName13,,System.String,,False,False,False,False</value>
+      <value>,ParamName14,ParamName14,,System.String,,False,False,False,False</value>
+      <value>,ParamName15,ParamName15,,System.String,,False,False,False,False</value>
+      <value>,ParamName16,ParamName16,,System.String,,False,False,False,False</value>
+      <value>,ParamName17,ParamName17,,System.String,,False,False,False,False</value>
+      <value>,Hadis,Hadis,,System.String,,False,False,False,False</value>
+      <value>,LoanTypeDesc1,LoanTypeDesc1,,System.String,,False,False,False,False</value>
+      <value>,LoanTypeDesc2,LoanTypeDesc2,,System.String,,False,False,False,False</value>
+      <value>,LoanTypeDesc3,LoanTypeDesc3,,System.String,,False,False,False,False</value>
+      <value>,LoanTypeDesc4,LoanTypeDesc4,,System.String,,False,False,False,False</value>
+      <value>,LoanTypeDesc5,LoanTypeDesc5,,System.String,,False,False,False,False</value>
+      <value>,LoanTypeDesc6,LoanTypeDesc6,,System.String,,False,False,False,False</value>
+      <value>,LoanTypeDesc7,LoanTypeDesc7,,System.String,,False,False,False,False</value>
+      <value>,LoanTypeDesc8,LoanTypeDesc8,,System.String,,False,False,False,False</value>
+      <value>,LoanTypeDesc9,LoanTypeDesc9,,System.String,,False,False,False,False</value>
+      <value>,ParamName18,ParamName18,,System.String,,False,False,False,False</value>
+      <value>,ParamName19,ParamName19,,System.String,,False,False,False,False</value>
+    </Variables>
+  </Dictionary>
+  <EngineVersion>EngineV2</EngineVersion>
+  <GlobalizationStrings isList="true" count="0" />
+  <MetaTags isList="true" count="0" />
+  <Pages isList="true" count="1">
+    <Page1 Ref="3" type="Page" isKey="true">
+      <Border>None;Black;2;Solid;False;4;Black</Border>
+      <Brush>Transparent</Brush>
+      <Components isList="true" count="10">
+        <PageHeaderBand1 Ref="4" type="PageHeaderBand" isKey="true">
+          <Brush>Transparent</Brush>
+          <ClientRectangle>0,0.4,19,1.01</ClientRectangle>
+          <Components isList="true" count="9">
+            <Text6 Ref="5" type="Text" isKey="true">
+              <Brush>EmptyBrush</Brush>
+              <ClientRectangle>16,0.2,1.8,0.6</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>B Titr,10,Bold</Font>
+              <Guid>430eb9e7178f4e0e9aaf6b317678e339</Guid>
+              <HorAlignment>Right</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text6</Name>
+              <Page isRef="3" />
+              <Parent isRef="4" />
+              <Text>فیش حقوقی</Text>
+              <TextBrush>Black</TextBrush>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </Text6>
+            <Text1 Ref="6" type="Text" isKey="true">
+              <Brush>EmptyBrush</Brush>
+              <ClientRectangle>3.2,0.2,2.4,0.6</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>B Titr,10,Bold</Font>
+              <HorAlignment>Right</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text1</Name>
+              <Page isRef="3" />
+              <Parent isRef="4" />
+              <Text>{YearMonth}</Text>
+              <TextBrush>Black</TextBrush>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </Text1>
+            <Text2 Ref="7" type="Text" isKey="true">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>8.8,0.2,7.2,0.6</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>B Titr,10,Bold</Font>
+              <HorAlignment>Right</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text2</Name>
+              <Page isRef="3" />
+              <Parent isRef="4" />
+              <Text>{OrganName}</Text>
+              <TextBrush>Black</TextBrush>
+              <VertAlignment>Center</VertAlignment>
+            </Text2>
+            <Text3 Ref="8" type="Text" isKey="true">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>0.15,0.2,1.9,0.6</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>B Yekan,9</Font>
+              <HorAlignment>Right</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text3</Name>
+              <Page isRef="3" />
+              <Parent isRef="4" />
+              <Text>{ReportDate}</Text>
+              <TextBrush>Black</TextBrush>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </Text3>
+            <Text5 Ref="9" type="Text" isKey="true">
+              <Brush>EmptyBrush</Brush>
+              <ClientRectangle>2,0.2,0.76,0.6</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>B Mitra,8,Bold</Font>
+              <Guid>42d4e3a400564f15b8468f686af8b1df</Guid>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text5</Name>
+              <Page isRef="3" />
+              <Parent isRef="4" />
+              <Text>:تاریخ</Text>
+              <TextBrush>Black</TextBrush>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </Text5>
+            <Text133 Ref="10" type="Text" isKey="true">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>5.8,0.2,2.8,0.6</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>B Mitra,9,Bold</Font>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text133</Name>
+              <Page isRef="3" />
+              <Parent isRef="4" />
+              <Text>{PersonalSalaryAndLoanInfoDto.OrganArea}</Text>
+              <TextBrush>Black</TextBrush>
+              <VertAlignment>Center</VertAlignment>
+            </Text133>
+            <Image3 Ref="11" type="Image" isKey="true">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>18.1,0.1,0.7,0.7</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Guid>e0121acb4d1242a09273560167bdd9d8</Guid>
+              <Image>iVBORw0KGgoAAAANSUhEUgAAAHMAAABzCAYAAACrQz3mAAAABGdBTUEAALGPC/xhBQAAABl0RVh0U29mdHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAACdMSURBVHhe7Z0JnI3VG8f/thJS1hCVLFnSIiJkUlmyZIusWZpsKckuSZQY2ULEJISUtFDZt1AqKWtCqVC2lFRo/T/f+5nnfp5558ydu01mlM/nZ+4957znfd+zPPtz7v/+/vvv/3COwFn4H9InnIXnOo4dO5Zn69atVx86dCj/H3/8kdnVJj3CWXguYP78+U1eeeWVu1x1r732WqMGDRq8ERMTs/LDDz+s4GqTHuEsTMvYsWNHmY8++ugGV53FoEGDHh86dOgjrjqwbNmy2zZt2nT9X3/9ldFVnx7hLExreP7559t37dp10qlTp7JWqVJlfaNGjV53tfNi3759l3/66afXesvHjh3b4/zzzz9dqlSpz44ePZrXW//rr79m++mnny70lqd1OAvTEo4fP54rd+7c3/9PHjU2NnYyfwsUKPDdzz//nN3VXjFgwIAnaQsWLlzYwNYVLVr0y8aNGy+48MILf5o1a1YbWwdmzpzZ5tZbb13evn37ePirtz6twlmY1tC6devZTMoLL7zQtnz58h/z+YMPPqjobffVV19dJqSz/IQJE7rVrFlz2bRp02JlB555+umnH6Z+yJAhg9966626w4cP73fddddtvvjii3945plnunv7kZ15wXvvvVc5Pj6+4w8//HCxtz6twlmYVvDLL79k27Zt29UisDTMnj37zw899NAYmdB2TKZMWJJJ6NOnz8hMmTL9kTNnzhOtWrWaK7trJdd98cUXVx45ciSfXPdXxowZ/6xater6atWqvSvtfly9evUtto8zZ86c16RJk1cLFiz4bTC8OS3BWXg28eWXX15xzz33zJCd80mRIkW+yZAhw1+jR4/u+Zj8y5s379H9+/dfCnns0qXLZNmJl0+ePLmzXvvuu+9WK1y48H4mG2TOnPn3GTNmtKUOFYTJ1joAqf3zzz8zHT58OH/37t3H027SpEndihUrtqdkyZK7ZPGMlbIMd99990vCqzccPHiwkN7r9OnT53/88cfXp0Tu/0k4C88m2rRpM4uBRkDh70UXXfRj//79n6xbt+5bfN+1a1fJnj17jqbd4sWL61SvXn2N7KYs7Kg9e/YUhwwjLKGWyI4savvu3bt3nOzKdUI+73377bfvkAnORLlIvYNEVXmTz/fff/+EhPufgczKYulUpkyZbSwMSPKPP/54Ee2Ef0+VXf7Hd999V4B+Xn/99YbffPNNEb3X2YCz8GyBCRH++CI8TfjbIJ1QC5mwYt9++21BIY8xQgYrUFa8ePE9spv2aptPPvnESrAZNm/efL2Q3BXUzZs3725T58Ndd901n0UzcuTIPm+88cadHTt2nMa9t2zZUu7aa6/9tESJEp/nz5//qFCKr/v16zeca4QUL8iaNesp2Zk5+I6UPX369Ha2338azsLUBAO0cePGSrbs0KFDlyB0dOrUaXLfvn2H33HHHb5dWK5cua1jxozpUbZs2W3169dfCO+01wmpyypt39ZJhD8OHDjwCdEdM2gbpOE777zz9auvvnprs2bNXoY82j7As88+20X7ADly5PiZ+1EnZLerCErHs2TJ8icQEn+CXckCuuyyy76mDc8Of7f3PRtwFqYmhDzOhAzyGX1u7969V7700kvNb7rppg3wSB1QhJP169dXpV2gQfr9998zr1279uYVK1bcJmSusKtNEMgwZcqUTpDgyy+//CsWCFIxEi3lUrbvgQceGNehQ4d4M+E/ZcuW7ZdBgwYNjYmJWWWk3rM2oc7C1MDXX399mQg3RUXgyMiLI12yohE2hJR9ooPEgLZr1+4FbKeuflIbGCb4O3HixK5CWg/xTFdeeeVenhneuGTJklo7d+4sjZqjzyxCGtJ1t169esWx8HhHFwVIbTgLIwEvg0TqLY+Li+sDWUIXFJKUXSZws/CqV3RAUAVGjBjR9+jRo2lGScc6BA+VhZhEsEEQQjquXbv2Yn0HyLPs4PGUscOFvL/hGgtRt8p4y6IBZ2G4gOQhxov06RMSLMaNG/cgLwyveeKJJwaKJPiXDoJoHYNlJ5bzXpMegNAGDxUpehPvkidPnmPCNlqoPty5c+fJ3mtQvVq0aDGX8fLWRQJnYTgQqS4bggYv8Pjjjz/qrR82bNgj995771SUep3E5s2bz3vnnXfqeNumR4igdXHFihU/0HdDeBOB6Tc8NN62LVu2nEsbdu7Jkyejpqc6C0PFiRMncqroD1yTKQ/+5gUXXPCrCA0/16lT5+22bdvOPHbsWG5vu/QMmZgcGDiaNm06/7777nvOZXIE9erVW6RjVaNGjZWqu0YKZ2EowLtwyy23rNKHA+xCbztR8GtDXpYuXXq7t+7fBrvwAYYPNoSrbShwFgYLJDYrAABsntbs9R+SQtSw9+yYgdtvv30Z0r2rfbBwFgYLmLh9IKwg0Vhh5zqwKtlxUyDdR2J4cBYGA+yc9kGQ5kL1/aGPAVddeoPql646L0qWLPm5jpsVCEGPHj3GuK4JBs7CFOCzltgHEHVj94EDBy51tPUD7z68Adx8881rK1So8GHfvn2fEp7rs22md/z2229ZJk2a1KVmzZpLUc86der03MMPP/z0kCFDHhszZsxDU6dOvW/OnDktX3755bvy5ct3RMcOG7T6aBWYEF33SAnOwkDgoVGI9caFChU6KEpwWVdbRb9+/Z6yDws6dOjw/Pfff5/q0iw7BstNJOQrWGCftREOwQBnOZax3LlzH9MyVBrcea57BIKzMCXIznpXb4xf0dVG8eCDD47VtvqguJVcbaOFVatW1ejWrdsEPhMDVLp06e379+8vjGEe2zDeFupSi8S/+eabDXLlyuULdUkJy5Yt80n3om/Xxs2m5VdcccU+V3xSIDgLU0L79u2n603x5rvaAMiMtgMXXXTRD/gRXW0jBRYX9UmKot6Y+yEdMpn4HfHMYB+m/MMPP6woOzXjjTfe+P6rr77axPYTLeC4lgn50r4/wAODgZ5n4vvTTz/dU6+BHNu2CES2z5TgLEwJTz31VD+9IQ+MScvbhjBH+2CXXHLJoffffz+R6ytS4IweN27cA3zGv8l9mDDcXuwM6gkZ4d7Yg4V03VygQIFviToQhf5G2n/22WelIMEDBw4ctnv37uLee0QC7LJlypTZYcehbt26i7BP79y5sxTenhIlSuwS3bumXtO0aVO/vRqwSG2fgeAsTAmyu+rqzbDqiPBTSEjYeTwkEzZ8+PD+9oEI98Cl5OorEqxZs6Y6/TORfMf7Iiu9l34WElaTHSkDtpud+Pzzz3fE4kK9kP9xCCt8xpZKP7KLr+F7NEH0ASEodjxE6PFbyGRCqxcpUuQrwmH4fuTIkbyFCxf2uwKx9aYkXCqchYGAKwh7o94M9w+RbriyZGJ/0XIFJCUcZp4cRAA7Dz7Mqua7SI1TUIv4TJgHLjQ+Cyt4gXiekydPXojkTJkIJ8MBn2XHbJcdUYtdSQQBoSOUE27Stm3bGQh6fI8G2PEIinZcZs6c6YtNAlC6atWqrVUhDZ573nnnndG26PPaNhCchRaLFy+u9eijjz6OUVwG5SMhWd8hxNgHC4R58+Y1d/UbLpBM4Y358+c/jE2TgCoZqANQCyxS5cqV2wKZZWJF9RnB5OsOxE+6ZMmS2p9//nnJG2644SPKRGWILVWq1A4GkgAxwkVYIPae0cCGDRtuYmHruBAVYcNbRPZYzqTq97Jly26346iCUiA4Cy0aNWr0mu00GBC0jJUjLi6ut6vPcIDYT2R7gtsoA+QSExh1UApZaB/wGaFLVv09u3btugpjt7TPInqfb2XLCp8jE537ySefHDBq1KheIs1mYiKJKGAyCS1p1arVbNpicyYWKVpGcDB79uxWdpwIh8HbRB3SdtGiRffC8yHNWbNmTRT/BPVLyWXmLLSA/NhOXSDcA0+J8J67ScQ5fPhwPldfkYDwkpw5c/5Qp06ddyCBCF28IB5/6iFFIpk2RWfD1cYkdu3adSKeDEI+CLzq3Lnzswlt52B2HD9+vFQ9MI4yfJK6ONjZ7FyokDfCL1L07NkzkYQvzzpN9e0XX3yxtfybRRSgbaNISRhyFloID2mmncEfH3nkkWGETnTs2NEfD6MkK7XBREHqK1Wq9D47h11DxAK8D52sYcOGC2gnuzOOsJRhw4YNxOgv5KsvK3706NEP0cfgwYMfQ+ckE4yFwSDBs9A72SEILJBm1fOiyT9ZhPBwHTvAomExzp8/v6nw/LWocLZegWM/kDHeWQjmzp17N7xl+/btZW2HhC1Sv2DBgiZaBllNLWsOfFB2zFLIopZBPuGNxKwi6QnJXY7UirkMvXHdunVVV6xYcSvRfDt27CgtK76V8Kfr4DtS35h3wnCxfPny28gqk/6XoLrwGVInC/YJvReLl3uxw7UsUmAxs/zTwgo+oHbt2u9kzpzZb7+dNm3ava4+gbMQPQx766JFi+qxEogp1c4IQCbZRoOVAVHnW7ZsibpYDyCXiPKYu6pUqbKOUE3KhX92QOknKFp0xauEhE6Cp4wcObIXcbVCUZqguJNisGrVqpiNGzfeyCCKQNaM3Td27NgH5N2ykRxERDsCikjFHy1cuLA+/SOByyR+inCFMs9z2OeKFCNGjOij45ccUPtQWZAPtKx06dI7kqMUSQoAVhounDhxYje+exVfF1zhEZEC3VAfHB5HbBGRcrJbhlImO6xMkyZNXkGHZeJk1XZAUV+5cmUMuZfUi+5YjgCqhL9l+SvvV5sJZ0LhiTjMmzVr9hIkGUpAVDuLGQFI7w9Zjya5pS94vh1DNoX9ftttty2nLfZbW06Qmbc/kKQAaCoAL8V3G+aQHFQQiSbYLZdeeul+ouCYJMqEnOdC4Yf8YDRANcHzgLGCXSgC2A2ye68WgekK0e+KibpRhNUtPLMw3/fs2XOlTHJpubYaVhjh/zVll/RmcBkkogBI1D116pQvVJIF0a1bt4mY4dD/7PNFCliBHUN4uCywB9GVcY2hEtIOXn799df7PSuqanmRpED4ZAmh2z49UqU7kfie0Y6A6EgnsapQT0Az0ldqWE8QQIipIXoBKwmJPuiJ1MErcaEh3MiOKiir9w7ZndcJ37uKiZOddwliP6QX3ZTJ4ru0vUQWxuXynsXXr19fWQa0BsKRTOAQogSRZOkfyZgFg0GBHTJlypTOCFX2+aIBgrp0XLGUqXNf+PntCGVK3qdPn95e22GQZyHafkCiL0AkvSF6EdITq0LIVg3cWIjO7BbMd97rUgNK2tgl7BDIfsuWLWfj+UANQvdk8cXHx7dnR8oLXiUThW0W3dDp8uJ92N2yQ4sKvy0hvLGKSLP3MKEiHefE2MA92rVrNx29lt3MguA5oqlzKmAR1kGNC03rElIyfOyLSRap97C2I5Je2ykSfeGhhcHu1AvIU5Ry56Bg2YGHEV6J3sbLutqFi3379l1RsGDBgwgB5Hfky5fvMLwbtUR4zccimHwj37fGxcU9LLutAORUlO2CInWihAf0XTKhMjEXyjWFuZYFICTtsauuumqXYAdkDmqAUs99yfcUJf5X7KTRNE0qGGcdc7LCdXeKxtBYc16ASPFTtR0p/MyX1gH/B4DEp41BcjyC3WnbIe252kUCqAB99+rVa5SoSS2ee+65+7DciNQ6hVyQa665ZotK2VmyZDktfGQZFidUEVd/XiD40CemwYwZM/rYCnmfMkg7Iaso80OHDn2UpCLur9Inqoqrv0iABQodnv4BJJVyUiWEV24S6lCC714e6/VCJeqUDCptiNsIMmfrFVhLtB10XvlMNIB9lLR1diB2UvRHVzsgPDUPA0GEPLtJnscnDcLLkwuuZiGSDSYT+CdtCdngvUV9uUX01kvU2O0Cu0ak6S94PpERkhx8EQlE7VqvY0pYjZbjZFdBCOqHQKjtLEkG/g+CDFhytKHwjTmmzg/4BkZubRdtozQZ0tq36JE+e2uwgO8x0OS0cD2TCq+lDrWDd6IcyRSegy/T20cgYKXRZ0tufMIFBn/tGwFHjfD4YCtWrLiRz+xMckK1nczXJrv4/J1Bdqz1QchcklM4AOK7tgHR5iF2hapqFCowdGB3lfc5jVtOdu4A7Mf0CZlEAHJdlxI0XwawYNBJXe3CAdYsyLz2zw7EME9d5cqV3xPJ+yYcAVoPyO4Wfu+3Hfs7sxZ9Zp8zdLTOwoaM4MOUrZ8kyiAckJHMTrSSHb5FV9tggfiO35K+SM9TH2i4ENWnvFXs8Qwh9brahgNSOLRvBZI7QibCoLcOYMLU6/0ddenS5VltgGVCypLwDozTBBppu3B3jhfYPZEUtV+QI0eOk6IrRqwCYZKkv2i4486cOXM+ZwjZ5wR79+4t5mofKjjqxtt3StDEZeDvyFrymVgtt8BkZqUuUdTrudqFCmJgtE8FpMXVNlQIW2hIf0Iie7jqQwX+Tu+zIvG62oYKpNaUHP8seowJ+t3KFb7/sLRwwJE2SC5ibfLkyf7cf3SvaFlEunfvnsjCBDS8I1JofI+oT/4ouEggakMH77PWrVv3bVfbUIGlStkCQFDz2msxnDA/+j1XrlzH1WPl64TQQ3uBK0EUPxzSobbRWJtIIQp8Jm+IBMA95WofKrAU0Z/G+EQK1+7BBRgt9YzQFu03JiZmNU4APCV8J+EI6TWBd/vvr3HAvg7Us66VQD0mQET+It60PYzPWh8JREgpbYN/QTQHRyczWo4AFp9Ildvs8wJSFl3tQ8WECRPu1z7ZdRgOTpw4cWGDBg0WipA4gjbk9DBG2g6jBuX+Togvtfojq0/E4Soc8yJiuD8dAeTNm/cIyrdeGwnIQbF9g1q1ajm9AuHATGaSBOBwgdDhfeZoCYOEXtp+2YWUY6PF0cBndieZ2dpGqU6ijhBErGrAyiCKTL8DwhrZTfa6SCCke7ntH7gyr8NFakwm6oD3mTn4KRr26YMHD14qY+6PQiBsh3JIKdRR2+EG0zaxsbHTKEvSGdvcS/YUzZo1m6dG4GgABzEqiPc+K1euvNXVPhxwIhd9RnMyiZRXN6ECHoY/1dU+FGDwUAMH4NQwyg8cOFAYgwrqEd9tDJYKYEk6O3ToUH6OcdGGADsmrjFv20jhWuHYeqN5LCiWLPqN5m7H63LNNdckSZiNFl+uWLGiX03s06dPHGVEFzKZokHk5zuWLG1TqVIln7kvUSfwQcIltJFCJvMvDi2ybaMBa+tUEOXgahsuVBHHA+KqDxcudUoHNVKw07RPDvKgjBAapFs1UHCap7bB04M7zN8B4YbJRYwBeGm0JDaA1YcQQ+99bBReNEA0G/1G23WFQOJ9dmzbCJKu9qGgTZs2L2qfGAlwTVIOn9y2bZvv5LLevXv7j1slX5bx9PnMevTokSiHEhDJDhm0xndIIPzC3jhcuKw+0eI7FjqZ8vKjXPXhAsO4i9+zY1ztQwFqn+2TzDVioDithehE/Lq2XtjidxgOfAzXhvIBgoe0Y3aKrSO7SgSXAvbm4YCDeW2/ALuvMvhowUymj/dEE9WqVcOHmugdcHa72oYCwlm9/RK7y4GLwjeT3JNwErLHfBdjzsMDopW4VvCi4F4hfMJeCCI9VQs9SRZMojBDwFmzrvaRIDUnE6ex9x0COfWDhTdJOSX4J1OdmwQWWZ0SPyDGAXsRUm40zGwELWfJkiWJ+pMvX76j6LHoU5xyhXKOt4PwFRKBYAmu/gIhPj4+7MlEb8TPi6yAcQOhh2w4wkqwmBUuXPiA9x1AMBlbgeASrgJByPAhrEK+g3tnzpzZmk5EjE+UpWSBF0MdoWvXrq1G1Lt9gFCA49j2zWomAxufnddIYcH56yQOoXtt3rz5Ol2IgaAnowQ7mSw0TvsgyIoQEe8zKBAWEeB4bhvKAYjrdfUdLGJNWA4L2xoIAPFP5NGofRa9FP3fJwARJf7yyy/7LA3kNNoLAcZfDO3UEyZStGjRL9C17AOEAoKvtG+CstBttY7nwRtDYNaaNWtiSEolqEtearX17ABeigjBQCdi4i2hbaDJ3L17d3GiEexBhgDqxCJmp0CuCdtI+A0x38nVej1qgWVTRPlJWdjWIGKUtC+MA4TqqD0YikA6xaJFi+prG6xPp0+fPs93MR5zdoRGttWrV28hjTAWqFOXAdYVwrYWUTgsvsBA5MyZ0x8ewarCSkNKBHoupkIkRVdIBgsIaY4JIuhJ+wBEorMgvSY1Igepd00m5BOBxVq8IPOc/cchhrKwkjwD/TOYkH2i4+iD7C2baoBeTqKS99pggT6pfXF+LWUkNUEF9FB/a5DnmSnzXaxKKhITqwAxl0xefhGAeqBOXkBYCVF0WhcK1LyWEtiFxNmw+1hErFAyi+Gf5IzgyZEBr4CZzsbG8A78/AW+Qe4nvM43mSLu+z3yJAdxjLheQ7C3CB2jiGeS97qMcBOEPILDoESEdjJZHO+Nt0Ij+wIB9UHvFwp4bna29qPmPBYQC1jZGxRJ2+CapMzXgbXzcdgSZV5g6NU2gKgxV7uUoJ56zg1g12Dx58EYbE62ggRjKkO3CmTEYEDhaaxiWYyLhNR8ZushRxxcgSuP76xw+Cw72LaT1b4XSiRCzQqOQbN6tRcsYmKJCI6mH452wfdLtD/mQpn8nqqzhxspkUC5Tug9ZfH7jhHA5yysxn9Mj0YaAjLyKPNVYFPUCh5UL7Agt8MOLil1rnaBQJIPwg4DllJ2NStUqEROlGXCVWQ31UMw6dOnzwgGkcnyStte4KVX9x3CFVHp3jYWUAP06IYNG76OroegBnWC5JK5jY9VyGyKgh/xtUjrROW76gMBl6N9JiaRciiausCApSzE/VLmqxAp1hc9Dhhsl2ckISLA75RFF/K2SQmI7FyLr7R69epr9Sw9C3YaEpysfM4sWF6rVq0lQubeqV+//iL4G4Ds0bZMmTLbCK3QZ4oEpECQMU18DRIz9yFajvQA7le7du0lkDN2JM/Hc3qfHVCnIZOcl+cah0BQvRhgytOQEHRafj6Lz+TYiATtV4sIZaHc14FdDaxmyBHlXsjW9hvGkS5dbQIBkV2v/zfA5okEC9Ii9Hq7sTCvykTH8pkEYyu0rVu3zhe77OsAkmfp9Ny5c/2xmBYq5gNOZkRYcrVLDmRsbdq06QYMFKkJl2XGggFzXRdtbN++PeABkV7gGUGAs8+qjgeEPE4V47MNREcLOXjwYEHKtZNE5jXdzl6IKF5Z2wCSXV3t0gLkhRtA9sgi41nh04jwoRxf9k9jz549xbwCGKobXhMmGX0WwdOGxTLJqvP7O7ISbdWqVddruQUCjKXVmtCSloEAxaEaGAaCsRidTVh+aYFsQDYY5xl569TfCfwdIZ1qA0gueo3WWWAM13ZYTFSf+w+Rw2ZRBwvSEvV6f0dkRAlT9QdzEdavdRY2eQYmrPba/xAZ2Dz2VBdhEatsxpcLmTJl+tPyZX9nXtUDe6TWWVijr9DxrdHwP2Jx4ewePiOMBTofIcGcFvWzBaIB7NeYIRFkXPWBQPq9jivmQAz+NqMaYLCw8VkaLqJ9JOrQRhxgUrJ1APug3b1xcXE+U1MkIG+Ss3bg04jcGI1JnnW1BZzpU69evTfDGbDUBCqE6KOLsNJwgpmrTSBYRzcGEcowGLD7iGjAtgz/t8cUeDdcog45DlsbAmg4FhD1EGC20jqsQWr0jQQkyLISCSQT+u8LvkouyYdV2KJFi9nCq9+bNWuWz20XDlhAyWU+C4WoglLuqgsEJEocFST3hhpdKJNWgTHQscWITjk7ndwTLFB891qHvL7lRJ3ifrIH1yrYLUykjWzHTWOvjQRQAaw8RG/TNzZbynker9cebwTtQgldYadgNGeSSJvX2B3cfbYdqfCcW0fkBSeqsPI5TDFYpwLH02Gwd9UFArE9Oq4EnuOhopwEoYYNG76m7WwkPSqLdcMB/wcF1v6UGC9QA3A0gGUJfx2WJ/qWHdqJaDN0KBy/msquEyu7IAM67vz58/3ZaqprKdQMhldFnxlViiiBmJiYNZgjMZILD/b5aekbUxztSA7CW6LXkTKPWgNlYABZFJzeBamHJSBH8Lzo57SH2thnCQRsvqoLA5vmwGFa6rnCLmx/QoOzmbSdItEXBb46vADWFeMFXn9WCvkorj5CwciRI/vi7sKgTt+ERepPBwtf7oV+RfhGgwYN3mC1yiQ8y9HhsnP8Ly568jQM40TJczYe2cbSz1D5+5oo2lXJpMLTwLm0yAaEShILzC6U6zM0btz4VTw5sA98uBz2hIrGwmbhyDP25vc9OdIUvyk2XMgfAoko+r+xCWTXV2LXq3ktGFjzHTZdjX6EDXBIhwo4VgfF5KoGeItEX7xgFWI6wtCsHbmAvglpxKns6scLMqJtfCy+UhYHYZaEQvCw2veAAQOewJmtHg/NhWHQtA9OCVFbJQOSPXt2fwgkXhAVGtgBlurwmV0GOYe82fsSVqqfvVndmNBw05GmjwZA0BsuOW23ZcuWoE4i4RAKmx7IwlB+jVuLk8/4DFWwVp/KlSu/b/tRJClwgRWsHQUCYRWu673geFN1qAIYOUZlSIk+NJPHgUp81hgbmVSfHkY4B39l0HwqDIYLnLiUKRJ2jN80JtKyP8qQe+FC6t+/v//oFRzT+DzhUdoOn6o+gw667FxfjBLZ5Uj32lZBmKqXlyUHr2+VhYzeCI+WRbhZJtb325rwcttuxowZ93j7AkkKvGCgrCefGFucvpz5KgPuP3oaqUtIQhYR0VMMJ5GHacdAE+wLScXuKNfvoA6yRxgGznAMEnwmRggKgaGeBQMP1V9MMH22FaHga45PJUyU3Uo7riMKnNUN/+F7ID0VPRZSTh9EMzCw5D9CNWAp9EkAt/7uGWUsFFITuC6BbDv7tsBGrGNnQdYa7ItANG1rKSPsCLOq7UuRpMAL+IW9GUeAUQ5vsoxbwxsaNWq0IKVwTMI+bJ+AUEZX25QAiVTnOrkrrjapBbxG3BtHNAc2utq4gKRshRkLwlOEaqzHuI4hAUmXHav1GpPlgrPQol27dn6xGRDPyu6wOieTCr9E7+Q7Tl6kO1d/ClY7Dl7IHYKFVxoNBkigtWrV8v1+J8JKNISxYMGOLV++vC/bHKMHsUOudi7g59Sxwwgj45Uo5AVeLrJBkrhiWEcgHdZZqGD3uToFMHz9TJgF7RHhtSw2NvY5b3/RBsFNSH8MLM/qapNagCKgwnDvUH5qkoWrYwTgvahYtiw5pLT7nYUKTFRYI8gLdHWu0AMTvVKv0P2QwybOZWC8UGkcEO3HGLMgrZnUBeJyVdJNDs5CF1DoCftAyLA3IZ1MpTeEAxuojJDDWbXevv6NIB7YqjtMKnZm6mSXny+q0fdMGJY1Atew8WpboEHqgeAs9GLr1q1l1aKCtIf1h6AndDuvScyeUQNg9EyybfNvA5I1coQdF4whWk88MFYk3RR4TOw5egS1adtAcBZ6gaVDdL1vOnXqNBnbppYj8hPnadsC8iDsg5P+8G/1eyKwYMmx44HVR+tJwRB1Y5/yfCbUxgFhkWJytX0gOAtdwAapN8BFg3nJ1U6ByU3bA1YmoRuutucqEIy8KZFExKtESiyysKkvrCpnjekgkCrihbPQBVQHVAl7o0BuKNo3b978JdserwvuHlf7cw2cCiqqS6LfkgbIGDI2mdiBFStW3Dhx4kT/70vb+GWA4T8Ulc1ZmBzI14dR682wUQaaHPgr0ef2AfGOn+txQyQUIana91YQnYE1ipQIK2+QEGX5pOzgYzgXbL8pwVkYCF4BhyM7NW7TBaz+Ni+CBYCBwdX2XADnq/OOdoysMb1ChQofoYPjudFrMC96BSQZZ5+lLRQ4C1OCPYMGYMXhN0NcbQEM3HokXO6b9A7yYhAQ7biADh06xFs+iLElf/783/EzG3hdyEgjvtdeo7kjocJZGAxsQiggfD458olakydPHj95xhjuapdeIbr0LTga7HgAzQnFkeytSw785rS3/2DhLAwGWCM4ptQ+CORUnakW8Aj8f9quf//+T3nbMOHJeQPSMlC5vFHowvtO2Mh5G2scCBjYIxkDZ2GwINbTuscAAo+mzFuQe6ltSBqdPXt2S2y57HBUHYwLGsiUnqD5nwryMm2oKA5ojg1g4ePEJw2E7/YagJPbpbOHAmdhKCDexcu8sdGS+4/PEfss8TYlSpRIcoybF8TkuO6RlmEdzKhuNn0fYQjzp54HC4QC5apZs+YS+96MTXI/cBAKnIWhIiGeM9HPMorAk2KquBdkL7v6T6tgIVufriYg45rDDwlrYWdqe869s+EfgDirUFWQ5OAsDAf8rCHk0j5oIKBToXNynoCWFStWbC+6qav/tAjyPPTZ8afiAVm6dGktSCbHCVj+R4BYQc/PWRBiEo3YY4WzMFxAQmR3+Y+FwRDP6dI8NKdV8nNQWhcfH98B6ZcwDi3DDklknavvtAjeSZ+dHSe64xj5+wE/Xmrb8VvXomsmEpKIgTp69GjQftBg4CyMBJipIDec1kG6wfHjx/2eccv4NUxEI/K0fMOGDf9YtEAkQFixFhsi0gnvPHnypH83sjBR2bSNAkM75/bY/qIBZ2FqoUaNGv5D++EVuHbwqNjJnDlzpjPyLK3BklgFk0tCr8b9FipUKBFZhVKNGjXqYVd/0YCzMLVARJ99ORdE0Y7qUaKRgN0HH3TV4YP0xtMGAvJAsKGo4cJZmFoghsX1ogpWdrdu3aLyKwSRglTF5s2bzxXe3g692eW9YLIJjSQqkHQ71zuB1q1bz/on0hCdhakF7JDYJglCRvLlhEjyP4hRxdNACKL3mDXIFYm/CEucAcTqHjdu3AOiu91NcDDWJYwP+AZpv2DBgkYc5ICHZ+rUqQF9roEgvD/bwIEDH4+NjZ0s/Q/RwyKTA8IMoR0cWkXwNJNIEpbVMVMbzsLUAuftEUISbMobpkHCC+vUqbMYYcq74snHIEmXzxirET5Ic8C8hqfCevTDAYHZ0kc8vxhPALarjQtI9ZwFyOJ01acWnIVpCfx6a758+Y4mOLvnoaTzw6Eq/vfs2XPU+PHju+OVmTNnTivOymFyMSu6zGN4bDjVgxjbhIMXSxHqiL5H4DGLjdAYoQid+dE0PB4slMGDB6f5wzichWkJ/AIPZJnPpCpwIpfWsfq7d+8+HvcbWWGc6AXZJSdFfxsF8mxDPlHmrdVGdrFP9yVxSFjAH1LHObKHRBAbSX8IOZwmKSR+pPaRVuEsTEvYvXt3SbwJfF6+fPntQvq2yYT5hBEOy8ARjJcCJ7meLYcZjXwQPmuaPXkmHLSEFAov4wxbEmM5S5fUPzwbHMOC54fIQxJnuQaDB0ZydjD9pWU4C9MScLUxCXzGS0OautYRMIVORzQgRnqNYps3b14zXGp8PnXq1AU2qAqbMbmZ2ofw4hIywX3I4dSy9Apn4bkGUglWr15dQybxLgQpW4ceya4T/uo89yg9wVn4H9InnIX/IT3i7//9H7pFprIWvj/VAAAAAElFTkSuQmCC</Image>
+              <Margins>0,0,0,0</Margins>
+              <Name>Image3</Name>
+              <Page isRef="3" />
+              <Parent isRef="4" />
+              <Stretch>True</Stretch>
+            </Image3>
+            <StartPointPrimitive1 Ref="12" type="Stimulsoft.Report.Components.StiStartPointPrimitive" isKey="true">
+              <ClientRectangle>0.1,0.1,0,0</ClientRectangle>
+              <Name>StartPointPrimitive1</Name>
+              <Page isRef="3" />
+              <Parent isRef="4" />
+              <ReferenceToGuid>13a0f3c935174c35ba7ea5fa5286cf99</ReferenceToGuid>
+            </StartPointPrimitive1>
+            <EndPointPrimitive1 Ref="13" type="Stimulsoft.Report.Components.StiEndPointPrimitive" isKey="true">
+              <ClientRectangle>18.9,0.85,0,0</ClientRectangle>
+              <Name>EndPointPrimitive1</Name>
+              <Page isRef="3" />
+              <Parent isRef="4" />
+              <ReferenceToGuid>13a0f3c935174c35ba7ea5fa5286cf99</ReferenceToGuid>
+            </EndPointPrimitive1>
+          </Components>
+          <Conditions isList="true" count="0" />
+          <Guid>a47d9b5b73ef41d2808faba656ebfa15</Guid>
+          <Name>PageHeaderBand1</Name>
+          <Page isRef="3" />
+          <Parent isRef="3" />
+        </PageHeaderBand1>
+        <DataBand1 Ref="14" type="DataBand" isKey="true">
+          <Border>All;Black;1;Solid;False;4;Black</Border>
+          <Brush>Transparent</Brush>
+          <BusinessObjectGuid>979086d9d39a47a0968c6697716c47b5</BusinessObjectGuid>
+          <ClientRectangle>0,2.21,19,11.5</ClientRectangle>
+          <Components isList="true" count="157">
+            <Text39 Ref="15" type="Text" isKey="true">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>14.85,2,2,0.5</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>B Yekan,9</Font>
+              <HideZeros>True</HideZeros>
+              <Margins>1,0,0,0</Margins>
+              <Name>Text39</Name>
+              <Page isRef="3" />
+              <Parent isRef="14" />
+              <ShrinkFontToFit>True</ShrinkFontToFit>
+              <Text>{PersonalSalaryAndLoanInfoDto.Param1Amount}</Text>
+              <TextBrush>Black</TextBrush>
+              <TextFormat Ref="16" type="CustomFormat" isKey="true">
+                <StringFormat>n0</StringFormat>
+              </TextFormat>
+              <VertAlignment>Center</VertAlignment>
+            </Text39>
+            <Text40 Ref="17" type="Text" isKey="true">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>14.85,2.5,2,0.5</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>B Yekan,9</Font>
+              <HideZeros>True</HideZeros>
+              <Margins>1,0,0,0</Margins>
+              <Name>Text40</Name>
+              <Page isRef="3" />
+              <Parent isRef="14" />
+              <ShrinkFontToFit>True</ShrinkFontToFit>
+              <Text>{PersonalSalaryAndLoanInfoDto.Param2Amount}</Text>
+              <TextBrush>Black</TextBrush>
+              <TextFormat Ref="18" type="CustomFormat" isKey="true">
+                <StringFormat>n0</StringFormat>
+              </TextFormat>
+              <VertAlignment>Center</VertAlignment>
+            </Text40>
+            <Text41 Ref="19" type="Text" isKey="true">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>14.85,3,2,0.5</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>B Yekan,9</Font>
+              <HideZeros>True</HideZeros>
+              <Margins>1,0,0,0</Margins>
+              <Name>Text41</Name>
+              <Page isRef="3" />
+              <Parent isRef="14" />
+              <ShrinkFontToFit>True</ShrinkFontToFit>
+              <Text>{PersonalSalaryAndLoanInfoDto.Param3Amount}</Text>
+              <TextBrush>Black</TextBrush>
+              <TextFormat Ref="20" type="CustomFormat" isKey="true">
+                <StringFormat>n0</StringFormat>
+              </TextFormat>
+              <VertAlignment>Center</VertAlignment>
+            </Text41>
+            <Text42 Ref="21" type="Text" isKey="true">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>14.85,3.5,2,0.5</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>B Yekan,9</Font>
+              <HideZeros>True</HideZeros>
+              <Margins>1,0,0,0</Margins>
+              <Name>Text42</Name>
+              <Page isRef="3" />
+              <Parent isRef="14" />
+              <ShrinkFontToFit>True</ShrinkFontToFit>
+              <Text>{PersonalSalaryAndLoanInfoDto.Param4Amount}</Text>
+              <TextBrush>Black</TextBrush>
+              <TextFormat Ref="22" type="CustomFormat" isKey="true">
+                <StringFormat>n0</StringFormat>
+              </TextFormat>
+              <VertAlignment>Center</VertAlignment>
+            </Text42>
+            <Text43 Ref="23" type="Text" isKey="true">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>14.85,4,2,0.5</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>B Yekan,9</Font>
+              <HideZeros>True</HideZeros>
+              <Margins>1,0,0,0</Margins>
+              <Name>Text43</Name>
+              <Page isRef="3" />
+              <Parent isRef="14" />
+              <ShrinkFontToFit>True</ShrinkFontToFit>
+              <Text>{PersonalSalaryAndLoanInfoDto.Param5Amount}</Text>
+              <TextBrush>Black</TextBrush>
+              <TextFormat Ref="24" type="CustomFormat" isKey="true">
+                <StringFormat>n0</StringFormat>
+              </TextFormat>
+              <VertAlignment>Center</VertAlignment>
+            </Text43>
+            <Text44 Ref="25" type="Text" isKey="true">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>14.85,4.5,2,0.5</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>B Yekan,9</Font>
+              <HideZeros>True</HideZeros>
+              <Margins>1,0,0,0</Margins>
+              <Name>Text44</Name>
+              <Page isRef="3" />
+              <Parent isRef="14" />
+              <ShrinkFontToFit>True</ShrinkFontToFit>
+              <Text>{PersonalSalaryAndLoanInfoDto.Param6Amount}</Text>
+              <TextBrush>Black</TextBrush>
+              <TextFormat Ref="26" type="CustomFormat" isKey="true">
+                <StringFormat>n0</StringFormat>
+              </TextFormat>
+              <VertAlignment>Center</VertAlignment>
+            </Text44>
+            <Text45 Ref="27" type="Text" isKey="true">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>14.85,5,2,0.5</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>B Yekan,9</Font>
+              <HideZeros>True</HideZeros>
+              <Margins>1,0,0,0</Margins>
+              <Name>Text45</Name>
+              <Page isRef="3" />
+              <Parent isRef="14" />
+              <ShrinkFontToFit>True</ShrinkFontToFit>
+              <Text>{PersonalSalaryAndLoanInfoDto.Param7Amount}</Text>
+              <TextBrush>Black</TextBrush>
+              <TextFormat Ref="28" type="CustomFormat" isKey="true">
+                <StringFormat>n0</StringFormat>
+              </TextFormat>
+              <VertAlignment>Center</VertAlignment>
+            </Text45>
+            <Text48 Ref="29" type="Text" isKey="true">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>14.85,7,2,0.5</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>B Yekan,9</Font>
+              <HideZeros>True</HideZeros>
+              <Margins>1,0,0,0</Margins>
+              <Name>Text48</Name>
+              <Page isRef="3" />
+              <Parent isRef="14" />
+              <ShrinkFontToFit>True</ShrinkFontToFit>
+              <Text>{PersonalSalaryAndLoanInfoDto.Param11Amount}</Text>
+              <TextBrush>Black</TextBrush>
+              <TextFormat Ref="30" type="CustomFormat" isKey="true">
+                <StringFormat>n0</StringFormat>
+              </TextFormat>
+              <VertAlignment>Center</VertAlignment>
+            </Text48>
+            <Text51 Ref="31" type="Text" isKey="true">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>14.85,7.5,2,0.5</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>B Yekan,9</Font>
+              <HideZeros>True</HideZeros>
+              <Margins>1,0,0,0</Margins>
+              <Name>Text51</Name>
+              <Page isRef="3" />
+              <Parent isRef="14" />
+              <ShrinkFontToFit>True</ShrinkFontToFit>
+              <Text>{PersonalSalaryAndLoanInfoDto.Param12Amount}</Text>
+              <TextBrush>Black</TextBrush>
+              <TextFormat Ref="32" type="CustomFormat" isKey="true">
+                <StringFormat>n0</StringFormat>
+              </TextFormat>
+              <VertAlignment>Center</VertAlignment>
+            </Text51>
+            <Text50 Ref="33" type="Text" isKey="true">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>14.85,8,2,0.5</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>B Yekan,9</Font>
+              <HideZeros>True</HideZeros>
+              <Margins>1,0,0,0</Margins>
+              <Name>Text50</Name>
+              <Page isRef="3" />
+              <Parent isRef="14" />
+              <ShrinkFontToFit>True</ShrinkFontToFit>
+              <Text>{PersonalSalaryAndLoanInfoDto.Param13Amount}</Text>
+              <TextBrush>Black</TextBrush>
+              <TextFormat Ref="34" type="CustomFormat" isKey="true">
+                <StringFormat>n0</StringFormat>
+              </TextFormat>
+              <VertAlignment>Center</VertAlignment>
+            </Text50>
+            <Text53 Ref="35" type="Text" isKey="true">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>14.9,8.5,2,0.5</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>B Yekan,9</Font>
+              <HideZeros>True</HideZeros>
+              <Margins>1,0,0,0</Margins>
+              <Name>Text53</Name>
+              <Page isRef="3" />
+              <Parent isRef="14" />
+              <ShrinkFontToFit>True</ShrinkFontToFit>
+              <Text>{PersonalSalaryAndLoanInfoDto.Param14Amount}</Text>
+              <TextBrush>Black</TextBrush>
+              <TextFormat Ref="36" type="CustomFormat" isKey="true">
+                <StringFormat>n0</StringFormat>
+              </TextFormat>
+              <VertAlignment>Center</VertAlignment>
+            </Text53>
+            <Text52 Ref="37" type="Text" isKey="true">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>10.7,2,2,0.5</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>B Yekan,9</Font>
+              <HideZeros>True</HideZeros>
+              <Margins>1,0,0,0</Margins>
+              <Name>Text52</Name>
+              <Page isRef="3" />
+              <Parent isRef="14" />
+              <ShrinkFontToFit>True</ShrinkFontToFit>
+              <Text>{PersonalSalaryAndLoanInfoDto.Param15Amount}</Text>
+              <TextBrush>Black</TextBrush>
+              <TextFormat Ref="38" type="CustomFormat" isKey="true">
+                <StringFormat>n0</StringFormat>
+              </TextFormat>
+              <VertAlignment>Center</VertAlignment>
+            </Text52>
+            <Text55 Ref="39" type="Text" isKey="true">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>10.7,2.5,2,0.5</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>B Yekan,9</Font>
+              <HideZeros>True</HideZeros>
+              <Margins>1,0,0,0</Margins>
+              <Name>Text55</Name>
+              <Page isRef="3" />
+              <Parent isRef="14" />
+              <ShrinkFontToFit>True</ShrinkFontToFit>
+              <Text>{PersonalSalaryAndLoanInfoDto.Param16Amount}</Text>
+              <TextBrush>Black</TextBrush>
+              <TextFormat Ref="40" type="CustomFormat" isKey="true">
+                <StringFormat>n0</StringFormat>
+              </TextFormat>
+              <VertAlignment>Center</VertAlignment>
+            </Text55>
+            <Text54 Ref="41" type="Text" isKey="true">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>10.7,3,2,0.5</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>B Yekan,9</Font>
+              <HideZeros>True</HideZeros>
+              <Margins>1,0,0,0</Margins>
+              <Name>Text54</Name>
+              <Page isRef="3" />
+              <Parent isRef="14" />
+              <ShrinkFontToFit>True</ShrinkFontToFit>
+              <Text>{PersonalSalaryAndLoanInfoDto.Param17Amount}</Text>
+              <TextBrush>Black</TextBrush>
+              <TextFormat Ref="42" type="CustomFormat" isKey="true">
+                <StringFormat>n0</StringFormat>
+              </TextFormat>
+              <Type>DataColumn</Type>
+              <VertAlignment>Center</VertAlignment>
+            </Text54>
+            <Text56 Ref="43" type="Text" isKey="true">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>10.7,4.45,2,0.5</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>B Yekan,9</Font>
+              <HideZeros>True</HideZeros>
+              <Margins>1,0,0,0</Margins>
+              <Name>Text56</Name>
+              <Page isRef="3" />
+              <Parent isRef="14" />
+              <ShrinkFontToFit>True</ShrinkFontToFit>
+              <Text>{PersonalSalaryAndLoanInfoDto.MissionAmount}</Text>
+              <TextBrush>Black</TextBrush>
+              <TextFormat Ref="44" type="CustomFormat" isKey="true">
+                <StringFormat>n0</StringFormat>
+              </TextFormat>
+              <VertAlignment>Center</VertAlignment>
+            </Text56>
+            <Text58 Ref="45" type="Text" isKey="true">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>10.7,5,2,0.6</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>B Yekan,9</Font>
+              <HideZeros>True</HideZeros>
+              <Margins>1,0,0,0</Margins>
+              <Name>Text58</Name>
+              <Page isRef="3" />
+              <Parent isRef="14" />
+              <ShrinkFontToFit>True</ShrinkFontToFit>
+              <Text>{PersonalSalaryAndLoanInfoDto.ExtraWorkAmount}</Text>
+              <TextBrush>Black</TextBrush>
+              <TextFormat Ref="46" type="CustomFormat" isKey="true">
+                <StringFormat>n0</StringFormat>
+              </TextFormat>
+              <VertAlignment>Center</VertAlignment>
+            </Text58>
+            <Text78 Ref="47" type="Text" isKey="true">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>0.1,3.6,1.75,0.6</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>B Yekan,9</Font>
+              <HideZeros>True</HideZeros>
+              <Margins>1,0,0,0</Margins>
+              <Name>Text78</Name>
+              <Page isRef="3" />
+              <Parent isRef="14" />
+              <ShrinkFontToFit>True</ShrinkFontToFit>
+              <Text>{PersonalSalaryAndLoanInfoDto.MosaedehAmount}</Text>
+              <TextBrush>Black</TextBrush>
+              <TextFormat Ref="48" type="CustomFormat" isKey="true">
+                <StringFormat>n0</StringFormat>
+              </TextFormat>
+              <VertAlignment>Center</VertAlignment>
+            </Text78>
+            <Text80 Ref="49" type="Text" isKey="true">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>0.1,4.8,1.75,0.6</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>B Yekan,9</Font>
+              <HideZeros>True</HideZeros>
+              <Margins>1,0,0,0</Margins>
+              <Name>Text80</Name>
+              <Page isRef="3" />
+              <Parent isRef="14" />
+              <ShrinkFontToFit>True</ShrinkFontToFit>
+              <Text>{PersonalSalaryAndLoanInfoDto.CarityAmount}</Text>
+              <TextBrush>Black</TextBrush>
+              <TextFormat Ref="50" type="CustomFormat" isKey="true">
+                <StringFormat>n0</StringFormat>
+              </TextFormat>
+              <VertAlignment>Center</VertAlignment>
+            </Text80>
+            <Text82 Ref="51" type="Text" isKey="true">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>0.1,1.8,1.75,0.6</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>B Yekan,9</Font>
+              <HideZeros>True</HideZeros>
+              <Margins>1,0,0,0</Margins>
+              <Name>Text82</Name>
+              <Page isRef="3" />
+              <Parent isRef="14" />
+              <ShrinkFontToFit>True</ShrinkFontToFit>
+              <Text>{PersonalSalaryAndLoanInfoDto.ClerkSSInsuranceAmount}</Text>
+              <TextBrush>Black</TextBrush>
+              <TextFormat Ref="52" type="CustomFormat" isKey="true">
+                <StringFormat>n0</StringFormat>
+              </TextFormat>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </Text82>
+            <Text84 Ref="53" type="Text" isKey="true">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>0.1,2.4,1.75,0.6</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>B Yekan,9</Font>
+              <HideZeros>True</HideZeros>
+              <Margins>1,0,0,0</Margins>
+              <Name>Text84</Name>
+              <Page isRef="3" />
+              <Parent isRef="14" />
+              <ShrinkFontToFit>True</ShrinkFontToFit>
+              <Text>{PersonalSalaryAndLoanInfoDto.SupplementaryInsuranceAmount}</Text>
+              <TextBrush>Black</TextBrush>
+              <TextFormat Ref="54" type="CustomFormat" isKey="true">
+                <StringFormat>n0</StringFormat>
+              </TextFormat>
+              <VertAlignment>Center</VertAlignment>
+            </Text84>
+            <Text86 Ref="55" type="Text" isKey="true">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>0.1,3,1.75,0.6</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>B Yekan,9</Font>
+              <HideZeros>True</HideZeros>
+              <Margins>1,0,0,0</Margins>
+              <Name>Text86</Name>
+              <Page isRef="3" />
+              <Parent isRef="14" />
+              <ShrinkFontToFit>True</ShrinkFontToFit>
+              <Text>{PersonalSalaryAndLoanInfoDto.TaxAmount}</Text>
+              <TextBrush>Black</TextBrush>
+              <TextFormat Ref="56" type="CustomFormat" isKey="true">
+                <StringFormat>n0</StringFormat>
+              </TextFormat>
+              <VertAlignment>Center</VertAlignment>
+            </Text86>
+            <Text90 Ref="57" type="Text" isKey="true">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>0.1,4.2,1.75,0.6</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>B Yekan,9</Font>
+              <HideZeros>True</HideZeros>
+              <Margins>1,0,0,0</Margins>
+              <Name>Text90</Name>
+              <Page isRef="3" />
+              <Parent isRef="14" />
+              <ShrinkFontToFit>True</ShrinkFontToFit>
+              <Text>{PersonalSalaryAndLoanInfoDto.RefahiAmount}</Text>
+              <TextBrush>Black</TextBrush>
+              <TextFormat Ref="58" type="CustomFormat" isKey="true">
+                <StringFormat>n0</StringFormat>
+              </TextFormat>
+              <VertAlignment>Center</VertAlignment>
+            </Text90>
+            <Text22 Ref="59" type="Text" isKey="true">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>17,2,1.8,0.5</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>B Mitra,8,Bold</Font>
+              <HorAlignment>Right</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text22</Name>
+              <Page isRef="3" />
+              <Parent isRef="14" />
+              <ShrinkFontToFit>True</ShrinkFontToFit>
+              <Text>{ParamName1}</Text>
+              <TextBrush>Black</TextBrush>
+              <VertAlignment>Center</VertAlignment>
+            </Text22>
+            <Text23 Ref="60" type="Text" isKey="true">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>17,2.5,1.8,0.5</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>B Mitra,8,Bold</Font>
+              <HorAlignment>Right</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text23</Name>
+              <Page isRef="3" />
+              <Parent isRef="14" />
+              <ShrinkFontToFit>True</ShrinkFontToFit>
+              <Text>{ParamName2}</Text>
+              <TextBrush>Black</TextBrush>
+              <VertAlignment>Center</VertAlignment>
+            </Text23>
+            <Text24 Ref="61" type="Text" isKey="true">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>17,3,1.8,0.5</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>B Mitra,8,Bold</Font>
+              <HorAlignment>Right</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text24</Name>
+              <Page isRef="3" />
+              <Parent isRef="14" />
+              <ShrinkFontToFit>True</ShrinkFontToFit>
+              <Text>{ParamName3}</Text>
+              <TextBrush>Black</TextBrush>
+              <VertAlignment>Center</VertAlignment>
+            </Text24>
+            <Text25 Ref="62" type="Text" isKey="true">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>17,3.5,1.8,0.5</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>B Mitra,8,Bold</Font>
+              <HorAlignment>Right</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text25</Name>
+              <Page isRef="3" />
+              <Parent isRef="14" />
+              <ShrinkFontToFit>True</ShrinkFontToFit>
+              <Text>{ParamName4}</Text>
+              <TextBrush>Black</TextBrush>
+              <VertAlignment>Center</VertAlignment>
+            </Text25>
+            <Text26 Ref="63" type="Text" isKey="true">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>17,4,1.85,0.5</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>B Mitra,8,Bold</Font>
+              <HorAlignment>Right</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text26</Name>
+              <Page isRef="3" />
+              <Parent isRef="14" />
+              <ShrinkFontToFit>True</ShrinkFontToFit>
+              <Text>{ParamName5}</Text>
+              <TextBrush>Black</TextBrush>
+              <VertAlignment>Center</VertAlignment>
+            </Text26>
+            <Text27 Ref="64" type="Text" isKey="true">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>17,4.5,1.85,0.5</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>B Mitra,8,Bold</Font>
+              <HorAlignment>Right</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text27</Name>
+              <Page isRef="3" />
+              <Parent isRef="14" />
+              <ShrinkFontToFit>True</ShrinkFontToFit>
+              <Text>{ParamName6}</Text>
+              <TextBrush>Black</TextBrush>
+              <VertAlignment>Center</VertAlignment>
+            </Text27>
+            <Text28 Ref="65" type="Text" isKey="true">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>17,5,1.7,0.5</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>B Mitra,8,Bold</Font>
+              <HorAlignment>Right</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text28</Name>
+              <Page isRef="3" />
+              <Parent isRef="14" />
+              <ShrinkFontToFit>True</ShrinkFontToFit>
+              <Text>{ParamName7}</Text>
+              <TextBrush>Black</TextBrush>
+              <VertAlignment>Center</VertAlignment>
+            </Text28>
+            <Text33 Ref="66" type="Text" isKey="true">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>17,7.5,1.8,0.5</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>B Mitra,8,Bold</Font>
+              <HorAlignment>Right</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text33</Name>
+              <Page isRef="3" />
+              <Parent isRef="14" />
+              <ShrinkFontToFit>True</ShrinkFontToFit>
+              <Text>{ParamName12}</Text>
+              <TextBrush>Black</TextBrush>
+              <VertAlignment>Center</VertAlignment>
+            </Text33>
+            <Text34 Ref="67" type="Text" isKey="true">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>17.05,8,1.8,0.5</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>B Mitra,8,Bold</Font>
+              <HorAlignment>Right</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text34</Name>
+              <Page isRef="3" />
+              <Parent isRef="14" />
+              <ShrinkFontToFit>True</ShrinkFontToFit>
+              <Text>{ParamName13}</Text>
+              <TextBrush>Black</TextBrush>
+              <VertAlignment>Center</VertAlignment>
+            </Text34>
+            <Text36 Ref="68" type="Text" isKey="true">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>12.85,2,1.8,0.5</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>B Mitra,8,Bold</Font>
+              <HorAlignment>Right</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text36</Name>
+              <Page isRef="3" />
+              <Parent isRef="14" />
+              <ShrinkFontToFit>True</ShrinkFontToFit>
+              <Text>{ParamName15}</Text>
+              <TextBrush>Black</TextBrush>
+              <VertAlignment>Center</VertAlignment>
+            </Text36>
+            <Text37 Ref="69" type="Text" isKey="true">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>12.85,2.5,1.8,0.5</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>B Mitra,8,Bold</Font>
+              <HorAlignment>Right</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text37</Name>
+              <Page isRef="3" />
+              <Parent isRef="14" />
+              <ShrinkFontToFit>True</ShrinkFontToFit>
+              <Text>{ParamName16}</Text>
+              <TextBrush>Black</TextBrush>
+              <VertAlignment>Center</VertAlignment>
+            </Text37>
+            <Text38 Ref="70" type="Text" isKey="true">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>12.85,3,1.8,0.5</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>B Mitra,8,Bold</Font>
+              <HorAlignment>Right</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text38</Name>
+              <Page isRef="3" />
+              <Parent isRef="14" />
+              <ShrinkFontToFit>True</ShrinkFontToFit>
+              <Text>{ParamName17}</Text>
+              <TextBrush>Black</TextBrush>
+              <VertAlignment>Center</VertAlignment>
+            </Text38>
+            <Text57 Ref="71" type="Text" isKey="true">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>13.05,4.45,1.6,0.5</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>B Mitra,8,Bold</Font>
+              <HorAlignment>Right</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text57</Name>
+              <Page isRef="3" />
+              <Parent isRef="14" />
+              <Text>ماموریت</Text>
+              <TextBrush>Black</TextBrush>
+              <VertAlignment>Center</VertAlignment>
+            </Text57>
+            <Text59 Ref="72" type="Text" isKey="true">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>13.05,4.99,1.6,0.6</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>B Mitra,8,Bold</Font>
+              <HorAlignment>Right</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text59</Name>
+              <Page isRef="3" />
+              <Parent isRef="14" />
+              <Text>اضافه کار</Text>
+              <TextBrush>Black</TextBrush>
+              <VertAlignment>Center</VertAlignment>
+            </Text59>
+            <Text66 Ref="73" type="Text" isKey="true">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>10.7,6.8,2,0.6</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>B Yekan,9</Font>
+              <HideZeros>True</HideZeros>
+              <Margins>1,0,0,0</Margins>
+              <Name>Text66</Name>
+              <Page isRef="3" />
+              <Parent isRef="14" />
+              <ShrinkFontToFit>True</ShrinkFontToFit>
+              <Text>{PersonalSalaryAndLoanInfoDto.DiffAmount}</Text>
+              <TextBrush>Black</TextBrush>
+              <TextFormat Ref="74" type="CustomFormat" isKey="true">
+                <StringFormat>n0</StringFormat>
+              </TextFormat>
+              <VertAlignment>Center</VertAlignment>
+            </Text66>
+            <Text4 Ref="75" type="Text" isKey="true">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>14.85,5.5,2,0.5</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>B Yekan,9</Font>
+              <Guid>4e8d7dad7b2f4616aa9483cbeed5d348</Guid>
+              <HideZeros>True</HideZeros>
+              <Margins>1,0,0,0</Margins>
+              <Name>Text4</Name>
+              <Page isRef="3" />
+              <Parent isRef="14" />
+              <ShrinkFontToFit>True</ShrinkFontToFit>
+              <Text>{PersonalSalaryAndLoanInfoDto.Param8Amount}</Text>
+              <TextBrush>Black</TextBrush>
+              <TextFormat Ref="76" type="CustomFormat" isKey="true">
+                <StringFormat>n0</StringFormat>
+              </TextFormat>
+              <VertAlignment>Center</VertAlignment>
+            </Text4>
+            <Text7 Ref="77" type="Text" isKey="true">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>14.85,6,2,0.5</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>B Yekan,9</Font>
+              <Guid>cda2d10fab1149af9d9d8bee63fa5973</Guid>
+              <HideZeros>True</HideZeros>
+              <Margins>1,0,0,0</Margins>
+              <Name>Text7</Name>
+              <Page isRef="3" />
+              <Parent isRef="14" />
+              <ShrinkFontToFit>True</ShrinkFontToFit>
+              <Text>{PersonalSalaryAndLoanInfoDto.Param9Amount}</Text>
+              <TextBrush>Black</TextBrush>
+              <TextFormat Ref="78" type="CustomFormat" isKey="true">
+                <StringFormat>n0</StringFormat>
+              </TextFormat>
+              <VertAlignment>Center</VertAlignment>
+            </Text7>
+            <Text8 Ref="79" type="Text" isKey="true">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>14.85,6.5,2,0.5</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>B Yekan,9</Font>
+              <Guid>b05755292e664d2db6ae9042cdb88a33</Guid>
+              <HideZeros>True</HideZeros>
+              <Margins>1,0,0,0</Margins>
+              <Name>Text8</Name>
+              <Page isRef="3" />
+              <Parent isRef="14" />
+              <ShrinkFontToFit>True</ShrinkFontToFit>
+              <Text>{PersonalSalaryAndLoanInfoDto.Param10Amount}</Text>
+              <TextBrush>Black</TextBrush>
+              <TextFormat Ref="80" type="CustomFormat" isKey="true">
+                <StringFormat>n0</StringFormat>
+              </TextFormat>
+              <VertAlignment>Center</VertAlignment>
+            </Text8>
+            <Text9 Ref="81" type="Text" isKey="true">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>17,5.5,1.7,0.5</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>B Mitra,8,Bold</Font>
+              <Guid>929b6af250584429927b2579428c7b5f</Guid>
+              <HorAlignment>Right</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text9</Name>
+              <Page isRef="3" />
+              <Parent isRef="14" />
+              <ShrinkFontToFit>True</ShrinkFontToFit>
+              <Text>{ParamName8}</Text>
+              <TextBrush>Black</TextBrush>
+              <VertAlignment>Center</VertAlignment>
+            </Text9>
+            <Text12 Ref="82" type="Text" isKey="true">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>17,6,1.9,0.5</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>B Mitra,8,Bold</Font>
+              <Guid>ad1ae155067748169a0f985200a05330</Guid>
+              <HorAlignment>Right</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text12</Name>
+              <Page isRef="3" />
+              <Parent isRef="14" />
+              <ShrinkFontToFit>True</ShrinkFontToFit>
+              <Text>{ParamName9}</Text>
+              <TextBrush>Black</TextBrush>
+              <VertAlignment>Center</VertAlignment>
+            </Text12>
+            <Text13 Ref="83" type="Text" isKey="true">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>17,6.5,1.9,0.5</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>B Mitra,8,Bold</Font>
+              <Guid>ad72a7c987454458a6bdc9c2a65ebb9b</Guid>
+              <HorAlignment>Right</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text13</Name>
+              <Page isRef="3" />
+              <Parent isRef="14" />
+              <ShrinkFontToFit>True</ShrinkFontToFit>
+              <Text>{ParamName10}</Text>
+              <TextBrush>Black</TextBrush>
+              <VertAlignment>Center</VertAlignment>
+            </Text13>
+            <Text14 Ref="84" type="Text" isKey="true">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>17,7,1.8,0.5</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>B Mitra,8,Bold</Font>
+              <Guid>9c25c23d8f1549a890654c867adc15e4</Guid>
+              <HorAlignment>Right</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text14</Name>
+              <Page isRef="3" />
+              <Parent isRef="14" />
+              <ShrinkFontToFit>True</ShrinkFontToFit>
+              <Text>{ParamName11}</Text>
+              <TextBrush>Black</TextBrush>
+              <VertAlignment>Center</VertAlignment>
+            </Text14>
+            <Text15 Ref="85" type="Text" isKey="true">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>12.85,5.6,1.8,0.6</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>B Mitra,8,Bold</Font>
+              <Guid>0321e3085c74433c8a3a4d9ea4df342a</Guid>
+              <HorAlignment>Right</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text15</Name>
+              <Page isRef="3" />
+              <Parent isRef="14" />
+              <Text>عیدی پایان سال</Text>
+              <TextBrush>Black</TextBrush>
+              <VertAlignment>Center</VertAlignment>
+            </Text15>
+            <Text16 Ref="86" type="Text" isKey="true">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>12.85,6.2,1.8,0.6</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>B Mitra,8,Bold</Font>
+              <Guid>6e495cd8b730499a902bb9053a156a66</Guid>
+              <HorAlignment>Right</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text16</Name>
+              <Page isRef="3" />
+              <Parent isRef="14" />
+              <Text>غیرمستمرنقدی</Text>
+              <TextBrush>Black</TextBrush>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </Text16>
+            <Text17 Ref="87" type="Text" isKey="true">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>12.85,6.79,1.8,0.6</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>B Mitra,8,Bold</Font>
+              <Guid>53618d02c9bb421a83f28707b7073af9</Guid>
+              <HorAlignment>Right</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text17</Name>
+              <Page isRef="3" />
+              <Parent isRef="14" />
+              <Text>مابه التفاوت</Text>
+              <TextBrush>Black</TextBrush>
+              <VertAlignment>Center</VertAlignment>
+            </Text17>
+            <Text20 Ref="88" type="Text" isKey="true">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>10.7,5.6,2,0.6</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>B Yekan,9</Font>
+              <Guid>f5bdc091cc9742ce9150fe1d96095d9d</Guid>
+              <HideZeros>True</HideZeros>
+              <Margins>1,0,0,0</Margins>
+              <Name>Text20</Name>
+              <Page isRef="3" />
+              <Parent isRef="14" />
+              <ShrinkFontToFit>True</ShrinkFontToFit>
+              <Text>{PersonalSalaryAndLoanInfoDto.EndYearAmount}</Text>
+              <TextBrush>Black</TextBrush>
+              <TextFormat Ref="89" type="CustomFormat" isKey="true">
+                <StringFormat>n0</StringFormat>
+              </TextFormat>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </Text20>
+            <Text21 Ref="90" type="Text" isKey="true">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>10.7,6.2,2,0.6</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>B Yekan,9</Font>
+              <Guid>2725edf37b694ba093e302ce3b590c37</Guid>
+              <HideZeros>True</HideZeros>
+              <Margins>1,0,0,0</Margins>
+              <Name>Text21</Name>
+              <Page isRef="3" />
+              <Parent isRef="14" />
+              <ShrinkFontToFit>True</ShrinkFontToFit>
+              <Text>{PersonalSalaryAndLoanInfoDto.NationalCelebrityAmount}</Text>
+              <TextBrush>Black</TextBrush>
+              <TextFormat Ref="91" type="CustomFormat" isKey="true">
+                <StringFormat>n0</StringFormat>
+              </TextFormat>
+              <VertAlignment>Center</VertAlignment>
+            </Text21>
+            <Text29 Ref="92" type="Text" isKey="true">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>10.7,7.4,2,0.6</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>B Yekan,9</Font>
+              <HideZeros>True</HideZeros>
+              <Margins>1,0,0,0</Margins>
+              <Name>Text29</Name>
+              <Page isRef="3" />
+              <Parent isRef="14" />
+              <Text>{PersonalSalaryAndLoanInfoDto.PersonalPaymentAmount}</Text>
+              <TextBrush>Black</TextBrush>
+              <VertAlignment>Center</VertAlignment>
+            </Text29>
+            <Text30 Ref="93" type="Text" isKey="true">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>12.85,7.4,1.8,0.6</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>B Mitra,8,Bold</Font>
+              <HorAlignment>Right</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text30</Name>
+              <Page isRef="3" />
+              <Parent isRef="14" />
+              <Text>پرداخت موردی</Text>
+              <TextBrush>Black</TextBrush>
+              <VertAlignment>Center</VertAlignment>
+            </Text30>
+            <Text83 Ref="94" type="Text" isKey="true">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>1.9,1.79,1.2,0.6</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>B Mitra,8,Bold</Font>
+              <HorAlignment>Right</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text83</Name>
+              <Page isRef="3" />
+              <Parent isRef="14" />
+              <Text>بیمه کارمند</Text>
+              <TextBrush>Black</TextBrush>
+              <VertAlignment>Center</VertAlignment>
+            </Text83>
+            <Text85 Ref="95" type="Text" isKey="true">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>1.9,2.39,1.2,0.6</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>B Mitra,8,Bold</Font>
+              <HorAlignment>Right</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text85</Name>
+              <Page isRef="3" />
+              <Parent isRef="14" />
+              <Text>بیمه تکمیلی</Text>
+              <TextBrush>Black</TextBrush>
+              <VertAlignment>Center</VertAlignment>
+            </Text85>
+            <Text87 Ref="96" type="Text" isKey="true">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>1.9,2.99,1.2,0.6</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>B Mitra,8,Bold</Font>
+              <HorAlignment>Right</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text87</Name>
+              <Page isRef="3" />
+              <Parent isRef="14" />
+              <Text>مالیات</Text>
+              <TextBrush>Black</TextBrush>
+              <VertAlignment>Center</VertAlignment>
+            </Text87>
+            <Text81 Ref="97" type="Text" isKey="true">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>1.9,4.79,1.2,0.6</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>B Mitra,8,Bold</Font>
+              <HorAlignment>Right</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text81</Name>
+              <Page isRef="3" />
+              <Parent isRef="14" />
+              <Text>خیریه</Text>
+              <TextBrush>Black</TextBrush>
+              <VertAlignment>Center</VertAlignment>
+            </Text81>
+            <Text79 Ref="98" type="Text" isKey="true">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>1.9,3.59,1.2,0.6</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>B Mitra,8,Bold</Font>
+              <HorAlignment>Right</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text79</Name>
+              <Page isRef="3" />
+              <Parent isRef="14" />
+              <Text>مساعده</Text>
+              <TextBrush>Black</TextBrush>
+              <VertAlignment>Center</VertAlignment>
+            </Text79>
+            <Text91 Ref="99" type="Text" isKey="true">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>1.9,4.19,1.2,0.6</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>B Mitra,8,Bold</Font>
+              <HorAlignment>Right</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text91</Name>
+              <Page isRef="3" />
+              <Parent isRef="14" />
+              <Text>رفاهی</Text>
+              <TextBrush>Black</TextBrush>
+              <VertAlignment>Center</VertAlignment>
+            </Text91>
+            <Text47 Ref="100" type="Text" isKey="true">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>17.05,8.5,1.8,0.5</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>B Mitra,8,Bold</Font>
+              <Guid>f75335daf2df47ca9048f8ce4a7c4f21</Guid>
+              <HorAlignment>Right</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text47</Name>
+              <Page isRef="3" />
+              <Parent isRef="14" />
+              <ShrinkFontToFit>True</ShrinkFontToFit>
+              <Text>{ParamName14}</Text>
+              <TextBrush>Black</TextBrush>
+              <VertAlignment>Center</VertAlignment>
+            </Text47>
+            <Text122 Ref="101" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>[216:216:216]</Brush>
+              <ClientRectangle>3.12,1.2,7.6,0.6</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>B Titr,11,Bold</Font>
+              <Guid>accb33e9da7441a7b69073c294f3230b</Guid>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text122</Name>
+              <Page isRef="3" />
+              <Parent isRef="14" />
+              <Text>وام ها</Text>
+              <TextBrush>Black</TextBrush>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </Text122>
+            <Text123 Ref="102" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>[216:216:216]</Brush>
+              <ClientRectangle>0,1.2,3.12,0.6</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>B Titr,11,Bold</Font>
+              <Guid>8c5508abcda24645b93cfac1623a6cbf</Guid>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text123</Name>
+              <Page isRef="3" />
+              <Parent isRef="14" />
+              <Text>سایر کسورات</Text>
+              <TextBrush>Black</TextBrush>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </Text123>
+            <Text49 Ref="103" type="Text" isKey="true">
+              <Border>Top;Black;1;Dash;False;4;Black</Border>
+              <Brush>Transparent</Brush>
+              <ClientRectangle>10.7,8.4,2,0.6</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>B Yekan,9</Font>
+              <HideZeros>True</HideZeros>
+              <Margins>1,0,0,0</Margins>
+              <Name>Text49</Name>
+              <Page isRef="3" />
+              <Parent isRef="14" />
+              <Text>{PersonalSalaryAndLoanInfoDto.PrePaidTax}</Text>
+              <TextBrush>Black</TextBrush>
+              <TextFormat Ref="104" type="CustomFormat" isKey="true">
+                <StringFormat>n0</StringFormat>
+              </TextFormat>
+              <VertAlignment>Center</VertAlignment>
+            </Text49>
+            <Text60 Ref="105" type="Text" isKey="true">
+              <Border>Top;Black;1;Dash;False;4;Black</Border>
+              <Brush>Transparent</Brush>
+              <ClientRectangle>12.7,8.4,1.9,0.6</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>B Mitra,9,Bold</Font>
+              <HorAlignment>Right</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text60</Name>
+              <Page isRef="3" />
+              <Parent isRef="14" />
+              <Text>تعدیل مالیات</Text>
+              <TextBrush>Black</TextBrush>
+              <VertAlignment>Center</VertAlignment>
+            </Text60>
+            <Text61 Ref="106" type="Text" isKey="true">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>9.4,3,1.2,0.6</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>B Mitra,8,Bold</Font>
+              <HorAlignment>Right</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text61</Name>
+              <Page isRef="3" />
+              <Parent isRef="14" />
+              <ShrinkFontToFit>True</ShrinkFontToFit>
+              <Text>{LoanTypeDesc1}</Text>
+              <TextBrush>Black</TextBrush>
+              <VertAlignment>Center</VertAlignment>
+            </Text61>
+            <Text62 Ref="107" type="Text" isKey="true">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>9.4,3.6,1.2,0.6</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>B Mitra,8,Bold</Font>
+              <HorAlignment>Right</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text62</Name>
+              <Page isRef="3" />
+              <Parent isRef="14" />
+              <ShrinkFontToFit>True</ShrinkFontToFit>
+              <Text>{LoanTypeDesc2}</Text>
+              <TextBrush>Black</TextBrush>
+              <VertAlignment>Center</VertAlignment>
+            </Text62>
+            <Text64 Ref="108" type="Text" isKey="true">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>9.4,4.2,1.2,0.6</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>B Mitra,8,Bold</Font>
+              <HorAlignment>Right</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text64</Name>
+              <Page isRef="3" />
+              <Parent isRef="14" />
+              <ShrinkFontToFit>True</ShrinkFontToFit>
+              <Text>{LoanTypeDesc3}</Text>
+              <TextBrush>Black</TextBrush>
+              <VertAlignment>Center</VertAlignment>
+            </Text64>
+            <Text67 Ref="109" type="Text" isKey="true">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>9.4,4.8,1.2,0.6</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>B Mitra,8,Bold</Font>
+              <HorAlignment>Right</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text67</Name>
+              <Page isRef="3" />
+              <Parent isRef="14" />
+              <ShrinkFontToFit>True</ShrinkFontToFit>
+              <Text>{LoanTypeDesc4}</Text>
+              <TextBrush>Black</TextBrush>
+              <VertAlignment>Center</VertAlignment>
+            </Text67>
+            <Text69 Ref="110" type="Text" isKey="true">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>9.4,5.4,1.2,0.6</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>B Mitra,8,Bold</Font>
+              <HorAlignment>Right</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text69</Name>
+              <Page isRef="3" />
+              <Parent isRef="14" />
+              <ShrinkFontToFit>True</ShrinkFontToFit>
+              <Text>{LoanTypeDesc5}</Text>
+              <TextBrush>Black</TextBrush>
+              <VertAlignment>Center</VertAlignment>
+            </Text69>
+            <Text73 Ref="111" type="Text" isKey="true">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>9.4,6,1.2,0.6</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>B Mitra,8,Bold</Font>
+              <HorAlignment>Right</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text73</Name>
+              <Page isRef="3" />
+              <Parent isRef="14" />
+              <ShrinkFontToFit>True</ShrinkFontToFit>
+              <Text>{LoanTypeDesc6}</Text>
+              <TextBrush>Black</TextBrush>
+              <VertAlignment>Center</VertAlignment>
+            </Text73>
+            <Text77 Ref="112" type="Text" isKey="true">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>9.4,7.2,1.2,0.6</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>B Mitra,8,Bold</Font>
+              <HorAlignment>Right</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text77</Name>
+              <Page isRef="3" />
+              <Parent isRef="14" />
+              <ShrinkFontToFit>True</ShrinkFontToFit>
+              <Text>{LoanTypeDesc8}</Text>
+              <TextBrush>Black</TextBrush>
+              <VertAlignment>Center</VertAlignment>
+            </Text77>
+            <Text63 Ref="113" type="Text" isKey="true">
+              <Border>Bottom;Black;1;Solid;False;4;Black</Border>
+              <Brush>Transparent</Brush>
+              <ClientRectangle>9.3,1.8,1.3,1</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>B Mitra,9,Bold</Font>
+              <Guid>08ff51493532494ab8393d6cb1630da5</Guid>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text63</Name>
+              <Page isRef="3" />
+              <Parent isRef="14" />
+              <Text>نوع وام</Text>
+              <TextBrush>Black</TextBrush>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </Text63>
+            <Text65 Ref="114" type="Text" isKey="true">
+              <Border>Bottom;Black;1;Solid;False;4;Black</Border>
+              <Brush>Transparent</Brush>
+              <ClientRectangle>7.45,1.8,1.85,1</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>B Mitra,9,Bold</Font>
+              <Guid>1e4313cea3174c5d810243206b9e75bb</Guid>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text65</Name>
+              <Page isRef="3" />
+              <Parent isRef="14" />
+              <Text>مبلغ قسط</Text>
+              <TextBrush>Black</TextBrush>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </Text65>
+            <Text68 Ref="115" type="Text" isKey="true">
+              <Border>Bottom;Black;1;Solid;False;4;Black</Border>
+              <Brush>Transparent</Brush>
+              <ClientRectangle>5.55,1.8,1.9,0.5</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>B Mitra,9</Font>
+              <Guid>bd98fd48fa844996a14c8d66fce1d3b9</Guid>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text68</Name>
+              <Page isRef="3" />
+              <Parent isRef="14" />
+              <Text>تعداد اقساط</Text>
+              <TextBrush>Black</TextBrush>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </Text68>
+            <Text72 Ref="116" type="Text" isKey="true">
+              <Border>Bottom;Black;1;Solid;False;4;Black</Border>
+              <Brush>Transparent</Brush>
+              <ClientRectangle>6.45,2.3,1,0.5</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>B Mitra,9</Font>
+              <Guid>9afbc51fd92947bb861fefe754d1c964</Guid>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text72</Name>
+              <Page isRef="3" />
+              <Parent isRef="14" />
+              <Text>پرداختی</Text>
+              <TextBrush>Black</TextBrush>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </Text72>
+            <Text76 Ref="117" type="Text" isKey="true">
+              <Border>Bottom;Black;1;Solid;False;4;Black</Border>
+              <Brush>Transparent</Brush>
+              <ClientRectangle>3.12,1.8,2.4,1</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>B Mitra,9,Bold</Font>
+              <Guid>338d5ccb84504bf9b73d6e60f66946f1</Guid>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text76</Name>
+              <Page isRef="3" />
+              <Parent isRef="14" />
+              <Text>مانده</Text>
+              <TextBrush>Black</TextBrush>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </Text76>
+            <Text88 Ref="118" type="Text" isKey="true">
+              <Border>Bottom;Black;1;Solid;False;4;Black</Border>
+              <Brush>Transparent</Brush>
+              <ClientRectangle>5.55,2.3,0.9,0.5</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>B Mitra,9</Font>
+              <Guid>aa29dfcff46e4ba7ab2fa3b60476c32e</Guid>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text88</Name>
+              <Page isRef="3" />
+              <Parent isRef="14" />
+              <Text>کل</Text>
+              <TextBrush>Black</TextBrush>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </Text88>
+            <Text89 Ref="119" type="Text" isKey="true">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>7.5,3,1.8,0.6</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>B Yekan,9</Font>
+              <HideZeros>True</HideZeros>
+              <Margins>1,0,0,0</Margins>
+              <Name>Text89</Name>
+              <Page isRef="3" />
+              <Parent isRef="14" />
+              <Text>{PersonalSalaryAndLoanInfoDto.Loan1Instalment}</Text>
+              <TextBrush>Black</TextBrush>
+              <TextFormat Ref="120" type="CustomFormat" isKey="true">
+                <StringFormat>n0</StringFormat>
+              </TextFormat>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </Text89>
+            <Text93 Ref="121" type="Text" isKey="true">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>7.5,3.6,1.8,0.6</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>B Yekan,9</Font>
+              <HideZeros>True</HideZeros>
+              <Margins>1,0,0,0</Margins>
+              <Name>Text93</Name>
+              <Page isRef="3" />
+              <Parent isRef="14" />
+              <Text>{PersonalSalaryAndLoanInfoDto.Loan2Instalment}</Text>
+              <TextBrush>Black</TextBrush>
+              <TextFormat Ref="122" type="CustomFormat" isKey="true">
+                <StringFormat>n0</StringFormat>
+              </TextFormat>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </Text93>
+            <Text99 Ref="123" type="Text" isKey="true">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>7.5,4.2,1.8,0.6</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>B Yekan,9</Font>
+              <HideZeros>True</HideZeros>
+              <Margins>1,0,0,0</Margins>
+              <Name>Text99</Name>
+              <Page isRef="3" />
+              <Parent isRef="14" />
+              <Text>{PersonalSalaryAndLoanInfoDto.Loan3Instalment}</Text>
+              <TextBrush>Black</TextBrush>
+              <TextFormat Ref="124" type="CustomFormat" isKey="true">
+                <StringFormat>n0</StringFormat>
+              </TextFormat>
+              <VertAlignment>Center</VertAlignment>
+            </Text99>
+            <Text105 Ref="125" type="Text" isKey="true">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>7.5,4.8,1.8,0.6</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>B Yekan,9</Font>
+              <HideZeros>True</HideZeros>
+              <Margins>1,0,0,0</Margins>
+              <Name>Text105</Name>
+              <Page isRef="3" />
+              <Parent isRef="14" />
+              <Text>{PersonalSalaryAndLoanInfoDto.Loan4Instalment}</Text>
+              <TextBrush>Black</TextBrush>
+              <TextFormat Ref="126" type="CustomFormat" isKey="true">
+                <StringFormat>n0</StringFormat>
+              </TextFormat>
+              <VertAlignment>Center</VertAlignment>
+            </Text105>
+            <Text107 Ref="127" type="Text" isKey="true">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>7.5,5.4,1.8,0.6</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>B Yekan,9</Font>
+              <HideZeros>True</HideZeros>
+              <Margins>1,0,0,0</Margins>
+              <Name>Text107</Name>
+              <Page isRef="3" />
+              <Parent isRef="14" />
+              <Text>{PersonalSalaryAndLoanInfoDto.Loan5Instalment}</Text>
+              <TextBrush>Black</TextBrush>
+              <TextFormat Ref="128" type="CustomFormat" isKey="true">
+                <StringFormat>n0</StringFormat>
+              </TextFormat>
+              <VertAlignment>Center</VertAlignment>
+            </Text107>
+            <Text109 Ref="129" type="Text" isKey="true">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>7.5,6,1.8,0.6</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>B Yekan,9</Font>
+              <HideZeros>True</HideZeros>
+              <Margins>1,0,0,0</Margins>
+              <Name>Text109</Name>
+              <Page isRef="3" />
+              <Parent isRef="14" />
+              <Text>{PersonalSalaryAndLoanInfoDto.Loan6Instalment}</Text>
+              <TextBrush>Black</TextBrush>
+              <TextFormat Ref="130" type="CustomFormat" isKey="true">
+                <StringFormat>n0</StringFormat>
+              </TextFormat>
+              <VertAlignment>Center</VertAlignment>
+            </Text109>
+            <Text111 Ref="131" type="Text" isKey="true">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>7.5,7.2,1.8,0.6</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>B Yekan,9</Font>
+              <HideZeros>True</HideZeros>
+              <Margins>1,0,0,0</Margins>
+              <Name>Text111</Name>
+              <Page isRef="3" />
+              <Parent isRef="14" />
+              <Text>{PersonalSalaryAndLoanInfoDto.Loan8Instalment}</Text>
+              <TextBrush>Black</TextBrush>
+              <TextFormat Ref="132" type="CustomFormat" isKey="true">
+                <StringFormat>n0</StringFormat>
+              </TextFormat>
+              <VertAlignment>Center</VertAlignment>
+            </Text111>
+            <Text92 Ref="133" type="Text" isKey="true">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>5.6,3,0.8,0.6</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>B Yekan,9</Font>
+              <HideZeros>True</HideZeros>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text92</Name>
+              <Page isRef="3" />
+              <Parent isRef="14" />
+              <Text>{PersonalSalaryAndLoanInfoDto.Loan1InstalmentTotalCount}</Text>
+              <TextBrush>Black</TextBrush>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </Text92>
+            <Text104 Ref="134" type="Text" isKey="true">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>5.6,3.6,0.8,0.6</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>B Yekan,9</Font>
+              <HideZeros>True</HideZeros>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text104</Name>
+              <Page isRef="3" />
+              <Parent isRef="14" />
+              <Text>{PersonalSalaryAndLoanInfoDto.Loan2InstalmentTotalCount}</Text>
+              <TextBrush>Black</TextBrush>
+              <VertAlignment>Center</VertAlignment>
+            </Text104>
+            <Text108 Ref="135" type="Text" isKey="true">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>5.6,4.2,0.8,0.6</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>B Yekan,9</Font>
+              <HideZeros>True</HideZeros>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text108</Name>
+              <Page isRef="3" />
+              <Parent isRef="14" />
+              <Text>{PersonalSalaryAndLoanInfoDto.Loan3InstalmentTotalCount}</Text>
+              <TextBrush>Black</TextBrush>
+              <VertAlignment>Center</VertAlignment>
+            </Text108>
+            <Text112 Ref="136" type="Text" isKey="true">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>5.6,4.8,0.8,0.6</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>B Yekan,9</Font>
+              <HideZeros>True</HideZeros>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text112</Name>
+              <Page isRef="3" />
+              <Parent isRef="14" />
+              <Text>{PersonalSalaryAndLoanInfoDto.Loan4InstalmentTotalCount}</Text>
+              <TextBrush>Black</TextBrush>
+              <VertAlignment>Center</VertAlignment>
+            </Text112>
+            <Text114 Ref="137" type="Text" isKey="true">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>5.6,5.4,0.8,0.6</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>B Yekan,9</Font>
+              <HideZeros>True</HideZeros>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text114</Name>
+              <Page isRef="3" />
+              <Parent isRef="14" />
+              <Text>{PersonalSalaryAndLoanInfoDto.Loan5InstalmentTotalCount}</Text>
+              <TextBrush>Black</TextBrush>
+              <VertAlignment>Center</VertAlignment>
+            </Text114>
+            <Text116 Ref="138" type="Text" isKey="true">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>5.6,6,0.8,0.6</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>B Yekan,9</Font>
+              <HideZeros>True</HideZeros>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text116</Name>
+              <Page isRef="3" />
+              <Parent isRef="14" />
+              <Text>{PersonalSalaryAndLoanInfoDto.Loan6InstalmentTotalCount}</Text>
+              <TextBrush>Black</TextBrush>
+              <VertAlignment>Center</VertAlignment>
+            </Text116>
+            <Text118 Ref="139" type="Text" isKey="true">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>5.6,7.2,0.8,0.6</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>B Yekan,9</Font>
+              <HideZeros>True</HideZeros>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text118</Name>
+              <Page isRef="3" />
+              <Parent isRef="14" />
+              <Text>{PersonalSalaryAndLoanInfoDto.Loan8InstalmentTotalCount}</Text>
+              <TextBrush>Black</TextBrush>
+              <VertAlignment>Center</VertAlignment>
+            </Text118>
+            <Text98 Ref="140" type="Text" isKey="true">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>6.55,3,0.8,0.6</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>B Yekan,9</Font>
+              <HideZeros>True</HideZeros>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text98</Name>
+              <Page isRef="3" />
+              <Parent isRef="14" />
+              <Text>{PersonalSalaryAndLoanInfoDto.Loan1InstalmentPaidCount}</Text>
+              <TextBrush>Black</TextBrush>
+              <VertAlignment>Center</VertAlignment>
+            </Text98>
+            <Text106 Ref="141" type="Text" isKey="true">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>6.55,3.6,0.8,0.6</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>B Yekan,9</Font>
+              <HideZeros>True</HideZeros>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text106</Name>
+              <Page isRef="3" />
+              <Parent isRef="14" />
+              <Text>{PersonalSalaryAndLoanInfoDto.Loan2InstalmentPaidCount}</Text>
+              <TextBrush>Black</TextBrush>
+              <VertAlignment>Center</VertAlignment>
+            </Text106>
+            <Text113 Ref="142" type="Text" isKey="true">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>6.55,4.2,0.8,0.6</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>B Yekan,9</Font>
+              <HideZeros>True</HideZeros>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text113</Name>
+              <Page isRef="3" />
+              <Parent isRef="14" />
+              <Text>{PersonalSalaryAndLoanInfoDto.Loan3InstalmentPaidCount}</Text>
+              <TextBrush>Black</TextBrush>
+              <VertAlignment>Center</VertAlignment>
+            </Text113>
+            <Text117 Ref="143" type="Text" isKey="true">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>6.55,4.8,0.8,0.6</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>B Yekan,9</Font>
+              <HideZeros>True</HideZeros>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text117</Name>
+              <Page isRef="3" />
+              <Parent isRef="14" />
+              <Text>{PersonalSalaryAndLoanInfoDto.Loan4InstalmentPaidCount}</Text>
+              <TextBrush>Black</TextBrush>
+              <VertAlignment>Center</VertAlignment>
+            </Text117>
+            <Text120 Ref="144" type="Text" isKey="true">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>6.55,5.4,0.8,0.6</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>B Yekan,9</Font>
+              <HideZeros>True</HideZeros>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text120</Name>
+              <Page isRef="3" />
+              <Parent isRef="14" />
+              <Text>{PersonalSalaryAndLoanInfoDto.Loan5InstalmentPaidCount}</Text>
+              <TextBrush>Black</TextBrush>
+              <VertAlignment>Center</VertAlignment>
+            </Text120>
+            <Text124 Ref="145" type="Text" isKey="true">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>6.55,6,0.8,0.6</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>B Yekan,9</Font>
+              <HideZeros>True</HideZeros>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text124</Name>
+              <Page isRef="3" />
+              <Parent isRef="14" />
+              <Text>{PersonalSalaryAndLoanInfoDto.Loan6InstalmentPaidCount}</Text>
+              <TextBrush>Black</TextBrush>
+              <VertAlignment>Center</VertAlignment>
+            </Text124>
+            <Text126 Ref="146" type="Text" isKey="true">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>6.55,7.2,0.8,0.6</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>B Yekan,9</Font>
+              <HideZeros>True</HideZeros>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text126</Name>
+              <Page isRef="3" />
+              <Parent isRef="14" />
+              <Text>{PersonalSalaryAndLoanInfoDto.Loan8InstalmentPaidCount}</Text>
+              <TextBrush>Black</TextBrush>
+              <VertAlignment>Center</VertAlignment>
+            </Text126>
+            <Text110 Ref="147" type="Text" isKey="true">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>3.2,3,2.2,0.6</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>B Yekan,9</Font>
+              <HideZeros>True</HideZeros>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text110</Name>
+              <Page isRef="3" />
+              <Parent isRef="14" />
+              <Text>{PersonalSalaryAndLoanInfoDto.Loan1RemainedAmount}</Text>
+              <TextBrush>Black</TextBrush>
+              <TextFormat Ref="148" type="CustomFormat" isKey="true">
+                <StringFormat>n0</StringFormat>
+              </TextFormat>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </Text110>
+            <Text119 Ref="149" type="Text" isKey="true">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>3.2,3.6,2.2,0.6</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>B Yekan,9</Font>
+              <HideZeros>True</HideZeros>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text119</Name>
+              <Page isRef="3" />
+              <Parent isRef="14" />
+              <Text>{PersonalSalaryAndLoanInfoDto.Loan2RemainedAmount}</Text>
+              <TextBrush>Black</TextBrush>
+              <TextFormat Ref="150" type="CustomFormat" isKey="true">
+                <StringFormat>n0</StringFormat>
+              </TextFormat>
+              <VertAlignment>Center</VertAlignment>
+            </Text119>
+            <Text125 Ref="151" type="Text" isKey="true">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>3.2,4.2,2.2,0.6</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>B Yekan,9</Font>
+              <HideZeros>True</HideZeros>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text125</Name>
+              <Page isRef="3" />
+              <Parent isRef="14" />
+              <Text>{PersonalSalaryAndLoanInfoDto.Loan3RemainedAmount}</Text>
+              <TextBrush>Black</TextBrush>
+              <TextFormat Ref="152" type="CustomFormat" isKey="true">
+                <StringFormat>n0</StringFormat>
+              </TextFormat>
+              <VertAlignment>Center</VertAlignment>
+            </Text125>
+            <Text128 Ref="153" type="Text" isKey="true">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>3.2,4.8,2.2,0.6</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>B Yekan,9</Font>
+              <HideZeros>True</HideZeros>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text128</Name>
+              <Page isRef="3" />
+              <Parent isRef="14" />
+              <Text>{PersonalSalaryAndLoanInfoDto.Loan4RemainedAmount}</Text>
+              <TextBrush>Black</TextBrush>
+              <TextFormat Ref="154" type="CustomFormat" isKey="true">
+                <StringFormat>n0</StringFormat>
+              </TextFormat>
+              <VertAlignment>Center</VertAlignment>
+            </Text128>
+            <Text130 Ref="155" type="Text" isKey="true">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>3.2,5.4,2.2,0.6</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>B Yekan,9</Font>
+              <HideZeros>True</HideZeros>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text130</Name>
+              <Page isRef="3" />
+              <Parent isRef="14" />
+              <Text>{PersonalSalaryAndLoanInfoDto.Loan5RemainedAmount}</Text>
+              <TextBrush>Black</TextBrush>
+              <TextFormat Ref="156" type="CustomFormat" isKey="true">
+                <StringFormat>n0</StringFormat>
+              </TextFormat>
+              <VertAlignment>Center</VertAlignment>
+            </Text130>
+            <Text132 Ref="157" type="Text" isKey="true">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>3.2,6,2.2,0.6</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>B Yekan,9</Font>
+              <HideZeros>True</HideZeros>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text132</Name>
+              <Page isRef="3" />
+              <Parent isRef="14" />
+              <Text>{PersonalSalaryAndLoanInfoDto.Loan6RemainedAmount}</Text>
+              <TextBrush>Black</TextBrush>
+              <TextFormat Ref="158" type="CustomFormat" isKey="true">
+                <StringFormat>n0</StringFormat>
+              </TextFormat>
+              <VertAlignment>Center</VertAlignment>
+            </Text132>
+            <Text134 Ref="159" type="Text" isKey="true">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>3.2,7.2,2.2,0.6</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>B Yekan,9</Font>
+              <HideZeros>True</HideZeros>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text134</Name>
+              <Page isRef="3" />
+              <Parent isRef="14" />
+              <Text>{PersonalSalaryAndLoanInfoDto.Loan8RemainedAmount}</Text>
+              <TextBrush>Black</TextBrush>
+              <TextFormat Ref="160" type="CustomFormat" isKey="true">
+                <StringFormat>n0</StringFormat>
+              </TextFormat>
+              <VertAlignment>Center</VertAlignment>
+            </Text134>
+            <Text136 Ref="161" type="Text" isKey="true">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>9.4,6.6,1.2,0.6</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>B Mitra,8,Bold</Font>
+              <HorAlignment>Right</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text136</Name>
+              <Page isRef="3" />
+              <Parent isRef="14" />
+              <ShrinkFontToFit>True</ShrinkFontToFit>
+              <Text>{LoanTypeDesc7}</Text>
+              <TextBrush>Black</TextBrush>
+              <VertAlignment>Center</VertAlignment>
+            </Text136>
+            <Text137 Ref="162" type="Text" isKey="true">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>7.5,7.8,1.8,0.6</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>B Yekan,9</Font>
+              <HideZeros>True</HideZeros>
+              <Margins>1,0,0,0</Margins>
+              <Name>Text137</Name>
+              <Page isRef="3" />
+              <Parent isRef="14" />
+              <Text>{PersonalSalaryAndLoanInfoDto.Loan9Instalment}</Text>
+              <TextBrush>Black</TextBrush>
+              <TextFormat Ref="163" type="CustomFormat" isKey="true">
+                <StringFormat>n0</StringFormat>
+              </TextFormat>
+              <VertAlignment>Center</VertAlignment>
+            </Text137>
+            <Text139 Ref="164" type="Text" isKey="true">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>7.5,6.6,1.8,0.6</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>B Yekan,9</Font>
+              <HideZeros>True</HideZeros>
+              <Margins>1,0,0,0</Margins>
+              <Name>Text139</Name>
+              <Page isRef="3" />
+              <Parent isRef="14" />
+              <Text>{PersonalSalaryAndLoanInfoDto.Loan7Instalment}</Text>
+              <TextBrush>Black</TextBrush>
+              <TextFormat Ref="165" type="CustomFormat" isKey="true">
+                <StringFormat>n0</StringFormat>
+              </TextFormat>
+              <VertAlignment>Center</VertAlignment>
+            </Text139>
+            <Text138 Ref="166" type="Text" isKey="true">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>5.6,7.8,0.8,0.6</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>B Yekan,9</Font>
+              <HideZeros>True</HideZeros>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text138</Name>
+              <Page isRef="3" />
+              <Parent isRef="14" />
+              <Text>{PersonalSalaryAndLoanInfoDto.Loan9InstalmentTotalCount}</Text>
+              <TextBrush>Black</TextBrush>
+              <VertAlignment>Center</VertAlignment>
+            </Text138>
+            <Text141 Ref="167" type="Text" isKey="true">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>5.6,6.6,0.8,0.6</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>B Yekan,9</Font>
+              <HideZeros>True</HideZeros>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text141</Name>
+              <Page isRef="3" />
+              <Parent isRef="14" />
+              <Text>{PersonalSalaryAndLoanInfoDto.Loan7InstalmentTotalCount}</Text>
+              <TextBrush>Black</TextBrush>
+              <VertAlignment>Center</VertAlignment>
+            </Text141>
+            <Text143 Ref="168" type="Text" isKey="true">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>6.55,7.8,0.8,0.6</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>B Yekan,9</Font>
+              <HideZeros>True</HideZeros>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text143</Name>
+              <Page isRef="3" />
+              <Parent isRef="14" />
+              <Text>{PersonalSalaryAndLoanInfoDto.Loan9InstalmentPaidCount}</Text>
+              <TextBrush>Black</TextBrush>
+              <VertAlignment>Center</VertAlignment>
+            </Text143>
+            <Text145 Ref="169" type="Text" isKey="true">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>6.55,6.6,0.8,0.6</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>B Yekan,9</Font>
+              <HideZeros>True</HideZeros>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text145</Name>
+              <Page isRef="3" />
+              <Parent isRef="14" />
+              <Text>{PersonalSalaryAndLoanInfoDto.Loan7InstalmentPaidCount}</Text>
+              <TextBrush>Black</TextBrush>
+              <VertAlignment>Center</VertAlignment>
+            </Text145>
+            <Text140 Ref="170" type="Text" isKey="true">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>3.2,7.8,2.2,0.6</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>B Yekan,9</Font>
+              <HideZeros>True</HideZeros>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text140</Name>
+              <Page isRef="3" />
+              <Parent isRef="14" />
+              <Text>{PersonalSalaryAndLoanInfoDto.Loan9RemainedAmount}</Text>
+              <TextBrush>Black</TextBrush>
+              <TextFormat Ref="171" type="CustomFormat" isKey="true">
+                <StringFormat>n0</StringFormat>
+              </TextFormat>
+              <VertAlignment>Center</VertAlignment>
+            </Text140>
+            <Text144 Ref="172" type="Text" isKey="true">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>3.2,6.6,2.2,0.6</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>B Yekan,9</Font>
+              <HideZeros>True</HideZeros>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text144</Name>
+              <Page isRef="3" />
+              <Parent isRef="14" />
+              <Text>{PersonalSalaryAndLoanInfoDto.Loan7RemainedAmount}</Text>
+              <TextBrush>Black</TextBrush>
+              <TextFormat Ref="173" type="CustomFormat" isKey="true">
+                <StringFormat>n0</StringFormat>
+              </TextFormat>
+              <VertAlignment>Center</VertAlignment>
+            </Text144>
+            <Text147 Ref="174" type="Text" isKey="true">
+              <Border>Right, Bottom;Black;1;Solid;False;4;Black</Border>
+              <Brush>Transparent</Brush>
+              <ClientRectangle>14.7,9.8,4.3,0.6</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>B Mitra,8,Bold</Font>
+              <HorAlignment>Right</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text147</Name>
+              <Page isRef="3" />
+              <Parent isRef="14" />
+              <Text>جمع مشمول مالیات تا ماه جاری</Text>
+              <TextBrush>Black</TextBrush>
+              <VertAlignment>Center</VertAlignment>
+            </Text147>
+            <Text146 Ref="175" type="Text" isKey="true">
+              <Border>Left, Bottom;Black;1;Solid;False;4;Black</Border>
+              <Brush>Transparent</Brush>
+              <ClientRectangle>10.6,9.8,4.1,0.6</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>B Yekan,9</Font>
+              <Margins>1,0,0,0</Margins>
+              <Name>Text146</Name>
+              <Page isRef="3" />
+              <Parent isRef="14" />
+              <Text>{PersonalSalaryAndLoanInfoDto.SumThisYearTaxable}</Text>
+              <TextBrush>Black</TextBrush>
+              <TextFormat Ref="176" type="CustomFormat" isKey="true">
+                <StringFormat>n0</StringFormat>
+              </TextFormat>
+              <VertAlignment>Center</VertAlignment>
+            </Text146>
+            <Text31 Ref="177" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>[216:216:216]</Brush>
+              <ClientRectangle>10.6,1.2,8.4,0.6</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>B Titr,11,Bold</Font>
+              <Guid>2b1f1d5263d8430ca80616f247769e7b</Guid>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text31</Name>
+              <Page isRef="3" />
+              <Parent isRef="14" />
+              <Text>درآمد</Text>
+              <TextBrush>Black</TextBrush>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </Text31>
+            <Text100 Ref="178" type="Text" isKey="true">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>9.4,7.8,1.2,0.6</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>B Mitra,8,Bold</Font>
+              <HorAlignment>Right</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text100</Name>
+              <Page isRef="3" />
+              <Parent isRef="14" />
+              <ShrinkFontToFit>True</ShrinkFontToFit>
+              <Text>{LoanTypeDesc9}</Text>
+              <TextBrush>Black</TextBrush>
+              <VertAlignment>Center</VertAlignment>
+            </Text100>
+            <Text149 Ref="179" type="Text" isKey="true">
+              <Border>Top, Right, Bottom;Black;1;Solid;False;4;Black</Border>
+              <Brush>Transparent</Brush>
+              <ClientRectangle>3.75,9.19,1.8,0.6</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>B Mitra,9,Bold</Font>
+              <Guid>119a23585e4b400cb470b8b50f7d80f7</Guid>
+              <HorAlignment>Right</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text149</Name>
+              <Page isRef="3" />
+              <Parent isRef="14" />
+              <Text>خالص دریافتی</Text>
+              <TextBrush>Black</TextBrush>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </Text149>
+            <Text150 Ref="180" type="Text" isKey="true">
+              <Border>Top, Left, Bottom;Black;1;Solid;False;4;Black</Border>
+              <Brush>Transparent</Brush>
+              <ClientRectangle>0,9.19,3.75,0.6</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>B Yekan,10</Font>
+              <Guid>86fe6a51523c4627a24fd1f1aefa29a0</Guid>
+              <Margins>4,0,0,0</Margins>
+              <Name>Text150</Name>
+              <Page isRef="3" />
+              <Parent isRef="14" />
+              <ShrinkFontToFit>True</ShrinkFontToFit>
+              <Text>{PersonalSalaryAndLoanInfoDto.NetPayableAmount}</Text>
+              <TextBrush>Black</TextBrush>
+              <TextFormat Ref="181" type="CustomFormat" isKey="true">
+                <StringFormat>n0</StringFormat>
+              </TextFormat>
+              <VertAlignment>Center</VertAlignment>
+            </Text150>
+            <Text151 Ref="182" type="Text" isKey="true">
+              <Border>Right, Bottom;Black;1;Solid;False;4;Black</Border>
+              <Brush>Transparent</Brush>
+              <ClientRectangle>7.55,9.8,3.05,0.6</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>B Mitra,8,Bold</Font>
+              <Guid>f0ff7f89e65743bf93b8280a0a3f2649</Guid>
+              <HorAlignment>Right</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text151</Name>
+              <Page isRef="3" />
+              <Parent isRef="14" />
+              <Text>جمع مالیات تا ماه جاری</Text>
+              <TextBrush>Black</TextBrush>
+              <VertAlignment>Center</VertAlignment>
+            </Text151>
+            <Text152 Ref="183" type="Text" isKey="true">
+              <Border>Left, Bottom;Black;1;Solid;False;4;Black</Border>
+              <Brush>Transparent</Brush>
+              <ClientRectangle>5.55,9.8,2,0.6</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>B Yekan,9</Font>
+              <Guid>42cc49cd507a4eeea44452ce71b23f88</Guid>
+              <Margins>1,0,0,0</Margins>
+              <Name>Text152</Name>
+              <Page isRef="3" />
+              <Parent isRef="14" />
+              <Text>{PersonalSalaryAndLoanInfoDto.SumThisYearTax}</Text>
+              <TextBrush>Black</TextBrush>
+              <TextFormat Ref="184" type="CustomFormat" isKey="true">
+                <StringFormat>n0</StringFormat>
+              </TextFormat>
+              <VertAlignment>Center</VertAlignment>
+            </Text152>
+            <Text153 Ref="185" type="Text" isKey="true">
+              <Border>Right, Bottom;Black;1;Solid;False;4;Black</Border>
+              <Brush>Transparent</Brush>
+              <ClientRectangle>3.35,9.8,2.2,0.6</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>B Mitra,8,Bold</Font>
+              <Guid>292cc9ac82dd47c78b68f2fd2e37158e</Guid>
+              <HorAlignment>Right</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text153</Name>
+              <Page isRef="3" />
+              <Parent isRef="14" />
+              <Text>جمع بیمه تا ماه جاری</Text>
+              <TextBrush>Black</TextBrush>
+              <VertAlignment>Center</VertAlignment>
+            </Text153>
+            <Text154 Ref="186" type="Text" isKey="true">
+              <Border>Left, Bottom;Black;1;Solid;False;4;Black</Border>
+              <Brush>Transparent</Brush>
+              <ClientRectangle>0,9.8,3.35,0.6</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>B Yekan,9</Font>
+              <Guid>7911e2edaf514fa5a1ffeef3d44da749</Guid>
+              <Margins>4,0,0,0</Margins>
+              <Name>Text154</Name>
+              <Page isRef="3" />
+              <Parent isRef="14" />
+              <Text>{PersonalSalaryAndLoanInfoDto.SumThisYearClerkInsurance}</Text>
+              <TextBrush>Black</TextBrush>
+              <TextFormat Ref="187" type="CustomFormat" isKey="true">
+                <StringFormat>n0</StringFormat>
+              </TextFormat>
+              <VertAlignment>Center</VertAlignment>
+            </Text154>
+            <Text155 Ref="188" type="Text" isKey="true">
+              <Border>Top, Left, Bottom;Black;1;Solid;False;4;Black</Border>
+              <Brush>Transparent</Brush>
+              <ClientRectangle>5.55,9.19,2,0.6</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>B Yekan,10</Font>
+              <Guid>fcf77c98a6564724b2d2ad046a0c7034</Guid>
+              <Margins>1,0,0,0</Margins>
+              <Name>Text155</Name>
+              <Page isRef="3" />
+              <Parent isRef="14" />
+              <ShrinkFontToFit>True</ShrinkFontToFit>
+              <Text>{PersonalSalaryAndLoanInfoDto.SumDeductions}</Text>
+              <TextBrush>Black</TextBrush>
+              <TextFormat Ref="189" type="CustomFormat" isKey="true">
+                <StringFormat>n0</StringFormat>
+              </TextFormat>
+              <VertAlignment>Center</VertAlignment>
+            </Text155>
+            <Text156 Ref="190" type="Text" isKey="true">
+              <Border>Top, Right, Bottom;Black;1;Solid;False;4;Black</Border>
+              <Brush>Transparent</Brush>
+              <ClientRectangle>14.7,9.19,4.3,0.6</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>B Mitra,10,Bold</Font>
+              <Guid>5a2c60003a7a4f1ea1d2096de3ebe7ed</Guid>
+              <HorAlignment>Right</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text156</Name>
+              <Page isRef="3" />
+              <Parent isRef="14" />
+              <Text>جمع درآمد</Text>
+              <TextBrush>Black</TextBrush>
+              <VertAlignment>Center</VertAlignment>
+            </Text156>
+            <Text157 Ref="191" type="Text" isKey="true">
+              <Border>Top, Left, Bottom;Black;1;Solid;False;4;Black</Border>
+              <Brush>Transparent</Brush>
+              <ClientRectangle>10.6,9.19,4.1,0.6</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>B Yekan,10</Font>
+              <Guid>e1a8f4d5ec014a11a108ddbcb4d42529</Guid>
+              <Margins>2,0,0,0</Margins>
+              <Name>Text157</Name>
+              <Page isRef="3" />
+              <Parent isRef="14" />
+              <ShrinkFontToFit>True</ShrinkFontToFit>
+              <Text>{PersonalSalaryAndLoanInfoDto.SumIncome}</Text>
+              <TextBrush>Black</TextBrush>
+              <TextFormat Ref="192" type="CustomFormat" isKey="true">
+                <StringFormat>n0</StringFormat>
+              </TextFormat>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </Text157>
+            <Text158 Ref="193" type="Text" isKey="true">
+              <Border>Top, Right, Bottom;Black;1;Solid;False;4;Black</Border>
+              <Brush>Transparent</Brush>
+              <ClientRectangle>7.55,9.19,3.05,0.6</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>B Mitra,9,Bold</Font>
+              <Guid>d2918af20f684f0eab55e99d6cb7140f</Guid>
+              <HorAlignment>Right</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text158</Name>
+              <Page isRef="3" />
+              <Parent isRef="14" />
+              <Text>جمع کسورات</Text>
+              <TextBrush>Black</TextBrush>
+              <VertAlignment>Center</VertAlignment>
+            </Text158>
+            <Text35 Ref="194" type="Text" isKey="true">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>10.7,3.5,2,0.5</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>B Yekan,9</Font>
+              <Guid>2ad7d081f6bf45d8b62a25c39e2c3fad</Guid>
+              <HideZeros>True</HideZeros>
+              <Margins>1,0,0,0</Margins>
+              <Name>Text35</Name>
+              <Page isRef="3" />
+              <Parent isRef="14" />
+              <ShrinkFontToFit>True</ShrinkFontToFit>
+              <Text>{PersonalSalaryAndLoanInfoDto.Param18Amount}</Text>
+              <TextBrush>Black</TextBrush>
+              <TextFormat Ref="195" type="CustomFormat" isKey="true">
+                <StringFormat>n0</StringFormat>
+              </TextFormat>
+              <Type>DataColumn</Type>
+              <VertAlignment>Center</VertAlignment>
+            </Text35>
+            <Text46 Ref="196" type="Text" isKey="true">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>12.85,3.5,1.8,0.5</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>B Mitra,8,Bold</Font>
+              <Guid>15e60b86a24347408f97d873b05fdea1</Guid>
+              <HorAlignment>Right</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text46</Name>
+              <Page isRef="3" />
+              <Parent isRef="14" />
+              <ShrinkFontToFit>True</ShrinkFontToFit>
+              <Text>{ParamName18}</Text>
+              <TextBrush>Black</TextBrush>
+              <VertAlignment>Center</VertAlignment>
+            </Text46>
+            <Text10 Ref="197" type="Text" isKey="true">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>17,0,1,0.6</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>B Yekan,10</Font>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text10</Name>
+              <Page isRef="3" />
+              <Parent isRef="14" />
+              <Text>{PersonalSalaryAndLoanInfoDto.PerCode}</Text>
+              <TextBrush>Black</TextBrush>
+              <VertAlignment>Center</VertAlignment>
+            </Text10>
+            <Text19 Ref="198" type="Text" isKey="true">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>14.5,-0.01,2.1,0.6</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>B Mitra,9,Bold</Font>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text19</Name>
+              <Page isRef="3" />
+              <Parent isRef="14" />
+              <Text>نام و نام خانوادگی</Text>
+              <TextBrush>Black</TextBrush>
+              <VertAlignment>Center</VertAlignment>
+            </Text19>
+            <Text75 Ref="199" type="Text" isKey="true">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>8.1,-0.01,1.8,0.6</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>B Mitra,9,Bold</Font>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text75</Name>
+              <Page isRef="3" />
+              <Parent isRef="14" />
+              <Text>روزهای کارکرد</Text>
+              <TextBrush>Black</TextBrush>
+              <VertAlignment>Center</VertAlignment>
+            </Text75>
+            <Text74 Ref="200" type="Text" isKey="true">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>7.1,0,1,0.6</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>B Yekan,10</Font>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>1,0,0,0</Margins>
+              <Name>Text74</Name>
+              <Page isRef="3" />
+              <Parent isRef="14" />
+              <ShrinkFontToFit>True</ShrinkFontToFit>
+              <Text>{PersonalSalaryAndLoanInfoDto.WorkDaysCount}</Text>
+              <TextBrush>Black</TextBrush>
+              <TextFormat Ref="201" type="CustomFormat" isKey="true">
+                <StringFormat>n0</StringFormat>
+              </TextFormat>
+              <VertAlignment>Center</VertAlignment>
+            </Text74>
+            <Text18 Ref="202" type="Text" isKey="true">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>10.3,0,4.1,0.6</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>B Mitra,9,Bold</Font>
+              <HorAlignment>Right</HorAlignment>
+              <Margins>0,2,0,0</Margins>
+              <Name>Text18</Name>
+              <Page isRef="3" />
+              <Parent isRef="14" />
+              <ShrinkFontToFit>True</ShrinkFontToFit>
+              <Text>{PersonalSalaryAndLoanInfoDto.FullName}</Text>
+              <TextBrush>Black</TextBrush>
+              <VertAlignment>Center</VertAlignment>
+            </Text18>
+            <Text142 Ref="203" type="Text" isKey="true">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>6.6,0,0.6,0.6</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>B Mitra,9,Bold</Font>
+              <Guid>fbd12235ca764369bc0558cf22e09755</Guid>
+              <HorAlignment>Right</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text142</Name>
+              <Page isRef="3" />
+              <Parent isRef="14" />
+              <Text>روز</Text>
+              <TextBrush>Black</TextBrush>
+              <VertAlignment>Center</VertAlignment>
+            </Text142>
+            <Text101 Ref="204" type="Text" isKey="true">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>0.2,0,2.6,0.6</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>B Yekan,10</Font>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text101</Name>
+              <Page isRef="3" />
+              <Parent isRef="14" />
+              <Text>{PersonalSalaryAndLoanInfoDto.PerAccountNo}</Text>
+              <TextBrush>Black</TextBrush>
+              <VertAlignment>Center</VertAlignment>
+            </Text101>
+            <Text102 Ref="205" type="Text" isKey="true">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>4.6,0,1.6,0.6</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>B Mitra,9,Bold</Font>
+              <HorAlignment>Right</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text102</Name>
+              <Page isRef="3" />
+              <Parent isRef="14" />
+              <Text>شماره حساب</Text>
+              <TextBrush>Black</TextBrush>
+              <VertAlignment>Center</VertAlignment>
+            </Text102>
+            <Text103 Ref="206" type="Text" isKey="true">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>0.4,0.45,3.8,0.6</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>B Mitra,9,Bold</Font>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text103</Name>
+              <Page isRef="3" />
+              <Parent isRef="14" />
+              <Text>{PersonalSalaryAndLoanInfoDto.PerBranch}</Text>
+              <TextBrush>Black</TextBrush>
+              <VertAlignment>Center</VertAlignment>
+            </Text103>
+            <Text131 Ref="207" type="Text" isKey="true">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>2.8,0,1.6,0.6</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>B Mitra,9,Bold</Font>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text131</Name>
+              <Page isRef="3" />
+              <Parent isRef="14" />
+              <Text>{PersonalSalaryAndLoanInfoDto.PerAccountType}</Text>
+              <TextBrush>Black</TextBrush>
+              <VertAlignment>Center</VertAlignment>
+            </Text131>
+            <Text11 Ref="208" type="Text" isKey="true">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>18,-0.01,0.8,0.6</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>B Mitra,9,Bold</Font>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text11</Name>
+              <Page isRef="3" />
+              <Parent isRef="14" />
+              <Text>ک پ</Text>
+              <TextBrush>Black</TextBrush>
+              <VertAlignment>Center</VertAlignment>
+            </Text11>
+            <Text32 Ref="209" type="Text" isKey="true">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>0.2,10.6,18.6,0.8</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>B Mitra,9,Bold</Font>
+              <HorAlignment>Right</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text32</Name>
+              <Page isRef="3" />
+              <Parent isRef="14" />
+              <Text>{Hadis}</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>,,,,WordWrap=True,A=0</TextOptions>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </Text32>
+            <Text70 Ref="210" type="Text" isKey="true">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>10.7,3.99,2,0.5</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>B Yekan,9</Font>
+              <Guid>77ae13278a3a49758f0de0a99909a10c</Guid>
+              <HideZeros>True</HideZeros>
+              <Margins>1,0,0,0</Margins>
+              <Name>Text70</Name>
+              <Page isRef="3" />
+              <Parent isRef="14" />
+              <ShrinkFontToFit>True</ShrinkFontToFit>
+              <Text>{PersonalSalaryAndLoanInfoDto.Param19Amount}</Text>
+              <TextBrush>Black</TextBrush>
+              <TextFormat Ref="211" type="CustomFormat" isKey="true">
+                <StringFormat>n0</StringFormat>
+              </TextFormat>
+              <Type>DataColumn</Type>
+              <VertAlignment>Center</VertAlignment>
+            </Text70>
+            <Text71 Ref="212" type="Text" isKey="true">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>12.85,3.99,1.8,0.5</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>B Mitra,8,Bold</Font>
+              <Guid>8a91e369bc484b6aaf78db25d9f41c52</Guid>
+              <HorAlignment>Right</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text71</Name>
+              <Page isRef="3" />
+              <Parent isRef="14" />
+              <ShrinkFontToFit>True</ShrinkFontToFit>
+              <Text>{ParamName19}</Text>
+              <TextBrush>Black</TextBrush>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </Text71>
+            <StartPointPrimitive2 Ref="213" type="Stimulsoft.Report.Components.StiStartPointPrimitive" isKey="true">
+              <ClientRectangle>14.73,1.8,0,0</ClientRectangle>
+              <Name>StartPointPrimitive2</Name>
+              <Page isRef="3" />
+              <Parent isRef="14" />
+              <ReferenceToGuid>c1ff12f2ec844b859ca1ba686299aaae</ReferenceToGuid>
+            </StartPointPrimitive2>
+            <EndPointPrimitive2 Ref="214" type="Stimulsoft.Report.Components.StiEndPointPrimitive" isKey="true">
+              <ClientRectangle>14.73,9.2,0,0</ClientRectangle>
+              <Name>EndPointPrimitive2</Name>
+              <Page isRef="3" />
+              <Parent isRef="14" />
+              <ReferenceToGuid>c1ff12f2ec844b859ca1ba686299aaae</ReferenceToGuid>
+            </EndPointPrimitive2>
+            <StartPointPrimitive3 Ref="215" type="Stimulsoft.Report.Components.StiStartPointPrimitive" isKey="true">
+              <ClientRectangle>10.6,1.8,0,0</ClientRectangle>
+              <Name>StartPointPrimitive3</Name>
+              <Page isRef="3" />
+              <Parent isRef="14" />
+              <ReferenceToGuid>bb60492384de43a49933457be1263e6d</ReferenceToGuid>
+            </StartPointPrimitive3>
+            <EndPointPrimitive3 Ref="216" type="Stimulsoft.Report.Components.StiEndPointPrimitive" isKey="true">
+              <ClientRectangle>10.6,9.2,0,0</ClientRectangle>
+              <Name>EndPointPrimitive3</Name>
+              <Page isRef="3" />
+              <Parent isRef="14" />
+              <ReferenceToGuid>bb60492384de43a49933457be1263e6d</ReferenceToGuid>
+            </EndPointPrimitive3>
+            <StartPointPrimitive4 Ref="217" type="Stimulsoft.Report.Components.StiStartPointPrimitive" isKey="true">
+              <ClientRectangle>3.12,1.8,0,0</ClientRectangle>
+              <Name>StartPointPrimitive4</Name>
+              <Page isRef="3" />
+              <Parent isRef="14" />
+              <ReferenceToGuid>b9116549eda24234b2a2102a23fd0f76</ReferenceToGuid>
+            </StartPointPrimitive4>
+            <StartPointPrimitive5 Ref="218" type="Stimulsoft.Report.Components.StiStartPointPrimitive" isKey="true">
+              <ClientRectangle>9.35,1.8,0,0</ClientRectangle>
+              <Name>StartPointPrimitive5</Name>
+              <Page isRef="3" />
+              <Parent isRef="14" />
+              <ReferenceToGuid>8bc059339e674cf8818462d869d24076</ReferenceToGuid>
+            </StartPointPrimitive5>
+            <EndPointPrimitive5 Ref="219" type="Stimulsoft.Report.Components.StiEndPointPrimitive" isKey="true">
+              <ClientRectangle>9.35,9.2,0,0</ClientRectangle>
+              <Name>EndPointPrimitive5</Name>
+              <Page isRef="3" />
+              <Parent isRef="14" />
+              <ReferenceToGuid>8bc059339e674cf8818462d869d24076</ReferenceToGuid>
+            </EndPointPrimitive5>
+            <StartPointPrimitive6 Ref="220" type="Stimulsoft.Report.Components.StiStartPointPrimitive" isKey="true">
+              <ClientRectangle>7.45,1.8,0,0</ClientRectangle>
+              <Name>StartPointPrimitive6</Name>
+              <Page isRef="3" />
+              <Parent isRef="14" />
+              <ReferenceToGuid>5b5563711b7c418fbe8b1aa07b942843</ReferenceToGuid>
+            </StartPointPrimitive6>
+            <EndPointPrimitive6 Ref="221" type="Stimulsoft.Report.Components.StiEndPointPrimitive" isKey="true">
+              <ClientRectangle>7.45,9.2,0,0</ClientRectangle>
+              <Name>EndPointPrimitive6</Name>
+              <Page isRef="3" />
+              <Parent isRef="14" />
+              <ReferenceToGuid>5b5563711b7c418fbe8b1aa07b942843</ReferenceToGuid>
+            </EndPointPrimitive6>
+            <StartPointPrimitive8 Ref="222" type="Stimulsoft.Report.Components.StiStartPointPrimitive" isKey="true">
+              <ClientRectangle>5.55,1.8,0,0</ClientRectangle>
+              <Name>StartPointPrimitive8</Name>
+              <Page isRef="3" />
+              <Parent isRef="14" />
+              <ReferenceToGuid>910e888191f643969b6fd4956faa339a</ReferenceToGuid>
+            </StartPointPrimitive8>
+            <EndPointPrimitive8 Ref="223" type="Stimulsoft.Report.Components.StiEndPointPrimitive" isKey="true">
+              <ClientRectangle>5.55,9.2,0,0</ClientRectangle>
+              <Name>EndPointPrimitive8</Name>
+              <Page isRef="3" />
+              <Parent isRef="14" />
+              <ReferenceToGuid>910e888191f643969b6fd4956faa339a</ReferenceToGuid>
+            </EndPointPrimitive8>
+            <StartPointPrimitive7 Ref="224" type="Stimulsoft.Report.Components.StiStartPointPrimitive" isKey="true">
+              <ClientRectangle>6.45,2.3,0,0</ClientRectangle>
+              <Name>StartPointPrimitive7</Name>
+              <Page isRef="3" />
+              <Parent isRef="14" />
+              <ReferenceToGuid>be01b8316faa47a4b6009fa26aff82fd</ReferenceToGuid>
+            </StartPointPrimitive7>
+            <EndPointPrimitive7 Ref="225" type="Stimulsoft.Report.Components.StiEndPointPrimitive" isKey="true">
+              <ClientRectangle>6.45,9.2,0,0</ClientRectangle>
+              <Name>EndPointPrimitive7</Name>
+              <Page isRef="3" />
+              <Parent isRef="14" />
+              <ReferenceToGuid>be01b8316faa47a4b6009fa26aff82fd</ReferenceToGuid>
+            </EndPointPrimitive7>
+            <HorizontalLinePrimitive1 Ref="226" type="HorizontalLinePrimitive" isKey="true">
+              <ClientRectangle>0.2,0.45,4.4,0.0254</ClientRectangle>
+              <Color>Black</Color>
+              <EndCap Ref="227" type="Cap" isKey="true">
+                <Color>Black</Color>
+              </EndCap>
+              <Name>HorizontalLinePrimitive1</Name>
+              <Page isRef="3" />
+              <Parent isRef="14" />
+              <StartCap Ref="228" type="Cap" isKey="true">
+                <Color>Black</Color>
+              </StartCap>
+            </HorizontalLinePrimitive1>
+            <EndPointPrimitive4 Ref="229" type="Stimulsoft.Report.Components.StiEndPointPrimitive" isKey="true">
+              <ClientRectangle>3.12,9.2,0,0</ClientRectangle>
+              <Name>EndPointPrimitive4</Name>
+              <Page isRef="3" />
+              <Parent isRef="14" />
+              <ReferenceToGuid>b9116549eda24234b2a2102a23fd0f76</ReferenceToGuid>
+            </EndPointPrimitive4>
+          </Components>
+          <Conditions isList="true" count="0" />
+          <DataRelationName isNull="true" />
+          <DataSourceName isNull="true" />
+          <Filters isList="true" count="0" />
+          <Name>DataBand1</Name>
+          <Page isRef="3" />
+          <Parent isRef="3" />
+          <Sort isList="true" count="0" />
+        </DataBand1>
+        <RoundedRectanglePrimitive1 Ref="230" type="Stimulsoft.Report.Components.StiRoundedRectanglePrimitive" isKey="true">
+          <ClientRectangle>0.1,0.5,18.8,0.75</ClientRectangle>
+          <Color>DimGray</Color>
+          <Guid>13a0f3c935174c35ba7ea5fa5286cf99</Guid>
+          <Name>RoundedRectanglePrimitive1</Name>
+          <Page isRef="3" />
+          <Parent isRef="3" />
+          <Round>0.2</Round>
+          <Style>Double</Style>
+        </RoundedRectanglePrimitive1>
+        <VerticalLinePrimitive1 Ref="231" type="VerticalLinePrimitive" isKey="true">
+          <ClientRectangle>14.73,4.01,0.0254,7.4</ClientRectangle>
+          <Color>Black</Color>
+          <EndCap Ref="232" type="Cap" isKey="true">
+            <Color>Black</Color>
+          </EndCap>
+          <Guid>c1ff12f2ec844b859ca1ba686299aaae</Guid>
+          <Name>VerticalLinePrimitive1</Name>
+          <Page isRef="3" />
+          <Parent isRef="3" />
+          <StartCap Ref="233" type="Cap" isKey="true">
+            <Color>Black</Color>
+          </StartCap>
+        </VerticalLinePrimitive1>
+        <VerticalLinePrimitive2 Ref="234" type="VerticalLinePrimitive" isKey="true">
+          <ClientRectangle>10.6,4.01,0.0254,7.4</ClientRectangle>
+          <Color>Black</Color>
+          <EndCap Ref="235" type="Cap" isKey="true">
+            <Color>Black</Color>
+          </EndCap>
+          <Guid>bb60492384de43a49933457be1263e6d</Guid>
+          <Name>VerticalLinePrimitive2</Name>
+          <Page isRef="3" />
+          <Parent isRef="3" />
+          <StartCap Ref="236" type="Cap" isKey="true">
+            <Color>Black</Color>
+          </StartCap>
+        </VerticalLinePrimitive2>
+        <VerticalLinePrimitive3 Ref="237" type="VerticalLinePrimitive" isKey="true">
+          <ClientRectangle>3.12,4.01,0.0254,7.4</ClientRectangle>
+          <Color>Black</Color>
+          <EndCap Ref="238" type="Cap" isKey="true">
+            <Color>Black</Color>
+          </EndCap>
+          <Guid>b9116549eda24234b2a2102a23fd0f76</Guid>
+          <Name>VerticalLinePrimitive3</Name>
+          <Page isRef="3" />
+          <Parent isRef="3" />
+          <StartCap Ref="239" type="Cap" isKey="true">
+            <Color>Black</Color>
+          </StartCap>
+        </VerticalLinePrimitive3>
+        <VerticalLinePrimitive4 Ref="240" type="VerticalLinePrimitive" isKey="true">
+          <ClientRectangle>9.35,4.01,0.0254,7.4</ClientRectangle>
+          <Color>Black</Color>
+          <EndCap Ref="241" type="Cap" isKey="true">
+            <Color>Black</Color>
+          </EndCap>
+          <Guid>8bc059339e674cf8818462d869d24076</Guid>
+          <Name>VerticalLinePrimitive4</Name>
+          <Page isRef="3" />
+          <Parent isRef="3" />
+          <StartCap Ref="242" type="Cap" isKey="true">
+            <Color>Black</Color>
+          </StartCap>
+        </VerticalLinePrimitive4>
+        <VerticalLinePrimitive5 Ref="243" type="VerticalLinePrimitive" isKey="true">
+          <ClientRectangle>7.45,4.01,0.0254,7.4</ClientRectangle>
+          <Color>Black</Color>
+          <EndCap Ref="244" type="Cap" isKey="true">
+            <Color>Black</Color>
+          </EndCap>
+          <Guid>5b5563711b7c418fbe8b1aa07b942843</Guid>
+          <Name>VerticalLinePrimitive5</Name>
+          <Page isRef="3" />
+          <Parent isRef="3" />
+          <StartCap Ref="245" type="Cap" isKey="true">
+            <Color>Black</Color>
+          </StartCap>
+        </VerticalLinePrimitive5>
+        <VerticalLinePrimitive7 Ref="246" type="VerticalLinePrimitive" isKey="true">
+          <ClientRectangle>5.55,4.01,0.0254,7.4</ClientRectangle>
+          <Color>Black</Color>
+          <EndCap Ref="247" type="Cap" isKey="true">
+            <Color>Black</Color>
+          </EndCap>
+          <Guid>910e888191f643969b6fd4956faa339a</Guid>
+          <Name>VerticalLinePrimitive7</Name>
+          <Page isRef="3" />
+          <Parent isRef="3" />
+          <StartCap Ref="248" type="Cap" isKey="true">
+            <Color>Black</Color>
+          </StartCap>
+        </VerticalLinePrimitive7>
+        <VerticalLinePrimitive6 Ref="249" type="VerticalLinePrimitive" isKey="true">
+          <ClientRectangle>6.45,4.51,0.0254,6.9</ClientRectangle>
+          <Color>Black</Color>
+          <EndCap Ref="250" type="Cap" isKey="true">
+            <Color>Black</Color>
+          </EndCap>
+          <Guid>be01b8316faa47a4b6009fa26aff82fd</Guid>
+          <Name>VerticalLinePrimitive6</Name>
+          <Page isRef="3" />
+          <Parent isRef="3" />
+          <StartCap Ref="251" type="Cap" isKey="true">
+            <Color>Black</Color>
+          </StartCap>
+        </VerticalLinePrimitive6>
+      </Components>
+      <Conditions isList="true" count="0" />
+      <Guid>f9b69aa7a67d4031b36be2ccb6e35fdd</Guid>
+      <Margins>1,1,1,0</Margins>
+      <Name>Page1</Name>
+      <Orientation>Landscape</Orientation>
+      <PageHeight>14.8</PageHeight>
+      <PageWidth>21</PageWidth>
+      <PaperSize>A5</PaperSize>
+      <Report isRef="0" />
+      <Watermark Ref="252" type="Stimulsoft.Report.Components.StiWatermark" isKey="true">
+        <Font>Arial,100</Font>
+        <TextBrush>[50:0:0:0]</TextBrush>
+      </Watermark>
+    </Page1>
+  </Pages>
+  <PreviewSettings>268435455</PreviewSettings>
+  <PrinterSettings Ref="253" type="Stimulsoft.Report.Print.StiPrinterSettings" isKey="true" />
+  <ReferencedAssemblies isList="true" count="8">
+    <value>System.Dll</value>
+    <value>System.Drawing.Dll</value>
+    <value>System.Windows.Forms.Dll</value>
+    <value>System.Data.Dll</value>
+    <value>System.Xml.Dll</value>
+    <value>Stimulsoft.Controls.Dll</value>
+    <value>Stimulsoft.Base.Dll</value>
+    <value>Stimulsoft.Report.Dll</value>
+  </ReferencedAssemblies>
+  <ReportAlias>Report</ReportAlias>
+  <ReportChanged>4/7/2019 8:48:46 AM</ReportChanged>
+  <ReportCreated>9/5/2017 9:03:40 AM</ReportCreated>
+  <ReportFile>C:\PayRollProject\Presentation.Report\Resources\SalaryBill.mrt</ReportFile>
+  <ReportGuid>2509c93623634a8a9cc4dbf9c2de585f</ReportGuid>
+  <ReportImage isNull="true" />
+  <ReportName>Report</ReportName>
+  <ReportUnit>Centimeters</ReportUnit>
+  <ReportVersion>2016.3.0</ReportVersion>
+  <Script>using System;
+using System.Drawing;
+using System.Windows.Forms;
+using System.Data;
+using Stimulsoft.Controls;
+using Stimulsoft.Base.Drawing;
+using Stimulsoft.Report;
+using Stimulsoft.Report.Dialogs;
+using Stimulsoft.Report.Components;
+
+namespace Reports
+{
+    public class Report : Stimulsoft.Report.StiReport
+    {
+        public Report()        {
+            this.InitializeComponent();
+        }
+
+        #region StiReport Designer generated code - do not modify
+		#endregion StiReport Designer generated code - do not modify
+    }
+}
+</Script>
+  <ScriptLanguage>CSharp</ScriptLanguage>
+  <Styles isList="true" count="0" />
+</StiSerializer>

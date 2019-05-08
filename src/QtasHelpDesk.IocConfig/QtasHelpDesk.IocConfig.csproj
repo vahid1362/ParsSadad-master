@@ -1,0 +1,18 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+  </PropertyGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\QtasHelpDesk.Common\QtasHelpDesk.CrossCutting.csproj" />
+    <ProjectReference Include="..\QtasHelpDesk.DataLayer\QtasHelpDesk.DataLayer.csproj" />
+    <ProjectReference Include="..\QtasHelpDesk.ViewModels\QtasHelpDesk.ViewModels.csproj" />
+    <ProjectReference Include="..\QtasHelpDesk.Services\QtasHelpDesk.Services.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Relational" Version="2.2.4" />
+    <PackageReference Include="Microsoft.Extensions.Caching.SqlServer" Version="2.2.0" />
+    <PackageReference Include="Microsoft.Extensions.Configuration.Abstractions" Version="2.2.0" />
+    <PackageReference Include="Microsoft.Extensions.Options" Version="2.2.0" />
+    <PackageReference Include="Telerik.UI.for.AspNet.Core" Version="2019.1.220" />
+  </ItemGroup>
+</Project>

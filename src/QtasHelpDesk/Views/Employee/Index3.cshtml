@@ -1,0 +1,406 @@
+﻿@using Kendo.Mvc.UI
+@using QtasHelpDesk.ViewModels.PayRoll
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<section class="content-header">
+    <div class="row">
+        <div class="col-md-12">
+            <ol class="breadcrumb">
+                <li><a href="@Url.Action("List")"><i class="fa fa-dashboard "></i>داشبورد</a></li>
+                <li class="active">@ViewBag.Title</li>
+            </ol>
+        </div>
+    </div>
+</section>
+<section class="content">
+    <div class="box box-info">
+        @*<div class="box-header with-border">
+                <div class="col-md-12">
+                </div>
+                <div class="row">
+                </div>
+            </div>*@
+        <div class="row">
+
+            <div class="col-md-12 text-center" style="margin-top: 15px;">
+
+                <div class="box box-info box-solid">
+                  
+                    <div class="box-header with-border ">
+                        <marquee direction="right">
+                            <h3 class="box-title">
+
+                                <span id="Quote"></span>
+
+                            </h3>
+                        </marquee>
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="col-md-12" style="margin-top: 10px;">
+
+                <div class="col-md-1">
+                    <div style="margin-top: 2px; margin-left: 5px">
+                        <a href="#" class="dropdown-toggle " data-toggle="dropdown">
+                            <div class="text-center col-md-12 ">
+                                <div class="col-md-2"></div>
+                                <div class="col-md-8 bg-9"></div>
+                                <div class="col-md-2"></div>
+                            </div>
+                            <div class="row text-center">
+                                <span class="hidden-xs">تغییر رمز عبور</span>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-md-1">
+                    <div style="margin-top: 2px; margin-left: 5px">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                            <div class="text-center col-md-12">
+                                <div class="col-md-2"></div>
+                                <div class="col-md-8 bg-8"></div>
+                                <div class="col-md-2"></div>
+                            </div>
+                            <div class="text-center">
+                                <span class="hidden-xs">تصاویر کارکنان</span>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-md-1">
+                    <div style="margin-top: 2px; margin-left: 5px">
+                        <a  id="payroll2" href="">
+                            <div class="text-center col-md-12">
+                                <div class="col-md-2"></div>
+                                <div class="col-md-8 bg-2"></div>
+                                <div class="col-md-2"></div>
+                            </div>
+                            <div class="text-center">
+                                <span class="hidden-xs">فیش حقوقی</span>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-md-1">
+                    <div style="margin-top: 2px; margin-left: 5px">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                            <div class="text-center col-md-12">
+                                <div class="col-md-2"></div>
+                                <div class="col-md-8 bg-3"></div>
+                                <div class="col-md-2"></div>
+                            </div>
+                            <div class="text-center">
+                                <span class="hidden-xs">احکام پرسنلی</span>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-md-1">
+                    <div style="margin-top: 2px; margin-left: 5px">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                            <div class="text-center col-md-12">
+                                <div class="col-md-2"></div>
+                                <div class="col-md-8 bg-1"></div>
+                                <div class="col-md-2"></div>
+                            </div>
+                            <div class="text-center">
+                                <span class="hidden-xs">درخواست مرخصی</span>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-md-1">
+                    <div style="margin-top: 2px; margin-left: 5px">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                            <div class="text-center col-md-12">
+                                <div class="col-md-2"></div>
+                                <div class="col-md-8 bg-4"></div>
+                                <div class="col-md-2"></div>
+                            </div>
+                            <div class="text-center">
+                                <span class="hidden-xs">سوابق مرخصی</span>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-md-1">
+                    <div style="margin-top: 2px; margin-left: 5px">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                            <div class="text-center col-md-12">
+                                <div class="col-md-2"></div>
+                                <div class="col-md-8 bg-7"></div>
+                                <div class="col-md-2"></div>
+                            </div>
+                            <div class="text-center">
+                                <span class="hidden-xs">سوابق تامین اجتماعی</span>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-md-1">
+                    <div style="margin-top: 2px; margin-left: 5px">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                            <div class="text-center col-md-12">
+                                <div class="col-md-2"></div>
+                                <div class="col-md-8 bg-5"></div>
+                                <div class="col-md-2"></div>
+                            </div>
+                            <div class="text-center">
+                                <span class="hidden-xs">فرم دندانپزشکی</span>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-md-1">
+                    <div style="margin-top: 2px; margin-left: 5px">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                            <div class="text-center col-md-12">
+                                <div class="col-md-2"></div>
+                                <div class="col-md-8 bg-6"></div>
+                                <div class="col-md-2"></div>
+                            </div>
+                            <div class="text-center">
+                                <span class="hidden-xs">فرم زائر سرا</span>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-md-1 ">
+                    <div style="margin-top: 2px; margin-left: 5px">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                            <div class="text-center col-md-12">
+                                <div class="col-md-2"></div>
+                                <div class="col-md-8 bg-10 "></div>
+                                <div class="col-md-2"></div>
+                            </div>
+                            <div class="text-center">
+                                <span class="hidden-xs">اتوماسیون</span>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-md-1 ">
+                    <div style="margin-top: 2px; margin-left: 5px">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                            <div class="text-center col-md-12">
+                                <div class="col-md-2"></div>
+                                <div class="col-md-8 bg-11"></div>
+                                <div class="col-md-2"></div>
+                            </div>
+                            <div class="text-center">
+                                <span class="hidden-xs">درخواست ملاقات</span>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-md-1 ">
+                    <div style="margin-top: 2px; margin-left: 5px">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                            <div class="text-center col-md-12">
+                                <div class="col-md-2"></div>
+                                <div class="col-md-8 bg-12"></div>
+                                <div class="col-md-2"></div>
+                            </div>
+                            <div class="text-center">
+                                <span class="hidden-xs">پیشنهادات</span>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-12">
+                <div class="col-md-3">
+                    <div style="margin-top: 8px; margin-left: 10px">
+                        <div class="row"><span class="text-center "><b>تقویم کاری</b></span></div>
+                        <div class="text-center box box-info">
+                            <div id="calendarShamsi"></div>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div style="margin-top: 8px; margin-left: 10px">
+                        <div class="row">
+                            <span class="text-center "><b>ساعت</b></span>
+                        </div>
+                        <div style="text-align: center;" class="box box-danger">
+                            <canvas id="canvas" width="200" height="200"></canvas>
+                        </div>
+
+
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div style="margin-top: 8px; margin-left: 10px">
+                        <div class="row">
+                            <span class="text-center "><b>اعلان</b></span>
+                        </div>
+                        <div style="min-height: 275px;" class="box box-success">
+                            <span class="text-center " id="Notice"></span>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-12">
+                <div class="col-md-4">
+                    <span class="text-center "><b>پیام رسانی</b></span>
+                    <div class="box box-primary direct-chat direct-chat-primary">
+                        <div class="box-header with-border" id="chat">
+
+                            <form id="frm-send-message" action="#">
+
+
+                                <!-- /.box-header -->
+                                <div class="box-body">
+                                    <!-- Conversations are loaded here -->
+                                    <div id="divscroll" onload="scrollToBottom()" class="direct-chat-messages">
+
+                                        <ul id="messages"></ul>
+                                    </div>
+
+                                </div>
+                                <!-- /.box-body -->
+                                <div class="box-footer">
+                                    <form action="#" method="post">
+                                        <div class="input-group">
+                                            <input type="text" id="message" name="message" placeholder="متن پیام...." class="form-control">
+                                            <span class="input-group-btn">
+                                                <button type="submit" id="send" class="btn btn-primary btn-flat">
+                                                    ارسال
+                                                    <i class="fa fa-paper-plane"></i>
+                                                </button>
+
+                                            </span>
+                                        </div>
+                                    </form>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="col-md-4">
+                    <div style="margin-top: 8px; margin-left: 10px">
+                        <span class="text-center "><b>گالری</b></span>
+                        <div class="box box-warning">
+                            <div class="box box-solid">
+
+                                <!-- /.box-header -->
+                                <div class="box-body">
+                                    <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+                                        <ol class="carousel-indicators">
+                                            <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+                                            <li data-target="#carousel-example-generic" data-slide-to="1" class=""></li>
+                                            <li data-target="#carousel-example-generic" data-slide-to="2" class=""></li>
+                                        </ol>
+                                        <div class="carousel-inner">
+                                            <div class="item active">
+                                                <img src="~/images/Slider/1.jpg" />
+                                                <div class="carousel-caption">
+                                                    First Slide
+                                                </div>
+                                            </div>
+                                            <div class="item">
+                                                <img src="~/images/Slider/2.jpg" />
+                                                <div class="carousel-caption">
+                                                    Second Slide
+                                                </div>
+                                            </div>
+                                            <div class="item">
+                                                <img src="~/images/Slider/3.jpg" />
+                                                <div class="carousel-caption">
+                                                    Third Slide
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <a class="left carousel-control" href="#carousel-example-generic" data-slide="prev">
+                                            <span class="fa fa-angle-left"></span>
+                                        </a>
+                                        <a class="right carousel-control" href="#carousel-example-generic" data-slide="next">
+                                            <span class="fa fa-angle-right"></span>
+                                        </a>
+                                    </div>
+                                </div>
+                                <!-- /.box-body -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+
+                    <div id="note">
+                        <partial name="_Notes" model="@Model" />
+                    </div>
+                </div>
+
+
+            </div>
+
+        </div>
+    </div>
+
+</section>
+<script src="~/Lib/signalr/signalr.min.js"></script>
+<script src="~/js/CanavasClock.js"></script>
+@section scripts
+    {
+
+    <script>
+
+
+        $(document).ready(function() {
+            $("#calendarShamsi").kendoCalendarShamsi({ culture: "fa-IR" });
+
+           
+
+
+        });
+
+
+
+        const connection = new signalR.HubConnectionBuilder()
+            .withUrl("/chat")
+            .build();
+
+        connection.start().catch(err => console.error(err.toString()));
+
+        connection.on('Send',
+            (nick, message) => {
+                appendLine(nick, message);
+            });
+
+        document.getElementById('frm-send-message').addEventListener('submit',
+            event => {
+                let message = $('#message').val();
+                let nick = $('#spn-nick').text();
+
+                $('#message').val('');
+
+                connection.invoke('Send', nick, message);
+                event.preventDefault();
+            });
+
+        function appendLine(nick, message, color) {
+            let nameElement = document.createElement('strong');
+            nameElement.innerText = `${nick}:`;
+
+            let msgElement = document.createElement('em');
+            msgElement.innerText = ` ${message}`;
+
+            let li = document.createElement('li');
+            li.appendChild(nameElement);
+            li.appendChild(msgElement);
+
+            $('#messages').append(li);
+        };
+
+
+    </script>
+}
+

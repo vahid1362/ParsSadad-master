@@ -1,0 +1,54 @@
+﻿@using Kendo.Mvc.UI
+@model QtasHelpDesk.ViewModels.Content.GroupViewModel
+<div class="box-body">
+    @Html.HiddenFor(x => x.Id)
+    <div class="row">
+        <div class="col-md-12">
+            <div class="form-group">
+                @Html.Label("", "گروه والد", new { @class = "control-label col-md-3" })
+                <div class="col-md-5">
+                    @Html.DropDownListFor(model => Model.ParentId, Model.AvaiableGroup, new { @class = "form-control", Id = "Dropdown" })
+                </div>
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(model => model.Title, htmlAttributes: new { @class = "control-label col-md-3" })
+                <div class="col-md-6">
+                    @Html.EditorFor(model => model.Title, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.Title, "", new { @class = "text-danger" })
+                </div>
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(model => model.Description, htmlAttributes: new { @class = "control-label col-md-3" })
+                <div class="col-md-6">
+                    @Html.EditorFor(model => model.Description, new { htmlAttributes = new { @class = "form-control date-textbox" } })
+                    @Html.ValidationMessageFor(model => model.Description, "", new { @class = "text-danger" })
+                </div>
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(model => model.Priority, htmlAttributes: new { @class = "control-label col-md-3" })
+                <div class="col-md-6">
+                    @Html.TextBoxFor(model => model.Priority, new { htmlAttributes = new { @class = "form-control " } })
+                    @Html.ValidationMessageFor(model => model.Priority, "", new { @class = "text-danger" })
+                </div>
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(model => model.IsPrivate, htmlAttributes: new { @class = "control-label col-md-3" })
+                <div class="col-md-6 ">
+                    @Html.CheckBoxFor(model => model.IsPrivate, new { htmlAttributes = new { @class = "form-control " } })
+                </div>
+            </div>
+            
+        </div>
+    </div>
+
+</div>
+@section Scripts
+{
+    <script src="~/Lib/Select2/js/select2.js"></script>
+    <script>
+       
+        $(function() {
+            $("#Dropdown").select2();
+        });
+    </script> 
+}

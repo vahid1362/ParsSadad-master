@@ -1,0 +1,79 @@
+﻿
+
+.bg-1 {
+    width: 70px; height: 70px;
+    background: url('../images/imgsprites1.png') -10px -10px;
+}
+
+
+.bg-2 {
+    width: 70px; height: 70px;
+    background: url('../images/imgsprites1.png') -100px -10px;
+}
+
+
+.bg-3 {
+    width: 70px; height: 70px;
+    background: url('../images/imgsprites1.png') -10px -100px;
+}
+
+
+.bg-4 {
+    width: 70px; height: 70px;
+    background: url('../images/imgsprites1.png') -100px -100px;
+}
+
+
+.bg-5 {
+    width: 70px; height: 70px;
+    background: url('../images/imgsprites1.png') -190px -10px;
+}
+
+
+.bg-6 {
+    width: 70px; height: 70px;
+    background: url('../images/imgsprites1.png') -190px -100px;
+}
+
+
+.bg-7 {
+    width: 70px; height: 70px;
+    background: url('../images/imgsprites1.png') -10px -190px;
+}
+
+
+.bg-8 {
+    width: 70px; height: 70px;
+    background: url('../images/imgsprites1.png') -100px -190px;
+}
+
+
+.bg-11 {
+    width: 70px; height: 70px;
+    background: url('../images/imgsprites1.png') -190px -190px;
+}
+
+
+.bg-9 {
+    width: 70px; height: 70px;
+    background: url('../images/imgsprites1.png') -280px -10px;
+}
+
+
+.bg-10 {
+    width: 70px; height: 70px;
+    background: url('../images/imgsprites1.png') -280px -100px;
+}
+
+
+.bg-12 {
+    width: 70px;
+    height: 70px;
+    background: url('../images/imgsprites1.png') -280px -190px;
+}
+.stickyImg {
+    width: 600px;
+    height: 250px;
+    background:  url('../images/sticky.png');
+}
+

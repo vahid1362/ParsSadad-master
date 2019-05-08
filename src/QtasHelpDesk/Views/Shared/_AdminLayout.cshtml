@@ -1,0 +1,145 @@
+﻿@using QtasHelpDesk.CrossCutting.IdentityToolkit
+@{
+    var imagesrc = User.Identity.GetUserClaimValue("Photo");
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>@*  *@</title>
+    <!-- Tell the browser to be responsive to screen width -->
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+    <link href="~/lib/AdminLte/css/bootstrap-theme.css" rel="stylesheet" />
+    <link href="~/lib/AdminLte/css/rtl.css" rel="stylesheet" />
+
+    <!-- Theme style -->
+    <link href="~/Lib/AdminLte/css/skins/_all-skins.css" rel="stylesheet" />
+    <link href="~/lib/AdminLte/css/AdminLTE.css" rel="stylesheet" />
+
+    <!-- AdminLTE Skins. Choose a skin from the css/skins
+    folder instead of downloading all of them to reduce the load. -->
+
+    <link href="~/lib/AdminLte/css/skins/_all-skins.css" rel="stylesheet" asp-file-version="true" />
+    <link href="~/css/KendoUI.css" rel="stylesheet" asp-file-version="true" />
+
+       <link href="~/css/SpriteImg.css" rel="stylesheet" asp-file-version="true" />
+
+    <link href="~/css/toastr.min.css" rel="stylesheet" asp-file-version="true" />
+
+    <!--  Jquery-->
+    <script src="~/js/site.min.js"></script>
+
+    <!--Kendo-->
+    <script src="~/js/KendoUI.js"></script>
+    <!-- New FonAwesom-->
+    <script src="~/Fonts/New AweSome/js/all.js"></script>
+
+    <!-- AdminLte-->
+    <script src="~/lib/AdminLte/js/adminlte.js"></script>
+
+
+    <!-- toast-->
+    <script src="~/js/toastr.min.js" asp-file-version="true"></script>
+</head>
+<body class="skin-blue sidebar-mini">
+    <div class="wrapper">
+        <header class="main-header">
+            <a href="#" class="logo">
+                <!-- mini logo for sidebar mini 50x50 pixels -->
+                <span class="logo-mini">
+                 
+                </span>
+                <!-- logo for regular state and mobile devices -->
+                <span class="logo-lg">
+                    <span class="logo-lg">
+                        <b>
+                          شرکت پارس
+                        </b>
+                    </span>
+                    <img class="img-responsive" />
+                </span>
+            </a>
+            <nav class="navbar navbar-static-top" role="navigation">
+                <a href="#" class="sidebar-toggle fa-address-book-o" data-toggle="push-menu" role="button">
+                    <i class="fa fa-bars"></i>
+                </a>
+                <div class="navbar-custom-menu">
+                    <ul class="nav navbar-nav">
+                        <!-- پنل مربوط به تصویر و پروفایل کاربر-->
+                        <li class="dropdown user user-menu">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                <img src='~/images/avatar.png' class="user-image" alt="User Image">
+                                <span class="hidden-xs" id="spn-nick">
+                                    @User.Identity.GetUserFullName()
+                                </span>
+                            </a>
+                            @*<ul class="dropdown-menu">
+                                <li class="user-header">
+                                    <img src='@imagesrc' class="img-circle" alt="User Image">
+                                    <p>
+                                        @User.Identity.GetUserFullName()
+                                    </p>
+                                    <div class="user-footer">
+                                        <div class="pull-right k-fontSize">
+                                            <a href="#" class="btn btn-block btn-success"> نمایه </a>
+                                        </div>
+                                        <div class="pull-left k-fontSize">
+                                            <a  href="/home/LogOff"
+                                                class="btn btn-block btn-danger">خروج</a>
+                                        </div>
+                                    </div>
+                                    
+
+                                </li>
+
+                            </ul>*@
+                            <ul class="dropdown-menu">
+                                <!-- User image -->
+                                <li class="user-header">
+                                    <img src="~/images/avatar.png" class="img-circle" alt="User Image">
+
+                                    <p>
+                                        @User.Identity.GetUserFullName()
+                                    </p>
+                                </li>
+                              
+                                <!-- Menu Footer-->
+                                <li class="user-footer">
+                                    <div class="pull-left">
+                                        <a  href="/home/LogOff"
+                                            class="btn btn-block btn-danger">خروج</a>
+                                     
+                                    </div>
+                                    <div class="pull-right">
+                                        @*<a href="#" class="btn btn-default btn-flat">Profile</a>*@
+                                    </div>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </header>
+
+        <partial name="_RightSideMenu" />
+
+        <div class="content-wrapper">
+            <breadcrumb asp-homepage-title="خانه"
+                        asp-bootstrap-version="V4"
+                        asp-homepage-url="@Url.Action("Index", "Home", values: new { area = "Identity" })"
+                        asp-homepage-glyphicon="fas fa-home"></breadcrumb>
+            @RenderBody()
+        </div>
+        <footer class="main-footer"></footer>
+    </div>
+
+
+
+    @await Component.InvokeAsync("NToastNotify")
+    @RenderSection("scripts", required: false)
+
+<script src="~/AdminLTE/dist/js/app.js" ></script>
+</body>
+
+</html>
+

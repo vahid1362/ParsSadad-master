@@ -1,0 +1,109 @@
+﻿@using QtasHelpDesk.CrossCutting.IdentityToolkit
+
+@{
+   var imagesrc= User.Identity.GetUserClaimValue("Photo");
+    
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <!-- Tell the browser to be responsive to screen width -->
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+    
+
+    <link href="~/lib/AdminLte/css/bootstrap-theme.css" rel="stylesheet" />
+
+
+    <!-- Theme style -->
+    <link href="~/Lib/AdminLte/css/skins/_all-skins.css" rel="stylesheet" />
+    <link href="~/lib/AdminLte/css/AdminLTE.css" rel="stylesheet" />
+
+    <!-- AdminLTE Skins. Choose a skin from the css/skins
+    folder instead of downloading all of them to reduce the load. -->
+
+    <link href="~/lib/AdminLte/css/skins/_all-skins.css" rel="stylesheet" />
+    <link href="~/Fonts/Font Awesome/css/fontawesome-all.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="~/AdminLTE/dist/fonts/fonts-fa.css">
+        <script src="~/Lib/jquery/dist/jquery.min.js"></script>
+   
+  
+
+    <!--  toastr-->
+    <script src="~/lib/bootstrap/dist/js/bootstrap.js"></script>
+    <script src="~/lib/AdminLte/js/adminlte.js"></script>
+    <script src="~/lib/AdminLte/js/demo.js"></script>
+
+ 
+
+    <!--Select2-->
+    
+    <script src="~/AdminLTE/dist/js/app.js"></script>
+
+
+
+</head>
+<body class="skin-blue ">
+    <div  style="background-color:lightgray">
+        <header class="main-header">
+            <a href ="@Url.Action("Index","Employee")" class="logo">
+                <!-- mini logo for sidebar mini 50x50 pixels -->
+                <span class="logo-mini">
+                    <img src="~/images/arm3.png" class="img-responsive" />
+                </span>
+                <!-- logo for regular state and mobile devices -->
+                <span class="logo-lg">
+                    <span class="logo-lg"><b>توسعه عصر شمال</b></span>
+                    <img src="~/images/arm1.png" class="img-responsive" />
+                </span>
+            </a>
+            <nav class="navbar navbar-static-top" role="navigation">
+                <a href="#" class="sidebar-toggle fa-address-book-o" data-toggle="push-menu" role="button">
+                    <span class=""></span>
+                </a>
+                <div class="navbar-custom-menu">
+                    <ul class="nav navbar-nav">
+                        <!-- پنل مربوط به تصویر و پروفایل کاربر-->
+                        <li class="dropdown user user-menu">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                <img src="@imagesrc" class="user-image" alt="User Image">
+                                <span class="hidden-xs" id="spn-nick">@User.Identity.GetUserFullName()</span>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li class="user-header">
+                                    <img src="@imagesrc" class="img-circle" alt="User Image">
+                                    <p>
+                                        <small></small>
+                                    </p>
+                                    <div class="user-footer">
+                                        <div class="pull-right k-fontSize">
+                                            <a href="#" class="btn btn-block btn-success"> نمایه </a>
+                                        </div>
+                                        <div class="pull-left k-fontSize">
+                                            <a asp-controller="Home"
+                                               asp-action="LogOff" class="btn btn-block btn-danger">خروج</a>
+                                        </div>
+                                    </div>
+                                </li>
+
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </header>
+     <div class="content">
+            @RenderBody()
+        </div>
+        <footer class="main-footer"></footer>
+    </div>
+  
+</body>
+
+</html>
+

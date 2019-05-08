@@ -1,0 +1,55 @@
+﻿@model IEnumerable<QtasHelpDesk.ViewModels.Content.GroupViewModel>
+@{
+    ViewData["Title"] = "تالار گفتگو";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+@foreach (var group in Model)
+{
+    <div class="card bg-success text-white" style="height:45px;">
+        <div class="card-body" style="background-color: #0086DC;">
+            <h5 class="card-title">
+                <span>
+                    <i class="fas fa-address-book fa-1x"></i>
+                </span>@group.Title
+            </h5>
+
+        </div>
+    </div>
+
+    <div class="card">
+
+        <div class="row">
+            <div class="col-md-9">
+                <div class="card-body">
+                    <h2><a href="/Forums/Forum19.html">@group.Title</a></h2>
+                    <p>@group.Description</p>
+                    
+                                                @foreach (var subgroup in group.SubGroups)
+                        {
+                           
+                      <a href="#"><i class="fas fa-clipboard fa-1x" style="color: #0086DC;" ></i>  @subgroup.Title   </a>
+                           
+                        }
+                   
+                </div>
+            </div>
+            <div class="col-md-3" style="border-right:solid 1px gray">
+                <div class="card-body">
+                    <p>تعداد پست ها</p>
+
+                </div>
+            </div>
+        </div>
+        <div class="card-footer">
+            <span><i class="fas fa-user"></i> مدیر این بخش :Admin</span>
+        </div>
+    </div>
+    <br />
+}
+
+
+
+
+

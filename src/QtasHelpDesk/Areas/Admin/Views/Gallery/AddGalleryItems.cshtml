@@ -1,0 +1,42 @@
+﻿@using Kendo.Mvc.UI
+@using QtasHelpDesk.ViewModels.Media
+@model GalleryPictureViewModel
+@{
+    ViewData["Title"] = "AddGalleryItems";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<section class="content">
+        <partial name="_CreateOrEditItem" model=@Model />
+        <div class="box-body">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="k-rtl">
+                        @(Html.Kendo().Grid<GalleryPictureViewModel>
+    ().Name("Galleries").
+    Columns(column =>
+    {
+
+    column.Bound(c => c.Title);
+    column.Bound(p => p.Picture64)
+    .ClientTemplate("<img src='data:image/png;base64,#=Picture64#' height='80' width='90' />").Title("تصویر");
+    column.Command(command => { command.Destroy(); }).Width(160);
+
+    })
+    .Editable(editable =>
+    {
+    editable.Mode(GridEditMode.InLine);
+    editable.DisplayDeleteConfirmation("آیا  از حذف این اطلاعات مطمئن  هستنید");
+    })
+    .Pageable()
+    .DataSource(x => x.Ajax()
+    .Read(read => read.Action("GalleryItem_Read", "Gallery", new { galleryId = @Model.GalleryId }))
+    .Destroy(update => update.Action("GalleryItem_Delete","Gallery"))
+    .Model(m => m.Id(g => g.Id))))
+</div>
+                </div>
+            </div>
+        </div>
+</section>
+
+

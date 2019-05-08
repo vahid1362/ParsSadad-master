@@ -1,0 +1,133 @@
+﻿@model QtasHelpDesk.ViewModels.Identity.UserViewModel
+
+@{
+    ViewData["Title"] = "ویرایش اطلاعات کاربران";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<form asp-controller="User" asp-action="Edit" method="post" class="form-horizontal">
+    <section class="content-header">
+        
+    </section>
+    <section class="content">
+        <div class="box box-info">
+            <div class="box-header with-border">
+               <div class="col-md-12">
+                        <h3 class="box-title">ویرایش کاربر</h3>
+                    </div>
+                <div class="row">
+                    <div class="text-left">
+                        <button type="submit" class="btn btn-success"><i class="fa fa-save fa-lg"></i>ذخیره</button>
+
+                        <a href="@Url.Action("List")" class="btn btn-default"><i class="fa fa-backward fa-lg"></i>بازگشت</a>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+                <input asp-for="Id" class="form-control" />
+
+                <div class="form-group">
+                    <label asp-for="UserName" class="control-label col-md-2"></label>
+                    <div class="col-md-4">
+                        <input asp-for="UserName" onblur="triggerRemoteValidation()" class="form-control" />
+                        <span asp-validation-for="UserName" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label asp-for="FirstName" class="control-label col-md-2"></label>
+                    <div class="col-md-4">
+                        <input asp-for="FirstName" class="form-control" />
+                        <span asp-validation-for="FirstName" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label asp-for="LastName" class="control-label col-md-2"></label>
+                    <div class="col-md-4">
+                        <input asp-for="LastName" class="form-control" />
+                        <span asp-validation-for="LastName" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label asp-for="IsActive" class="control-label col-md-2"></label>
+                    <div class="col-md-4">
+                        <div class="checkbox">
+                            <label>
+                                <input asp-for="IsActive" />
+                            </label>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label asp-for="NationalIdentity" class="control-label col-md-2"></label>
+                    <div class="col-md-2">
+                        <input asp-for="NationalIdentity" class="form-control" />
+                        <span asp-validation-for="NationalIdentity" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="form-group ">
+                    <label class="control-label col-md-2">تاریخ تولد</label>
+                    <div class="col-md-4">
+                        <div class=" col-md-10 form-inline">
+                            <select asp-for="DateOfBirthDay" class="form-control"
+                                    asp-items="Enumerable.Range(1, 31).Select(i => new SelectListItem { Value = i.ToString(), Text = i.ToString() })">
+                                <option value="">-- روز --</option>
+                            </select> /
+                            <select asp-for="DateOfBirthMonth" class="form-control"
+                                    asp-items="Enumerable.Range(1, 12).Select(i => new SelectListItem { Value = i.ToString(), Text = i.ToString() })">
+                                <option value="">-- ماه --</option>
+                            </select> /
+                            <select asp-for="DateOfBirthYear" class="form-control"
+                                    asp-items="Enumerable.Range(1300, 90).Select(i => new SelectListItem { Value = i.ToString(), Text = i.ToString() })">
+                                <option value="">-- سال --</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Mobile" class="control-label col-md-2"></label>
+                    <div class="col-md-2">
+                        <input asp-for="Mobile" class="form-control" />
+                        <span asp-validation-for="Mobile" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="form-group ">
+                    <label class="control-label col-md-3">
+                        کد امنیتی
+                    </label>
+                    <div class="col col-md-7">
+                        <dnt-captcha asp-captcha-generator-max="9000"
+                                     asp-captcha-generator-min="1"
+                                     asp-captcha-generator-language="Persian"
+                                     asp-font-name="Tahoma"
+                                     asp-font-size="20"
+                                     asp-refresh-button-class="fas fa-redo btn-sm"
+                                     asp-fore-color="#333333"
+                                     asp-back-color="#ccc"
+                                     asp-text-box-class="text-box form-control"
+                                     asp-text-box-template="<div class='input-group'><span class='input-group-prepend'><span class='input-group-text'><i class='fas fa-lock'></i></span></span>{0}</div>"
+                                     asp-validation-message-class="text-danger" />
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+
+    </section>
+</form>
+@section Scripts
+    {
+    <script type="text/javascript">
+        function triggerRemoteValidation() {
+            $('#@nameof(UserViewModel.UserName)').removeData('previousValue');
+            $('form').validate().element('#@nameof(UserProfileViewModel.UserName)');
+
+
+        }
+    </script>
+}
+
+
+

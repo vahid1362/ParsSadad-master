@@ -1,0 +1,33 @@
+﻿@model QtasHelpDesk.ViewModels.Media.GalleryViewModel
+
+@{
+    ViewData["Title"] = "EditGallery";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<form asp-controller="Gallery" asp-action="CreateGallery" method="post" class="form-horizontal">
+    <section class="content-header">
+        <div class="row">
+
+        </div>
+    </section>
+    <section class="content">
+        <div class="box box-info">
+            <div class="box-header with-border">
+                <div class="row">
+                    <div class="text-left">
+                        <button type="submit" class="btn btn-success"><i class="fa fa-save fa-lg"></i>ذخیره</button>
+
+                        <a href="@Url.Action("List")" class="btn btn-default" style="margin: 10px;"><i class="fa fa-backward fa-lg"></i>بازگشت</a>
+                    </div>
+                </div>
+            </div>
+            <partial name="_CreateOrEdit" model=@Model />
+
+        </div>
+
+
+    </section>
+</form>
+
+

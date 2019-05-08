@@ -1,0 +1,61 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.572
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "QtasHelpDesk", "src\QtasHelpDesk\QtasHelpDesk.csproj", "{A9C433A2-A6D8-4DB4-A555-C5250C0EE362}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "QtasHelpDesk.CrossCutting", "src\QtasHelpDesk.Common\QtasHelpDesk.CrossCutting.csproj", "{18D94086-33CD-4496-B56F-995A0E780DAD}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "QtasHelpDesk.Domain", "src\QtasHelpDesk.Entities\QtasHelpDesk.Domain.csproj", "{345B9AE4-2BA8-48FF-A373-5AE222BF7D17}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "QtasHelpDesk.DataLayer", "src\QtasHelpDesk.DataLayer\QtasHelpDesk.DataLayer.csproj", "{F22243EA-34A8-4793-AE93-124746DC68AA}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "QtasHelpDesk.Services", "src\QtasHelpDesk.Services\QtasHelpDesk.Services.csproj", "{ED8ECE03-2DDA-48EC-9A4E-13CDA5FC8883}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "QtasHelpDesk.ViewModels", "src\QtasHelpDesk.ViewModels\QtasHelpDesk.ViewModels.csproj", "{E6570318-DF4B-4CED-B4C9-54BAD39D445E}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "QtasHelpDesk.IocConfig", "src\QtasHelpDesk.IocConfig\QtasHelpDesk.IocConfig.csproj", "{1CFDE340-62A8-4C2C-AA81-A87C5D8C5E8C}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{A9C433A2-A6D8-4DB4-A555-C5250C0EE362}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A9C433A2-A6D8-4DB4-A555-C5250C0EE362}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A9C433A2-A6D8-4DB4-A555-C5250C0EE362}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A9C433A2-A6D8-4DB4-A555-C5250C0EE362}.Release|Any CPU.Build.0 = Release|Any CPU
+		{18D94086-33CD-4496-B56F-995A0E780DAD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{18D94086-33CD-4496-B56F-995A0E780DAD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{18D94086-33CD-4496-B56F-995A0E780DAD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{18D94086-33CD-4496-B56F-995A0E780DAD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{345B9AE4-2BA8-48FF-A373-5AE222BF7D17}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{345B9AE4-2BA8-48FF-A373-5AE222BF7D17}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{345B9AE4-2BA8-48FF-A373-5AE222BF7D17}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{345B9AE4-2BA8-48FF-A373-5AE222BF7D17}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F22243EA-34A8-4793-AE93-124746DC68AA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F22243EA-34A8-4793-AE93-124746DC68AA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F22243EA-34A8-4793-AE93-124746DC68AA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F22243EA-34A8-4793-AE93-124746DC68AA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{ED8ECE03-2DDA-48EC-9A4E-13CDA5FC8883}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ED8ECE03-2DDA-48EC-9A4E-13CDA5FC8883}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ED8ECE03-2DDA-48EC-9A4E-13CDA5FC8883}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ED8ECE03-2DDA-48EC-9A4E-13CDA5FC8883}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E6570318-DF4B-4CED-B4C9-54BAD39D445E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E6570318-DF4B-4CED-B4C9-54BAD39D445E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E6570318-DF4B-4CED-B4C9-54BAD39D445E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E6570318-DF4B-4CED-B4C9-54BAD39D445E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1CFDE340-62A8-4C2C-AA81-A87C5D8C5E8C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1CFDE340-62A8-4C2C-AA81-A87C5D8C5E8C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1CFDE340-62A8-4C2C-AA81-A87C5D8C5E8C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1CFDE340-62A8-4C2C-AA81-A87C5D8C5E8C}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {35E2C25A-95C2-42AA-B66E-EEDA7256A7DA}
+	EndGlobalSection
+EndGlobal

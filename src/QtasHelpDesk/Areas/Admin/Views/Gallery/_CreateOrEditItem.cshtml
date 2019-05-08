@@ -1,0 +1,157 @@
+﻿@using Kendo.Mvc.UI
+@model QtasHelpDesk.ViewModels.Media.GalleryPictureViewModel
+
+<input asp-for="Id" class="form-control" />
+<div class="row">
+    <div class="form-horizontal">
+        <div class="row">
+            <div class="form-group">
+                <div class="col-md-5">
+                    <label asp-for="Title" class="control-label col-md-2"></label>
+                    <div class="col-md-10">
+                        <input asp-for="Title" class="form-control" />
+                    </div>
+                </div>
+                <div class="text-left col-md-1">
+                    انتخاب تصاویر
+                </div>
+                    <div class="col-md-2">
+                        <input type="hidden" asp-for="PictureId"/>
+                        <input type="hidden" asp-for="GalleryId"/>
+                        @(Html.Kendo().Upload()
+                              .Name("files")
+                              .Async(a => a
+                                  .Save("Save", "Gallery", new {pictureId = @Model.PictureId})
+                                  .Remove("Remove", "Gallery")
+                                  .AutoUpload(true)
+                              )
+                              .Events(events => events
+
+                                  .Remove("onRemove")
+                                  .Success("onSuccess")
+                              )
+                              .Multiple(false)
+                              .Validation(validation =>
+                              {
+                                  validation.AllowedExtensions(new string[] {".jpg", ".jpeg", ".png", ".bmp", ".gif"});
+                                  validation.MinFileSize(500).MaxFileSize(1240000);
+
+                              }))
+                    </div>
+                    <div class="col-md-2 right">
+                        <div id="images"></div>
+                    </div>
+
+                    <div class="text-right col-md-1">
+
+                        <div class="col-md-3  col-md-offset-3">
+                            <button type="button" id="addContentPicture" class="btn btn-primary">
+                                افزودن تصویر به گالری
+                            </button>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+    </div>
+</div>
+
+<script>
+
+    var pictureId='';
+    $(function () {
+
+        $('#addContentPicture').click(function () {
+
+            $("#addContentPicture").attr('disabled', true);
+
+            var title = $("#@Html.IdFor(model=>model.Title)").val();
+            var galleryId = $("#@Html.IdFor(model=>model.GalleryId)").val();
+
+            var postData = {
+                PictureId: pictureId,
+                Title: title,
+                GalleryId: galleryId
+
+            };
+
+
+            $.ajax({
+                type: "POST",
+                url:"@Url.Action("AddGalleryPicture", "Gallery")",
+                contentType: "application/json",
+                dataType: "json",
+                data: JSON.stringify(postData),
+                success: function (response) {
+                    $("#addContentPicture").attr('disabled', false);
+
+                    ResetForm();
+                    //$('#Galleries').data('kendoGrid').refresh();
+                    $("#Galleries").data("kendoGrid").dataSource.read();
+
+                },
+                failure: function (response) {
+                    alert("error");
+                }
+            });
+
+
+
+        });
+
+    });
+
+
+
+    function ResetForm() {
+        var upload = $("#files").data("kendoUpload");
+        upload.clearAllFiles();
+
+        $(".imageUpload").remove();
+
+        $("@Html.IdFor(x=>x.Title)").val("");
+    }
+    function onSuccess(e) {
+        if (e.operation == "upload") {
+
+
+            pictureId = e.response.pictureId;
+
+
+
+            for (var i = 0; i < e.files.length; i++) {
+                var file = e.files[i].rawFile;
+
+                if (file) {
+                    var reader = new FileReader();
+
+                    reader.onloadend = function () {
+                        $("<div ><img class='imageUpload' src=" + this.result + " /></div>").appendTo($("#images"));
+                    };
+
+                    reader.readAsDataURL(file);
+
+
+
+                }
+            }
+        }
+    }
+
+    function onRemove(e) {
+
+        $("#images").children().remove();
+    }
+
+
+
+
+</script>
+<style>
+
+
+    .imageUpload {
+        width: 140px;
+        height: 110px;
+    }
+</style>

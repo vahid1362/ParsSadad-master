@@ -1,0 +1,33 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.2</TargetFramework>
+    <AssemblyName>QtasHelpDesk.MsTests</AssemblyName>
+    <PackageId>QtasHelpDesk.MsTests</PackageId>
+    <GenerateRuntimeConfigurationFiles>true</GenerateRuntimeConfigurationFiles>
+    <GenerateAssemblyConfigurationAttribute>false</GenerateAssemblyConfigurationAttribute>
+    <GenerateAssemblyCompanyAttribute>false</GenerateAssemblyCompanyAttribute>
+    <GenerateAssemblyProductAttribute>false</GenerateAssemblyProductAttribute>
+  </PropertyGroup>
+  <ItemGroup>
+    <None Update="..\QtasHelpDesk\appsettings.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\QtasHelpDesk.DataLayer\QtasHelpDesk.DataLayer.csproj" />
+    <ProjectReference Include="..\QtasHelpDesk.Entities\QtasHelpDesk.Domain.csproj" />
+    <ProjectReference Include="..\QtasHelpDesk.Services\QtasHelpDesk.Services.csproj" />
+    <ProjectReference Include="..\QtasHelpDesk.ViewModels\QtasHelpDesk.ViewModels.csproj" />
+    <ProjectReference Include="..\QtasHelpDesk.IocConfig\QtasHelpDesk.IocConfig.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="DNTCommon.Web.Core" Version="1.3.3" />
+    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="15.9.0" />
+    <PackageReference Include="MSTest.TestAdapter" Version="1.4.0" />
+    <PackageReference Include="MSTest.TestFramework" Version="1.4.0" />
+    <PackageReference Include="Microsoft.AspNetCore.App" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{82a7f48d-3b50-4b1e-b82e-3ada8210c358}" />
+  </ItemGroup>
+</Project>

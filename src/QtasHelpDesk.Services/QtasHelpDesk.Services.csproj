@@ -1,0 +1,23 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <AssemblyName>QtasHelpDesk.Services</AssemblyName>
+    <PackageId>QtasHelpDesk.Services</PackageId>
+    <GenerateAssemblyConfigurationAttribute>false</GenerateAssemblyConfigurationAttribute>
+    <GenerateAssemblyCompanyAttribute>false</GenerateAssemblyCompanyAttribute>
+    <GenerateAssemblyProductAttribute>false</GenerateAssemblyProductAttribute>
+  </PropertyGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\QtasHelpDesk.Common\QtasHelpDesk.CrossCutting.csproj" />
+    <ProjectReference Include="..\QtasHelpDesk.DataLayer\QtasHelpDesk.DataLayer.csproj" />
+    <ProjectReference Include="..\QtasHelpDesk.Entities\QtasHelpDesk.Domain.csproj" />
+    <ProjectReference Include="..\QtasHelpDesk.ViewModels\QtasHelpDesk.ViewModels.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="DNTCommon.Web.Core" Version="1.4.0" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Relational" Version="2.2.4" />
+    <PackageReference Include="Microsoft.Extensions.Caching.SqlServer" Version="2.2.0" />
+    <PackageReference Include="Microsoft.Extensions.Configuration.Abstractions" Version="2.2.0" />
+    <PackageReference Include="Microsoft.Extensions.Options" Version="2.2.0" />
+  </ItemGroup>
+</Project>

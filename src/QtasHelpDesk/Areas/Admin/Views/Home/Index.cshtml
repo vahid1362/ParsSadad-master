@@ -1,0 +1,160 @@
+﻿@{
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<style>
+
+    #calendar,
+    #calendar .k-calendar-view,
+    #calendar .k-content {
+        width: 100%;
+    }
+
+    /* Template Days */
+
+    .exhibition,
+    .party,
+    .cocktail {
+        font-weight: bold;
+    }
+
+    .exhibition {
+        color: #ff9e00;
+    }
+
+    .party {
+        color: #ff4081;
+    }
+
+    .cocktail {
+        color: #00a1e8;
+    }
+
+    .italic {
+        font-style: italic;
+    }
+</style>
+@*<link href="~/Lib/Kendo/css/kendo.common-material.min.css" rel="stylesheet" />
+<link href="~/Lib/Kendo/css/kendo.material.min.css" rel="stylesheet" />*@
+<section class="content">
+    <div class="row">
+        <div id="Payroll" class="col-lg-2 col-xs-6" onmouseover="" style="cursor: pointer;">
+            <!-- small box -->
+            <div class="small-box bg-aqua">
+                <div class="inner">
+                    <h4>مدیریت </h4>
+                    <h4>کاربران</h4>
+                </div>
+                <div class="icon">
+                    <i class="fa fa-user"></i>
+                </div>
+                <a href="" class="small-box-footer">نمایش <i class="fa fa-arrow-circle-left"></i></a>
+            </div>
+        </div>
+        <div class="col-lg-2 col-xs-6" style="cursor: pointer;">
+            <!-- small box -->
+            <div class="small-box bg-green">
+                <div class="inner">
+                    <h4> پست های</h4>
+                    <h4>فعال</h4>
+                </div>
+                <div class="icon">
+                    <i class="fa fa-file" style="font-size: 0.85em;"></i>
+                </div>
+                <a href="#" class="small-box-footer">نمایش <i class="fa fa-arrow-circle-left"></i></a>
+            </div>
+        </div><!-- ./col -->
+        <div class="col-lg-2 col-xs-6" style="cursor: pointer;">
+            <!-- small box -->
+            <div class="small-box bg-yellow">
+                <div class="inner">
+                    <h4>آخرین </h4>
+                    <h4>سوالات</h4>
+
+                </div>
+                <div class="icon">
+                    <i class="fa fa-question" style="font-size: 0.85em;"></i>
+                </div>
+                <a href="#" class="small-box-footer">نمایش <i class="fa fa-arrow-circle-left"></i></a>
+            </div>
+        </div><!-- ./col -->
+        <div class="col-lg-2 col-xs-6" style="cursor: pointer;">
+            <!-- small box -->
+            <div class="small-box bg-red">
+                <div class="inner">
+                    <h4>آخرین</h4>
+                    <h4>مقالات</h4>
+
+                </div>
+                <div class="icon">
+                    <i class="fa fa-sticky-note" style="font-size: 0.85em;"></i>
+                </div>
+                <a href="#" class="small-box-footer">نمایش <i class="fa fa-arrow-circle-left"></i></a>
+            </div>
+        </div><!-- ./col -->
+        <div class="col-lg-2 col-xs-6" onmouseover="" style="cursor: pointer;">
+            <!-- small box -->
+            <div class="small-box bg-purple">
+                <div class="inner">
+                    <h4>آخرین</h4>
+                    <h4>نظرات</h4>
+                </div>
+                <div class="icon">
+                    <i class="fa fa-comment" style="font-size: 0.8em;"></i>
+                </div>
+                <a href="#" class="small-box-footer">نمایش <i class="fa fa-arrow-circle-left"></i></a>
+            </div>
+        </div><!-- ./col -->
+        <div class="col-lg-2 col-xs-6" onmouseover="" style="cursor: pointer;">
+            <!-- small box -->
+            <div class="small-box bg-aqua">
+                <div class="inner">
+                    <h4>اتوماسیون</h4>
+                    <h4>اداری</h4>
+                </div>
+                <div class="icon">
+                    <i class="fa fa-envelope"></i>
+                </div>
+                <a href="#" class="small-box-footer">نمایش <i class="fa fa-arrow-circle-left"></i></a>
+            </div>
+        </div><!-- ./col -->
+    </div>
+    @*<div class="row">
+        <div class="col-md-6">
+            <div class="panel panel-info">
+                <div class="panel-heading"><span class="paneltitles">یادداشت ها</span> <span class="pull icon fa fa-calendar"></span></div>
+                <div class="panel-body">
+                      <div id="calendar">
+
+                        </div>
+                      
+                </div>
+            </div>
+
+        </div>
+
+        <div class="col-md-4">
+
+        </div>
+    </div>*@
+
+
+</section>
+
+@section scripts
+    {
+    <script src="~/js/JalaliDate.js"></script>
+    <script src="~/js/kendo.web.js"></script>
+    <script src="~/js/fa-IR.js"></script>
+    <script src="~/js/kendo.calendarshamsi.js"></script>
+    <script>
+
+
+        $(function () {
+            $("#calendar").kendoCalendarShamsi({
+                culture: "fa-IR",
+                weekNumber: true,
+                footer: false
+            });
+        })
+    </script>
+}

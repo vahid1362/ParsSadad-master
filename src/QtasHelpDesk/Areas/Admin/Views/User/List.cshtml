@@ -1,0 +1,48 @@
+﻿@using Kendo.Mvc.UI
+@{
+    ViewData["Title"] = "لیست کاربران";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+
+@*<style >
+    img {
+        border: 1px solid #ddd;
+        border-radius: 4px;
+        padding: 8px;
+        width: 120px;
+        height: 140px;
+    }
+</style>*@
+<section class="content">
+    <div class="box box-info">
+        <div class="box-header with-border">
+            <div class="col-md-6">
+                <h3 class="box-title">مدیریت کاربران</h3>
+            </div>
+            <div class="text-left col-md-6">
+                <a href="@Url.Action("Create")"  class="btn btn-primary"> <i class="fa fa-plus fa-lg "></i> کاربر جدید</a>
+            </div>
+          </div>
+        <div class="box-body">
+            <div class="row" >
+                <div class="col-md-12">
+                    <div  class="k-rtl">
+                        @(Html.Kendo().Grid<UserViewModel>().Name("Users").
+                              Columns(column =>
+                              {
+                                  column.Bound(c => c.UserName).Filterable(ftb => ftb.Cell(cell => cell.Operator("contains").SuggestionOperator(FilterType.Contains)));
+                                  column.Bound(c => c.FirstName).Filterable(ftb => ftb.Cell(cell => cell.Operator("contains").SuggestionOperator(FilterType.Contains)));
+                                  column.Bound(c => c.LastName).Filterable(ftb => ftb.Cell(cell => cell.Operator("contains").SuggestionOperator(FilterType.Contains)));
+                                  column.Bound(c => c.IsActive).Filterable(false).Width(10).ClientTemplate("# if(IsActive) {# <i class='fa fa-check true-icon'></i> #} else {# <i class='fa fa-close false-icon'></i> #} #");
+                                  column.Bound(c => c.Id).Title("دستورات").Filterable(false).ClientTemplate("<a  class='btn btn-warning' href='" + Url.Action("Edit") + "?Id=#=Id#'"+"><i class=' fa fa-edit'></i>ویرایش</a>");
+                              }).Pageable()
+                              .Filterable(ftb=>ftb.Mode(GridFilterMode.Row))
+                              .DataSource(x => x.Ajax().Read(read => read.Action("User_Read", "User"))
+                                  .Model(m => m.Id(g => g.Id))))
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

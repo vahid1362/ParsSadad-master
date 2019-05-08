@@ -1,0 +1,46 @@
+﻿@using Kendo.Mvc.UI
+@using QtasHelpDesk.ViewModels.Media
+
+@{
+    ViewData["Title"] = "List";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<section class="content">
+    <div class="box box-info">
+        <div class="box-header with-border">
+            <div class="col-md-6">
+               
+            </div>
+            <div class="text-left col-md-6">
+                <a href="@Url.Action("CreateGallery")"  class="btn btn-primary"> <i class="fa fa-plus fa-lg "></i> گالری جدید</a>
+            
+            </div>
+          
+        </div>
+        <div class="box-body">
+            <div class="row" >
+                <div class="col-md-12">
+                    <div  class="k-rtl">
+                        @(Html.Kendo().Grid<GalleryViewModel>().Name("Galleries").
+                              Columns(column =>
+                              {
+
+                                  column.Bound(c => c.Title);
+                                  column.Bound(c => c.Content);
+                                  column.Bound(c => c.PersianDateTime);
+                                  column.Bound(p => p.Picture64)
+                                      .ClientTemplate("<img src='data:image/png;base64,#=Picture64#' height='80' width='90'/>").Title("تصویر");
+                                  column.Bound(c => c.Id).Title("دستورات").ClientTemplate("<a  class='btn btn-warning' href='" + Url.Action("EditGallery") + "?Id=#=Id#'"+"><i class=' fa fa-edit'></i>ویرایش</a>" +
+                                                                                          "<a  class='btn btn-success' href='" + Url.Action("AddGalleryItems") + "?Id=#=Id#'" + "><i class=' fa fa-plus'></i>افزودن تصویر</a>");
+                              }).Pageable()
+                              .DataSource(x => x.Ajax()
+                              .Read(read => read.Action("Gallery_Read", "Gallery"))
+                            
+
+                                  .Model(m => m.Id(g => g.Id))))
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
