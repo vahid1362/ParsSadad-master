@@ -1,25 +1,33 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
-using System.Text;
+using Microsoft.AspNetCore.Mvc.Rendering;
 
 namespace QtasHelpDesk.ViewModels.Content
 {
    public class PostViewModel
     {
+        public PostViewModel()
+        {
+            SelectListItems=new List<SelectListItem>();
+        }
+        public int Id { get; set; }
         [Required(ErrorMessage = "وارد کردن عنوان ضروری است")]
         [DisplayName("عنوان")]
         public string Title { get; set; }
 
         [Required(ErrorMessage = "وارد کردن عنوان ضروری است")]
-        [DisplayName("عنوان")]
+        [DisplayName("محتوی")]
         public string Decription { get; set; }
 
-        [DisplayName("عنوان")]
+        [DisplayName("رتبه")]
         public decimal Rate { get; set; }
 
         [DisplayName("آیا مقاله می باشد")]
         public bool IsArticle { get; set; }
+        
+        public int GroupId { get; set; }
+
+        public List<SelectListItem> SelectListItems { get; set; }
     }
 }

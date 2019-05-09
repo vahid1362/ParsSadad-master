@@ -10,8 +10,8 @@ using QtasHelpDesk.DataLayer.Context;
 namespace QtasHelpDesk.DataLayer.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20190508054159_V2019_05_08_1011")]
-    partial class V2019_05_08_1011
+    [Migration("20190509055346_V2019_05_09_1023")]
+    partial class V2019_05_09_1023
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -100,13 +100,9 @@ namespace QtasHelpDesk.DataLayer.Migrations
 
                     b.Property<string>("Title");
 
-                    b.Property<int>("UserId");
-
                     b.HasKey("Id");
 
                     b.HasIndex("GroupId");
-
-                    b.HasIndex("UserId");
 
                     b.ToTable("Posts");
                 });
@@ -740,11 +736,6 @@ namespace QtasHelpDesk.DataLayer.Migrations
                     b.HasOne("QtasHelpDesk.Domain.Content.Group", "Group")
                         .WithMany("Posts")
                         .HasForeignKey("GroupId")
-                        .OnDelete(DeleteBehavior.Cascade);
-
-                    b.HasOne("QtasHelpDesk.Domain.Identity.User", "User")
-                        .WithMany()
-                        .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade);
                 });
 

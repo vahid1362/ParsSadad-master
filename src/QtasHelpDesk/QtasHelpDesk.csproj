@@ -45,9 +45,6 @@
     <Exec Command="dotnet bundle" />
   </Target>
   <ItemGroup>
-    <DotNetCliToolReference Include="BundlerMinifier.Core" Version="2.2.281" />
-  </ItemGroup>
-  <ItemGroup>
     <!-- extends watching group to include *.js files -->
     <Watch Include="**\*.js" Exclude="node_modules\**\*;**\*.js.map;obj\**\*;bin\**\*;wwwroot\**\*;src\**\*" />
   </ItemGroup>
@@ -60,6 +57,9 @@
   </ItemGroup>
   <ItemGroup>
     <Watch Remove="Scripts\custom.js" />
+  </ItemGroup>
+  <ItemGroup>
+   <DotNetCliToolReference Include="BundlerMinifier.Core" Version="2.9.406" />
   </ItemGroup>
   <ItemGroup>
     <None Include="wwwroot\js\jquery.bootstrap-modal-ajax-form.js" />

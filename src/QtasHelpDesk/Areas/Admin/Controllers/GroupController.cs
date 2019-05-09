@@ -62,9 +62,9 @@ namespace QtasHelpDesk.Areas.Admin.Controllers
         [DisplayName("نمایش صفحه  ایجاد گروه")]
         [BreadCrumb(Title = "ایجاد گروه جدید", Order = 1)]
         public IActionResult Create()
-        {          
+        {
             var groups = PrepareGroupSelectedListItem();
-            
+
             return View(new GroupViewModel()
             {
                 AvaiableGroup = groups

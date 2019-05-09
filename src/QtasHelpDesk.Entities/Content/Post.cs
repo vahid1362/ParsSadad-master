@@ -1,5 +1,4 @@
 ﻿using QtasHelpDesk.Domain.AuditableEntity;
-using QtasHelpDesk.Domain.Identity;
 using System.Collections.Generic;
 
 namespace QtasHelpDesk.Domain.Content
@@ -23,9 +22,6 @@ namespace QtasHelpDesk.Domain.Content
 
         public int GroupId { get; set; }
 
-        public int UserId { get; set; }
-
-        public  User User { get; set; }
 
         public ICollection<Response> Responses { get; set; } 
 

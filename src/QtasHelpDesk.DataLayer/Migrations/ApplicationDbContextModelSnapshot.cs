@@ -98,13 +98,9 @@ namespace QtasHelpDesk.DataLayer.Migrations
 
                     b.Property<string>("Title");
 
-                    b.Property<int>("UserId");
-
                     b.HasKey("Id");
 
                     b.HasIndex("GroupId");
-
-                    b.HasIndex("UserId");
 
                     b.ToTable("Posts");
                 });
@@ -738,11 +734,6 @@ namespace QtasHelpDesk.DataLayer.Migrations
                     b.HasOne("QtasHelpDesk.Domain.Content.Group", "Group")
                         .WithMany("Posts")
                         .HasForeignKey("GroupId")
-                        .OnDelete(DeleteBehavior.Cascade);
-
-                    b.HasOne("QtasHelpDesk.Domain.Identity.User", "User")
-                        .WithMany()
-                        .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade);
                 });
 

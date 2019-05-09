@@ -4,7 +4,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace QtasHelpDesk.DataLayer.Migrations
 {
-    public partial class V2019_05_08_1011 : Migration
+    public partial class V2019_05_09_1023 : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -192,6 +192,37 @@ namespace QtasHelpDesk.DataLayer.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "Posts",
+                columns: table => new
+                {
+                    Id = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
+                    Title = table.Column<string>(nullable: true),
+                    Decription = table.Column<string>(nullable: true),
+                    Rate = table.Column<decimal>(nullable: false),
+                    IsArticle = table.Column<bool>(nullable: false),
+                    GroupId = table.Column<int>(nullable: false),
+                    CreatedByBrowserName = table.Column<string>(maxLength: 1000, nullable: true),
+                    CreatedByIp = table.Column<string>(maxLength: 255, nullable: true),
+                    CreatedByUserId = table.Column<int>(nullable: true),
+                    CreatedDateTime = table.Column<DateTimeOffset>(nullable: true),
+                    ModifiedByBrowserName = table.Column<string>(maxLength: 1000, nullable: true),
+                    ModifiedByIp = table.Column<string>(maxLength: 255, nullable: true),
+                    ModifiedByUserId = table.Column<int>(nullable: true),
+                    ModifiedDateTime = table.Column<DateTimeOffset>(nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Posts", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_Posts_Groups_GroupId",
+                        column: x => x.GroupId,
+                        principalTable: "Groups",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "AppUsers",
                 columns: table => new
                 {
@@ -292,6 +323,35 @@ namespace QtasHelpDesk.DataLayer.Migrations
                         principalTable: "Pictures",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Restrict);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Responses",
+                columns: table => new
+                {
+                    Id = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
+                    ReplyText = table.Column<string>(nullable: true),
+                    PostId = table.Column<int>(nullable: false),
+                    Rate = table.Column<decimal>(nullable: false),
+                    CreatedByBrowserName = table.Column<string>(maxLength: 1000, nullable: true),
+                    CreatedByIp = table.Column<string>(maxLength: 255, nullable: true),
+                    CreatedByUserId = table.Column<int>(nullable: true),
+                    CreatedDateTime = table.Column<DateTimeOffset>(nullable: true),
+                    ModifiedByBrowserName = table.Column<string>(maxLength: 1000, nullable: true),
+                    ModifiedByIp = table.Column<string>(maxLength: 255, nullable: true),
+                    ModifiedByUserId = table.Column<int>(nullable: true),
+                    ModifiedDateTime = table.Column<DateTimeOffset>(nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Responses", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_Responses_Posts_PostId",
+                        column: x => x.PostId,
+                        principalTable: "Posts",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateTable(
@@ -439,73 +499,6 @@ namespace QtasHelpDesk.DataLayer.Migrations
                         onDelete: ReferentialAction.Cascade);
                 });
 
-            migrationBuilder.CreateTable(
-                name: "Posts",
-                columns: table => new
-                {
-                    Id = table.Column<int>(nullable: false)
-                        .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
-                    Title = table.Column<string>(nullable: true),
-                    Decription = table.Column<string>(nullable: true),
-                    Rate = table.Column<decimal>(nullable: false),
-                    IsArticle = table.Column<bool>(nullable: false),
-                    GroupId = table.Column<int>(nullable: false),
-                    UserId = table.Column<int>(nullable: false),
-                    CreatedByBrowserName = table.Column<string>(maxLength: 1000, nullable: true),
-                    CreatedByIp = table.Column<string>(maxLength: 255, nullable: true),
-                    CreatedByUserId = table.Column<int>(nullable: true),
-                    CreatedDateTime = table.Column<DateTimeOffset>(nullable: true),
-                    ModifiedByBrowserName = table.Column<string>(maxLength: 1000, nullable: true),
-                    ModifiedByIp = table.Column<string>(maxLength: 255, nullable: true),
-                    ModifiedByUserId = table.Column<int>(nullable: true),
-                    ModifiedDateTime = table.Column<DateTimeOffset>(nullable: true)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Posts", x => x.Id);
-                    table.ForeignKey(
-                        name: "FK_Posts_Groups_GroupId",
-                        column: x => x.GroupId,
-                        principalTable: "Groups",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
-                    table.ForeignKey(
-                        name: "FK_Posts_AppUsers_UserId",
-                        column: x => x.UserId,
-                        principalTable: "AppUsers",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
-                });
-
-            migrationBuilder.CreateTable(
-                name: "Responses",
-                columns: table => new
-                {
-                    Id = table.Column<int>(nullable: false)
-                        .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
-                    ReplyText = table.Column<string>(nullable: true),
-                    PostId = table.Column<int>(nullable: false),
-                    Rate = table.Column<decimal>(nullable: false),
-                    CreatedByBrowserName = table.Column<string>(maxLength: 1000, nullable: true),
-                    CreatedByIp = table.Column<string>(maxLength: 255, nullable: true),
-                    CreatedByUserId = table.Column<int>(nullable: true),
-                    CreatedDateTime = table.Column<DateTimeOffset>(nullable: true),
-                    ModifiedByBrowserName = table.Column<string>(maxLength: 1000, nullable: true),
-                    ModifiedByIp = table.Column<string>(maxLength: 255, nullable: true),
-                    ModifiedByUserId = table.Column<int>(nullable: true),
-                    ModifiedDateTime = table.Column<DateTimeOffset>(nullable: true)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Responses", x => x.Id);
-                    table.ForeignKey(
-                        name: "FK_Responses_Posts_PostId",
-                        column: x => x.PostId,
-                        principalTable: "Posts",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
-                });
-
             migrationBuilder.CreateIndex(
                 name: "IX_AppDataProtectionKeys_FriendlyName",
                 table: "AppDataProtectionKeys",
@@ -588,11 +581,6 @@ namespace QtasHelpDesk.DataLayer.Migrations
                 column: "GroupId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Posts_UserId",
-                table: "Posts",
-                column: "UserId");
-
-            migrationBuilder.CreateIndex(
                 name: "IX_Responses_PostId",
                 table: "Responses",
                 column: "PostId");
@@ -644,19 +632,19 @@ namespace QtasHelpDesk.DataLayer.Migrations
                 name: "AppRoles");
 
             migrationBuilder.DropTable(
+                name: "AppUsers");
+
+            migrationBuilder.DropTable(
                 name: "Galleries");
 
             migrationBuilder.DropTable(
                 name: "Posts");
 
             migrationBuilder.DropTable(
-                name: "Groups");
-
-            migrationBuilder.DropTable(
-                name: "AppUsers");
-
-            migrationBuilder.DropTable(
                 name: "Pictures");
+
+            migrationBuilder.DropTable(
+                name: "Groups");
         }
     }
 }

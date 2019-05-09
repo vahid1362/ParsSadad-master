@@ -10,6 +10,7 @@ namespace QtasHelpDesk.IocConfig
         public static void AddContentService(this IServiceCollection services)
         {
             services.AddTransient<IGroupService, GroupService>();
+            services.AddTransient<IPostService, PostService>();
         }
     }
 }

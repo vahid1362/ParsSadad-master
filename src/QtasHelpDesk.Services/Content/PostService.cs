@@ -4,6 +4,7 @@ using QtasHelpDesk.Domain.Content;
 using QtasHelpDesk.Services.Contracts.Content;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 
 namespace QtasHelpDesk.Services.Content
@@ -13,8 +14,9 @@ namespace QtasHelpDesk.Services.Content
         private readonly IUnitOfWork _uow;
         private readonly DbSet<Post> _posts;
 
-        public PostService()
+        public PostService(IUnitOfWork uow)
         {
+            _uow = uow;
             _posts = _uow.Set<Post>();
         }
 
@@ -36,7 +38,7 @@ namespace QtasHelpDesk.Services.Content
 
         public List<Post> GetPosts()
         {
-            throw new NotImplementedException();
+            return _posts.ToList();
         }
     }
 }
