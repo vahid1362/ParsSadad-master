@@ -1,5 +1,35 @@
-﻿<div id="TodayBirthDays" dir="rtl">
-    <cache expires-after="@TimeSpan.FromMinutes(5)">
-        <vc:today-birth-days></vc:today-birth-days>
-    </cache>
+﻿<div name="Groups">
+    @await Component.InvokeAsync("Group")
+</div>
+<div id="archiveMenu" class="nodot" style="margin-top: 30px" dir="rtl">
+   <div class="card ">
+       <div class="card-header">
+           <h5 class="card-title">
+               <span class="fa fa-archive" aria-hidden="true"></span>
+               بایگانی مطالب
+           </h5>
+       </div>
+       <div class="card-body">
+           <ul class="list-group">
+               <li class="list-group-item" role="presentation">
+                   <span class="fa fa-industry" aria-hidden="true"></span>
+                   <a href="/postsarchive">آخرین مطالب ارسالی</a>
+               </li>
+               <li class="list-group-item" role="presentation">
+                   <span class="fa fa-comments" aria-hidden="true"></span>
+                   <a href="/commentsarchive">آخرین نظرات مطالب</a>
+               </li>
+               <li class="list-group-item" role="presentation">
+                   <span class="fa fa-newspaper-o" aria-hidden="true"></span>
+                   <a href="/newsarchive">آخرین اشتراک‌ها</a>
+               </li>
+               <li class="list-group-item" role="presentation">
+                   <span class="fa fa-commenting" aria-hidden="true"></span>
+                   <a href="/newsarchive/comments">آخرین نظرات اشتراک‌ها</a>
+               </li>
+           </ul>
+       </div>
+        </div>
+       
+ 
 </div>
