@@ -128,11 +128,16 @@ namespace QtasHelpDesk.Areas.Admin.Controllers
             var group = _groupService.GetGroupById(model.Id);
 
             if (group == null)
-                RedirectToAction("List");
+             return   RedirectToAction("List");
 
-            group = _mapper.Map<Group>(model);
+        
+                @group.Title = model.Title;
+                @group.ParentId = model.ParentId;
+                @group.Priority = model.Priority;
 
-            _groupService.EditGroup(group);
+                _groupService.EditGroup(@group);
+           
+
             _toastNotification.AddSuccessToastMessage("عملیات  با موفقیت صورت پذیرفت");
 
             return RedirectToAction("List");
