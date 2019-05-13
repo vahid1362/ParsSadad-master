@@ -5,6 +5,7 @@ using Kendo.Mvc.UI;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using NToastNotify;
+using QtasHelpDesk.Common.GuardToolkit;
 using QtasHelpDesk.CrossCutting.IdentityToolkit;
 using QtasHelpDesk.Domain.Content;
 using QtasHelpDesk.Services.Content;
@@ -50,27 +51,73 @@ namespace QtasHelpDesk.Areas.Admin.Controllers
             });
         }
         
-        [HttpPost]
+        [HttpPost,ValidateAntiForgeryToken]
         public IActionResult Create(PostViewModel model)
         {
             if (ModelState.IsValid)
             {
                 _postService.Add(new Post()
                 {   Title = model.Title,
+                    Summary = model.Summary,
                     GroupId = model.GroupId,
                     Decription = model.Decription,
+                   IsArticle=true,
                 
                 });
+              
                 _toastNotification.AddSuccessToastMessage("محتوی با موفقیت درج شد");
                 return RedirectToAction("List");
             }
-
-            return View(new PostViewModel());
+            var groups = PrepareGroupSelectedListItem();
+            model.SelectListItems = groups;
+            return View(model);
         }
 
-        public IActionResult Edit(int? id)
+        public IActionResult Edit(int? postId)
         {
-            return View(new PostViewModel());
+            postId.CheckArgumentIsNull(nameof(postId));
+
+          var post=_postService.GetPostById(postId.GetValueOrDefault());
+          if (post == null)
+          {
+              _toastNotification.AddErrorToastMessage("چنین محتوایی یافت نشد");
+            return  RedirectToAction("List");
+          }
+          var groups = PrepareGroupSelectedListItem();
+            return View(new PostViewModel()
+            {
+                Id = post.Id,
+                Title = post.Title,
+                Summary = post.Summary,
+                Decription = post.Decription,
+                GroupId = post.GroupId,
+                SelectListItems = groups
+
+            });
+        }
+
+        [HttpPost, ValidateAntiForgeryToken]
+        public IActionResult Edit(PostViewModel postViewModel)
+        {
+            postViewModel.CheckArgumentIsNull(nameof(postViewModel));
+
+            var post = _postService.GetPostById(postViewModel.Id);
+            if (post == null)
+            {
+                _toastNotification.AddErrorToastMessage("چنین محتوایی یافت نشد");
+                return RedirectToAction("List");
+            }
+
+            post.Title = postViewModel.Title;
+            post.Summary = postViewModel.Summary;
+            post.Decription = postViewModel.Decription;
+            post.GroupId = postViewModel.GroupId;
+            _postService.Edit(post);
+
+            _toastNotification.AddSuccessToastMessage("چنین محتوایی یافت نشد");
+            return RedirectToAction("List");
+
+
         }
 
         public IActionResult Post_Read([DataSourceRequest]DataSourceRequest request)

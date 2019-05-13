@@ -46,7 +46,7 @@ namespace QtasHelpDesk.Controllers
         {
             if (User.Identity.IsAuthenticated)
             {
-                return RedirectToAction("Index", "forum");
+                return RedirectToAction("Index", "post");
             }
             
             return RedirectToAction("Login");
@@ -104,7 +104,7 @@ namespace QtasHelpDesk.Controllers
                         return Redirect(returnUrl);
                     }
                     
-                    return RedirectToAction("index","Forum");
+                    return RedirectToAction("index","Post");
                 }
 
                 if (result.RequiresTwoFactor)

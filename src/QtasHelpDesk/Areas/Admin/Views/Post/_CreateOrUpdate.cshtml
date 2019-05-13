@@ -21,6 +21,14 @@
                     @Html.ValidationMessageFor(model => model.Title, "", new { @class = "text-danger" })
                 </div>
             </div>
+            <div class="form-group">
+
+                @Html.LabelFor(model => model.Summary, htmlAttributes: new { @class = "control-label col-md-1" })
+                <div class="col-md-6">
+                    @Html.TextAreaFor(model => model.Summary, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.Summary, "", new { @class = "text-danger" })
+                </div>
+            </div>
             
             
             <div class="form-group">
@@ -30,7 +38,7 @@
                         @(Html.Kendo().EditorFor(x => x.Decription)
 
                                       .HtmlAttributes(new { style = "height:440px" })
-                                      //  .Tools(tools => tools.Clear().InsertImage().InsertFile())
+                           
                                       .ImageBrowser(imageBrowser => imageBrowser
                                           .Image("~/shared/Images/{0}")
                                           .Read("Read", "ImageEditor")

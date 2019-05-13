@@ -46,7 +46,7 @@
   </Target>
   <ItemGroup>
     <!-- extends watching group to include *.js files -->
-    <Watch Include="**\*.js" Exclude="node_modules\**\*;**\*.js.map;obj\**\*;bin\**\*;wwwroot\**\*;src\**\*" />
+    <Watch Include="**\*.js" Exclude="**\*.js.map;obj\**\*;bin\**\*;wwwroot\**\*;src\**\*" />
   </ItemGroup>
   <ItemGroup>
     <Compile Remove="wwwroot\Lib\Bootstrappersiandatetimepicker\**" />

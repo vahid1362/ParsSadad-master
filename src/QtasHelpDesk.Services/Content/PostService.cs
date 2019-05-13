@@ -33,12 +33,12 @@ namespace QtasHelpDesk.Services.Content
 
         public Post GetPostById(int id)
         {
-            throw new NotImplementedException();
+            return _posts.FirstOrDefault(x => x.Id == id && x.IsArticle);
         }
 
         public List<Post> GetPosts()
         {
-            return _posts.ToList();
+            return _posts.Where(x=>x.IsArticle).ToList();
         }
     }
 }

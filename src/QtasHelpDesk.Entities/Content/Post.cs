@@ -11,6 +11,9 @@ namespace QtasHelpDesk.Domain.Content
         }
        
         public string Title { get; set; }
+
+
+        public string Summary { get; set; }
         
         public string Decription { get; set; }
 

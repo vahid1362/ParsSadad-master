@@ -4,7 +4,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace QtasHelpDesk.DataLayer.Migrations
 {
-    public partial class V2019_05_09_1023 : Migration
+    public partial class V2019_05_12_0731 : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
