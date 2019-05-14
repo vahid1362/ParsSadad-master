@@ -342,5 +342,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Views\Shared\EditorTempates\" />
+    <Folder Include="wwwroot\Files\" />
   </ItemGroup>
 </Project>

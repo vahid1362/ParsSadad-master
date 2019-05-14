@@ -2,6 +2,7 @@
 @model QtasHelpDesk.ViewModels.Content.GroupViewModel
 <div class="box-body">
     @Html.HiddenFor(x => x.Id)
+   
     <div class="row">
         <div class="col-md-12">
             <div class="form-group">
@@ -37,6 +38,8 @@
                     @Html.CheckBoxFor(model => model.IsPrivate, new { htmlAttributes = new { @class = "form-control " } })
                 </div>
             </div>
+            
+            
             
         </div>
     </div>

@@ -1,6 +1,8 @@
 ﻿using System.Collections.Generic;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
+using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Mvc.Rendering;
 
 namespace QtasHelpDesk.ViewModels.Content
@@ -16,13 +18,13 @@ namespace QtasHelpDesk.ViewModels.Content
         [DisplayName("عنوان")]
         public string Title { get; set; }
 
-        [Required(ErrorMessage = "وارد کردن چکیده ضروری است")]
-        [DisplayName("چکیده")]
-        [DataType(DataType.MultilineText)]
+        //[Required(ErrorMessage = "وارد کردن چکیده ضروری است")]
+        //[DisplayName("چکیده")]
+        //[DataType(DataType.MultilineText)]
         public string Summary { get; set; }
 
-        [Required(ErrorMessage = "وارد کردن عنوان ضروری است")]
-        [DisplayName("محتوی")]
+        //[Required(ErrorMessage = "وارد کردن عنوان ضروری است")]
+        //[DisplayName("محتوی")]
         public string Decription { get; set; }
 
         [DisplayName("رتبه")]
@@ -30,7 +32,10 @@ namespace QtasHelpDesk.ViewModels.Content
 
         [DisplayName("آیا مقاله می باشد")]
         public bool IsArticle { get; set; }
-        
+
+        public string  FilePath { get; set; }
+
+
         public int GroupId { get; set; }
 
         public List<SelectListItem> SelectListItems { get; set; }

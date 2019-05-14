@@ -6,6 +6,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using QtasHelpDesk.Common.GuardToolkit;
 
 namespace QtasHelpDesk.Services.Content
 {
@@ -17,6 +18,7 @@ namespace QtasHelpDesk.Services.Content
         public PostService(IUnitOfWork uow)
         {
             _uow = uow;
+            _uow.CheckArgumentIsNull(nameof(_uow));
             _posts = _uow.Set<Post>();
         }
 
@@ -34,6 +36,11 @@ namespace QtasHelpDesk.Services.Content
         public Post GetPostById(int id)
         {
             return _posts.FirstOrDefault(x => x.Id == id && x.IsArticle);
+        }
+
+        public List<Post> GetPostsByGroupId(int groupId)
+        {
+            return _posts.Where(x => x.GroupId == groupId).ToList();
         }
 
         public List<Post> GetPosts()

@@ -1,0 +1,23 @@
+﻿@model IEnumerable<QtasHelpDesk.ViewModels.Content.PostViewModel>
+
+@{
+    ViewData["Title"] = "Index";
+
+}
+
+
+@foreach (var postviewModel in Model)
+{
+    <div class="card">
+        <div class="card-header" style="">
+            <h5 class="panel-title entry-title" itemprop="headline_name">
+
+                <a href="@Url.Action("ShowPost","Post",new {postId=postviewModel.Id})">  @postviewModel.Title</a>
+            </h5>
+        </div>
+        <div class="card-body"> @postviewModel.Summary</div>
+
+    </div>
+    <br />
+}
+

@@ -1,5 +1,6 @@
 ﻿using System.Linq;
 using Microsoft.AspNetCore.Mvc;
+using QtasHelpDesk.Common.GuardToolkit;
 using QtasHelpDesk.Services.Contracts.Content;
 using QtasHelpDesk.ViewModels.Content;
 
@@ -17,6 +18,7 @@ namespace QtasHelpDesk.Controllers
         public PostController(IPostService postService)
         {
             _postService = postService;
+            _postService.CheckArgumentIsNull(nameof(_postService));
         }
         #endregion
 
@@ -30,6 +32,17 @@ namespace QtasHelpDesk.Controllers
                 Summary = x.Summary,
             
             }).OrderByDescending(x=>x.Id).ToList();
+            return View(postViewModels);
+        }
+
+        public IActionResult ShowPost(int? postId)
+        {
+            var postViewModels = _postService.GetPosts().Select(x => new PostViewModel()
+            {
+                Title = x.Title,
+                Summary = x.Summary,
+
+            }).OrderByDescending(x => x.Id).ToList();
             return View(postViewModels);
         }
     }
