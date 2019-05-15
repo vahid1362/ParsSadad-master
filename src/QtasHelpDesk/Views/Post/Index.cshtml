@@ -3,6 +3,8 @@
 @{
     ViewData["Title"] = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
+    var searchsUrl = Url.Action("Search",  "Post");
+    var bulletImage = Url.Content("~/Images/bullet_shape.png");
 }
 
 
@@ -21,5 +23,11 @@
     <br/>
 }
 
+@section Scripts
+{
+    <script type="text/javascript">
+        EnableSearchAutocomplete('@searchsUrl', '@bulletImage');
+    </script>
+}
 
 

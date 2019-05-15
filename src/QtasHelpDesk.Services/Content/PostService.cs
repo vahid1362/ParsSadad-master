@@ -5,7 +5,7 @@ using QtasHelpDesk.Services.Contracts.Content;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
+using Microsoft.EntityFrameworkCore.Query.Expressions;
 
 namespace QtasHelpDesk.Services.Content
 {
@@ -34,6 +34,11 @@ namespace QtasHelpDesk.Services.Content
         public Post GetPostById(int id)
         {
             return _posts.FirstOrDefault(x => x.Id == id && x.IsArticle);
+        }
+
+        public List<Post> Search(string text)
+        {
+            return _posts.Where(x => x.Title.Contains(text)).ToList();
         }
 
         public List<Post> GetPosts()

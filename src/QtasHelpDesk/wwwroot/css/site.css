@@ -80,3 +80,56 @@
 .grants .grant li:last-child:after {
   content: '';
 }
+/******************************jquery.autocomplete*******************************/
+.ac_results
+{
+    padding: 0;
+    border: 1px solid black;
+    background-color: white;	
+    z-index: 99999;		
+}
+.ac_results ul
+{	
+    list-style-position: outside;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    background:white;	
+}
+.ac_results li
+{
+    margin: 0;
+    padding: 2px 5px;
+    cursor: default;
+    display: block;
+    direction: rtl;
+    text-align: right;
+    font: normal 11px Tahoma;
+    line-height: 16px;	
+}
+.ac_loading
+{
+    background: white url('/Images/indicator.gif') left center no-repeat;
+}
+.ac_odd
+{
+    background-color: #eee;
+}
+.ac_over
+{
+    background-color: #D1EAEF;
+    color: #1F717F;
+}
+.ac_results
+{
+    border-color: #a2bff0 !important;
+}
+.ac_odd
+{
+    /*background-color: #fff !important;*/
+}
+.ac_over
+{
+    background-color: #d5e2ff !important;
+    color: #000 !important;
+}
