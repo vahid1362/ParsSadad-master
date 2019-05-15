@@ -1,7 +1,5 @@
 ﻿using QtasHelpDesk.Domain.Content;
-using System;
 using System.Collections.Generic;
-using System.Text;
 
 namespace QtasHelpDesk.Services.Contracts.Content
 {
@@ -17,6 +15,8 @@ namespace QtasHelpDesk.Services.Contracts.Content
         Post GetPostById(int id);
 
         List<Post> Search(string text);
+
+        List<Post> GetPostsByGroupId(int groupId);
 
 
 

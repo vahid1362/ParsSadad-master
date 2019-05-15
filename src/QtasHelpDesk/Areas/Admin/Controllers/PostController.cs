@@ -1,7 +1,12 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using System.IO;
 using System.Linq;
+using System.Security.AccessControl;
+using DNTBreadCrumb.Core;
 using Kendo.Mvc.Extensions;
 using Kendo.Mvc.UI;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using NToastNotify;
@@ -15,6 +20,7 @@ using QtasHelpDesk.ViewModels.Content;
 namespace QtasHelpDesk.Areas.Admin.Controllers
 {   
     [Area("Admin")]
+    [BreadCrumb(Title = "مقالات", UseDefaultRouteUrl = true, Order = 0)]
     public class PostController : Controller
     {
         #region Feild
@@ -36,13 +42,13 @@ namespace QtasHelpDesk.Areas.Admin.Controllers
         {
             return RedirectToAction("List");
         }
-
+        [BreadCrumb(Title = "لیست",  Order = 1)]
         public IActionResult List()
         {
             return View();
         }
 
-
+        [BreadCrumb(Title = "ایجاد", Order = 1)]
         public IActionResult Create()
         {  var groups = PrepareGroupSelectedListItem();
             return View(new PostViewModel()
@@ -61,6 +67,7 @@ namespace QtasHelpDesk.Areas.Admin.Controllers
                     Summary = model.Summary,
                     GroupId = model.GroupId,
                     Decription = model.Decription,
+                    FilePath = model.FilePath,
                    IsArticle=true,
                 
                 });
@@ -72,7 +79,7 @@ namespace QtasHelpDesk.Areas.Admin.Controllers
             model.SelectListItems = groups;
             return View(model);
         }
-
+        [BreadCrumb(Title = "ویرایش", Order = 1)]
         public IActionResult Edit(int? postId)
         {
             postId.CheckArgumentIsNull(nameof(postId));
@@ -129,6 +136,33 @@ namespace QtasHelpDesk.Areas.Admin.Controllers
                 Rate = x.Rate
             }).ToList();
             return Json(postViewModels.ToDataSourceResult(request));
+        }
+
+        public IActionResult SaveFile(List<IFormFile> files,string  filePath)
+        {
+            var file = files.FirstOrDefault();
+
+            if (file == null || file.Length == 0)
+                return Content("file not selected");
+            var fileExtension = Path.GetExtension(file.FileName);
+            var randomFileName = Guid.NewGuid()+fileExtension;
+          
+            var path = Path.Combine(
+                Directory.GetCurrentDirectory(), "wwwroot/files",
+                randomFileName);
+
+            using (var stream = new FileStream(path, FileMode.Create))
+            {
+                file.CopyTo(stream);
+            }
+
+            var relativePath =  randomFileName;
+
+            return Json(new
+            {
+                success = true,
+               filePath= relativePath
+            });
         }
 
         private List<SelectListItem> PrepareGroupSelectedListItem()

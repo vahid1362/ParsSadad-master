@@ -80,6 +80,8 @@ namespace QtasHelpDesk.DataLayer.Migrations
 
                     b.Property<string>("Decription");
 
+                    b.Property<string>("FilePath");
+
                     b.Property<int>("GroupId");
 
                     b.Property<bool>("IsArticle");
@@ -96,7 +98,8 @@ namespace QtasHelpDesk.DataLayer.Migrations
 
                     b.Property<decimal>("Rate");
 
-                    b.Property<string>("Summary");
+                    b.Property<string>("Summary")
+                        .HasMaxLength(400);
 
                     b.Property<string>("Title");
 

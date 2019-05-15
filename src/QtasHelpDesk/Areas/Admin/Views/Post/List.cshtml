@@ -25,7 +25,7 @@
                                       {
                                           column.Bound(c => c.Title);
                                           column.Bound(c => c.Rate);
-                                          column.Bound(c => c.Id).Title("دستورات").ClientTemplate("<a  class='btn btn-warning' href='" + Url.Action("Edit") + "?postId=#=Id#'" +
+                                          column.Bound(c => c.Id).Title("دستورات").ClientTemplate("<a  class='btn btn-warning' href='" + Url.Action("Edit","Post") + "?postId=#=Id#'" +
                                                                                     "><i class=' fa fa-edit'></i>ویرایش</a>");
 
 

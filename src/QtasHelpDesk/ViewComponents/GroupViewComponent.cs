@@ -19,6 +19,7 @@ namespace QtasHelpDesk.ViewComponents
             var groupViewModels = _groupService.GetGroups().Where(x => x.ParentId == null).Select(x =>
                 new GroupViewModel()
                 {
+                    Id = x.Id,
                     Title = x.Title,
 
                 }).ToList();

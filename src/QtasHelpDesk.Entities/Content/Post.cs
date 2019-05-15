@@ -21,6 +21,8 @@ namespace QtasHelpDesk.Domain.Content
 
         public bool IsArticle { get; set; }
 
+        public string  FilePath { get; set; }
+
         public Group Group { get; set; }
 
         public int GroupId { get; set; }

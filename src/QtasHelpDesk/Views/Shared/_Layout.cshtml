@@ -13,21 +13,26 @@
     <link href="~/css/site.min.css" rel="stylesheet" asp-append-version="true" />
 </head>
 <body>
-    <div class="navbar bg-dark navbar-dark navbar-expand-sm fixed-top">
-        <div class="container">
-            <a asp-area="" asp-controller="Home" asp-action="Index" class="navbar-brand d-none d-sm-inline-block">پورتال شرکت پارس  </a>
-            <div class="input-group col-md-4">
-                <input class="form-control py-2" type="search" placeholder="جستجو ..." id="term">
-                <span class="input-group-append">
-                    <button class="btn btn-outline-secondary" type="button">
-                        <i class="fa fa-search"></i>
-                    </button>
-                </span>
-            </div>
-            <div class="pull-left">
-                <span class="navbar-text d-none d-xl-inline-block"><i class="fa fa-calendar"></i> @DateTime.Now.ToPersianDateTextify()</span>
-                <span class="navbar-text d-none d-xl-inline-block"><i class="fa k-fade-exit-active"></i><a href="/home/logoff">خروج</a> </span>
-            </div>
+
+<div class="navbar bg-info navbar-dark navbar-expand-sm fixed-top" >
+    <div class="container">
+        <a asp-area="" asp-controller="Home" asp-action="Index" class="navbar-brand d-none d-sm-inline-block">
+            <img src="~/images/logo.png" />
+            <span class="text-white"> پشتیان افزار رایانه ای  پارس</span>
+        </a>
+        <div class="input-group col-md-4">
+            <input class="form-control py-2 " type="search" placeholder="جستجو ..." id="example-search-input">
+            <span class="input-group-append">
+                <button class="btn btn-outline-dark" type="button">
+                    <i class="fa fa-search text-white"></i>
+                </button>
+            </span>
+        </div>
+        <div class="pull-left">
+            <span class="navbar-text d-none d-xl-inline-block text-white"><i class="fa fa-calendar"></i> @DateTime.Now.ToPersianDateTextify()</span>
+              
+           </div>  
+             
         </div>
     </div>
     <div class="container">
