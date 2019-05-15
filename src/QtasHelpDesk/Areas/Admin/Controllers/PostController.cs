@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Security.AccessControl;
+using DNTBreadCrumb.Core;
 using Kendo.Mvc.Extensions;
 using Kendo.Mvc.UI;
 using Microsoft.AspNetCore.Http;
@@ -19,6 +20,7 @@ using QtasHelpDesk.ViewModels.Content;
 namespace QtasHelpDesk.Areas.Admin.Controllers
 {   
     [Area("Admin")]
+    [BreadCrumb(Title = "مقالات", UseDefaultRouteUrl = true, Order = 0)]
     public class PostController : Controller
     {
         #region Feild
@@ -40,13 +42,13 @@ namespace QtasHelpDesk.Areas.Admin.Controllers
         {
             return RedirectToAction("List");
         }
-
+        [BreadCrumb(Title = "لیست",  Order = 1)]
         public IActionResult List()
         {
             return View();
         }
 
-
+        [BreadCrumb(Title = "ایجاد", Order = 1)]
         public IActionResult Create()
         {  var groups = PrepareGroupSelectedListItem();
             return View(new PostViewModel()
@@ -77,7 +79,7 @@ namespace QtasHelpDesk.Areas.Admin.Controllers
             model.SelectListItems = groups;
             return View(model);
         }
-
+        [BreadCrumb(Title = "ویرایش", Order = 1)]
         public IActionResult Edit(int? postId)
         {
             postId.CheckArgumentIsNull(nameof(postId));
@@ -154,7 +156,7 @@ namespace QtasHelpDesk.Areas.Admin.Controllers
                 file.CopyTo(stream);
             }
 
-            var relativePath = Constants.FilePath + "/" + randomFileName;
+            var relativePath =  randomFileName;
 
             return Json(new
             {
