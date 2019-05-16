@@ -54,7 +54,8 @@ namespace QtasHelpDesk.Controllers
             foreach (var item in items)
             {
                 var postUrl = this.Url.Action("ShowPost", "Post", new { postId = item.Id }, protocol: "http");
-                result.AppendLine(item.Title + "|" + postUrl);
+
+                result.AppendLine(item.Title+"|"+postUrl);
             }
 
             return Content(result.ToString());
