@@ -85,8 +85,9 @@
 {
     padding: 0;
     border: 1px solid black;
-    background-color: white;	
-    z-index: 99999;		
+    background-color: black;	
+    z-index: 99999;	
+
 }
 .ac_results ul
 {	
@@ -100,7 +101,7 @@
 {
     margin: 0;
     padding: 2px 5px;
-    cursor: default;
+    cursor:pointer;
     display: block;
     direction: rtl;
     text-align: right;
@@ -113,7 +114,7 @@
 }
 .ac_odd
 {
-    background-color: #eee;
+    background-color: #1f717f;
 }
 .ac_over
 {
@@ -123,6 +124,8 @@
 .ac_results
 {
     border-color: #a2bff0 !important;
+    z-index: 10000;
+    background-color: white;
 }
 .ac_odd
 {
@@ -132,4 +135,5 @@
 {
     background-color: #d5e2ff !important;
     color: #000 !important;
+    cursor: pointer;
 }
