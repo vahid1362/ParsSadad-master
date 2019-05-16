@@ -53,10 +53,8 @@ namespace QtasHelpDesk.Controllers
             var items = _postService.Search(q);
             foreach (var item in items)
             {
-                var postUrl = this.Url.Action("Index", "Home", new {id = item.Id}, protocol: "http");
-                var link = "<a href='/post/ShowPost/" + item.Id + "'>" + item.Title + "</a>";
-
-                result.AppendLine(link);
+                var postUrl = this.Url.Action("ShowPost", "Post", new { postId = item.Id }, protocol: "http");
+                result.AppendLine(item.Title + "|" + postUrl);
             }
 
             return Content(result.ToString());

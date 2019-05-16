@@ -13,7 +13,7 @@
             formatItem: formatItem
         }).result(function (evt, row, formatted) {
             if (!row) return;
-            alert(row[1]);
+           
             window.location = row[1];
         });
     });
