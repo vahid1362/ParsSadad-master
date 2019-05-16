@@ -1,0 +1,24 @@
+﻿@model IEnumerable<QtasHelpDesk.ViewModels.Content.GroupViewModel>
+
+<div class="card ">
+    <div class="card-header bg-info" style="max-height: 50px">
+        <h5 class="card-title text-white">
+            <span class="fa fa-archive " aria-hidden="true"></span>
+         سوالات متداول  
+        </h5>
+    </div>
+    <div class="card-body">
+        <ul dir="ltr" class="list-group">
+           @foreach (var group in Model)
+            {
+                <li class="list-group-item" role="presentation" dir="ltr">
+                  
+                    <span > <a href="@Url.Action("FaqByGroup","Faq",new{groupId=@group.Id})"> @group.Title</a></span>
+                </li>
+            }
+
+        </ul>
+    </div> 
+    <div class="card-footer"></div>
+
+</div>

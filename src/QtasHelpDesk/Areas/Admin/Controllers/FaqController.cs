@@ -1,11 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.IO;
 using System.Linq;
 using DNTBreadCrumb.Core;
 using Kendo.Mvc.Extensions;
 using Kendo.Mvc.UI;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using NToastNotify;
@@ -19,18 +17,18 @@ using QtasHelpDesk.ViewModels.Content;
 namespace QtasHelpDesk.Areas.Admin.Controllers
 {   
     [Area("Admin")]
-    [BreadCrumb(Title = "مقالات", UseDefaultRouteUrl = true, Order = 0)]
-    public class PostController : Controller
+    [BreadCrumb(Title = "سوالات متداول", UseDefaultRouteUrl = true, Order = 0)]
+    public class FaqController : Controller
     {
         #region Feild
-        private readonly IPostService _postService;
+        private readonly IFaqService _faqService;
         private readonly IToastNotification _toastNotification;
         private readonly  IGroupService _groupService;
         private readonly IApplicationUserManager _userManager;
 
-        public PostController(IPostService postService, IToastNotification toastNotification, IGroupService groupService, IApplicationUserManager userManager)
+        public FaqController(IFaqService faqService, IToastNotification toastNotification, IGroupService groupService, IApplicationUserManager userManager)
         {
-            _postService = postService;
+            _faqService = faqService;
             _toastNotification = toastNotification;
             _groupService = groupService;
             _userManager = userManager;
@@ -52,77 +50,70 @@ namespace QtasHelpDesk.Areas.Admin.Controllers
         [BreadCrumb(Title = "ایجاد", Order = 1)]
         public IActionResult Create()
         {  var groups = PrepareGroupSelectedListItem();
-            return View(new PostViewModel()
+            return View(new FaqViewModel()
             {
                 SelectListItems = groups
             });
         }
         
         [HttpPost,ValidateAntiForgeryToken]
-        public IActionResult Create(PostViewModel model)
+        public IActionResult Create(FaqViewModel model)
         {
             if (ModelState.IsValid)
             {
-                _postService.Add(new Post()
-                {   Title = model.Title,
-                    Summary = model.Summary,
+               
+                _faqService.Add(new Faq()
+                {   Question= model.Question,
+                    Reply = model.Reply,
                     GroupId = model.GroupId,
-                    Decription = model.Decription,
-                    FilePath = model.FilePath,
                     User = _userManager.GetCurrentUser(),
-                    RegisteDate = DateTime.Now,
-                   IsArticle=true,
-                
+                    RegisteDate = DateTime.Now
                 });
-              
                 _toastNotification.AddSuccessToastMessage("محتوی با موفقیت درج شد");
                 return RedirectToAction("List");
             }
+            
             var groups = PrepareGroupSelectedListItem();
             model.SelectListItems = groups;
             return View(model);
         }
         [BreadCrumb(Title = "ویرایش", Order = 1)]
-        public IActionResult Edit(int? postId)
+        public IActionResult Edit(int? faqId)
         {
-            postId.CheckArgumentIsNull(nameof(postId));
+            faqId.CheckArgumentIsNull(nameof(faqId));
 
-          var post=_postService.GetPostById(postId.GetValueOrDefault());
-          if (post == null)
+          var faq=_faqService.GetFaqById(faqId.GetValueOrDefault());
+          if (faq == null)
           {
               _toastNotification.AddErrorToastMessage("چنین محتوایی یافت نشد");
             return  RedirectToAction("List");
           }
           var groups = PrepareGroupSelectedListItem();
-            return View(new PostViewModel()
+            return View(new FaqViewModel()
             {
-                Id = post.Id,
-                Title = post.Title,
-                Summary = post.Summary,
-                Decription = post.Decription,
-                GroupId = post.GroupId,
+                Id = faq.Id,
+                Question = faq.Question,
+                Reply = faq.Reply,
+                GroupId = faq.GroupId,
                 SelectListItems = groups
 
             });
         }
 
         [HttpPost, ValidateAntiForgeryToken]
-        public IActionResult Edit(PostViewModel postViewModel)
+        public IActionResult Edit(FaqViewModel faqViewModel)
         {
-            postViewModel.CheckArgumentIsNull(nameof(postViewModel));
+            faqViewModel.CheckArgumentIsNull(nameof(faqViewModel));
 
-            var post = _postService.GetPostById(postViewModel.Id);
-            if (post == null)
+            var faq = _faqService.GetFaqById(faqViewModel.Id);
+            if (faq == null)
             {
                 _toastNotification.AddErrorToastMessage("چنین محتوایی یافت نشد");
                 return RedirectToAction("List");
             }
-
-            post.Title = postViewModel.Title;
-            post.Summary = postViewModel.Summary;
-            post.Decription = postViewModel.Decription;
-            post.GroupId = postViewModel.GroupId;
-            _postService.Edit(post);
+            faq.Reply = faqViewModel.Reply;
+            faq.Question = faqViewModel.Question;
+           _faqService.Edit(faq);
 
             _toastNotification.AddSuccessToastMessage("چنین محتوایی یافت نشد");
             return RedirectToAction("List");
@@ -130,43 +121,19 @@ namespace QtasHelpDesk.Areas.Admin.Controllers
 
         }
 
-        public IActionResult Post_Read([DataSourceRequest]DataSourceRequest request)
+        public IActionResult Faq_Read([DataSourceRequest]DataSourceRequest request)
         {
-            var postViewModels = _postService.GetPosts().Select(x => new PostViewModel()
+            var postViewModels = _faqService.GetFaqs().Select(x => new FaqViewModel()
             {
                 Id = x.Id,
-                Title = x.Title,
-                Rate = x.Rate
+                Question = x.Question
+                
+                
             }).ToList();
             return Json(postViewModels.ToDataSourceResult(request));
         }
 
-        public IActionResult SaveFile(List<IFormFile> files,string  filePath)
-        {
-            var file = files.FirstOrDefault();
-
-            if (file == null || file.Length == 0)
-                return Content("file not selected");
-            var fileExtension = Path.GetExtension(file.FileName);
-            var randomFileName = Guid.NewGuid()+fileExtension;
-          
-            var path = Path.Combine(
-                Directory.GetCurrentDirectory(), "wwwroot/files",
-                randomFileName);
-
-            using (var stream = new FileStream(path, FileMode.Create))
-            {
-                file.CopyTo(stream);
-            }
-
-            var relativePath =  randomFileName;
-
-            return Json(new
-            {
-                success = true,
-               filePath= relativePath
-            });
-        }
+      
 
         private List<SelectListItem> PrepareGroupSelectedListItem()
         {

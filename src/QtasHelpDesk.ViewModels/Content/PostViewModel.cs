@@ -35,6 +35,9 @@ namespace QtasHelpDesk.ViewModels.Content
 
         public string  FilePath { get; set; }
 
+        public string  UserFullName { get; set; }
+
+        public string Date { get; set; }
 
         public int GroupId { get; set; }
 

@@ -1,90 +1,111 @@
-﻿@model IEnumerable<QtasHelpDesk.ViewModels.Content.PostViewModel>
+﻿@model QtasHelpDesk.ViewModels.Content.InformationViewModel
 
 @{
     ViewData["Title"] = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
-    var searchsUrl = Url.Action("Search",  "Post");
+    var searchsUrl = Url.Action("Search", "Post");
     var bulletImage = Url.Content("~/Images/bullet_shape.png");
 }
 <style>
-    .ac_results
-    {
+    .ac_results {
         padding: 0;
         border: 1px solid black;
-        background-color: black;	
-        z-index: 99999;	
+        background-color: black;
+        z-index: 99999;
+    }
 
-    }
-    .ac_results ul
-    {	
-        list-style-position: outside;
-        list-style: none;
-        padding: 0;
-        margin: 0;
-        background:white;	
-    }
-    .ac_results li
-    {
-        margin: 0;
-        padding: 2px 5px;
-        cursor:pointer;
-        display: block;
-        direction: rtl;
-        text-align: right;
-        font: normal 11px Tahoma;
-        line-height: 16px;	
-    }
-    .ac_loading
-    {
+        .ac_results ul {
+            list-style-position: outside;
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            background: white;
+        }
+
+        .ac_results li {
+            margin: 0;
+            padding: 2px 5px;
+            cursor: pointer;
+            display: block;
+            direction: rtl;
+            text-align: right;
+            font: normal 11px Tahoma;
+            line-height: 16px;
+        }
+
+    .ac_loading {
         background: white url('/Images/indicator.gif') left center no-repeat;
     }
-    .ac_odd
-    {
+
+    .ac_odd {
         background-color: #1f717f;
     }
-    .ac_over
-    {
+
+    .ac_over {
         background-color: #D1EAEF;
         color: #1F717F;
     }
-    .ac_results
-    {
+
+    .ac_results {
         border-color: #a2bff0 !important;
         z-index: 10000;
         background-color: white;
     }
-    .ac_odd
-    {
+
+    .ac_odd {
         /*background-color: #fff !important;*/
     }
-    .ac_over
-    {
+
+    .ac_over {
         background-color: #d5e2ff !important;
         color: #000 !important;
         cursor: pointer;
     }
 </style>
 
-@foreach (var postviewModel in Model)
+<div id="accordion">
+
+
+</div>
+
+@foreach (var faqwModel in Model.FaqViewModels)
 {
-    <div class="card" >
+
+    <div class="card">
         <div class="card-header bg-info" style="">
             <h6 class="panel-title text-white" itemprop="headline_name">
-                
+                <i class="fa fa-question-circle"></i>
+                @faqwModel.Question
+            </h6>
+        </div>
+           <div class="card-body"><i class="fa fa-reply"></i> پاسخ: @faqwModel.Question</div>
+        <div class="card-footer">  <i class="fa fa-user-circle"></i> نوشته شده توسط :@faqwModel.UserFullName<i class="fa fa-clock-o"></i>  @faqwModel.Date</div>
+
+            </div>
+        <br />
+}
+
+@foreach (var postviewModel in Model.PostViewModels)
+{
+    <div class="card">
+        <div class="card-header bg-info" style="">
+            <h6 class="panel-title text-white" itemprop="headline_name">
+                <i class="fa fa-sticky-note"></i>
                 @postviewModel.Title
             </h6>
         </div>
         <div class="card-body"> @postviewModel.Summary</div>
-       
+        <div class="card-footer">  <i class="fa fa-user-circle"></i> نوشته شده توسط :@postviewModel.UserFullName<i class="fa fa-clock-o"></i>  @postviewModel.Date</div>
+
     </div>
-    <br/>
+    <br />
 }
 
 @section Scripts
-{
+    {
     <script type="text/javascript">
        EnableSearchAutocomplete('@searchsUrl', '@bulletImage');
-      </script>
+    </script>
 }
 
 

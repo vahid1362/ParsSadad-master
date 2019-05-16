@@ -1,7 +1,7 @@
 ﻿using System.Linq;
 using System.Text;
-using Kendo.Mvc.UI;
 using DNTBreadCrumb.Core;
+using DNTPersianUtils.Core;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
 using QtasHelpDesk.Common.GuardToolkit;
@@ -17,16 +17,18 @@ namespace QtasHelpDesk.Controllers
 
         private readonly IPostService _postService;
         private readonly IHostingEnvironment _hostingEnvironment;
+        private readonly IFaqService _faqService;
 
         #endregion
 
         #region Ctor
 
-        public PostController(IPostService postService, IHostingEnvironment hostingEnvironment)
+        public PostController(IPostService postService, IHostingEnvironment hostingEnvironment, IFaqService faqService)
         {
             _postService = postService;
             _postService.CheckArgumentIsNull(nameof(_postService));
             _hostingEnvironment = hostingEnvironment;
+            _faqService = faqService;
             _hostingEnvironment.CheckArgumentIsNull(nameof(_hostingEnvironment));
         }
 
@@ -39,9 +41,26 @@ namespace QtasHelpDesk.Controllers
             {
                 Title = x.Title,
                 Summary = x.Summary,
+                UserFullName = x.User.DisplayName,
+                Date = x.RegisteDate.ToFriendlyPersianDateTextify()
 
-            }).OrderByDescending(x => x.Id).ToList();
-            return View(postViewModels);
+            }).OrderByDescending(x => x.Id).Take(5).ToList();
+
+            var faqViewModels = _faqService.GetFaqs().Select(x => new FaqViewModel()
+            {   Id = x.Id,
+                Question = x.Question,
+                Reply = x.Reply,
+                UserFullName = x.User.DisplayName,
+                Date = x.RegisteDate.ToFriendlyPersianDateTextify()
+                
+
+            }).OrderByDescending(x => x.Id).Take(5).ToList();
+
+            var informationViewModel=new InformationViewModel();
+
+            informationViewModel.PostViewModels = postViewModels;
+            informationViewModel.FaqViewModels = faqViewModels;
+            return View(informationViewModel);
         }
 
         public virtual ActionResult Search(string q)

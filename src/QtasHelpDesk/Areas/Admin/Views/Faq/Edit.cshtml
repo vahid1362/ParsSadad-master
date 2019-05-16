@@ -1,20 +1,19 @@
-﻿@model QtasHelpDesk.ViewModels.Content.PostViewModel
+﻿@model QtasHelpDesk.ViewModels.Content.FaqViewModel
 
 @{
-    ViewData["Title"] = "Create";
+    ViewData["Title"] = "Edit";
     Layout = "~/Views/Shared/_AdminLayOut.cshtml";
 }
 
 @using (Html.BeginForm(null, null, FormMethod.Post, new { @class = "form-horizontal" }))
 {
-
     <section class="content">
         <div class="box box-info">
             <div class="box-header with-border">
                 <div class="row">
                     <div class="text-left">
                         <button type="submit" name="save" class="btn btn-success"><i class="fa fa-save fa-lg"></i>ذخیره</button>
-                         <a href="@Url.Action("List")" class="btn btn-default"><i class="fa fa-backward fa-lg"></i>بازگشت</a>
+                        <a href="@Url.Action("List")" class="btn btn-default"><i class="fa fa-backward fa-lg"></i>بازگشت</a>
                     </div>
                 </div>
             </div>

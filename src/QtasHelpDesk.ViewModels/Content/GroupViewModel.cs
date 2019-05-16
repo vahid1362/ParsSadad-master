@@ -20,7 +20,7 @@ namespace QtasHelpDesk.ViewModels.Content
         public string Title { get; set; }
 
 
-        public long? ParentId { get; set; }
+        public int? ParentId { get; set; }
 
         [Required(ErrorMessage = "وارد کردن الویت ضروری است")]
         [DisplayName("اولویت")]

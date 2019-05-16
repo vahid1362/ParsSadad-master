@@ -8,17 +8,25 @@
         </h5>
     </div>
     <div class="card-body">
-        <ul dir="ltr" class="list-group">
-           @foreach (var group in Model)
-            {
-                <li class="list-group-item" role="presentation" dir="ltr">
-                  
-                    <span > <a href="@Url.Action("Index","Group",new{groupId=@group.Id})"> @group.Title</a></span>
-                </li>
-            }
+        <ul id="accordion1" class="nav nav-pills flex-column">
+        @foreach (var group in Model)
+        {<li class="nav-item" >
+                <a class="nav-link" data-toggle="collapse" href="#item-1" data-parent="#accordion1"><i class="fa  fa-folder-open"></i> @group.Title</a>
+                <div id="item-1" class="collapse show">
+                    <ul class="nav flex-column ml-3">
+                        @foreach (var subgroup in group.SubGroups)
+                        {
+                            <li class="nav-item"  style="padding-right: 15px">
+                                <a class="nav-link" href="#"><i class="fa  fa-folder-open"></i> @subgroup.Title</a>
+                            </li>
+                        }
 
+                    </ul>
+                </div>
+            </li>
+           
+        }
         </ul>
-    </div> 
-    <div class="card-footer"></div>
-
+    </div>
 </div>
+

@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using QtasHelpDesk.DataLayer.Context;
 
 namespace QtasHelpDesk.DataLayer.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20190516172242_V2019_05_16_2151")]
+    partial class V2019_05_16_2151
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -48,8 +50,6 @@ namespace QtasHelpDesk.DataLayer.Migrations
                     b.Property<DateTimeOffset?>("ModifiedDateTime");
 
                     b.Property<string>("Question");
-
-                    b.Property<DateTime>("RegisteDate");
 
                     b.Property<string>("Reply");
 
@@ -144,8 +144,6 @@ namespace QtasHelpDesk.DataLayer.Migrations
                     b.Property<DateTimeOffset?>("ModifiedDateTime");
 
                     b.Property<decimal>("Rate");
-
-                    b.Property<DateTime>("RegisteDate");
 
                     b.Property<string>("Summary")
                         .HasMaxLength(400);

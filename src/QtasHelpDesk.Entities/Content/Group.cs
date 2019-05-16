@@ -16,15 +16,18 @@ namespace QtasHelpDesk.Domain.Content
 
         public int Priority { get; set; }
 
-        public long? ParentId { get; set; }
-
+      
         public string Description { get; set; }
 
         public bool IsPrivate { get; set; }
 
         public bool DisplayInMain { get; set; }
 
-        public  ICollection<Post>   Posts { get; set; }
+        public  int? ParentId { get; set; }
+
+        public virtual Group Parent { get; set; }
+
+        public  virtual ICollection<Post>   Posts { get; set; }
 
 
     }

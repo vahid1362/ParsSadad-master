@@ -1,5 +1,4 @@
-﻿using System.Collections.Generic;
-using System.Linq;
+﻿using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using QtasHelpDesk.Services.Contracts.Content;
@@ -7,11 +6,11 @@ using QtasHelpDesk.ViewModels.Content;
 
 namespace QtasHelpDesk.ViewComponents
 {
-    public class GroupViewComponent:ViewComponent
+    public class FaqViewComponent:ViewComponent
     {
         private readonly IGroupService _groupService;
 
-        public GroupViewComponent(IGroupService groupService)
+        public FaqViewComponent(IGroupService groupService)
         {
             _groupService = groupService;
         }
@@ -22,24 +21,10 @@ namespace QtasHelpDesk.ViewComponents
                 {
                     Id = x.Id,
                     Title = x.Title,
-                    SubGroups = GetSubGroup(x.Id)
 
                 }).ToList();
-            return View(viewName: "~/Views/Shared/Components/Groups/Default.cshtml",
+            return View(viewName: "~/Views/Shared/Components/Faq/Default.cshtml",
                 model: groupViewModels);
-        }
-
-
-        private List<GroupViewModel> GetSubGroup(int groupId)
-        {
-          return  _groupService.GetSubGroup(groupId).Select(x =>
-                              new GroupViewModel()
-                {
-                    Id = x.Id,
-                    Title = x.Title,
-                    //  SubGroups = 
-
-                }).ToList();
         }
     }
 }

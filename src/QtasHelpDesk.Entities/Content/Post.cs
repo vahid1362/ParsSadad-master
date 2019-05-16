@@ -1,5 +1,7 @@
-﻿using QtasHelpDesk.Domain.AuditableEntity;
+﻿using System;
+using QtasHelpDesk.Domain.AuditableEntity;
 using System.Collections.Generic;
+using QtasHelpDesk.Domain.Identity;
 
 namespace QtasHelpDesk.Domain.Content
 {
@@ -23,11 +25,14 @@ namespace QtasHelpDesk.Domain.Content
 
         public string  FilePath { get; set; }
 
+        public DateTime RegisteDate { get; set; }
+
         public Group Group { get; set; }
 
         public int GroupId { get; set; }
 
-
+        public  virtual  User User { get; set; }
+        
         public ICollection<Response> Responses { get; set; } 
 
     }

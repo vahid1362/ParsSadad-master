@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using QtasHelpDesk.DataLayer.Context;
 
 namespace QtasHelpDesk.DataLayer.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20190516124003_V2019_05_16_1708")]
+    partial class V2019_05_16_1708
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -49,17 +51,11 @@ namespace QtasHelpDesk.DataLayer.Migrations
 
                     b.Property<string>("Question");
 
-                    b.Property<DateTime>("RegisteDate");
-
                     b.Property<string>("Reply");
-
-                    b.Property<int?>("UserId");
 
                     b.HasKey("Id");
 
                     b.HasIndex("GroupId");
-
-                    b.HasIndex("UserId");
 
                     b.ToTable("Faq");
                 });
@@ -145,20 +141,14 @@ namespace QtasHelpDesk.DataLayer.Migrations
 
                     b.Property<decimal>("Rate");
 
-                    b.Property<DateTime>("RegisteDate");
-
                     b.Property<string>("Summary")
                         .HasMaxLength(400);
 
                     b.Property<string>("Title");
 
-                    b.Property<int?>("UserId");
-
                     b.HasKey("Id");
 
                     b.HasIndex("GroupId");
-
-                    b.HasIndex("UserId");
 
                     b.ToTable("Posts");
                 });
@@ -793,10 +783,6 @@ namespace QtasHelpDesk.DataLayer.Migrations
                         .WithMany()
                         .HasForeignKey("GroupId")
                         .OnDelete(DeleteBehavior.Cascade);
-
-                    b.HasOne("QtasHelpDesk.Domain.Identity.User", "User")
-                        .WithMany()
-                        .HasForeignKey("UserId");
                 });
 
             modelBuilder.Entity("QtasHelpDesk.Domain.Content.Group", b =>
@@ -812,10 +798,6 @@ namespace QtasHelpDesk.DataLayer.Migrations
                         .WithMany("Posts")
                         .HasForeignKey("GroupId")
                         .OnDelete(DeleteBehavior.Cascade);
-
-                    b.HasOne("QtasHelpDesk.Domain.Identity.User", "User")
-                        .WithMany()
-                        .HasForeignKey("UserId");
                 });
 
             modelBuilder.Entity("QtasHelpDesk.Domain.Content.Response", b =>

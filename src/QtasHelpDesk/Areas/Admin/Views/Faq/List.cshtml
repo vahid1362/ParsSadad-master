@@ -1,0 +1,42 @@
+﻿@using Kendo.Mvc.UI
+@using QtasHelpDesk.ViewModels.Content
+
+@{
+    ViewData["Title"] = "List";
+    Layout = "~/Views/Shared/_AdminLayOut.cshtml";
+}
+<section class="content">
+    <div class="box box-info">
+        <div class="box-header with-border">
+            <div class="col-md-6">
+                <h3 class="box-title">مدیریت سوالات متداول</h3>
+            </div>
+            <div class="text-left col-md-6">
+                <a href="@Url.Action("Create")" class="btn btn-primary"> <i class="fa fa-plus fa-lg "></i> جدید</a>
+
+            </div>
+
+        </div>
+        <div class="box-body">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="k-rtl">
+                        @(Html.Kendo().Grid<FaqViewModel>().Name("Faq").
+                              Columns(column =>
+                              {
+                                  column.Bound(c => c.Question);
+                                  column.Bound(c => c.Id).Title("دستورات").ClientTemplate("<a  class='btn btn-warning' href='" + Url.Action("Edit","Faq") + "?faqId=#=Id#'" +
+                                                                                          "><i class=' fa fa-edit'></i>ویرایش</a>  <a  class='btn btn-warning' href='" + Url.Action("ShowAnswer", "Faq") + "?faqId=#=Id#'" +
+                                                                                          "><i class=' fa fa-zoom'></i> پاسخ</a> ");
+
+
+                              })
+                              .DataSource(x => x.Ajax().Read(read => read.Action("Faq_Read", "Faq"))
+                                  .Model(m => m.Id(g => g.Id))))
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+

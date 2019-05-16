@@ -11,6 +11,7 @@ namespace QtasHelpDesk.IocConfig
         {
             services.AddTransient<IGroupService, GroupService>();
             services.AddTransient<IPostService, PostService>();
+            services.AddTransient<IFaqService, FaqService>();
         }
     }
 }
