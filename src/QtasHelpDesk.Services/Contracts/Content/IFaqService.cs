@@ -1,5 +1,6 @@
 ﻿using QtasHelpDesk.Domain.Content;
 using System.Collections.Generic;
+using QtasHelpDesk.ViewModels.Content;
 
 namespace QtasHelpDesk.Services.Contracts.Content
 {
@@ -10,13 +11,13 @@ namespace QtasHelpDesk.Services.Contracts.Content
 
         void Edit(Faq post);
 
-        List<Faq> GetFaqs();
+        List<FaqViewModel> GetFaqs();
 
         Faq GetFaqById(int id);
 
         List<Faq> Search(string text);
 
-        List<Faq> GetFaqsByGroupId(int groupId);
+        List<FaqViewModel> GetFaqsByGroupId(int groupId);
 
 
 

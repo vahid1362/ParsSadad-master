@@ -4,6 +4,7 @@ using Microsoft.EntityFrameworkCore;
 using QtasHelpDesk.DataLayer.Context;
 using QtasHelpDesk.Domain.Content;
 using QtasHelpDesk.Services.Contracts.Content;
+using QtasHelpDesk.ViewModels.Content;
 
 namespace QtasHelpDesk.Services.Content
 {

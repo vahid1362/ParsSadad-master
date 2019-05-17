@@ -1,5 +1,4 @@
 ﻿using System.Collections.Generic;
-using System.Linq;
 using System.Text;
 using DNTBreadCrumb.Core;
 using DNTPersianUtils.Core;
@@ -39,38 +38,28 @@ namespace QtasHelpDesk.Controllers
         [BreadCrumb(Title = "ایندکس", Order = 1)]
         public IActionResult Index()
         {
-            var postViewModels = GetLastPosts();
-            var faqViewModels = GetLastFaq();
+          
+                var postViewModels = GetLastPosts();
+                var faqViewModels = GetLastFaq();
 
-            var informationViewModel=new InformationViewModel();
-            informationViewModel.PostViewModels = postViewModels;
-            informationViewModel.FaqViewModels = faqViewModels;
-            return View(informationViewModel);
+                var informationViewModel = new InformationViewModel();
+                informationViewModel.PostViewModels = postViewModels;
+                informationViewModel.FaqViewModels = faqViewModels;
+                return View(informationViewModel);
+        
+          
+          
         }
 
         private List<FaqViewModel> GetLastFaq()
         {
-            var faqViewModels = _faqService.GetFaqs().Select(x => new FaqViewModel()
-            {
-                Id = x.Id,
-                Question = x.Question,
-                Reply = x.Reply,
-                UserFullName = x.User.DisplayName,
-                Date = x.RegisteDate.ToFriendlyPersianDateTextify()
-            }).OrderByDescending(x => x.Id).Take(5).ToList();
+            var faqViewModels = _faqService.GetFaqs();
             return faqViewModels;
         }
 
         private List<PostViewModel> GetLastPosts()
         {
-            var postViewModels = _postService.GetPosts().Select(x => new PostViewModel()
-            {
-                Id = x.Id,
-                Title = x.Title,
-                Summary = x.Summary,
-                UserFullName = x.User.DisplayName,
-                Date = x.RegisteDate.ToFriendlyPersianDateTextify(),
-            }).OrderByDescending(x => x.Id).Take(5).ToList();
+            var postViewModels = _postService.GetPosts();
             return postViewModels;
         }
 
@@ -83,9 +72,9 @@ namespace QtasHelpDesk.Controllers
             var items = _postService.Search(q);
             foreach (var item in items)
             {
-                var postUrl = this.Url.Action("ShowPost", "Post", new { postId = item.Id }, protocol: "http");
+                var postUrl = this.Url.Action("ShowPost", "Post", new { postId = item.Id }, protocol: "https");
 
-                result.AppendLine(item.Title+"|"+postUrl);
+                result.AppendLine(item.Title + "|" + postUrl);
             }
 
             return Content(result.ToString());

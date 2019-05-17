@@ -6,7 +6,9 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using DNTPersianUtils.Core;
 using QtasHelpDesk.Common.GuardToolkit;
+using QtasHelpDesk.ViewModels.Content;
 
 namespace QtasHelpDesk.Services.Content
 {
@@ -45,14 +47,28 @@ namespace QtasHelpDesk.Services.Content
             return _faqs.Where(x => x.Question.Contains(text)).ToList();
         }
 
-        public List<Faq> GetFaqsByGroupId(int groupId)
+        public List<FaqViewModel> GetFaqsByGroupId(int groupId)
         {
-            return _faqs.Where(x => x.GroupId == groupId).ToList();
+            return _faqs.Where(x => x.GroupId == groupId).Select(x => new FaqViewModel()
+            {
+                Id = x.Id,
+                Question = x.Question,
+                Reply = x.Reply,
+                UserFullName = x.User.DisplayName,
+                Date = x.RegisteDate.ToLongPersianDateString()
+            }).ToList();
         }
 
-        public List<Faq> GetFaqs()
+        public List<FaqViewModel> GetFaqs()
         {
-            return _faqs.ToList();
+            return _faqs.OrderByDescending(x=>x.Id).Select(x => new FaqViewModel()
+            {
+                Id = x.Id,
+                Question = x.Question,
+                Reply = x.Reply,
+                UserFullName = x.User.DisplayName,
+                Date = x.RegisteDate.ToLongPersianDateString()
+            }).OrderByDescending(x => x.Id).Take(5).ToList().ToList();
         }
     }
 }

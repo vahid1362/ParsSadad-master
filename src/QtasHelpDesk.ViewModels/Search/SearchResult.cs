@@ -4,10 +4,10 @@ using System.Text;
 
 namespace QtasHelpDesk.ViewModels.Search
 {
-   public class SearchResult
+   public class SearchResultViewModel
     {
-        public string Text { get; set; }
+        public string Title { get; set; }
 
-        public string Url{ get; set; }
+        public int Id{ get; set; }
     }
 }

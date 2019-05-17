@@ -6,7 +6,10 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using DNTPersianUtils.Core;
 using QtasHelpDesk.Common.GuardToolkit;
+using QtasHelpDesk.ViewModels.Content;
+using QtasHelpDesk.ViewModels.Search;
 
 namespace QtasHelpDesk.Services.Content
 {
@@ -38,19 +41,36 @@ namespace QtasHelpDesk.Services.Content
             return _posts.FirstOrDefault(x => x.Id == id && x.IsArticle);
         }
 
-        public List<Post> Search(string text)
+        public List<SearchResultViewModel> Search(string text)
         {
-            return _posts.Where(x => x.Title.Contains(text)).ToList();
+            return _posts.Where(x => x.Title.Contains(text)).Select(x=> new SearchResultViewModel()
+            {   Id = x.Id,
+                Title = x.Title
+            }).ToList();
         }
 
-        public List<Post> GetPostsByGroupId(int groupId)
+        public List<PostViewModel> GetPostsByGroupId(int groupId)
         {
-            return _posts.Where(x => x.GroupId == groupId).ToList();
+            return _posts.Where(x => x.GroupId == groupId).Select(x => new PostViewModel()
+            {
+                Id = x.Id,
+                Title = x.Title,
+                Summary = x.Summary,
+                UserFullName = x.User.DisplayName,
+                Date = x.RegisteDate.ToLongPersianDateString()
+            }).OrderByDescending(x => x.Id).Take(5).ToList();
         }
 
-        public List<Post> GetPosts()
+        public List<PostViewModel> GetPosts()
         {
-            return _posts.Where(x=>x.IsArticle).ToList();
+            return _posts.Where(x=>x.IsArticle).Select(x => new PostViewModel()
+            {
+                Id = x.Id,
+                Title = x.Title,
+                Summary = x.Summary,
+                UserFullName = x.User.DisplayName,
+                Date =x.RegisteDate.ToLongPersianDateString()
+            }).OrderByDescending(x => x.Id).Take(5).ToList();
         }
     }
 }

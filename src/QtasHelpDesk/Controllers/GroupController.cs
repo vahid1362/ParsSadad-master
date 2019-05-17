@@ -47,27 +47,13 @@ namespace QtasHelpDesk.Controllers
         }
         private List<FaqViewModel> GetLastFaq(int groupId)
         {
-            var faqViewModels = _faqService.GetFaqsByGroupId(groupId).Select(x => new FaqViewModel()
-            {
-                Id = x.Id,
-                Question = x.Question,
-                Reply = x.Reply,
-                UserFullName = x.User.DisplayName,
-                Date = x.RegisteDate.ToFriendlyPersianDateTextify()
-            }).OrderByDescending(x => x.Id).Take(5).ToList();
+            var faqViewModels = _faqService.GetFaqsByGroupId(groupId);
             return faqViewModels;
         }
 
         private List<PostViewModel> GetLastPosts(int groupId)
         {
-            var postViewModels = _postService.GetPostsByGroupId(groupId).Select(x => new PostViewModel()
-            {
-                Title = x.Title,
-                Summary = x.Summary,
-                UserFullName = x.User.DisplayName,
-                Date = x.RegisteDate.ToFriendlyPersianDateTextify(),
-                GroupName =x.Group.Title
-            }).OrderByDescending(x => x.Id).Take(5).ToList();
+            var postViewModels = _postService.GetPostsByGroupId(groupId);
             return postViewModels;
         }
     }

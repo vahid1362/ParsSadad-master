@@ -1,5 +1,7 @@
 ﻿using QtasHelpDesk.Domain.Content;
 using System.Collections.Generic;
+using QtasHelpDesk.ViewModels.Content;
+using QtasHelpDesk.ViewModels.Search;
 
 namespace QtasHelpDesk.Services.Contracts.Content
 {
@@ -10,13 +12,13 @@ namespace QtasHelpDesk.Services.Contracts.Content
 
         void Edit(Post post);
 
-        List<Post> GetPosts();
+        List<PostViewModel> GetPosts();
 
         Post GetPostById(int id);
 
-        List<Post> Search(string text);
+        List<SearchResultViewModel> Search(string text);
 
-        List<Post> GetPostsByGroupId(int groupId);
+        List<PostViewModel> GetPostsByGroupId(int groupId);
 
 
 
