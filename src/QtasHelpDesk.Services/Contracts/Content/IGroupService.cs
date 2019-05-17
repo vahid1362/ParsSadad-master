@@ -1,6 +1,5 @@
 ﻿using System.Collections.Generic;
 using QtasHelpDesk.Domain.Content;
-using QtasHelpDesk.ViewModels.Content;
 
 namespace QtasHelpDesk.Services.Contracts.Content
 {

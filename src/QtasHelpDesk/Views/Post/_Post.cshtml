@@ -3,9 +3,9 @@
 
 <div class="card">
     <div class="card-header bg-info" style="">
-        <h5 class="panel-title " itemprop="headline_name">
-            @Model.Title
-        </h5>
+        <h6 class="panel-title text-white" itemprop="headline_name">
+            <a class="card-link text-white" href="@Url.Action("ShowPost", "Post", new {postId = Model.Id})">    <i class="fa fa-info-circle"></i>@Model.Title </a>   
+        </h6>
     </div>
 
     <div class="card-body">

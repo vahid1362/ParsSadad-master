@@ -19,7 +19,7 @@ namespace QtasHelpDesk.Services.Content
         }
         public List<Group> GetGroups()
         {
-            return _groups.AsNoTracking().ToList();
+            return _groups.Where(x=>x.ParentId==null).AsNoTracking().ToList();
         }
 
         public void AddGroup(Group @group)
@@ -45,7 +45,7 @@ namespace QtasHelpDesk.Services.Content
 
         public List<Group> GetSubGroup(int groupId)
         {
-            return _groups.Where(x => x.ParentId == groupId).ToList();
+            return _groups.Where(x => x.ParentId == groupId).AsNoTracking().ToList();
         }
     }
 }
