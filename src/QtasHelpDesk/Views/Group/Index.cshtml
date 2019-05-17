@@ -1,23 +1,55 @@
-﻿@model IEnumerable<QtasHelpDesk.ViewModels.Content.PostViewModel>
+﻿@model QtasHelpDesk.ViewModels.Content.InformationViewModel
 
 @{
     ViewData["Title"] = "Index";
 
 }
+<div class="card">
+    <div class="card-header bg-info" style="">
+        <h6 class="panel-title text-white" itemprop="headline_name">
+            <i class="fa fa-question-circle"></i>
+            سوالات  متداول
+        </h6>
+    </div>
+    <div class="card-body">
 
 
-@foreach (var postviewModel in Model)
+        @foreach (var faqwModel in Model.FaqViewModels)
+        {
+            <div class="alert alert-success">
+                <strong><i class="fa fa-question-circle">:</i></strong>@faqwModel.Question
+            </div>
+            <div class="alert alert-info" style="margin-right: 20px">
+                <strong><i class="fa fa-reply"></i>:</strong>@faqwModel.Question
+            </div>
+        }
+    </div>
+</div>
+
+<br/>
+
+@foreach (var postviewModel in Model.PostViewModels)
 {
-    <div class="card">
-        <div class="card-header" style="">
-            <h5 class="panel-title entry-title" itemprop="headline_name">
+  <div class="card">
+    <div class="card-header bg-info" style="">
+        <h5 class="panel-title " itemprop="headline_name">
+            @postviewModel.Title
+        </h5>
+    </div>
 
-                <a href="@Url.Action("ShowPost","Post",new {postId=postviewModel.Id})" target="_blank">  @postviewModel.Title</a>
-            </h5>
-        </div>
-        <div class="card-body"> @postviewModel.Summary</div>
+    <div class="card-body">
+        @postviewModel.Summary
 
     </div>
-    <br />
+    <div class="card-footer">
+        <i class="fa fa-user-circle"></i> نوشته شده توسط :@postviewModel.UserFullName<i class="fa fa-clock-o"></i>  @postviewModel.Date
+        <a href="@Url.Action("ShowPdf", "Post", new {postId = postviewModel.Id})" class="btn btn-success" target="_blank">
+            <i class="fa fa-tag"></i>
+            دریافت فایل
+        </a>
+    </div>
+
+</div>
 }
+
 

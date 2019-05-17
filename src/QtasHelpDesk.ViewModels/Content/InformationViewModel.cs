@@ -12,6 +12,7 @@ namespace QtasHelpDesk.ViewModels.Content
             FaqViewModels=new List<FaqViewModel>();
         }
 
+      
         public List<PostViewModel> PostViewModels { get; set; }
 
         public List<FaqViewModel> FaqViewModels { get; set; }

@@ -9,6 +9,8 @@ namespace QtasHelpDesk.Services.Contracts.Content
 
         void AddGroup(Group group);
 
+        string GetGroupName(int groupId);
+
         Group GetGroupById(long id);
 
         void EditGroup(Group group);

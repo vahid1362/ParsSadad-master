@@ -1,0 +1,6 @@
+﻿@model IEnumerable<QtasHelpDesk.ViewModels.Content.PostViewModel>
+@foreach (var postviewModel in Model)
+{
+    <partial name="_Post" model=@postviewModel/>
+    <br />
+}

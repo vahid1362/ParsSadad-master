@@ -27,6 +27,11 @@ namespace QtasHelpDesk.Services.Content
             _uow.SaveChanges();
         }
 
+        public string GetGroupName(int groupId)
+        {
+            return _groups.FirstOrDefault(x => x.Id==groupId)?.Title;
+        }
+
         public Group GetGroupById(long id)
         {
             return _groups.FirstOrDefault(x => x.Id == id);

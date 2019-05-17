@@ -33,6 +33,7 @@ namespace QtasHelpDesk.ViewModels.Content
         [DisplayName("آیا مقاله می باشد")]
         public bool IsArticle { get; set; }
 
+        public string GroupName { get; set; }
         public string  FilePath { get; set; }
 
         public string  UserFullName { get; set; }

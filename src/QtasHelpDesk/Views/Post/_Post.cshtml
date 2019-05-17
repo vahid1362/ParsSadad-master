@@ -1,0 +1,24 @@
+﻿@model QtasHelpDesk.ViewModels.Content.PostViewModel
+
+
+<div class="card">
+    <div class="card-header bg-info" style="">
+        <h5 class="panel-title " itemprop="headline_name">
+            @Model.Title
+        </h5>
+    </div>
+
+    <div class="card-body">
+        @Model.Summary
+
+    </div>
+    <div class="card-footer">
+        <i class="fa fa-user-circle"></i> نوشته شده توسط :@Model.UserFullName<i class="fa fa-clock-o"></i>  @Model.Date
+        <a href="@Url.Action("ShowPdf", "Post", new {postId = Model.Id})" class="btn btn-success" target="_blank">
+            <i class="fa fa-tag"></i>
+            دریافت فایل
+        </a>
+    </div>
+
+</div>
+
