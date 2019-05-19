@@ -6,6 +6,7 @@ using QtasHelpDesk.Domain.Content;
 using QtasHelpDesk.Services.Contracts.Content;
 using QtasHelpDesk.ViewModels.Content;
 
+
 namespace QtasHelpDesk.Services.Content
 {
    public class GroupService:IGroupService
@@ -19,7 +20,7 @@ namespace QtasHelpDesk.Services.Content
         }
         public List<Group> GetGroups()
         {
-            return _groups.Where(x=>x.ParentId==null).AsNoTracking().ToList();
+            return _groups.AsNoTracking().ToList();
         }
 
         public void AddGroup(Group @group)
@@ -46,6 +47,24 @@ namespace QtasHelpDesk.Services.Content
         public List<Group> GetSubGroup(int groupId)
         {
             return _groups.Where(x => x.ParentId == groupId).AsNoTracking().ToList();
+        }
+
+        public List<GroupViewModel> GetParentGroup()
+        {
+            return _groups.Where(x => x.ParentId == null).Select(x=>new GroupViewModel()
+            {
+                Id = x.Id,
+                Title = x.Title,
+              
+            }).ToList();
+        }
+        private List<GroupViewModel> GetChildGroup(int groupId)
+        {
+            return _groups.Where(x => x.ParentId == groupId).Select(x => new GroupViewModel()
+            {
+                Id = x.Id,
+                Title = x.Title
+            }).ToList();
         }
     }
 }

@@ -2,10 +2,8 @@
 using QtasHelpDesk.DataLayer.Context;
 using QtasHelpDesk.Domain.Content;
 using QtasHelpDesk.Services.Contracts.Content;
-using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using DNTPersianUtils.Core;
 using QtasHelpDesk.Common.GuardToolkit;
 using QtasHelpDesk.ViewModels.Content;
@@ -35,6 +33,18 @@ namespace QtasHelpDesk.Services.Content
             _uow.SaveChanges();
         }
 
+        public List<FaqViewModel> GetLastFaqs()
+        {
+            return _faqs.OrderByDescending(x => x.Id).Select(x => new FaqViewModel()
+            {
+                Id = x.Id,
+                Question = x.Question,
+                Reply = x.Reply,
+                UserFullName = x.User.DisplayName,
+                Date = x.RegisteDate.ToLongPersianDateString()
+            }).OrderByDescending(x => x.Id).Take(10).ToList();
+        }
+
         public Faq GetFaqById(int id)
         {
             return _faqs.FirstOrDefault(x => x.Id == id );
@@ -42,9 +52,16 @@ namespace QtasHelpDesk.Services.Content
 
      
 
-        public List<Faq> Search(string text)
+        public List<FaqViewModel> Search(string text)
         {
-            return _faqs.Where(x => x.Question.Contains(text)).ToList();
+            return _faqs.Where(x => x.Question.Contains(text)).Select(x=> new FaqViewModel()
+            {
+                Id = x.Id,
+                Question = x.Question,
+                Reply = x.Reply,
+                UserFullName = x.User.DisplayName,
+                Date = x.RegisteDate.ToPersianDateTextify()
+            }).ToList();
         }
 
         public List<FaqViewModel> GetFaqsByGroupId(int groupId)
@@ -68,7 +85,7 @@ namespace QtasHelpDesk.Services.Content
                 Reply = x.Reply,
                 UserFullName = x.User.DisplayName,
                 Date = x.RegisteDate.ToLongPersianDateString()
-            }).OrderByDescending(x => x.Id).Take(5).ToList().ToList();
+            }).OrderByDescending(x => x.Id).ToList();
         }
     }
 }

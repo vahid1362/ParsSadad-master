@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using QtasHelpDesk.Domain.Content;
+using QtasHelpDesk.ViewModels.Content;
 
 namespace QtasHelpDesk.Services.Contracts.Content
 {
@@ -16,5 +17,7 @@ namespace QtasHelpDesk.Services.Contracts.Content
         void EditGroup(Group group);
 
         List<Group> GetSubGroup(int groupId);
+        List<GroupViewModel> GetParentGroup();
+
     }
 }

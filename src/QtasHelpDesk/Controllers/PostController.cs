@@ -59,7 +59,7 @@ namespace QtasHelpDesk.Controllers
 
         private List<PostViewModel> GetLastPosts()
         {
-            var postViewModels = _postService.GetPosts();
+            var postViewModels = _postService.GetLastPosts();
             return postViewModels;
         }
 
@@ -70,11 +70,19 @@ namespace QtasHelpDesk.Controllers
 
             var result = new StringBuilder();
             var items = _postService.Search(q);
+            var faqs = _faqService.Search(q);
             foreach (var item in items)
             {
-                var postUrl = this.Url.Action("ShowPost", "Post", new { postId = item.Id }, protocol: "https");
+                var postUrl = this.Url.Action("ShowPost", "Post", new { postId = item.Id });
 
                 result.AppendLine(item.Title + "|" + postUrl);
+            }
+
+            foreach (var faq in faqs)
+            {
+                var postUrl = this.Url.Action("ShowFaq", "Faq", new { postId = faq.Id });
+
+                result.AppendLine(faq.Question + "|" + postUrl);
             }
 
             return Content(result.ToString());

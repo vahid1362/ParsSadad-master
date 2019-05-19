@@ -13,9 +13,11 @@ namespace QtasHelpDesk.Services.Contracts.Content
 
         List<FaqViewModel> GetFaqs();
 
+        List<FaqViewModel> GetLastFaqs();
+
         Faq GetFaqById(int id);
 
-        List<Faq> Search(string text);
+        List<FaqViewModel> Search(string text);
 
         List<FaqViewModel> GetFaqsByGroupId(int groupId);
 

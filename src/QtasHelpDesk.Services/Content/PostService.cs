@@ -5,7 +5,6 @@ using QtasHelpDesk.Services.Contracts.Content;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using DNTPersianUtils.Core;
 using QtasHelpDesk.Common.GuardToolkit;
 using QtasHelpDesk.ViewModels.Content;
@@ -34,6 +33,18 @@ namespace QtasHelpDesk.Services.Content
         public void Edit(Post post)
         {
             throw new NotImplementedException();
+        }
+
+        public List<PostViewModel> GetLastPosts()
+        {
+            return _posts.Where(x => x.IsArticle).Select(x => new PostViewModel()
+            {
+                Id = x.Id,
+                Title = x.Title,
+                Summary = x.Summary,
+                UserFullName = x.User.DisplayName,
+                Date = x.RegisteDate.ToLongPersianDateString()
+            }).OrderByDescending(x => x.Id).Take(10).ToList();
         }
 
         public Post GetPostById(int id)
@@ -70,7 +81,7 @@ namespace QtasHelpDesk.Services.Content
                 Summary = x.Summary,
                 UserFullName = x.User.DisplayName,
                 Date =x.RegisteDate.ToLongPersianDateString()
-            }).OrderByDescending(x => x.Id).Take(5).ToList();
+            }).OrderByDescending(x => x.Id).ToList();
         }
     }
 }

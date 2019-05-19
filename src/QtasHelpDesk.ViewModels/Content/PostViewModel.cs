@@ -19,8 +19,8 @@ namespace QtasHelpDesk.ViewModels.Content
         public string Title { get; set; }
 
         //[Required(ErrorMessage = "وارد کردن چکیده ضروری است")]
-        //[DisplayName("چکیده")]
-        //[DataType(DataType.MultilineText)]
+        [DisplayName("چکیده")]
+     
         public string Summary { get; set; }
 
         //[Required(ErrorMessage = "وارد کردن عنوان ضروری است")]

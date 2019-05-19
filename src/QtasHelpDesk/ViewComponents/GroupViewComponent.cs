@@ -17,32 +17,22 @@ namespace QtasHelpDesk.ViewComponents
         }
         public async Task<IViewComponentResult> InvokeAsync()
         {
-            var groupViewModels = _groupService.GetGroups().Select(x => new GroupViewModel
+            var groupViewModels = _groupService.GetParentGroup();
+            foreach (var groupViewModel in groupViewModels)
             {
-                Id = x.Id,
-                Title = x.Title,
-              SubGroups = _groupService.GetSubGroup(x.Id).Select(y => new GroupViewModel
-              {
-                  Id = y.Id,
-                  Title = y.Title,
-                  
-              }).ToList()
-            });
+                groupViewModel.SubGroups = _groupService.GetSubGroup(groupViewModel.Id).Select(x => new GroupViewModel()
+                {
+                    Id = x.Id,
+                    Title = x.Title
+                }).ToList();
+            }
+
+          
             return View(viewName: "~/Views/Shared/Components/Groups/Default.cshtml",
                 model: groupViewModels);
         }
 
 
-        private List<GroupViewModel> GetSubGroup(int groupId)
-        {
-          return  _groupService.GetSubGroup(groupId).Select(x =>
-                              new GroupViewModel()
-                {
-                    Id = x.Id,
-                    Title = x.Title,
-                    //  SubGroups = 
-
-                }).ToList();
-        }
+       
     }
 }

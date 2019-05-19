@@ -10,8 +10,8 @@ using QtasHelpDesk.DataLayer.Context;
 namespace QtasHelpDesk.DataLayer.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20190516183415_V2019_05_16_2303")]
-    partial class V2019_05_16_2303
+    [Migration("20190518105332_V2019_05_18_1522")]
+    partial class V2019_05_18_1522
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {

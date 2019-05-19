@@ -14,6 +14,7 @@ namespace QtasHelpDesk.Services.Contracts.Content
 
         List<PostViewModel> GetPosts();
 
+        List<PostViewModel> GetLastPosts();
         Post GetPostById(int id);
 
         List<SearchResultViewModel> Search(string text);
