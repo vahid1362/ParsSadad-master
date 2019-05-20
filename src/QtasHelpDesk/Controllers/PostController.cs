@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Text;
 using DNTBreadCrumb.Core;
 using DNTPersianUtils.Core;
@@ -38,7 +39,7 @@ namespace QtasHelpDesk.Controllers
         [BreadCrumb(Title = "ایندکس", Order = 1)]
         public IActionResult Index()
         {
-          
+            var x = DateTime.Now;
                 var postViewModels = GetLastPosts();
                 var faqViewModels = GetLastFaq();
 
@@ -69,7 +70,9 @@ namespace QtasHelpDesk.Controllers
                 return Content(string.Empty);
 
             var result = new StringBuilder();
-            var items = _postService.Search(q);
+
+            var createIndex=new CreateIndex(_hostingEnvironment);
+            var items = createIndex.Query(q, 10);
             var faqs = _faqService.Search(q);
             foreach (var item in items)
             {

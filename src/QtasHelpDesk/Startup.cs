@@ -12,6 +12,7 @@ using QtasHelpDesk.IocConfig;
 using QtasHelpDesk.DataLayer.Context;
 using DNTCommon.Web.Core;
 using NToastNotify;
+using DNTScheduler.Core;
 
 namespace QtasHelpDesk
 {
@@ -63,6 +64,19 @@ namespace QtasHelpDesk
             services.AddMemoryCache();
             services.AddDNTCommonWeb();
             services.AddDNTCaptcha();
+            services.AddDNTScheduler(options =>
+            {
+                // DNTScheduler needs a ping service to keep it alive. Set it to false if you don't need it.
+                // options.AddPingTask = true;
+
+                options.AddScheduledTask<LuceneIndexTask>(
+                    runAt: utcNow =>
+                    {
+                        var now = utcNow.AddHours(3.5);
+                        return  now.Hour ==2 && now.Minute == 5 && now.Second == 1;
+                    },
+                    order: 2);
+            });
             services.AddCloudscribePagination();
             services.AddSignalR();
            
@@ -101,7 +115,7 @@ namespace QtasHelpDesk
             {
                 routes.MapHub<Chat>("/chat");
             });
-
+            app.UseDNTScheduler();
             app.UseMvcWithDefaultRoute();
 
             // app.UseNoBrowserCache();

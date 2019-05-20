@@ -5,6 +5,8 @@ using System.Linq;
 using DNTBreadCrumb.Core;
 using Kendo.Mvc.Extensions;
 using Kendo.Mvc.UI;
+using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Hosting.Internal;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
@@ -27,13 +29,18 @@ namespace QtasHelpDesk.Areas.Admin.Controllers
         private readonly IToastNotification _toastNotification;
         private readonly  IGroupService _groupService;
         private readonly IApplicationUserManager _userManager;
+        private readonly IHostingEnvironment _hostingEnvironment;
+    
 
-        public PostController(IPostService postService, IToastNotification toastNotification, IGroupService groupService, IApplicationUserManager userManager)
+        public PostController(IPostService postService, IToastNotification toastNotification, IGroupService groupService, IApplicationUserManager userManager,IHostingEnvironment hostingEnvironment)
         {
             _postService = postService;
             _toastNotification = toastNotification;
             _groupService = groupService;
             _userManager = userManager;
+            _hostingEnvironment = hostingEnvironment;
+
+
         }
 
         #endregion
@@ -74,8 +81,13 @@ namespace QtasHelpDesk.Areas.Admin.Controllers
                    IsArticle=true,
                 
                 });
-              
+
                 _toastNotification.AddSuccessToastMessage("محتوی با موفقیت درج شد");
+
+                  var index = new CreateIndex(_hostingEnvironment);
+                   index.AddIndex(model);
+
+
                 return RedirectToAction("List");
             }
             var groups = PrepareGroupSelectedListItem();
