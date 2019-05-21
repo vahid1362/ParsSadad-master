@@ -13,6 +13,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using NToastNotify;
 using QtasHelpDesk.Common.GuardToolkit;
 using QtasHelpDesk.Domain.Content;
+using QtasHelpDesk.Search;
 using QtasHelpDesk.Services.Content;
 using QtasHelpDesk.Services.Contracts.Content;
 using QtasHelpDesk.Services.Contracts.Identity;
@@ -30,21 +31,26 @@ namespace QtasHelpDesk.Areas.Admin.Controllers
         private readonly  IGroupService _groupService;
         private readonly IApplicationUserManager _userManager;
         private readonly IHostingEnvironment _hostingEnvironment;
-    
+        private readonly ISearchManager _searchManager;
 
-        public PostController(IPostService postService, IToastNotification toastNotification, IGroupService groupService, IApplicationUserManager userManager,IHostingEnvironment hostingEnvironment)
+        #endregion
+
+
+        #region Ctor
+
+        public PostController(IPostService postService, IToastNotification toastNotification, IGroupService groupService, IApplicationUserManager userManager, IHostingEnvironment hostingEnvironment, ISearchManager searchManager)
         {
             _postService = postService;
             _toastNotification = toastNotification;
             _groupService = groupService;
             _userManager = userManager;
             _hostingEnvironment = hostingEnvironment;
-
+            _searchManager = searchManager;
+            _searchManager.CheckArgumentIsNull(nameof(_searchManager));
 
         }
-
         #endregion
-       
+
 
         public IActionResult Index()
         {
@@ -70,23 +76,31 @@ namespace QtasHelpDesk.Areas.Admin.Controllers
         {
             if (ModelState.IsValid)
             {
-                _postService.Add(new Post()
-                {   Title = model.Title,
+                var post = new Post()
+                {
+                    Title = model.Title,
                     Summary = model.Summary,
                     GroupId = model.GroupId,
                     Decription = model.Decription,
                     FilePath = model.FilePath,
                     User = _userManager.GetCurrentUser(),
                     RegisteDate = DateTime.Now,
-                   IsArticle=true,
-                
-                });
+                    IsArticle = true,
 
+                };
+                _postService.Add(post);
+        
                 _toastNotification.AddSuccessToastMessage("محتوی با موفقیت درج شد");
+                for (int i = 0; i < 1000; i++)
+                {
+                    _searchManager.AddToIndex(new Searchable[]
+                    {
+                        new SearchableArticle(model)
 
-                  var index = new CreateIndex(_hostingEnvironment);
-                   index.AddIndex(model);
+                    });
 
+
+                }
 
                 return RedirectToAction("List");
             }

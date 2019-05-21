@@ -28,6 +28,7 @@
     <PackageReference Include="DNTCommon.Web.Core" Version="1.4.0" />
     <PackageReference Include="DNTScheduler.Core" Version="1.0.7" />
     <PackageReference Include="Lucene.Net" Version="4.8.0-beta00005" />
+    <PackageReference Include="Lucene.Net.Analysis.Common" Version="4.8.0-beta00005" />
     <PackageReference Include="Lucene.Net.Contrib" Version="3.0.3" />
     <PackageReference Include="Lucene.Net.Queries" Version="4.8.0-beta00005" />
     <PackageReference Include="Lucene.Net.QueryParser" Version="4.8.0-beta00005" />
@@ -350,5 +351,6 @@
     <Folder Include="Views\Shared\EditorTempates\" />
     <Folder Include="wwwroot\Files\" />
     <Folder Include="wwwroot\Idx\" />
+    <Folder Include="wwwroot\Lucene_Index\" />
   </ItemGroup>
 </Project>

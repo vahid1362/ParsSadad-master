@@ -13,6 +13,7 @@ using QtasHelpDesk.DataLayer.Context;
 using DNTCommon.Web.Core;
 using NToastNotify;
 using DNTScheduler.Core;
+using QtasHelpDesk.Search;
 
 namespace QtasHelpDesk
 {
@@ -44,6 +45,7 @@ namespace QtasHelpDesk
                 optionsBuilder.UseInternalServiceProvider(serviceProvider); // It's added to access services from the dbcontext, remove it if you are using the normal `AddDbContext` and normal constructor dependency injection.
             });
             services.AddAutoMapper();
+          
             services.AddMvc(options =>
             {
                 options.UseYeKeModelBinder();
@@ -64,22 +66,8 @@ namespace QtasHelpDesk
             services.AddMemoryCache();
             services.AddDNTCommonWeb();
             services.AddDNTCaptcha();
-            services.AddDNTScheduler(options =>
-            {
-                // DNTScheduler needs a ping service to keep it alive. Set it to false if you don't need it.
-                // options.AddPingTask = true;
+            services.AddTransient<ISearchManager, SearchManager>();
 
-                options.AddScheduledTask<LuceneIndexTask>(
-                    runAt: utcNow =>
-                    {
-                        var now = utcNow.AddHours(3.5);
-                        return  now.Hour ==2 && now.Minute == 5 && now.Second == 1;
-                    },
-                    order: 2);
-            });
-            services.AddCloudscribePagination();
-            services.AddSignalR();
-           
 
         }
 
@@ -110,12 +98,8 @@ namespace QtasHelpDesk
 
 
             app.UseStaticFiles();
-
-            app.UseSignalR(routes =>
-            {
-                routes.MapHub<Chat>("/chat");
-            });
-            app.UseDNTScheduler();
+            
+   
             app.UseMvcWithDefaultRoute();
 
             // app.UseNoBrowserCache();

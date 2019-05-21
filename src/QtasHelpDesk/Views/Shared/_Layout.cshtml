@@ -1,6 +1,8 @@
 ﻿@{
-    var pageTitle = ViewData["Title"] ?? "ASP.NET Core Identity Sample";
-  
+    ViewData["Title"] = "Index";
+
+    var searchsUrl = Url.Action("Search", "Post");
+    var bulletImage = Url.Content("~/Images/bullet_shape.png");
 }
 <!DOCTYPE html>
 <html>
@@ -9,30 +11,83 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>@pageTitle</title>
+    <title></title>
     <link href="~/css/site.min.css" rel="stylesheet" asp-append-version="true" />
+    <style>
+        .ac_results {
+            padding: 0;
+            border: 1px solid black;
+            background-color: black;
+            z-index: 99999;
+        }
+
+            .ac_results ul {
+                list-style-position: outside;
+                list-style: none;
+                padding: 0;
+                margin: 0;
+                background: white;
+            }
+
+            .ac_results li {
+                margin: 0;
+                padding: 5px;
+                cursor: default;
+                display: block;
+                direction: rtl;
+                text-align: right;
+                font: normal 14px 'Samim',Tahoma;
+                line-height: 16px;
+            }
+
+        .ac_loading {
+            background: white url('/Images/indicator.gif') left center no-repeat;
+        }
+
+        .ac_odd {
+            background-color: whitesmoke;
+        }
+
+        .ac_over {
+            background-color: #D1EAEF;
+            color: #1F717F;
+        }
+
+        .ac_results {
+            border-color: #a2bff0 !important;
+            z-index: 10000;
+            background-color: white;
+        }
+
+
+        .ac_over {
+            background-color: #d5e2ff !important;
+            color: #000 !important;
+            cursor: pointer;
+        }
+    </style>
 </head>
 <body>
 
-<div class="navbar bg-info navbar-dark navbar-expand-sm fixed-top" >
-    <div class="container">
-        <a asp-area="" asp-controller="Home" asp-action="Index" class="navbar-brand d-none d-sm-inline-block">
-            <img src="~/images/logo.png" />
-            <span class="text-white"> پشتیان افزار رایانه ای سداد</span>
-        </a>
-        <div class="input-group col-md-4">
-            <input class="form-control py-2 " type="search" placeholder="جستجو ..." id="term">
-            <span class="input-group-append">
-                <button class="btn btn-outline-dark" type="button">
-                    <i class="fa fa-search text-white"></i>
-                </button>
-            </span>
-        </div>
-        <div class="pull-left">
-            <span class="navbar-text d-none d-xl-inline-block text-white"><i class="fa fa-calendar"></i> @DateTime.Now.ToPersianDateTextify()</span>
-              <a  href="/home/LogOff" class="btn btn-danger">خروج</a>
-           </div>  
-             
+    <div class="navbar bg-info navbar-dark navbar-expand-sm fixed-top">
+        <div class="container">
+            <a asp-area="" asp-controller="Home" asp-action="Index" class="navbar-brand d-none d-sm-inline-block">
+                <img src="~/images/logo.png" />
+                <span class="text-white"> پشتیان افزار رایانه ای سداد</span>
+            </a>
+            <div class="input-group col-md-4">
+                <input class="form-control py-2 " type="search" placeholder="جستجو ..." id="term">
+                <span class="input-group-append">
+                    <button class="btn btn-outline-dark" type="button">
+                        <i class="fa fa-search text-white"></i>
+                    </button>
+                </span>
+            </div>
+            <div class="pull-left">
+                <span class="navbar-text d-none d-xl-inline-block text-white"><i class="fa fa-calendar"></i> @DateTime.Now.ToPersianDateTextify()</span>
+                <a href="/home/LogOff" class="btn btn-danger">خروج</a>
+            </div>
+
         </div>
     </div>
     <div class="container">
@@ -52,6 +107,7 @@
             </div>
             <div class="col-md-3 order-md-3">
                 <partial name="_SidebarMenu" />
+              
             </div>
         </div>
     </div>
@@ -65,11 +121,17 @@
             </div>
         </div>
     </footer>
-  
+
     <script src="~/js/site.min.js" type="text/javascript" asp-append-version="true"></script>
     <script src="~/js/jquery.autocomplete.min.js"></script>
     <script src="~/js/Custom.js"></script>
+<script type="text/javascript">
+   $('#collapse-icon').addClass('fa-angle-double-left'); 
 
+    // Collapse/Expand icon
+
+    EnableSearchAutocomplete('@searchsUrl', '@bulletImage');
+</script>
     @await RenderSectionAsync("Scripts", required: false)
 </body>
 

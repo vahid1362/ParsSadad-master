@@ -1,11 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Text;
 using DNTBreadCrumb.Core;
 using DNTPersianUtils.Core;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
 using QtasHelpDesk.Common.GuardToolkit;
+using QtasHelpDesk.Search;
 using QtasHelpDesk.Services.Contracts.Content;
 using QtasHelpDesk.ViewModels.Content;
 
@@ -20,18 +20,22 @@ namespace QtasHelpDesk.Controllers
         private readonly IPostService _postService;
         private readonly IHostingEnvironment _hostingEnvironment;
         private readonly IFaqService _faqService;
+        private readonly ISearchManager _searchManager;
+        
 
         #endregion
 
         #region Ctor
 
-        public PostController(IPostService postService, IHostingEnvironment hostingEnvironment, IFaqService faqService)
+        public PostController(IPostService postService, IHostingEnvironment hostingEnvironment, IFaqService faqService,ISearchManager searchManager)
         {
             _postService = postService;
             _postService.CheckArgumentIsNull(nameof(_postService));
             _hostingEnvironment = hostingEnvironment;
             _faqService = faqService;
             _hostingEnvironment.CheckArgumentIsNull(nameof(_hostingEnvironment));
+            _searchManager = searchManager;
+            _searchManager.CheckArgumentIsNull(nameof(_searchManager));
         }
 
         #endregion
@@ -39,7 +43,7 @@ namespace QtasHelpDesk.Controllers
         [BreadCrumb(Title = "ایندکس", Order = 1)]
         public IActionResult Index()
         {
-            var x = DateTime.Now;
+          
                 var postViewModels = GetLastPosts();
                 var faqViewModels = GetLastFaq();
 
@@ -71,19 +75,21 @@ namespace QtasHelpDesk.Controllers
 
             var result = new StringBuilder();
 
-            var createIndex=new CreateIndex(_hostingEnvironment);
-            var items = createIndex.Query(q, 10);
-            var faqs = _faqService.Search(q);
+            var faqs = _faqService.Search(q.Trim());
+
+            var items = _postService.Search(q.Trim());
+
+
             foreach (var item in items)
             {
                 var postUrl = this.Url.Action("ShowPost", "Post", new { postId = item.Id });
 
                 result.AppendLine(item.Title + "|" + postUrl);
             }
-
+            
             foreach (var faq in faqs)
             {
-                var postUrl = this.Url.Action("ShowFaq", "Faq", new { postId = faq.Id });
+                var postUrl = this.Url.Action("ShowFaq", "Faq", new { faqId = faq.Id });
 
                 result.AppendLine(faq.Question + "|" + postUrl);
             }

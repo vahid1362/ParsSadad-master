@@ -12,7 +12,7 @@ using QtasHelpDesk.ViewModels.Search;
 
 namespace QtasHelpDesk.Services.Content
 {
-   public class PostService:IPostService
+    public class PostService : IPostService
     {
         private readonly IUnitOfWork _uow;
         private readonly DbSet<Post> _posts;
@@ -24,7 +24,7 @@ namespace QtasHelpDesk.Services.Content
             _posts = _uow.Set<Post>();
         }
 
-        public void  Add(Post post)
+        public void Add(Post post)
         {
             _posts.Add(post);
             _uow.SaveChanges();
@@ -54,10 +54,14 @@ namespace QtasHelpDesk.Services.Content
 
         public List<SearchResultViewModel> Search(string text)
         {
-            return _posts.Where(x => x.Title.Contains(text)).Select(x=> new SearchResultViewModel()
-            {   Id = x.Id,
+            var result = _posts.Where(x => EF.Functions.Like(x.Title, "%" + text + "%")).Select(x=>new SearchResultViewModel
+            {
+                Id = x.Id,
                 Title = x.Title
+                
             }).ToList();
+            return result;
+
         }
 
         public List<PostViewModel> GetPostsByGroupId(int groupId)
@@ -74,13 +78,13 @@ namespace QtasHelpDesk.Services.Content
 
         public List<PostViewModel> GetPosts()
         {
-            return _posts.Where(x=>x.IsArticle).Select(x => new PostViewModel()
+            return _posts.Where(x => x.IsArticle).Select(x => new PostViewModel()
             {
                 Id = x.Id,
                 Title = x.Title,
                 Summary = x.Summary,
                 UserFullName = x.User.DisplayName,
-                Date =x.RegisteDate.ToLongPersianDateString()
+                Date = x.RegisteDate.ToLongPersianDateString()
             }).OrderByDescending(x => x.Id).ToList();
         }
     }

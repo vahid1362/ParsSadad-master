@@ -54,13 +54,11 @@ namespace QtasHelpDesk.Services.Content
 
         public List<FaqViewModel> Search(string text)
         {
-            return _faqs.Where(x => x.Question.Contains(text)).Select(x=> new FaqViewModel()
+            return _faqs.Where(x => EF.Functions.Like(x.Question, "%" + text + "%")).Select(x=> new FaqViewModel()
             {
                 Id = x.Id,
-                Question = x.Question,
-                Reply = x.Reply,
-                UserFullName = x.User.DisplayName,
-                Date = x.RegisteDate.ToPersianDateTextify()
+                Question = x.Question
+               
             }).ToList();
         }
 
