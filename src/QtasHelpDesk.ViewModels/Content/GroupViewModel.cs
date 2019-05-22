@@ -10,7 +10,7 @@ namespace QtasHelpDesk.ViewModels.Content
         public GroupViewModel()
         {
             AvaiableGroup = new List<SelectListItem>();
-            SubGroups = new List<GroupViewModel>();
+            children = new List<GroupViewModel>();
         }
         
         public int  Id { get; set; }
@@ -40,7 +40,11 @@ namespace QtasHelpDesk.ViewModels.Content
         [DisplayName("عنوان")]
         public string BreadCrumbName { get; set; }
 
-        public List<GroupViewModel> SubGroups { get; set; }
+        public bool hasChildren { get; set; }
+
+        public List<GroupViewModel> children { get; set; }
+
+
 
 
     }

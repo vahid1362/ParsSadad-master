@@ -6,17 +6,10 @@
     var searchsUrl = Url.Action("Search", "Post");
     var bulletImage = Url.Content("~/Images/bullet_shape.png");
 }
-
-
-<div id="accordion">
-
-
-</div>
-
 @foreach (var faqwModel in Model.FaqViewModels)
 {
 
-    <div class="card">
+   <div class="card">
         <div class="card-header bg-info" style="">
             <h6 class="panel-title text-white" itemprop="headline_name">
                 <i class="fa fa-question-circle"></i>
@@ -29,7 +22,6 @@
             </div>
     <br />
 
-    
 }
     <partial name="_Posts" model=@Model.PostViewModels />
 

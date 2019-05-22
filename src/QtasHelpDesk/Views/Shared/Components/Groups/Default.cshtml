@@ -28,7 +28,7 @@
             </ul>
         </div>
     </div>*@
-<div id="sidebar-container" class="sidebar-expanded d-none d-md-block">
+@*<div id="sidebar-container" class="sidebar-expanded d-none d-md-block">
     <!-- d-* hiddens the Sidebar in smaller devices. Its itens can be kept on the Navbar 'Menu' -->
     <!-- Bootstrap List Group -->
     <ul class="list-group">
@@ -43,93 +43,62 @@
 
         @foreach (var group in Model)
         {
-            <a href="#submenu-@group.Id" data-toggle="collapse" aria-expanded="false" class=" list-group-item  flex-column align-items-start">
-                <div class="d-flex w-100 justify-content-start align-items-center">
+            
+            if (!@group.SubGroups.Any())
+            {
+                <a ref="@Url.Action("Index","Group",new{groupId=group.Id})" data-toggle="collapse" aria-expanded="false" class=" list-group-item  flex-column align-items-start">
+                    <div class="d-flex w-100 justify-content-start align-items-center">
 
-                    <span class="menu-collapsed"><i class="fa fa-check"></i> @group.Title</span>
+                        <span class="menu-collapsed"><i class="fa fa-check"></i> @group.Title</span>
+
+                    </div>
+                </a>
+            }
+            else
+            {
+                <a href="#submenu-@group.Id" data-toggle="collapse" aria-expanded="false" class=" list-group-item  flex-column align-items-start">
+                    <div class="d-flex w-100 justify-content-start align-items-center">
+
+                        <span class="menu-collapsed"><i class="fa fa-check"></i> @group.Title</span>
+
+                    </div>
+                </a>
+                <div id='submenu-@group.Id' class="collapse sidebar-submenu">
+                    @foreach (var subgroup in group.SubGroups)
+                    {
+                        <a href="@Url.Action("Index","Group",new{groupId=subgroup.Id})" class="list-group-item " style="padding-right: 30px">
+                            <span class="menu-collapsed"><i class="fa fa-square"></i> @subgroup.Title</span>
+
+                            <div id='submenu-@subgroup.Id' class="collapse sidebar-submenu">
+                                @foreach (var subgroup1 in group.SubGroups)
+                                {
+                                    <a href="@Url.Action("Index","Group",new{subgroup1=subgroup.Id})" class="list-group-item " style="padding-right: 30px">
+                                        <span class="menu-collapsed"><i class="fa fa-square"></i> @subgroup.Title</span>
+                                    </a>
+                                }
+                            </div>
+                        </a>
+                    }
 
                 </div>
-            </a>
-            <div id='submenu-@group.Id' class="collapse sidebar-submenu">
-                @foreach (var subgroup in group.SubGroups)
-                {
-                     <a href="@Url.Action("Index","Group",new{groupId=subgroup.Id})" class="list-group-item " style="padding-right: 30px">
-                        <span class="menu-collapsed"><i class="fa fa-square"></i> @subgroup.Title</span>
-                       
-                        <div id='submenu-@subgroup.Id' class="collapse sidebar-submenu">
-                            @foreach (var subgroup1 in group.SubGroups)
-                            {
-                                <a href="@Url.Action("Index","Group",new{subgroup1=subgroup.Id})" class="list-group-item " style="padding-right: 30px">
-                                    <span class="menu-collapsed"><i class="fa fa-square"></i> @subgroup.Title</span>
-                                </a>
-                            }
-                        </div>
-                         </a>
-                }
+            }
 
-            </div>
         }
 
 
-        @*<!-- Submenu content -->
+      
+    </ul>
+</div>*@
+<div class="card ">
+<div class="card-header bg-info" style="max-height: 50px">
+    <h5 class="card-title text-white">
+        <span class="fa fa-archive " aria-hidden="true"></span>
+        گروه ها
+    </h5>
+</div>
+<div class="card-body">
+    <div id="tree">
 
-            <a href="#submenu2" data-toggle="collapse" aria-expanded="false" class="bg-dark list-group-item list-group-item-action flex-column align-items-start">
-                <div class="d-flex w-100 justify-content-start align-items-center">
-                    <span class="fa fa-user fa-fw mr-3"></span>
-                    <span class="menu-collapsed">Profile</span>
-                    <span class="submenu-icon ml-auto"></span>
-                </div>
-            </a>
-            <!-- Submenu content -->
-            <div id='submenu2' class="collapse sidebar-submenu">
-                <a href="#" class="list-group-item list-group-item-action bg-dark text-white">
-                    <span class="menu-collapsed">Settings</span>
-                </a>
-                <a href="#" class="list-group-item list-group-item-action bg-dark text-white">
-                    <span class="menu-collapsed">Password</span>
-                </a>
-            </div>
-            <a href="#" class="bg-dark list-group-item list-group-item-action">
-                <div class="d-flex w-100 justify-content-start align-items-center">
-                    <span class="fa fa-tasks fa-fw mr-3"></span>
-                    <span class="menu-collapsed">Tasks</span>
-                </div>
-            </a>
-            <!-- Separator with title -->
-            <li class="list-group-item sidebar-separator-title text-muted d-flex align-items-center menu-collapsed">
-                <small>OPTIONS</small>
-            </li>
-            <!-- /END Separator -->
-            <a href="#" class="bg-dark list-group-item list-group-item-action">
-                <div class="d-flex w-100 justify-content-start align-items-center">
-                    <span class="fa fa-calendar fa-fw mr-3"></span>
-                    <span class="menu-collapsed">Calendar</span>
-                </div>
-            </a>
-            <a href="#" class="bg-dark list-group-item list-group-item-action">
-                <div class="d-flex w-100 justify-content-start align-items-center">
-                    <span class="fa fa-envelope-o fa-fw mr-3"></span>
-                    <span class="menu-collapsed">Messages <span class="badge badge-pill badge-primary ml-2">5</span></span>
-                </div>
-            </a>
-            <!-- Separator without title -->
-            <li class="list-group-item sidebar-separator menu-collapsed"></li>
-            <!-- /END Separator -->
-            <a href="#" class="bg-dark list-group-item list-group-item-action">
-                <div class="d-flex w-100 justify-content-start align-items-center">
-                    <span class="fa fa-question fa-fw mr-3"></span>
-                    <span class="menu-collapsed">Help</span>
-                </div>
-            </a>
-            <a href="#" data-toggle="sidebar-colapse" class="bg-dark list-group-item list-group-item-action d-flex align-items-center">
-                <div class="d-flex w-100 justify-content-start align-items-center">
-                    <span id="collapse-icon" class="fa fa-2x mr-3"></span>
-                    <span id="collapse-text" class="menu-collapsed">Collapse</span>
-                </div>
-            </a>
-            <!-- Logo -->
-            <li class="list-group-item logo-separator d-flex justify-content-center">
-                <img src='https://v4-alpha.getbootstrap.com/assets/brand/bootstrap-solid.svg' width="30" height="30" />
-            </li>*@
-    </ul><!-- List Group END-->
+    </div>
+</div>
 </div>

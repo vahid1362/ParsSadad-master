@@ -20,11 +20,7 @@ namespace QtasHelpDesk.ViewComponents
             var groupViewModels = _groupService.GetParentGroup();
             foreach (var groupViewModel in groupViewModels)
             {
-                groupViewModel.SubGroups = _groupService.GetSubGroup(groupViewModel.Id).Select(x => new GroupViewModel()
-                {
-                    Id = x.Id,
-                    Title = x.Title
-                }).ToList();
+                groupViewModel.children = _groupService.GetSubGroup(groupViewModel.Id);
             }
 
           

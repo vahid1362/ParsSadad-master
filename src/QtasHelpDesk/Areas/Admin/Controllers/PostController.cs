@@ -201,7 +201,7 @@ namespace QtasHelpDesk.Areas.Admin.Controllers
                 Value = x.Id.ToString(),
                 Text = x.GetFormattedBreadCrumb(_groupService)
             }).ToList();
-            groups.Insert(0,new SelectListItem(null,null));
+       
             return groups;
         }
 

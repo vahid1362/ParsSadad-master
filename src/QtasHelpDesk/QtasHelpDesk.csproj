@@ -351,6 +351,7 @@
     <Folder Include="Views\Shared\EditorTempates\" />
     <Folder Include="wwwroot\Files\" />
     <Folder Include="wwwroot\Idx\" />
+    <Folder Include="wwwroot\js\TypeAhead\" />
     <Folder Include="wwwroot\Lucene_Index\" />
   </ItemGroup>
 </Project>
