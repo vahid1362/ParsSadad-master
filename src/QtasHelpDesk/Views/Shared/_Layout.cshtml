@@ -13,6 +13,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title></title>
     <link href="~/css/site.min.css" rel="stylesheet" asp-append-version="true" />
+    <link href="~/css/gijgo.min.css" rel="stylesheet" />
+
+
     <style>
         .ac_results {
             padding: 0;
@@ -124,13 +127,28 @@
 
     <script src="~/js/site.min.js" type="text/javascript" asp-append-version="true"></script>
     <script src="~/js/jquery.autocomplete.min.js"></script>
-    <script src="~/js/Custom.js"></script>
+<script src="~/js/Custom.js"></script>
+<script src="~/js/gijgo.min.js"></script>
 <script type="text/javascript">
-   $('#collapse-icon').addClass('fa-angle-double-left'); 
+
 
     // Collapse/Expand icon
 
     EnableSearchAutocomplete('@searchsUrl', '@bulletImage');
+    $(document).ready(function () {
+        $('#tree').tree({
+            uiLibrary: 'bootstrap4',
+            dataSource: '/Post/GetGroups',
+            primaryKey: 'Id',
+            textField: 'Title',
+            icons: {
+                expand: '  <i class="fas fa-plus-square"></i>',
+                collapse: '<i class="fas fa-minus-square"></i>'
+                },   border: true
+         
+          
+        });
+    });
 </script>
     @await RenderSectionAsync("Scripts", required: false)
 </body>

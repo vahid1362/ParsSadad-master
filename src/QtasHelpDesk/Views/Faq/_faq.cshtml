@@ -1,0 +1,12 @@
+﻿@model QtasHelpDesk.ViewModels.Content.FaqViewModel
+<div class="card">
+    <div class="card-header bg-info" style="">
+        <h6 class="panel-title text-white" itemprop="headline_name">
+            <i class="fa fa-question-circle"></i>
+            @Model.Question
+        </h6>
+    </div>
+    <div class="card-body"><i class="fa fa-reply"></i> پاسخ:@Model.Question</div>
+    <div class="card-footer">  <i class="fa fa-user-circle"></i> نوشته شده توسط :@Model.UserFullName<i class="fa fa-clock-o"></i>  @Model.Date</div>
+
+</div>

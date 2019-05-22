@@ -44,13 +44,13 @@ $(function () {
 
 $.validator.setDefaults({ ignore: "" }); // for hidden tabs and also textarea's
 
-function removeAllTagsAndTrim(html) {
-    return !html ? "" : $.trim(html.replace(/(<([^>]+)>)/ig, ""));
-}
+//function removeAllTagsAndTrim(html) {
+//    return !html ? "" : $.trim(html.replace(/(<([^>]+)>)/ig, ""));
+//}
 
 $.validator.methods.originalRequired = $.validator.methods.required;
 $.validator.addMethod("required", function (value, element, param) {
-    value = removeAllTagsAndTrim(value);
+   // value = removeAllTagsAndTrim(value);
     if (!value) {
         return false;
     }

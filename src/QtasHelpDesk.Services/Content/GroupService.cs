@@ -44,9 +44,16 @@ namespace QtasHelpDesk.Services.Content
             _uow.SaveChanges();
         }
 
-        public List<Group> GetSubGroup(int groupId)
+        public List<GroupViewModel> GetSubGroup(int groupId)
         {
-            return _groups.Where(x => x.ParentId == groupId).AsNoTracking().ToList();
+            return _groups.Where(x => x.ParentId == groupId).Select(x => new GroupViewModel()
+            {
+                Id = x.Id,
+                Title =  x.Title
+
+
+
+            }).ToList();
         }
 
         public List<GroupViewModel> GetParentGroup()
@@ -55,16 +62,10 @@ namespace QtasHelpDesk.Services.Content
             {
                 Id = x.Id,
                 Title = x.Title,
+     
               
             }).ToList();
         }
-        private List<GroupViewModel> GetChildGroup(int groupId)
-        {
-            return _groups.Where(x => x.ParentId == groupId).Select(x => new GroupViewModel()
-            {
-                Id = x.Id,
-                Title = x.Title
-            }).ToList();
-        }
+      
     }
 }

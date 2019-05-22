@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 using DNTBreadCrumb.Core;
 using DNTPersianUtils.Core;
@@ -21,13 +22,15 @@ namespace QtasHelpDesk.Controllers
         private readonly IHostingEnvironment _hostingEnvironment;
         private readonly IFaqService _faqService;
         private readonly ISearchManager _searchManager;
-        
+        private readonly IGroupService _groupService;
+
 
         #endregion
 
         #region Ctor
 
-        public PostController(IPostService postService, IHostingEnvironment hostingEnvironment, IFaqService faqService,ISearchManager searchManager)
+        public PostController(IPostService postService, IHostingEnvironment hostingEnvironment, IFaqService faqService,
+            ISearchManager searchManager, IGroupService groupService)
         {
             _postService = postService;
             _postService.CheckArgumentIsNull(nameof(_postService));
@@ -36,6 +39,7 @@ namespace QtasHelpDesk.Controllers
             _hostingEnvironment.CheckArgumentIsNull(nameof(_hostingEnvironment));
             _searchManager = searchManager;
             _searchManager.CheckArgumentIsNull(nameof(_searchManager));
+            _groupService = groupService;
         }
 
         #endregion
@@ -43,17 +47,17 @@ namespace QtasHelpDesk.Controllers
         [BreadCrumb(Title = "ایندکس", Order = 1)]
         public IActionResult Index()
         {
-          
-                var postViewModels = GetLastPosts();
-                var faqViewModels = GetLastFaq();
 
-                var informationViewModel = new InformationViewModel();
-                informationViewModel.PostViewModels = postViewModels;
-                informationViewModel.FaqViewModels = faqViewModels;
-                return View(informationViewModel);
-        
-          
-          
+            var postViewModels = GetLastPosts();
+            var faqViewModels = GetLastFaq();
+
+            var informationViewModel = new InformationViewModel();
+            informationViewModel.PostViewModels = postViewModels;
+            informationViewModel.FaqViewModels = faqViewModels;
+            return PartialView(informationViewModel);
+
+
+
         }
 
         private List<FaqViewModel> GetLastFaq()
@@ -82,14 +86,14 @@ namespace QtasHelpDesk.Controllers
 
             foreach (var item in items)
             {
-                var postUrl = this.Url.Action("ShowPost", "Post", new { postId = item.Id });
+                var postUrl = this.Url.Action("ShowPost", "Post", new {postId = item.Id});
 
                 result.AppendLine(item.Title + "|" + postUrl);
             }
-            
+
             foreach (var faq in faqs)
             {
-                var postUrl = this.Url.Action("ShowFaq", "Faq", new { faqId = faq.Id });
+                var postUrl = this.Url.Action("ShowFaq", "Faq", new {faqId = faq.Id});
 
                 result.AppendLine(faq.Question + "|" + postUrl);
             }
@@ -99,6 +103,7 @@ namespace QtasHelpDesk.Controllers
 
 
         }
+
         [BreadCrumb(Title = "ایندکس", Order = 1)]
         public IActionResult ShowPost(int? postId)
         {
@@ -109,17 +114,19 @@ namespace QtasHelpDesk.Controllers
             {
                 return View("~/views/shared/Error.cshtml");
             }
-            var postViewModel=new PostViewModel()
-            {   Id = post.Id,
+
+            var postViewModel = new PostViewModel()
+            {
+                Id = post.Id,
                 Title = post.Title,
                 Summary = post.Summary,
-               Date= post.RegisteDate.ToFriendlyPersianDateTextify(),
-               UserFullName = post.User.DisplayName
-               
+                Date = post.RegisteDate.ToFriendlyPersianDateTextify(),
+                UserFullName = post.User.DisplayName
+
             };
             this.SetCurrentBreadCrumbTitle(post.Title);
             return View(postViewModel);
-            
+
         }
 
         public IActionResult ShowPdf(int? postId)
@@ -148,6 +155,53 @@ namespace QtasHelpDesk.Controllers
             };
             Response.Headers.Add("Content-Disposition", contentDispositionHeader.ToString());
             return File(pdfContent, System.Net.Mime.MediaTypeNames.Application.Pdf);
+
+        }
+
+
+        public IActionResult GetGroups()
+        {
+            var groupViewModels = _groupService.GetParentGroup();
+
+            foreach (var groupViewModel in groupViewModels)
+            {
+                var subgroups= _groupService.GetSubGroup(groupViewModel.Id);
+                if (!subgroups.Any())
+                {
+                    groupViewModel.Title = "<a href='" +
+                                           @Url.Action("index", "Group", new {groupId = groupViewModel.Id}) + "' > " +
+                                           groupViewModel.Title + "</a>";
+                    continue;
+                }
+
+                groupViewModel.children = subgroups;
+
+                foreach (var  subgroup in subgroups)
+                {
+                    var childGroupViewModel = _groupService.GetSubGroup(subgroup.Id);
+                    if (!childGroupViewModel.Any())
+                    {
+                        subgroup.Title = "<a href='" +
+                                               @Url.Action("index", "Group", new { groupId = subgroup.Id }) + "' > " +
+                                               subgroup.Title + "</a>";
+                        continue;
+                    }
+
+                    subgroup.children = childGroupViewModel;
+                    foreach (var childSubGroup in subgroup.children)
+                    {
+                        childSubGroup.Title = "<a href='" +
+                                         @Url.Action("index", "Group", new { groupId = childSubGroup.Id }) + "' > " +
+                                         childSubGroup.Title + "</a>";
+
+
+                    }
+
+                }
+
+            }
+
+            return Json(groupViewModels);
 
         }
     }

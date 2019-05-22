@@ -9,7 +9,7 @@
         $("#term").autocomplete(url, {
             dir: 'rtl', minChars: 3, delay: 5,
             mustMatch: false, max: 20, autoFill: false,
-            matchContains: false, scroll: false, width: 300,
+            matchContains: false, scroll: false, width: 300, multiple: true, multipleSeparator:" ",
             formatItem: formatItem 
         }).result(function (evt, row, formatted) {
             if (!row) return;

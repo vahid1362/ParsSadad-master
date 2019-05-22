@@ -35,17 +35,12 @@ namespace QtasHelpDesk.Controllers
         {
             foreach (var groupviewModel in groupViewModels)
             {
-                var groups = _groupService.GetSubGroup(groupviewModel.Id).Select(x => new GroupViewModel()
-                {
-                    Id = x.Id,
-                    Description = x.Description,
-                    Title = x.Title
-                }).ToList();
+                var groups = _groupService.GetSubGroup(groupviewModel.Id);
                 if (!groups.Any())
                     continue;
                 var subggroups = groups;
 
-                groupviewModel.SubGroups = subggroups;
+                groupviewModel.children = subggroups;
             }
             return groupViewModels;
         }
