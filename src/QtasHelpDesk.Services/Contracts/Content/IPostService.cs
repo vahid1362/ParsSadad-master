@@ -21,6 +21,7 @@ namespace QtasHelpDesk.Services.Contracts.Content
 
         List<PostViewModel> GetPostsByGroupId(int groupId);
 
+       void  Delete(int postId);
 
 
     }

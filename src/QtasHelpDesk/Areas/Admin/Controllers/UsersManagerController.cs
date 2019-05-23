@@ -186,7 +186,7 @@ namespace QtasHelpDesk.Areas.Identity.Controllers
         private async Task<IActionResult> returnUserCardPartialView(User thisUser)
         {
             var roles = await _roleManager.GetAllCustomRolesAsync();
-            return PartialView(@"~/Areas/Identity/Views/UserCard/_UserCardItem.cshtml",
+            return PartialView(@"~/Areas/Admin/Views/UserCard/_UserCardItem.cshtml",
                 new UserCardItemViewModel
                 {
                     User = thisUser,

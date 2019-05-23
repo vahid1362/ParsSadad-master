@@ -24,13 +24,14 @@
                         @(Html.Kendo().Grid<FaqViewModel>().Name("Faq").
                               Columns(column =>
                               {
-                                  column.Bound(c => c.Question);
+                                  column.Bound(c => c.Question).Filterable(ftb => ftb.Cell(cell => cell.Operator("contains").SuggestionOperator(FilterType.Contains)));
                                   column.Bound(c => c.Id).Title("دستورات").ClientTemplate("<a  class='btn btn-warning' href='" + Url.Action("Edit","Faq") + "?faqId=#=Id#'" +
                                                                                           "><i class=' fa fa-edit'></i>ویرایش</a>  <a  class='btn btn-warning' href='" + Url.Action("ShowAnswer", "Faq") + "?faqId=#=Id#'" +
-                                                                                          "><i class=' fa fa-zoom'></i> پاسخ</a> ");
+                                                                                          "><i class=' fa fa-zoom'></i> پاسخ</a> ").Filterable(false);
 
 
                               })
+                              .Filterable(ftb=>ftb.Mode(GridFilterMode.Row))
                               .DataSource(x => x.Ajax().Read(read => read.Action("Faq_Read", "Faq"))
                                   .Model(m => m.Id(g => g.Id))))
                     </div>

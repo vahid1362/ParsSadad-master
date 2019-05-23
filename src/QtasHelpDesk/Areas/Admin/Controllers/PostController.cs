@@ -6,7 +6,6 @@ using DNTBreadCrumb.Core;
 using Kendo.Mvc.Extensions;
 using Kendo.Mvc.UI;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.Hosting.Internal;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
@@ -20,7 +19,7 @@ using QtasHelpDesk.Services.Contracts.Identity;
 using QtasHelpDesk.ViewModels.Content;
 
 namespace QtasHelpDesk.Areas.Admin.Controllers
-{   
+{
     [Area("Admin")]
     [BreadCrumb(Title = "مقالات", UseDefaultRouteUrl = true, Order = 0)]
     public class PostController : Controller
@@ -89,25 +88,14 @@ namespace QtasHelpDesk.Areas.Admin.Controllers
 
                 };
                 _postService.Add(post);
-        
                 _toastNotification.AddSuccessToastMessage("محتوی با موفقیت درج شد");
-                for (int i = 0; i < 1000; i++)
-                {
-                    _searchManager.AddToIndex(new Searchable[]
-                    {
-                        new SearchableArticle(model)
-
-                    });
-
-
-                }
-
-                return RedirectToAction("List");
+              return RedirectToAction("List");
             }
             var groups = PrepareGroupSelectedListItem();
             model.SelectListItems = groups;
             return View(model);
         }
+
         [BreadCrumb(Title = "ویرایش", Order = 1)]
         public IActionResult Edit(int? postId)
         {
@@ -131,6 +119,7 @@ namespace QtasHelpDesk.Areas.Admin.Controllers
 
             });
         }
+
 
         [HttpPost, ValidateAntiForgeryToken]
         public IActionResult Edit(PostViewModel postViewModel)
@@ -192,6 +181,17 @@ namespace QtasHelpDesk.Areas.Admin.Controllers
                 success = true,
                filePath= relativePath
             });
+        }
+        
+        public ActionResult Post_Delete([DataSourceRequest] DataSourceRequest request, PostViewModel model)
+        {
+            if (model != null)
+            {
+            
+               _postService.Delete(model.Id);
+            }
+
+            return Json(new[] { model }.ToDataSourceResult(request, ModelState));
         }
 
         private List<SelectListItem> PrepareGroupSelectedListItem()

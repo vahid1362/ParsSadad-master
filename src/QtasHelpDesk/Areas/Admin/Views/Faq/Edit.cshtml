@@ -4,7 +4,7 @@
     ViewData["Title"] = "Edit";
     Layout = "~/Views/Shared/_AdminLayOut.cshtml";
 }
-
+<link href="~/Lib/Select2/css/select2.min.css" rel="stylesheet" />
 @using (Html.BeginForm(null, null, FormMethod.Post, new { @class = "form-horizontal" }))
 {
     <section class="content">
@@ -28,5 +28,16 @@
 
 
     </section>
+}
+@section scripts
+{
+    <script src="~/Lib/Select2/js/select2.js"></script>
+    <script>
+
+
+
+        $('#DropDown').select2();
+    </script>
+
 }
 
