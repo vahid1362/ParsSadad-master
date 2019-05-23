@@ -126,22 +126,16 @@
     </footer>
 
     <script src="~/js/site.min.js" type="text/javascript" asp-append-version="true"></script>
-
-    <script src="~/js/TypeAhead/dist/typeahead.jquery.min.js"></script>
+    <script src="~/js/jquery.autocomplete.min.js"></script>
+    <script src="~/js/Custom.js"></script>
 
     <script src="~/js/gijgo.min.js"></script>
-    <script type="text/javascript">
-
-        $.get("https://next.json-generator.com/api/json/get/V1cGoKmDV", function(data){
-    console.log(data);
-    // use a data source with 'id' and 'name' keys
-    $("#term").typeahead({ source:data });
-},'json');
-
+  
+<script>
 
     // Collapse/Expand icon
 
-    @*EnableSearchAutocomplete('@searchsUrl', '@bulletImage');*@
+    EnableSearchAutocomplete('@searchsUrl', '@bulletImage');
     $(document).ready(function () {
         $('#tree').tree({
             uiLibrary: 'bootstrap4',
