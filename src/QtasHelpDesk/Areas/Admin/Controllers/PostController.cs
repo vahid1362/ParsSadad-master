@@ -31,6 +31,7 @@ namespace QtasHelpDesk.Areas.Admin.Controllers
         private readonly IApplicationUserManager _userManager;
         private readonly IHostingEnvironment _hostingEnvironment;
         private readonly ISearchManager _searchManager;
+        
 
         #endregion
 
@@ -126,19 +127,10 @@ namespace QtasHelpDesk.Areas.Admin.Controllers
         {
             postViewModel.CheckArgumentIsNull(nameof(postViewModel));
 
-            var post = _postService.GetPostById(postViewModel.Id);
-            if (post == null)
-            {
-                _toastNotification.AddErrorToastMessage("چنین محتوایی یافت نشد");
-                return RedirectToAction("List");
-            }
+           
+            _postService.Edit(postViewModel);
 
-            post.Title = postViewModel.Title;
-            post.Summary = postViewModel.Summary;
-            post.Decription = postViewModel.Decription;
-            post.GroupId = postViewModel.GroupId;
-            _postService.Edit(post);
-
+           
             _toastNotification.AddSuccessToastMessage("چنین محتوایی یافت نشد");
             return RedirectToAction("List");
 

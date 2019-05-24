@@ -14,12 +14,14 @@ namespace QtasHelpDesk.Services.Content
     {
         private readonly IUnitOfWork _uow;
         private readonly DbSet<Faq> _faqs;
+        private readonly DbSet<Group> _groups;
 
         public FaqService(IUnitOfWork uow)
         {
             _uow = uow;
             _uow.CheckArgumentIsNull(nameof(_uow));
             _faqs = _uow.Set<Faq>();
+            _groups = _uow.Set<Group>();
         }
 
         public void  Add(Faq post)
@@ -64,7 +66,13 @@ namespace QtasHelpDesk.Services.Content
 
         public List<FaqViewModel> GetFaqsByGroupId(int groupId)
         {
-            return _faqs.Where(x => x.GroupId == groupId).Select(x => new FaqViewModel()
+
+            var groups = _groups.FromSql($"[dbo].[GetChildGroup] {groupId}").Select(x =>
+
+                x.Id
+            ).ToList();
+            groups.Add(groupId);
+            return _faqs.Where(x => groups.Contains(x.GroupId)).Select(x => new FaqViewModel()
             {
                 Id = x.Id,
                 Question = x.Question,

@@ -20,7 +20,7 @@ namespace QtasHelpDesk.Services.Content
         }
         public List<Group> GetGroups()
         {
-            return _groups.AsNoTracking().ToList();
+            return _groups.AsNoTracking().IgnoreQueryFilters().ToList();
         }
 
         public void AddGroup(Group @group)
@@ -36,10 +36,10 @@ namespace QtasHelpDesk.Services.Content
 
         public Group GetGroupById(long id)
         {
-            return _groups.FirstOrDefault(x => x.Id == id);
+            return _groups.IgnoreQueryFilters().FirstOrDefault(x => x.Id == id);
         }
 
-        public void EditGroup(Group @group)
+        public void EditGroup(Group group)
         {
             _uow.SaveChanges();
         }

@@ -29,7 +29,7 @@ namespace QtasHelpDesk.ViewModels.Content
         [DisplayName("شرح")]
         public string Description { get; set; }
 
-        [DisplayName("آیا خصوصصی باشد")]
+        [DisplayName("ایا فعال نباشد")]
         public bool IsPrivate { get; set; }
 
 

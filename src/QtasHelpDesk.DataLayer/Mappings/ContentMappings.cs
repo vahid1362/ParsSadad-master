@@ -11,7 +11,7 @@ namespace QtasHelpDesk.DataLayer.Mappings
         {
             model.Entity<Group>().ToTable("Groups");
             model.Entity<Group>().HasOne(x => x.Parent).WithMany().HasForeignKey(x => x.ParentId);
-
+            model.Entity<Group>().HasQueryFilter(x => !x.IsPrivate);
 
             model.Entity<Post>().ToTable("Posts");
             model.Entity<Post>().Property(x => x.Summary).HasMaxLength(400);

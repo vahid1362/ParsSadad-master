@@ -5,7 +5,7 @@ using QtasHelpDesk.Domain.AuditableEntity;
 
 namespace QtasHelpDesk.Domain.Content
 {
-    public class Group : BaseEntity<int>,IAuditableEntity
+    public class Group : BaseEntity<int>
     {
 
         public Group()

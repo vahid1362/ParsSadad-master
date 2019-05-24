@@ -10,7 +10,7 @@ namespace QtasHelpDesk.Services.Contracts.Content
 
         void Add(Post post);
 
-        void Edit(Post post);
+        void Edit(PostViewModel post);
 
         List<PostViewModel> GetPosts();
 

@@ -30,10 +30,15 @@ namespace QtasHelpDesk.ViewModels.Content
         [DisplayName("رتبه")]
         public decimal Rate { get; set; }
 
+        [DisplayName("نام گروه مربوطه")]
+        public string GroupName { get; set; }
+
+        [DisplayName("فایل قبلی حفظ شود")]
+        public bool DeletePreviousFile { get; set; }
+
         [DisplayName("آیا مقاله می باشد")]
         public bool IsArticle { get; set; }
 
-        public string GroupName { get; set; }
         public string  FilePath { get; set; }
 
         public string  UserFullName { get; set; }

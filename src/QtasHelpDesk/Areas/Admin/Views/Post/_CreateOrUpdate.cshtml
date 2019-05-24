@@ -3,7 +3,7 @@
 <div class="box-body">
 
     @Html.HiddenFor(x => x.Id)
-    <input type="hidden" asp-for="FilePath"/>
+    <input type="hidden" asp-for="FilePath" />
     <div class="row">
         <div class="col-md-12">
 
@@ -22,40 +22,54 @@
                     @Html.ValidationMessageFor(model => model.Title, "", new { @class = "text-danger" })
                 </div>
             </div>
-           <div class="form-group">
-               @Html.LabelFor(model => model.Summary, htmlAttributes: new { @class = "control-label col-md-1" })
+            <div class="form-group">
+                @Html.LabelFor(model => model.Summary, htmlAttributes: new { @class = "control-label col-md-1" })
                 <div class="col-md-6">
-                    <textarea asp-for="Summary" rows="11" class="bg-info" 
-                      style="width: 100%;  font-size: 14px; line-height: 18px; border: 1px none #dddddd; padding: 10px;"></textarea>
+                    <textarea asp-for="Summary" rows="11" class="bg-info"
+                              style="width: 100%;  font-size: 14px; line-height: 18px; border: 1px none #dddddd; padding: 10px;"></textarea>
                     @Html.ValidationMessageFor(model => model.Summary, "", new { @class = "text-danger" })
                 </div>
             </div>
-            @*<div class="form-group">
-                @Html.LabelFor(model => model.Decription, htmlAttributes: new { @class = "control-label col-md-1" })
-                <div class="col-md-10 ">
-                    <div class="k-rtl">
-                        @(Html.Kendo().EditorFor(x => x.Decription)
+            @if (Model.Id > 0)
+            {
+                @if (!string.IsNullOrEmpty(Model.FilePath))
+                {
+                    <div class="form-group">
 
-                                      .HtmlAttributes(new { style = "height:440px" })
+                        @Html.LabelFor(model => model.DeletePreviousFile, htmlAttributes: new { @class = "control-label col-md-1" })
+                        <div class="col-md-6">
+                            @Html.CheckBoxFor(model => model.DeletePreviousFile)
 
-                                      .ImageBrowser(imageBrowser => imageBrowser
-                                          .Image("~/shared/Images/{0}")
-                                          .Read("Read", "ImageEditor")
-                                          .Create("Create", "ImageEditor")
-                                          .Destroy("Destroy", "ImageEditor")
-                                          .Upload("Upload", "ImageEditor"))
-
-                        )
+                        </div>
                     </div>
+                }
+            }
+            @*<div class="form-group">
+                    @Html.LabelFor(model => model.Decription, htmlAttributes: new { @class = "control-label col-md-1" })
+                    <div class="col-md-10 ">
+                        <div class="k-rtl">
+                            @(Html.Kendo().EditorFor(x => x.Decription)
 
-                    @Html.ValidationMessageFor(model => model.Decription, "", new { @class = "text-danger" })
+                                          .HtmlAttributes(new { style = "height:440px" })
 
-                </div>
-            </div>*@
+                                          .ImageBrowser(imageBrowser => imageBrowser
+                                              .Image("~/shared/Images/{0}")
+                                              .Read("Read", "ImageEditor")
+                                              .Create("Create", "ImageEditor")
+                                              .Destroy("Destroy", "ImageEditor")
+                                              .Upload("Upload", "ImageEditor"))
+
+                            )
+                        </div>
+
+                        @Html.ValidationMessageFor(model => model.Decription, "", new { @class = "text-danger" })
+
+                    </div>
+                </div>*@
             <div class="form-group">
                 <div class="col-md-6 ">
                     <div class="form-group">
-                     
+
                         <div class="col-md-6 ">
                             @(Html.Kendo().Upload()
                                           .Name("files")
@@ -66,13 +80,13 @@
                                           )
                                           .Events(events => events
 
-                                            
+
                                               .Success("onSuccess")
                                           )
                                           .Multiple(false)
                                           .Validation(validation =>
                                           {
-                                              validation.AllowedExtensions(new string[] { ".doc", ".docx", ".pdf"});
+                                              validation.AllowedExtensions(new string[] { ".doc", ".docx", ".pdf" });
                                               validation.MinFileSize(500);
 
                                           }))
@@ -90,7 +104,7 @@
         var defaultItem = e.sender.dataSource.at(0);
         e.sender.value(defaultItem.ProductID);
     }
-   
+
     var filePath='';
     function onSuccess(e) {
         if (e.operation == "upload") {

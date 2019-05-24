@@ -166,26 +166,21 @@ namespace QtasHelpDesk.Controllers
             foreach (var groupViewModel in groupViewModels)
             {
                 var subgroups= _groupService.GetSubGroup(groupViewModel.Id);
-                if (!subgroups.Any())
-                {
-                    groupViewModel.Title = "<a href='" +
+                  groupViewModel.Title = "<a href='" +
                                            @Url.Action("index", "Group", new {groupId = groupViewModel.Id}) + "' > " +
                                            groupViewModel.Title + "</a>";
-                    continue;
-                }
+           
 
                 groupViewModel.children = subgroups;
 
                 foreach (var  subgroup in subgroups)
                 {
                     var childGroupViewModel = _groupService.GetSubGroup(subgroup.Id);
-                    if (!childGroupViewModel.Any())
-                    {
+                  
                         subgroup.Title = "<a href='" +
                                                @Url.Action("index", "Group", new { groupId = subgroup.Id }) + "' > " +
                                                subgroup.Title + "</a>";
-                        continue;
-                    }
+                     
 
                     subgroup.children = childGroupViewModel;
                     foreach (var childSubGroup in subgroup.children)

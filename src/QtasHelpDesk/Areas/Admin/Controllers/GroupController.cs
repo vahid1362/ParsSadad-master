@@ -131,11 +131,12 @@ namespace QtasHelpDesk.Areas.Admin.Controllers
              return   RedirectToAction("List");
 
         
-                @group.Title = model.Title;
-                @group.ParentId = model.ParentId;
-                @group.Priority = model.Priority;
+                group.Title = model.Title;
+                group.ParentId = model.ParentId;
+                group.Priority = model.Priority;
+              group.IsPrivate = model.IsPrivate;
 
-                _groupService.EditGroup(@group);
+            _groupService.EditGroup(@group);
            
 
             _toastNotification.AddSuccessToastMessage("عملیات  با موفقیت صورت پذیرفت");

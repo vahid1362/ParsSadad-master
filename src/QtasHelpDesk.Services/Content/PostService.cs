@@ -18,6 +18,7 @@ namespace QtasHelpDesk.Services.Content
     {
         private readonly IUnitOfWork _uow;
         private readonly DbSet<Post> _posts;
+        private readonly DbSet<Group> _groups;
         private readonly IHostingEnvironment _hostingEnvironment;
 
         public PostService(IUnitOfWork uow,IHostingEnvironment hostingEnvironment)
@@ -25,6 +26,7 @@ namespace QtasHelpDesk.Services.Content
             _uow = uow;
             _uow.CheckArgumentIsNull(nameof(_uow));
             _posts = _uow.Set<Post>();
+            _groups = _uow.Set<Group>();
             _hostingEnvironment = hostingEnvironment;
             _hostingEnvironment.CheckArgumentIsNull(nameof(_hostingEnvironment));
         }
@@ -35,8 +37,25 @@ namespace QtasHelpDesk.Services.Content
             _uow.SaveChanges();
         }
 
-        public void Edit(Post post)
+        public void Edit(PostViewModel postViewModel)
         {
+            var post = _posts.FirstOrDefault(x=>x.Id==postViewModel.Id);
+
+            post.CheckArgumentIsNull(nameof(post));
+            post.Title = postViewModel.Title;
+            post.Summary = postViewModel.Summary;
+            post.Decription = postViewModel.Decription;
+            post.GroupId = postViewModel.GroupId;
+
+            if(postViewModel.DeletePreviousFile)
+            {
+                DeleteFile(post.FilePath);
+            }
+            else
+            {
+                DeleteFile(postViewModel.FilePath);
+            }
+
             throw new NotImplementedException();
         }
 
@@ -71,7 +90,16 @@ namespace QtasHelpDesk.Services.Content
 
         public List<PostViewModel> GetPostsByGroupId(int groupId)
         {
-            return _posts.Where(x => x.GroupId == groupId).Select(x => new PostViewModel()
+
+
+
+            var groups = _groups.FromSql($"[dbo].[GetChildGroup] {groupId}").Select(x=>
+             
+                x.Id
+            ).ToList();
+            groups.Add(groupId);
+           
+            return _posts.Where(x =>groups.Contains(x.GroupId)).Include(x=>x.User).Select(x => new PostViewModel()
             {
                 Id = x.Id,
                 Title = x.Title,
@@ -87,6 +115,7 @@ namespace QtasHelpDesk.Services.Content
             {
                 Id = x.Id,
                 Title = x.Title,
+                GroupName=x.Group.Title,
                 Summary = x.Summary,
                 UserFullName = x.User.DisplayName,
                 Date = x.RegisteDate.ToLongPersianDateString()
