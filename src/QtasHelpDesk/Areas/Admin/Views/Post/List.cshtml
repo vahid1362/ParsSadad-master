@@ -27,7 +27,7 @@
                                 
                                   column.Bound(c => c.Id).Title("دستورات").ClientTemplate("<a  class='btn btn-warning' href='" + Url.Action("Edit","Post") + "?postId=#=Id#'" +
                                                                                           "><i class=' fa fa-edit'></i>ویرایش</a>").Filterable(false);
-                                  column.Command(c => c.Destroy().Text("خذف"));
+                                  column.Command(c => c.Destroy().Text("حذف"));
 
 
                               })

@@ -133,8 +133,17 @@ namespace QtasHelpDesk.Areas.Admin.Controllers
             return Json(postViewModels.ToDataSourceResult(request));
         }
 
-      
 
+        public ActionResult Faq_Delete([DataSourceRequest] DataSourceRequest request, FaqViewModel model)
+        {
+            if (model != null)
+            {
+
+                _faqService.Delete(model.Id);
+            }
+
+            return Json(new[] { model }.ToDataSourceResult(request, ModelState));
+        }
         private List<SelectListItem> PrepareGroupSelectedListItem()
         {
             var groups = _groupService.GetGroups().Select(x => new SelectListItem()

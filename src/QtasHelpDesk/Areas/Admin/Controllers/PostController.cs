@@ -12,7 +12,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using NToastNotify;
 using QtasHelpDesk.Common.GuardToolkit;
 using QtasHelpDesk.Domain.Content;
-using QtasHelpDesk.Search;
+
 using QtasHelpDesk.Services.Content;
 using QtasHelpDesk.Services.Contracts.Content;
 using QtasHelpDesk.Services.Contracts.Identity;
@@ -30,7 +30,7 @@ namespace QtasHelpDesk.Areas.Admin.Controllers
         private readonly  IGroupService _groupService;
         private readonly IApplicationUserManager _userManager;
         private readonly IHostingEnvironment _hostingEnvironment;
-        private readonly ISearchManager _searchManager;
+
         
 
         #endregion
@@ -38,15 +38,14 @@ namespace QtasHelpDesk.Areas.Admin.Controllers
 
         #region Ctor
 
-        public PostController(IPostService postService, IToastNotification toastNotification, IGroupService groupService, IApplicationUserManager userManager, IHostingEnvironment hostingEnvironment, ISearchManager searchManager)
+        public PostController(IPostService postService, IToastNotification toastNotification, IGroupService groupService, IApplicationUserManager userManager, IHostingEnvironment hostingEnvironment)
         {
             _postService = postService;
             _toastNotification = toastNotification;
             _groupService = groupService;
             _userManager = userManager;
             _hostingEnvironment = hostingEnvironment;
-            _searchManager = searchManager;
-            _searchManager.CheckArgumentIsNull(nameof(_searchManager));
+  
 
         }
         #endregion

@@ -21,7 +21,6 @@ namespace QtasHelpDesk.Services.Contracts.Content
 
         List<FaqViewModel> GetFaqsByGroupId(int groupId);
 
-
-
+        void Delete(int id);
     }
 }

@@ -6,9 +6,10 @@ using DNTPersianUtils.Core;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
 using QtasHelpDesk.Common.GuardToolkit;
-using QtasHelpDesk.Search;
+
 using QtasHelpDesk.Services.Contracts.Content;
 using QtasHelpDesk.ViewModels.Content;
+using QtasHelpDesk.ViewModels.Search;
 
 namespace QtasHelpDesk.Controllers
 {
@@ -21,7 +22,7 @@ namespace QtasHelpDesk.Controllers
         private readonly IPostService _postService;
         private readonly IHostingEnvironment _hostingEnvironment;
         private readonly IFaqService _faqService;
-        private readonly ISearchManager _searchManager;
+   
         private readonly IGroupService _groupService;
 
 
@@ -30,15 +31,14 @@ namespace QtasHelpDesk.Controllers
         #region Ctor
 
         public PostController(IPostService postService, IHostingEnvironment hostingEnvironment, IFaqService faqService,
-            ISearchManager searchManager, IGroupService groupService)
+             IGroupService groupService)
         {
             _postService = postService;
             _postService.CheckArgumentIsNull(nameof(_postService));
             _hostingEnvironment = hostingEnvironment;
             _faqService = faqService;
             _hostingEnvironment.CheckArgumentIsNull(nameof(_hostingEnvironment));
-            _searchManager = searchManager;
-            _searchManager.CheckArgumentIsNull(nameof(_searchManager));
+           
             _groupService = groupService;
         }
 
@@ -72,33 +72,41 @@ namespace QtasHelpDesk.Controllers
             return postViewModels;
         }
 
-        public virtual ActionResult Search(string q)
+        public virtual ActionResult Search(string keyword)
         {
-            if (string.IsNullOrWhiteSpace(q))
+            if (string.IsNullOrWhiteSpace(keyword))
                 return Content(string.Empty);
 
             var result = new StringBuilder();
 
-            var faqs = _faqService.Search(q.Trim());
+            var faqs = _faqService.Search(keyword.Trim());
 
-            var items = _postService.Search(q.Trim());
+            var items = _postService.Search(keyword.Trim());
 
-
+            var searchResults = new List<SearchResultViewModel>();
             foreach (var item in items)
             {
                 var postUrl = this.Url.Action("ShowPost", "Post", new {postId = item.Id});
-
-                result.AppendLine(item.Title + "|" + postUrl);
+                searchResults.Add(new SearchResultViewModel()
+                {
+                    Title = item.Title,
+                    Link=postUrl
+                }); 
+                //result.AppendLine(item.Title + "|" + postUrl);
             }
 
             foreach (var faq in faqs)
             {
                 var postUrl = this.Url.Action("ShowFaq", "Faq", new {faqId = faq.Id});
 
-                result.AppendLine(faq.Question + "|" + postUrl);
+                searchResults.Add(new SearchResultViewModel()
+                {
+                    Title = faq.Question    ,
+                    Link = postUrl
+                });  //result.AppendLine(faq.Question + "|" + postUrl);
             }
 
-            return Content(result.ToString());
+            return Json(searchResults);
 
 
 

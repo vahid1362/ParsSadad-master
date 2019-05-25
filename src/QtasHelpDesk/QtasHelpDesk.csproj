@@ -27,11 +27,6 @@
     <PackageReference Include="DNTCaptcha.Core" Version="1.6.7" />
     <PackageReference Include="DNTCommon.Web.Core" Version="1.4.0" />
     <PackageReference Include="DNTScheduler.Core" Version="1.0.7" />
-    <PackageReference Include="Lucene.Net" Version="4.8.0-beta00005" />
-    <PackageReference Include="Lucene.Net.Analysis.Common" Version="4.8.0-beta00005" />
-    <PackageReference Include="Lucene.Net.Contrib" Version="3.0.3" />
-    <PackageReference Include="Lucene.Net.Queries" Version="4.8.0-beta00005" />
-    <PackageReference Include="Lucene.Net.QueryParser" Version="4.8.0-beta00005" />
     <PackageReference Include="Microsoft.AspNetCore.App" />
     <PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.0.2105168" />
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="2.2.3" />

@@ -9,5 +9,8 @@ namespace QtasHelpDesk.ViewModels.Search
         public string Title { get; set; }
 
         public int Id{ get; set; }
+
+
+        public string Link { get; set; }
     }
 }

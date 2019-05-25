@@ -93,5 +93,13 @@ namespace QtasHelpDesk.Services.Content
                 Date = x.RegisteDate.ToLongPersianDateString()
             }).OrderByDescending(x => x.Id).ToList();
         }
+
+        public void Delete(int id)
+        {
+            var faq=_faqs.FirstOrDefault(x => x.Id == id);
+            _faqs.Remove(faq);
+            _uow.SaveChanges();
+
+        }
     }
 }

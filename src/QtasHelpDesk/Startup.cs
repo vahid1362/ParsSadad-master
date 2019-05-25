@@ -12,8 +12,7 @@ using QtasHelpDesk.IocConfig;
 using QtasHelpDesk.DataLayer.Context;
 using DNTCommon.Web.Core;
 using NToastNotify;
-using DNTScheduler.Core;
-using QtasHelpDesk.Search;
+
 
 namespace QtasHelpDesk
 {
@@ -66,7 +65,7 @@ namespace QtasHelpDesk
             services.AddMemoryCache();
             services.AddDNTCommonWeb();
             services.AddDNTCaptcha();
-            services.AddTransient<ISearchManager, SearchManager>();
+         
 
 
         }

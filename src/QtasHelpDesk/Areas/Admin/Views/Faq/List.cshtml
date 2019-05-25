@@ -26,13 +26,14 @@
                               {
                                   column.Bound(c => c.Question).Filterable(ftb => ftb.Cell(cell => cell.Operator("contains").SuggestionOperator(FilterType.Contains)));
                                   column.Bound(c => c.Id).Title("دستورات").ClientTemplate("<a  class='btn btn-warning' href='" + Url.Action("Edit","Faq") + "?faqId=#=Id#'" +
-                                                                                          "><i class=' fa fa-edit'></i>ویرایش</a>  <a  class='btn btn-warning' href='" + Url.Action("ShowAnswer", "Faq") + "?faqId=#=Id#'" +
-                                                                                          "><i class=' fa fa-zoom'></i> پاسخ</a> ").Filterable(false);
-
+                                                                                          "><i class=' fa fa-edit'></i>ویرایش</a>").Filterable(false);
+                                     column.Command(c => c.Destroy().Text("حذف"));
 
                               })
+                                .Editable(editable => editable.Mode(GridEditMode.InLine).DisplayDeleteConfirmation("آیا از حذف این سطر مطمئن هستید؟"))   
                               .Filterable(ftb=>ftb.Mode(GridFilterMode.Row))
                               .DataSource(x => x.Ajax().Read(read => read.Action("Faq_Read", "Faq"))
+                              .Destroy(destroy=>destroy.Action("Faq_Delete","Faq"))
                                   .Model(m => m.Id(g => g.Id))))
                     </div>
                 </div>

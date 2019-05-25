@@ -1,7 +1,7 @@
 ﻿@{
     ViewData["Title"] = "Index";
 
-    var searchsUrl = Url.Action("Search", "Post");
+    //var searchsUrl = Url.Action("Search", "Post");
     var bulletImage = Url.Content("~/Images/bullet_shape.png");
 }
 <!DOCTYPE html>
@@ -14,7 +14,7 @@
     <title></title>
     <link href="~/css/site.min.css" rel="stylesheet" asp-append-version="true" />
     <link href="~/css/gijgo.min.css" rel="stylesheet" />
-
+    <link href="~/Lib/EasyAutocomplete-master/dist/easy-autocomplete.css" rel="stylesheet" />
 
     <style>
         .ac_results {
@@ -79,12 +79,8 @@
                 <span class="text-white"> پشتیان افزار رایانه ای سداد</span>
             </a>
             <div class="input-group col-md-4">
-                <input class="form-control py-2 " type="search" placeholder="جستجو ..." id="term">
-                <span class="input-group-append">
-                    <button class="btn btn-outline-dark" type="button">
-                        <i class="fa fa-search text-white"></i>
-                    </button>
-                </span>
+                <input  type="search" placeholder="جستجو ..." id="term">
+                
             </div>
             <div class="pull-left">
                 <span class="navbar-text d-none d-xl-inline-block text-white"><i class="fa fa-calendar"></i> @DateTime.Now.ToPersianDateTextify()</span>
@@ -124,19 +120,47 @@
             </div>
         </div>
     </footer>
-
     <script src="~/js/site.min.js" type="text/javascript" asp-append-version="true"></script>
-
-    <script src="~/js/Custom.js"></script>
-    <script src="~/js/jquery.autocomplete.js"></script>
     <script src="~/js/gijgo.min.js"></script>
-  
-<script>
+
+    <script src="~/Lib/EasyAutocomplete-master/dist/jquery.easy-autocomplete.js"></script>
+    <script>
 
     // Collapse/Expand icon
 
-    EnableSearchAutocomplete('@searchsUrl', '@bulletImage');
-    $(document).ready(function () {
+    @*EnableSearchAutocomplete('@searchsUrl', '@bulletImage');*@
+        $(document).ready(function () {
+
+            var options = {
+
+  url: function(phrase) {
+		return "/post/Search?keyword=" + phrase ;
+	},
+
+  getValue: "Title",
+
+list: {
+		match: {
+			enabled: true
+		},
+		maxNumberOfElements:10,
+
+		
+	},
+   template: {
+        type: "links",
+        fields: {
+            link: "Link"
+        }
+                },
+   requestDelay: 500,
+
+  theme: "round"
+};
+
+$("#term").easyAutocomplete(options);
+
+
         $('#tree').tree({
             uiLibrary: 'bootstrap4',
             dataSource: '/Post/GetGroups',
@@ -146,7 +170,7 @@
                 expand: '<i class="fas fa-plus-square"></i>',
                 collapse: '<i class="fas fa-minus-square"></i>'
                 },   border: true
-             
+
         });
     });
     </script>
