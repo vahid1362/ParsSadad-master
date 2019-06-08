@@ -56,13 +56,13 @@ namespace QtasHelpDesk.Services.Content
             }).ToList();
         }
 
-        public List<GroupViewModel> GetParentGroup()
+        public List<GroupViewModel> GetParentGroup(int? parentId)
         {
-            return _groups.Where(x => x.ParentId == null).Select(x=>new GroupViewModel()
+            return _groups.Where(x => x.ParentId == parentId).Select(x=>new GroupViewModel()
             {
                 Id = x.Id,
                 Title = x.Title,
-     
+               hasChildren=_groups.Any(y=>y.ParentId==x.Id)
               
             }).ToList();
         }

@@ -19,9 +19,10 @@ namespace QtasHelpDesk.Services.Content
         private readonly IUnitOfWork _uow;
         private readonly DbSet<Post> _posts;
         private readonly DbSet<Group> _groups;
+        private readonly IGroupService _groupService;
         private readonly IHostingEnvironment _hostingEnvironment;
 
-        public PostService(IUnitOfWork uow,IHostingEnvironment hostingEnvironment)
+        public PostService(IUnitOfWork uow,IHostingEnvironment hostingEnvironment,IGroupService groupService)
         {
             _uow = uow;
             _uow.CheckArgumentIsNull(nameof(_uow));
@@ -29,6 +30,8 @@ namespace QtasHelpDesk.Services.Content
             _groups = _uow.Set<Group>();
             _hostingEnvironment = hostingEnvironment;
             _hostingEnvironment.CheckArgumentIsNull(nameof(_hostingEnvironment));
+            _groupService = groupService;
+            _groupService.CheckArgumentIsNull(nameof(_groupService));
         }
 
         public void Add(Post post)
@@ -115,7 +118,7 @@ namespace QtasHelpDesk.Services.Content
             {
                 Id = x.Id,
                 Title = x.Title,
-                GroupName=x.Group.Title,
+                //GroupName=x.Group.GetFormattedBreadCrumb(_groupService,"-->"),
                 Summary = x.Summary,
                 UserFullName = x.User.DisplayName,
                 Date = x.RegisteDate.ToLongPersianDateString()

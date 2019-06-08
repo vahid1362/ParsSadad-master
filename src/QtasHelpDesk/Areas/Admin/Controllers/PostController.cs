@@ -1,10 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.IO;
 using System.Linq;
 using DNTBreadCrumb.Core;
 using Kendo.Mvc.Extensions;
 using Kendo.Mvc.UI;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -16,10 +18,13 @@ using QtasHelpDesk.Domain.Content;
 using QtasHelpDesk.Services.Content;
 using QtasHelpDesk.Services.Contracts.Content;
 using QtasHelpDesk.Services.Contracts.Identity;
+using QtasHelpDesk.Services.Identity;
 using QtasHelpDesk.ViewModels.Content;
 
 namespace QtasHelpDesk.Areas.Admin.Controllers
 {
+    [Authorize(Policy = ConstantPolicies.DynamicPermission)]
+    [DisplayName("بخش مقالات")]
     [Area("Admin")]
     [BreadCrumb(Title = "مقالات", UseDefaultRouteUrl = true, Order = 0)]
     public class PostController : Controller
@@ -50,17 +55,18 @@ namespace QtasHelpDesk.Areas.Admin.Controllers
         }
         #endregion
 
-
+        [DisplayName("ایندکس")]
         public IActionResult Index()
         {
             return RedirectToAction("List");
         }
+        [DisplayName("نمایش مقالات")]
         [BreadCrumb(Title = "لیست",  Order = 1)]
         public IActionResult List()
         {
             return View();
         }
-
+        [DisplayName("صفحه ایجاد مقاله")]
         [BreadCrumb(Title = "ایجاد", Order = 1)]
         public IActionResult Create()
         {  var groups = PrepareGroupSelectedListItem();
@@ -69,7 +75,8 @@ namespace QtasHelpDesk.Areas.Admin.Controllers
                 SelectListItems = groups
             });
         }
-        
+
+        [DisplayName("صفحه ثبت مقاله جدید")]
         [HttpPost,ValidateAntiForgeryToken]
         public IActionResult Create(PostViewModel model)
         {
@@ -95,7 +102,7 @@ namespace QtasHelpDesk.Areas.Admin.Controllers
             model.SelectListItems = groups;
             return View(model);
         }
-
+        [DisplayName("صفحه ویرایش مقاله")]
         [BreadCrumb(Title = "ویرایش", Order = 1)]
         public IActionResult Edit(int? postId)
         {
@@ -120,7 +127,7 @@ namespace QtasHelpDesk.Areas.Admin.Controllers
             });
         }
 
-
+        [DisplayName("صفحه ثبت ویرایش مقاله")]
         [HttpPost, ValidateAntiForgeryToken]
         public IActionResult Edit(PostViewModel postViewModel)
         {
@@ -135,18 +142,13 @@ namespace QtasHelpDesk.Areas.Admin.Controllers
 
 
         }
-
+        [DisplayName("لیست کردن مقاله")]
         public IActionResult Post_Read([DataSourceRequest]DataSourceRequest request)
         {
-            var postViewModels = _postService.GetPosts().Select(x => new PostViewModel()
-            {
-                Id = x.Id,
-                Title = x.Title,
-                Rate = x.Rate
-            }).ToList();
+            var postViewModels = _postService.GetPosts();
             return Json(postViewModels.ToDataSourceResult(request));
         }
-
+        [DisplayName("آپلود فایل")]
         public IActionResult SaveFile(List<IFormFile> files,string  filePath)
         {
             var file = files.FirstOrDefault();
@@ -173,7 +175,7 @@ namespace QtasHelpDesk.Areas.Admin.Controllers
                filePath= relativePath
             });
         }
-        
+        [DisplayName("حذف پست")]
         public ActionResult Post_Delete([DataSourceRequest] DataSourceRequest request, PostViewModel model)
         {
             if (model != null)

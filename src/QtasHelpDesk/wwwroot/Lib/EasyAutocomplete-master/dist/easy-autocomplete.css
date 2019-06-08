@@ -19,6 +19,7 @@
   color: #555;
   float: none;
   padding: 6px 12px;
+  width:100%;
 }
 .easy-autocomplete input:hover, .easy-autocomplete input:focus {
   box-shadow: none;

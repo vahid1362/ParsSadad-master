@@ -22,7 +22,7 @@ namespace QtasHelpDesk.Controllers
         private readonly IPostService _postService;
         private readonly IHostingEnvironment _hostingEnvironment;
         private readonly IFaqService _faqService;
-   
+
         private readonly IGroupService _groupService;
 
 
@@ -38,7 +38,7 @@ namespace QtasHelpDesk.Controllers
             _hostingEnvironment = hostingEnvironment;
             _faqService = faqService;
             _hostingEnvironment.CheckArgumentIsNull(nameof(_hostingEnvironment));
-           
+
             _groupService = groupService;
         }
 
@@ -86,22 +86,22 @@ namespace QtasHelpDesk.Controllers
             var searchResults = new List<SearchResultViewModel>();
             foreach (var item in items)
             {
-                var postUrl = this.Url.Action("ShowPost", "Post", new {postId = item.Id});
+                var postUrl = this.Url.Action("ShowPost", "Post", new { postId = item.Id });
                 searchResults.Add(new SearchResultViewModel()
                 {
                     Title = item.Title,
-                    Link=postUrl
-                }); 
+                    Link = postUrl
+                });
                 //result.AppendLine(item.Title + "|" + postUrl);
             }
 
             foreach (var faq in faqs)
             {
-                var postUrl = this.Url.Action("ShowFaq", "Faq", new {faqId = faq.Id});
+                var postUrl = this.Url.Action("ShowFaq", "Faq", new { faqId = faq.Id });
 
                 searchResults.Add(new SearchResultViewModel()
                 {
-                    Title = faq.Question    ,
+                    Title = faq.Question,
                     Link = postUrl
                 });  //result.AppendLine(faq.Question + "|" + postUrl);
             }
@@ -167,44 +167,61 @@ namespace QtasHelpDesk.Controllers
         }
 
 
-        public IActionResult GetGroups()
+        public IActionResult GetGroups([FromQuery]int? parentId)
         {
-            var groupViewModels = _groupService.GetParentGroup();
+
+            var groupViewModels = _groupService.GetParentGroup(parentId);
 
             foreach (var groupViewModel in groupViewModels)
             {
-                var subgroups= _groupService.GetSubGroup(groupViewModel.Id);
-                  groupViewModel.Title = "<a href='" +
-                                           @Url.Action("index", "Group", new {groupId = groupViewModel.Id}) + "' > " +
-                                           groupViewModel.Title + "</a>";
-           
-
-                groupViewModel.children = subgroups;
-
-                foreach (var  subgroup in subgroups)
-                {
-                    var childGroupViewModel = _groupService.GetSubGroup(subgroup.Id);
-                  
-                        subgroup.Title = "<a href='" +
-                                               @Url.Action("index", "Group", new { groupId = subgroup.Id }) + "' > " +
-                                               subgroup.Title + "</a>";
-                     
-
-                    subgroup.children = childGroupViewModel;
-                    foreach (var childSubGroup in subgroup.children)
-                    {
-                        childSubGroup.Title = "<a href='" +
-                                         @Url.Action("index", "Group", new { groupId = childSubGroup.Id }) + "' > " +
-                                         childSubGroup.Title + "</a>";
-
-
-                    }
-
-                }
-
+                groupViewModel.Title = "<a href='" +
+                                         @Url.Action("index", "Group", new { groupId = groupViewModel.Id }) + "' > " +
+                                         groupViewModel.Title + "</a>";
             }
 
             return Json(groupViewModels);
+
+
+
+            //      groupViewModel.Title = "<a href='" +
+            //                               @Url.Action("index", "Group", new {groupId = groupViewModel.Id}) + "' > " +
+            //                               groupViewModel.Title + "</a>";
+
+
+            //foreach (var groupViewModel in groupViewModels)
+            //{
+            //    var subgroups= _groupService.GetSubGroup(groupViewModel.Id);
+            //      groupViewModel.Title = "<a href='" +
+            //                               @Url.Action("index", "Group", new {groupId = groupViewModel.Id}) + "' > " +
+            //                               groupViewModel.Title + "</a>";
+
+
+            //    //groupViewModel.children = subgroups;
+
+            //    //foreach (var  subgroup in subgroups)
+            //    //{
+            //    //    var childGroupViewModel = _groupService.GetSubGroup(subgroup.Id);
+
+            //    //        subgroup.Title = "<a href='" +
+            //    //                               @Url.Action("index", "Group", new { groupId = subgroup.Id }) + "' > " +
+            //    //                               subgroup.Title + "</a>";
+
+
+            //    //    subgroup.children = childGroupViewModel;
+            //    //    foreach (var childSubGroup in subgroup.children)
+            //    //    {
+            //    //        childSubGroup.Title = "<a href='" +
+            //    //                         @Url.Action("index", "Group", new { groupId = childSubGroup.Id }) + "' > " +
+            //    //                         childSubGroup.Title + "</a>";
+
+
+            //    //    }
+
+            //    //}
+
+            //}
+
+
 
         }
     }

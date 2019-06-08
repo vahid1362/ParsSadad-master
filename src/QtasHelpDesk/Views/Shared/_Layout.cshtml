@@ -16,59 +16,7 @@
     <link href="~/css/gijgo.min.css" rel="stylesheet" />
     <link href="~/Lib/EasyAutocomplete-master/dist/easy-autocomplete.css" rel="stylesheet" />
 
-    <style>
-        .ac_results {
-            padding: 0;
-            border: 1px solid black;
-            background-color: black;
-            z-index: 99999;
-        }
-
-            .ac_results ul {
-                list-style-position: outside;
-                list-style: none;
-                padding: 0;
-                margin: 0;
-                background: white;
-            }
-
-            .ac_results li {
-                margin: 0;
-                padding: 5px;
-                cursor: default;
-                display: block;
-                direction: rtl;
-                text-align: right;
-                font: normal 14px 'Samim',Tahoma;
-                line-height: 16px;
-            }
-
-        .ac_loading {
-            background: white url('/Images/indicator.gif') left center no-repeat;
-        }
-
-        .ac_odd {
-            background-color: whitesmoke;
-        }
-
-        .ac_over {
-            background-color: #D1EAEF;
-            color: #1F717F;
-        }
-
-        .ac_results {
-            border-color: #a2bff0 !important;
-            z-index: 10000;
-            background-color: white;
-        }
-
-
-        .ac_over {
-            background-color: #d5e2ff !important;
-            color: #000 !important;
-            cursor: pointer;
-        }
-    </style>
+    
 </head>
 <body>
 
@@ -78,7 +26,7 @@
                 <img src="~/images/logo.png" />
                 <span class="text-white"> پشتیان افزار رایانه ای سداد</span>
             </a>
-            <div class="input-group col-md-4">
+            <div class="col-md-4">
                 <input  type="search" placeholder="جستجو ..." id="term">
                 
             </div>
@@ -164,8 +112,10 @@ $("#term").easyAutocomplete(options);
         $('#tree').tree({
             uiLibrary: 'bootstrap4',
             dataSource: '/Post/GetGroups',
+             hasChildrenField:'hasChildren',
             primaryKey: 'Id',
             textField: 'Title',
+             lazyLoading: true,
             icons: {
                 expand: '<i class="fas fa-plus-square"></i>',
                 collapse: '<i class="fas fa-minus-square"></i>'
