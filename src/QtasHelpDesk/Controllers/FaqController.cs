@@ -30,16 +30,8 @@ namespace QtasHelpDesk.Controllers
         public IActionResult ShowFaq(int? faqId)
         {
             faqId.CheckArgumentIsNull(nameof(faqId));
-            var faq= _faqService.GetFaqById(faqId.GetValueOrDefault());
-            var faqViewModel = new FaqViewModel(
-            )
-            {
-                Question = faq.Question,
-                Reply = faq.Reply,
-                UserFullName = faq.User.DisplayName,
-                Date = faq.RegisteDate.ToShortPersianDateString()
-            };
-            return View(faqViewModel);
+            var faqViewModel= _faqService.GetFaqById(faqId.GetValueOrDefault());
+             return View(faqViewModel);
         }
     }
 }

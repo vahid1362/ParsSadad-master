@@ -30,8 +30,12 @@ namespace QtasHelpDesk.Services.Content
             _uow.SaveChanges();
         }
 
-        public void Edit(Faq faq)
+        public void Edit(FaqViewModel faqViewModel)
         {
+            var faq = _faqs.FirstOrDefault(x => x.Id == faqViewModel.Id);
+            faq.CheckArgumentIsNull(nameof(faq));
+            faq.Question = faqViewModel.Question;
+            faq.Reply = faqViewModel.Reply;
             _uow.SaveChanges();
         }
 
@@ -47,9 +51,21 @@ namespace QtasHelpDesk.Services.Content
             }).OrderByDescending(x => x.Id).Take(10).ToList();
         }
 
-        public Faq GetFaqById(int id)
+        public FaqViewModel GetFaqById(int id)
         {
-            return _faqs.FirstOrDefault(x => x.Id == id );
+
+            var faq = _faqs.Include(x=>x.User).FirstOrDefault(x => x.Id == id);
+            faq.CheckArgumentIsNull(nameof(faq));
+            return new FaqViewModel() {
+                Id = faq.Id,
+                Question = faq.Question,
+                Reply = faq.Reply,
+                GroupId=faq.GroupId,
+                UserFullName = faq.User?.DisplayName,
+                Date = faq.RegisteDate.ToLongPersianDateString()
+
+            }
+                ;
         }
 
      
@@ -64,7 +80,7 @@ namespace QtasHelpDesk.Services.Content
             }).ToList();
         }
 
-        public List<FaqViewModel> GetFaqsByGroupId(int groupId)
+        public List<FaqViewModel> GetFaqsByGroupId(int groupId ,int numRecord=10)
         {
 
             var groups = _groups.FromSql($"[dbo].[GetChildGroup] {groupId}").Select(x =>
@@ -72,7 +88,7 @@ namespace QtasHelpDesk.Services.Content
                 x.Id
             ).ToList();
             groups.Add(groupId);
-            return _faqs.Where(x => groups.Contains(x.GroupId)).Select(x => new FaqViewModel()
+            return _faqs.Where(x => groups.Contains(x.GroupId)).OrderByDescending(x=>x.Id).Take(numRecord).Select(x => new FaqViewModel()
             {
                 Id = x.Id,
                 Question = x.Question,

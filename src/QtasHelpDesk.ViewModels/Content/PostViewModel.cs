@@ -33,7 +33,7 @@ namespace QtasHelpDesk.ViewModels.Content
         [DisplayName("نام گروه مربوطه")]
         public string GroupName { get; set; }
 
-        [DisplayName("فایل قبلی حفظ شود")]
+        [DisplayName("فایل قبلی پاک شود")]
         public bool DeletePreviousFile { get; set; }
 
         [DisplayName("آیا مقاله می باشد")]

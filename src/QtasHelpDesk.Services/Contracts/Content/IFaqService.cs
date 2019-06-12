@@ -9,17 +9,17 @@ namespace QtasHelpDesk.Services.Contracts.Content
 
         void Add(Faq post);
 
-        void Edit(Faq post);
+        void Edit(FaqViewModel faq);
 
         List<FaqViewModel> GetFaqs();
 
         List<FaqViewModel> GetLastFaqs();
 
-        Faq GetFaqById(int id);
+        FaqViewModel GetFaqById(int id);
 
         List<FaqViewModel> Search(string text);
 
-        List<FaqViewModel> GetFaqsByGroupId(int groupId);
+        List<FaqViewModel> GetFaqsByGroupId(int groupId,int numRecord);
 
         void Delete(int id);
     }

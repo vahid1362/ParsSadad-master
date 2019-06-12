@@ -15,11 +15,11 @@ namespace QtasHelpDesk.Services.Contracts.Content
         List<PostViewModel> GetPosts();
 
         List<PostViewModel> GetLastPosts();
-        Post GetPostById(int id);
+        PostViewModel GetPostById(int id);
 
         List<SearchResultViewModel> Search(string text);
 
-        List<PostViewModel> GetPostsByGroupId(int groupId);
+        List<PostViewModel> GetPostsByGroupId(int groupId,int numRecord);
 
        void  Delete(int postId);
 

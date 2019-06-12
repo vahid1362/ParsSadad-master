@@ -6,8 +6,7 @@
     <input type="hidden" asp-for="FilePath" />
     <div class="row">
         <div class="col-md-12">
-
-            <div class="form-group">
+           <div class="form-group">
                 @Html.Label("", "گروه ", new { @class = "control-label col-md-1" })
                 <div class="col-md-6">
                     @Html.DropDownListFor(model => model.GroupId, Model.SelectListItems, new { @class = "form-control", Id = "DropDown" })
@@ -30,9 +29,7 @@
                     @Html.ValidationMessageFor(model => model.Summary, "", new { @class = "text-danger" })
                 </div>
             </div>
-            @if (Model.Id > 0)
-            {
-                @if (!string.IsNullOrEmpty(Model.FilePath))
+            @if (!string.IsNullOrEmpty(Model.FilePath))
                 {
                     <div class="form-group">
 
@@ -43,34 +40,12 @@
                         </div>
                     </div>
                 }
-            }
-            @*<div class="form-group">
-                    @Html.LabelFor(model => model.Decription, htmlAttributes: new { @class = "control-label col-md-1" })
-                    <div class="col-md-10 ">
-                        <div class="k-rtl">
-                            @(Html.Kendo().EditorFor(x => x.Decription)
-
-                                          .HtmlAttributes(new { style = "height:440px" })
-
-                                          .ImageBrowser(imageBrowser => imageBrowser
-                                              .Image("~/shared/Images/{0}")
-                                              .Read("Read", "ImageEditor")
-                                              .Create("Create", "ImageEditor")
-                                              .Destroy("Destroy", "ImageEditor")
-                                              .Upload("Upload", "ImageEditor"))
-
-                            )
-                        </div>
-
-                        @Html.ValidationMessageFor(model => model.Decription, "", new { @class = "text-danger" })
-
-                    </div>
-                </div>*@
-            <div class="form-group">
+             <div class="form-group">
+                        <label class="control-label col-md-1" >بارگزاری فایل</label>
+                   
                 <div class="col-md-6 ">
                     <div class="form-group">
-
-                        <div class="col-md-6 ">
+                             <div class="col-md-6 ">
                             @(Html.Kendo().Upload()
                                           .Name("files")
                                           .Async(a => a

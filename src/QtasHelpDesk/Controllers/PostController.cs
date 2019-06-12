@@ -22,8 +22,8 @@ namespace QtasHelpDesk.Controllers
         private readonly IPostService _postService;
         private readonly IHostingEnvironment _hostingEnvironment;
         private readonly IFaqService _faqService;
-
         private readonly IGroupService _groupService;
+        
 
 
         #endregion
@@ -58,6 +58,13 @@ namespace QtasHelpDesk.Controllers
 
 
 
+        }
+
+        public IActionResult GetPosts()
+        {
+            var postViewModels = GetLastPosts();
+
+            return PartialView("_Posts", postViewModels);
         }
 
         private List<FaqViewModel> GetLastFaq()
@@ -117,22 +124,14 @@ namespace QtasHelpDesk.Controllers
         {
             postId.CheckArgumentIsNull(nameof(postId));
 
-            var post = _postService.GetPostById(postId.GetValueOrDefault());
-            if (post == null)
+            var postViewModel = _postService.GetPostById(postId.GetValueOrDefault());
+            if (postViewModel == null)
             {
                 return View("~/views/shared/Error.cshtml");
             }
 
-            var postViewModel = new PostViewModel()
-            {
-                Id = post.Id,
-                Title = post.Title,
-                Summary = post.Summary,
-                Date = post.RegisteDate.ToFriendlyPersianDateTextify(),
-                UserFullName = post.User.DisplayName
-
-            };
-            this.SetCurrentBreadCrumbTitle(post.Title);
+           
+            this.SetCurrentBreadCrumbTitle(postViewModel.Title);
             return View(postViewModel);
 
         }
@@ -146,8 +145,12 @@ namespace QtasHelpDesk.Controllers
             {
                 return View("~/views/shared/Error.cshtml");
             }
-
-
+            if (!System.IO.File.Exists(_hostingEnvironment.WebRootPath + @"\Files\" + post.FilePath))
+            {
+                
+                return View("~/views/shared/NotFound.cshtml");
+            }
+          
             byte[] pdfContent =
                 System.IO.File.ReadAllBytes(_hostingEnvironment.WebRootPath + @"\Files\" + post.FilePath);
 

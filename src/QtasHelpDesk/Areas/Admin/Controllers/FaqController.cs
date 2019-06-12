@@ -104,18 +104,8 @@ namespace QtasHelpDesk.Areas.Admin.Controllers
         public IActionResult Edit(FaqViewModel faqViewModel)
         {
             faqViewModel.CheckArgumentIsNull(nameof(faqViewModel));
-
-            var faq = _faqService.GetFaqById(faqViewModel.Id);
-            if (faq == null)
-            {
-                _toastNotification.AddErrorToastMessage("چنین محتوایی یافت نشد");
-                return RedirectToAction("List");
-            }
-            faq.Reply = faqViewModel.Reply;
-            faq.Question = faqViewModel.Question;
-           _faqService.Edit(faq);
-
-            _toastNotification.AddSuccessToastMessage("چنین محتوایی یافت نشد");
+            _faqService.Edit(faqViewModel);
+            _toastNotification.AddSuccessToastMessage("ویرایش با موفقیت انجام شد");
             return RedirectToAction("List");
 
 
@@ -127,7 +117,6 @@ namespace QtasHelpDesk.Areas.Admin.Controllers
             {
                 Id = x.Id,
                 Question = x.Question
-                
                 
             }).ToList();
             return Json(postViewModels.ToDataSourceResult(request));

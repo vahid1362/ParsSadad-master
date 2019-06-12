@@ -108,23 +108,11 @@ namespace QtasHelpDesk.Areas.Admin.Controllers
         {
             postId.CheckArgumentIsNull(nameof(postId));
 
-          var post=_postService.GetPostById(postId.GetValueOrDefault());
-          if (post == null)
-          {
-              _toastNotification.AddErrorToastMessage("چنین محتوایی یافت نشد");
-            return  RedirectToAction("List");
-          }
-          var groups = PrepareGroupSelectedListItem();
-            return View(new PostViewModel()
-            {
-                Id = post.Id,
-                Title = post.Title,
-                Summary = post.Summary,
-                Decription = post.Decription,
-                GroupId = post.GroupId,
-                SelectListItems = groups
+          var postViewModel=_postService.GetPostById(postId.GetValueOrDefault());
 
-            });
+          var groups = PrepareGroupSelectedListItem();
+            postViewModel.SelectListItems = groups;
+            return View(postViewModel);
         }
 
         [DisplayName("صفحه ثبت ویرایش مقاله")]
