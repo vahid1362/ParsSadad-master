@@ -1,4 +1,5 @@
-﻿using DNTPersianUtils.Core;
+﻿using System.Collections.Generic;
+using DNTPersianUtils.Core;
 using Microsoft.AspNetCore.Mvc;
 using QtasHelpDesk.Common.GuardToolkit;
 using QtasHelpDesk.Services.Contracts.Content;
@@ -32,6 +33,20 @@ namespace QtasHelpDesk.Controllers
             faqId.CheckArgumentIsNull(nameof(faqId));
             var faqViewModel= _faqService.GetFaqById(faqId.GetValueOrDefault());
              return View(faqViewModel);
+        }
+
+
+        public IActionResult GetFaqs()
+        {
+            var faqViewModels = GetLastFaq();
+         
+            return PartialView("_faqs", faqViewModels);
+        }
+
+        private List<FaqViewModel> GetLastFaq()
+        {
+            var faqViewModels = _faqService.GetFaqs();
+            return faqViewModels;
         }
     }
 }

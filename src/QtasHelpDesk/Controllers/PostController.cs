@@ -48,12 +48,12 @@ namespace QtasHelpDesk.Controllers
         public IActionResult Index()
         {
 
-            var postViewModels = GetLastPosts();
-            var faqViewModels = GetLastFaq();
+            //var postViewModels = GetLastPosts();
+            //var faqViewModels = GetLastFaq();
 
             var informationViewModel = new InformationViewModel();
-            informationViewModel.PostViewModels = postViewModels;
-            informationViewModel.FaqViewModels = faqViewModels;
+            //informationViewModel.PostViewModels = postViewModels;
+            //informationViewModel.FaqViewModels = faqViewModels;
             return PartialView(informationViewModel);
 
 

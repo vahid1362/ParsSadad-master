@@ -3,10 +3,9 @@
 @{
     ViewData["Title"] = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
-    var searchsUrl = Url.Action("Search", "Post");
-    var bulletImage = Url.Content("~/Images/bullet_shape.png");
+
 }
-@foreach (var faqwModel in Model.FaqViewModels)
+@*@foreach (var faqwModel in Model.FaqViewModels)
 {
 
    <div class="card">
@@ -22,11 +21,52 @@
             </div>
     <br />
 
-}
-    <partial name="_Posts" model=@Model.PostViewModels />
+}*@
+@*<partial name="_Posts" model=@Model.PostViewModels />*@
+
+<style>
+    .loader {
+        width: 100%;
+        height: 300px;
+     background:url('/images/loading.gif') no-repeat center center rgba(0,0,0,0.25)
+    }
+
+   
+   
+</style>
+
+
+<div id="Faqs" >
+    <div  class="loader"></div>
+
+</div>
+<br/>
+<div id="Posts">
+    <div  class="loader"></div>
+</div>
 
 @section Scripts
-    {
+{
+    <script>
+
+        $.ajax({
+            type: 'GET',
+            url: '@Url.Action("GetFaqs","Faq")',
+            success: function(response) {
+                $('#Faqs').html(response);
+            }
+        })
+        $.ajax({
+            type: 'GET',
+            url: '@Url.Action("GetPosts","Post")',
+            success: function(response) {
+                $('#Posts').html(response);
+            }
+        })
+      
+    </script>
+    
+   
     
 }
 
