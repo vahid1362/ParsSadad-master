@@ -19,20 +19,25 @@
     
 </head>
 <body>
-
     <div class="navbar bg-info navbar-dark navbar-expand-sm fixed-top">
         <div class="container">
+            
+            @if (User.IsInRole(ConstantRoles.Admin))
+            {
+                <partial name="_AdminMenu" />
+            }
+           
             <a asp-area="" asp-controller="Home" asp-action="Index" class="navbar-brand d-none d-sm-inline-block">
                 <img src="~/images/logo.png" />
                 <span class="text-white"> پشتیان افزار رایانه ای سداد</span>
             </a>
             <div class="col-md-4">
-                <input  type="search" placeholder="جستجو ..." id="term">
-                
+                <input type="search" placeholder="جستجو ..." id="term">
+
             </div>
             <div class="pull-left">
                 <span class="navbar-text d-none d-xl-inline-block text-white"><i class="fa fa-calendar"></i> @DateTime.Now.ToPersianDateTextify()</span>
-                <a href="/home/LogOff" class="btn btn-danger">خروج</a>
+                <a href="/home/LogOff" ><i class="fa fa-power-off"></i></a>
             </div>
 
         </div>

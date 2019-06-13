@@ -7,17 +7,21 @@
             منوی مدیریتی
         </a>
         <div class="dropdown-menu" aria-labelledby="adminDropdown">
-                <a class="dropdown-item" asp-controller="UsersManager" asp-action="Index" asp-area="@AreaConstants.AdminArea">
-                    <i class="fas fa-user mr-1" aria-hidden="true"></i>
-                    مدیریت کاربران
+            <a class="dropdown-item"  href="/Admin/user">
+                <i class="fas fa-user mr-1" aria-hidden="true"></i>
+                مدیریت کاربران
+            </a>
+            <a class="dropdown-item" href="/Admin/Group">
+                <i class="fas fa-object-group mr-1" aria-hidden="true"></i>
+                مدیریت  گروه ها
+            </a>
+                <a class="dropdown-item" href="/Admin/post">
+                    <i class="fas fa-sticky-note mr-1" aria-hidden="true"></i>
+                    مدیریت پست ها
                 </a>
-                <a class="dropdown-item" asp-controller="RolesManager" asp-action="Index" asp-area="@AreaConstants.AdminArea">
-                    <i class="fas fa-object-group mr-1" aria-hidden="true"></i>
-                    مدیریت نقش‌های سیستم
-                </a>
-                <a class="dropdown-item" asp-controller="SystemLog" asp-action="Index" asp-area="@AreaConstants.AdminArea">
-                    <i class="fas fa-bell mr-1" aria-hidden="true"></i>
-                    گزارش رخ‌دادهای سیستم
+                <a class="dropdown-item"  href="/Admin/Faq">
+                    <i class="fas fa-question mr-1" aria-hidden="true"></i>
+                  مدیریت سوالات
                 </a>
         </div>
     </div>
