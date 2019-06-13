@@ -55,14 +55,14 @@
             success: function(response) {
                 $('#Faqs').html(response);
             }
-        })
+        });
         $.ajax({
             type: 'GET',
             url: '@Url.Action("GetPosts","Post")',
             success: function(response) {
                 $('#Posts').html(response);
             }
-        })
+        });
       
     </script>
     
