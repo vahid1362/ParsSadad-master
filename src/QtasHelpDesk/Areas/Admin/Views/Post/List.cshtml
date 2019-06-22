@@ -34,7 +34,7 @@
                               .Pageable() //Ena
                               .Editable(editable => editable.Mode(GridEditMode.InLine).DisplayDeleteConfirmation("آیا از حذف این سطر مطمئن هستید؟"))   
                               .Filterable(filterable=>filterable.Mode(GridFilterMode.Row))
-                              .DataSource(x => x.Ajax().PageSize(20)
+                              .DataSource(x => x.Ajax()
                                   .Read(read => read.Action("Post_Read", "Post"))
                                   .Destroy(destroy=>destroy.Action("Post_Delete","Post"))
 

@@ -100,14 +100,14 @@ namespace QtasHelpDesk.Services.Identity
             //    });
             //}
 
-            if (userName.HasConsecutiveChars())
-            {
-                errors.Add(new IdentityError
-                {
-                    Code = "BadUserNameError",
-                    Description = "نام کاربری وارد شده معتبر نیست."
-                });
-            }
+            //if (userName.HasConsecutiveChars())
+            //{
+            //    errors.Add(new IdentityError
+            //    {
+            //        Code = "BadUserNameError",
+            //        Description = "نام کاربری وارد شده معتبر نیست."
+            //    });
+            //}
         }
     }
 }

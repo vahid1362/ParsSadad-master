@@ -37,6 +37,7 @@
 
 
                               })
+                              .Pageable()
                               .Filterable(filterable=>filterable.Mode(GridFilterMode.Row))
                               .DataSource(x => x.Ajax().Read(read => read.Action("Group_Read", "Group"))
                                   .Model(m => m.Id(g => g.Id))))

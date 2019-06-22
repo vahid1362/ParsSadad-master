@@ -30,8 +30,10 @@
                                      column.Command(c => c.Destroy().Text("حذف"));
 
                               })
+                              .Pageable()
                                 .Editable(editable => editable.Mode(GridEditMode.InLine).DisplayDeleteConfirmation("آیا از حذف این سطر مطمئن هستید؟"))   
-                              .Filterable(ftb=>ftb.Mode(GridFilterMode.Row))
+                            
+                                .Filterable(ftb=>ftb.Mode(GridFilterMode.Row))
                               .DataSource(x => x.Ajax().Read(read => read.Action("Faq_Read", "Faq"))
                               .Destroy(destroy=>destroy.Action("Faq_Delete","Faq"))
                                   .Model(m => m.Id(g => g.Id))))
