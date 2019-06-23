@@ -35,7 +35,7 @@
                                   column.Bound(c => c.FirstName).Filterable(ftb => ftb.Cell(cell => cell.Operator("contains").SuggestionOperator(FilterType.Contains)));
                                   column.Bound(c => c.LastName).Filterable(ftb => ftb.Cell(cell => cell.Operator("contains").SuggestionOperator(FilterType.Contains)));
                                   column.Bound(c => c.IsActive).Filterable(false).Width(10).ClientTemplate("# if(IsActive) {# <i class='fa fa-check true-icon'></i> #} else {# <i class='fa fa-close false-icon'></i> #} #");
-                                  column.Bound(c => c.Id).Title("دستورات").Filterable(false).ClientTemplate("<a  class='btn btn-warning' href='" + Url.Action("Edit") + "?Id=#=Id#'"+"><i class=' fa fa-edit'></i>ویرایش</a>");
+                                  column.Bound(c => c.Id).Title("دستورات").Filterable(false).ClientTemplate("<a  class='btn btn-warning' href='" + Url.Action("Edit") + "?Id=#=Id#'"+"><i class=' fa fa-edit'></i>ویرایش</a> <a  class='btn btn-success' href='" + Url.Action("EditUserGroup") + "?Id=#=Id#'"+"><i class=' fa fa-lock'></i>سطح دسترسی</a>");
                               }).Pageable()
                               .Filterable(ftb=>ftb.Mode(GridFilterMode.Row))
                               .DataSource(x => x.Ajax().Read(read => read.Action("User_Read", "User"))

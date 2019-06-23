@@ -2,12 +2,10 @@
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using System.Security.Permissions;
 using Microsoft.AspNetCore.Identity;
 using QtasHelpDesk.Domain.AuditableEntity;
 using QtasHelpDesk.Domain.Content;
 using QtasHelpDesk.Domain.Media;
-using QtasHelpDesk.Entities.AuditableEntity;
 using QtasHelpDesk.Entities.Identity;
 
 namespace QtasHelpDesk.Domain.Identity
@@ -25,6 +23,7 @@ namespace QtasHelpDesk.Domain.Identity
             UserTokens = new HashSet<UserToken>();
                       EmailConfirmed = true;
             Email = UserName + "@a.com";
+            UserGroups=new HashSet<UserGroup>();
             //PersonCode = int.Parse(UserName);
         }
 
@@ -84,6 +83,8 @@ namespace QtasHelpDesk.Domain.Identity
 
         public virtual ICollection<UserClaim> Claims { get; set; }
 
-    
+        public virtual ICollection<UserGroup> UserGroups { get; set; }
+
+
     }
 }

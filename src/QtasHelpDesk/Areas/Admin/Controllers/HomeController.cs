@@ -5,6 +5,7 @@ namespace QtasHelpDesk.Areas.Admin.Controllers
 {
   
     [BreadCrumb(Title = "خانه", UseDefaultRouteUrl = true, Order = 0)]
+    [Area("Admin")]
     public class HomeController : Controller
     {
         [BreadCrumb(Title = "ایندکس", Order = 1)]

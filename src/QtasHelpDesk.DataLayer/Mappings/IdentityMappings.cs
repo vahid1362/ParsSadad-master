@@ -44,6 +44,8 @@ namespace QtasHelpDesk.DataLayer.Mappings
 
             });
 
+            modelBuilder.Entity<User>().HasMany(x => x.UserGroups).WithOne(x => x.User).HasForeignKey(x => x.UserId);
+
             modelBuilder.Entity<UserRole>(builder =>
             {
                 builder.HasOne(userRole => userRole.Role).WithMany(role => role.Users).HasForeignKey(userRole => userRole.RoleId);

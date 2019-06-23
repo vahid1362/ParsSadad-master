@@ -1,10 +1,12 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using Microsoft.EntityFrameworkCore;
+using QtasHelpDesk.Common.GuardToolkit;
 using QtasHelpDesk.DataLayer.Context;
 using QtasHelpDesk.Domain.Content;
 using QtasHelpDesk.Services.Contracts.Content;
 using QtasHelpDesk.ViewModels.Content;
+using QtasHelpDesk.ViewModels.Identity;
 
 
 namespace QtasHelpDesk.Services.Content
@@ -13,10 +15,14 @@ namespace QtasHelpDesk.Services.Content
     {
         private readonly IUnitOfWork _uow;
         private readonly DbSet<Group> _groups;
+        private readonly DbSet<UserGroup> _userGroups;
+
         public GroupService(IUnitOfWork uow)
         {
             _uow = uow;
+            _uow.CheckArgumentIsNull(nameof(_uow));
             _groups = _uow.Set<Group>();
+            _userGroups = _uow.Set<UserGroup>();
         }
         public List<Group> GetGroups()
         {
@@ -52,7 +58,6 @@ namespace QtasHelpDesk.Services.Content
                 Title =  x.Title
 
 
-
             }).ToList();
         }
 
@@ -66,6 +71,15 @@ namespace QtasHelpDesk.Services.Content
               
             }).ToList();
         }
-      
+
+        public List<UserGroupViewModel> GetUserGroups(int userId)
+        {
+            return _userGroups.Where(x => x.UserId == userId).Select(x => new UserGroupViewModel()
+            {
+                UserId = x.UserId,
+                GroupTitle = x.Group.Title,
+                GroupId = x.GroupId
+            }).ToList();
+        }
     }
 }

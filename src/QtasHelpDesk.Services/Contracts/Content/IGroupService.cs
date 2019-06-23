@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using QtasHelpDesk.Domain.Content;
 using QtasHelpDesk.ViewModels.Content;
+using QtasHelpDesk.ViewModels.Identity;
 
 namespace QtasHelpDesk.Services.Contracts.Content
 {
@@ -19,6 +20,8 @@ namespace QtasHelpDesk.Services.Contracts.Content
         List<GroupViewModel> GetSubGroup(int groupId);
 
         List<GroupViewModel> GetParentGroup(int? parentId);
+
+        List<UserGroupViewModel> GetUserGroups(int userId);
 
     }
 }

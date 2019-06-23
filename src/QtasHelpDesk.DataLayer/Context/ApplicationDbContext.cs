@@ -182,9 +182,7 @@ namespace QtasHelpDesk.DataLayer.Context
 
         public DbSet<Response> Responses { get; set; }
 
-
-
-
+        public DbSet<UserGroup> UserGroups { get; set; }
 
         #endregion
 

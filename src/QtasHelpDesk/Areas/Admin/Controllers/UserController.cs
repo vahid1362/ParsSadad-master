@@ -12,8 +12,10 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using NToastNotify;
+using QtasHelpDesk.Common.GuardToolkit;
 using QtasHelpDesk.CrossCutting.IdentityToolkit;
 using QtasHelpDesk.Domain.Identity;
+using QtasHelpDesk.Services.Contracts.Content;
 using QtasHelpDesk.Services.Contracts.Identity;
 
 using QtasHelpDesk.Services.Identity;
@@ -33,10 +35,11 @@ namespace QtasHelpDesk.Areas.Admin.Controllers
         private readonly IUsedPasswordsService _usedPasswordsService;
         private readonly IApplicationSignInManager _signInManager;
         private readonly IToastNotification _toastNotification;
+        private readonly IGroupService _groupService;
      
 
         public UserController(IApplicationUserManager userManager, IProtectionProviderService protectionProviderService,
-            IUserValidator<User> userValidator, IUsedPasswordsService usedPasswordsService, IApplicationSignInManager signInManager, IToastNotification toastNotification, IMapper mapper)
+            IUserValidator<User> userValidator, IUsedPasswordsService usedPasswordsService, IApplicationSignInManager signInManager, IToastNotification toastNotification, IMapper mapper, IGroupService groupService)
         {
             _userManager = userManager;
             _protectionProviderService = protectionProviderService;
@@ -46,6 +49,7 @@ namespace QtasHelpDesk.Areas.Admin.Controllers
             _toastNotification = toastNotification;
           
             _mapper = mapper;
+            _groupService = groupService;
         }
 
         public IActionResult Index()
@@ -196,10 +200,19 @@ namespace QtasHelpDesk.Areas.Admin.Controllers
 
         }
 
+        [BreadCrumb(Title = "سطح دسترسی کاربران", Order = 1)]
 
+        public async Task<IActionResult> EditUserGroup(int userId)
+        {
+            userId.CheckArgumentIsNull(nameof(userId));
+             return View();
+        }
 
+        public async Task<IActionResult> UserGroup_Read([DataSourceRequest]DataSourceRequest request, int userId)
+        {
+          var userGroupsViewModel=  _groupService.GetUserGroups(userId);
 
-
-
+          return Json(userGroupsViewModel.ToDataSourceResult(request));
+        }
     }
 }
