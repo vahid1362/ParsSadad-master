@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
+using System.Threading.Tasks;
 using AutoMapper;
 using DNTBreadCrumb.Core;
 using Kendo.Mvc.Extensions;
@@ -172,6 +173,11 @@ namespace QtasHelpDesk.Areas.Admin.Controllers
             return Json(groupViewModels.ToDataSourceResult(request));
         }
 
+        public async Task<IActionResult> Get_Group()
+        {
+    
 
+            return Json(PrepareGroupSelectedListItem());
+        }
     }
 }

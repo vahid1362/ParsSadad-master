@@ -11,6 +11,7 @@ using Kendo.Mvc.UI;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using NToastNotify;
 using QtasHelpDesk.Common.GuardToolkit;
 using QtasHelpDesk.CrossCutting.IdentityToolkit;
@@ -213,6 +214,17 @@ namespace QtasHelpDesk.Areas.Admin.Controllers
           var userGroupsViewModel=  _groupService.GetUserGroups(userId);
 
           return Json(userGroupsViewModel.ToDataSourceResult(request));
+        }
+        public async Task<IActionResult> Get_User()
+        {
+            var units = await _userManager.GetAllUsersAsync(); ;
+            var unitViewModels = units.Select(x => new SelectListItem
+            {
+                Value = x.Id.ToString(),
+                Text = x.FirstName+ " " +x.LastName
+            }).ToList();
+
+            return Json(unitViewModels);
         }
     }
 }

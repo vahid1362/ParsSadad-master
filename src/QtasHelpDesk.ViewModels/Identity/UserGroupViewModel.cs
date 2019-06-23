@@ -1,4 +1,6 @@
 ﻿
+using System.ComponentModel.DataAnnotations;
+
 namespace QtasHelpDesk.ViewModels.Identity
 {
   public  class UserGroupViewModel
@@ -10,6 +12,7 @@ namespace QtasHelpDesk.ViewModels.Identity
 
         public int GroupId { get; set; }
 
+        [Display(Name ="عنوان گروه")]
         public string GroupTitle { get; set; }
     }
 }

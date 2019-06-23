@@ -4,34 +4,110 @@
     ViewData["Title"] = "EditUserGroup";
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
-
-    <section class="content">
-        <div class="box box-info">
-            <div class="box-header with-border">
-                <div class="col-md-6">
-                    <h3 class="box-title">مدیریت سطح دسترسی</h3>
-                </div>
-                <div class="text-left col-md-6">
-                    <a href="@Url.Action("List")" class="btn btn-default"> <i class="fa fa-backward fa-lg "></i> بازگشت</a>
-                </div>
+<link href="~/Lib/Select2/css/select2.css" rel="stylesheet" />
+<section class="content">
+    <div class="box box-info">
+        <div class="box-header with-border">
+            <div class="col-md-6">
+                <h3 class="box-title">مدیریت سطح دسترسی</h3>
             </div>
-            <div class="box-body">
-                <div class="row">
-                    <div class="col-md-12">
-                        <div class="k-rtl">
-                            @(Html.Kendo().Grid<UserGroupViewModel>().Name("Users").
-                                  Columns(column =>
-                                  {
-                                       column.Bound(c => c.GroupTitle).Filterable(ftb => ftb.Cell(cell => cell.Operator("contains").SuggestionOperator(FilterType.Contains)));
-                                      column.Bound(c => c.Id).Title("دستورات").Filterable(false).ClientTemplate("<a  class='btn btn-warning' href='" + Url.Action("Edit") + "?Id=#=Id#'" + "><i class=' fa fa-edit'></i>ویرایش</a> <a  class='btn btn-success' href='" + Url.Action("EditUserGroup") + "?Id=#=Id#'" + "><i class=' fa fa-lock'></i>سطح دسترسی</a>");
-                                  }).Pageable()
-                                  .Filterable(ftb => ftb.Mode(GridFilterMode.Row))
-                                  .DataSource(x => x.Ajax().Read(read => read.Action("UserGroup_Read", "User"))
-                                      .Model(m => m.Id(g => g.Id))))
+            <div class="text-left col-md-6">
+                <a href="@Url.Action("List")" class="btn btn-default"> <i class="fa fa-backward fa-lg "></i> بازگشت</a>
+            </div>
+        </div>
+        <div class="box-body">
+            <div class="row">
+                <div class="col-md-offset-3 col-md-6 col-sm-9">
+                    <div class="form-group row">
+                        <label class="control-label col-md-3 text-left "> کاربران</label>
+                        <div class="col-md-9">
+                            <select id="userdropdown" class="form-control"></select>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="control-label col-md-3 text-left "> گروه ها</label>
+                        <div class="col-md-9">
+                            <select id="groupdropdown" class="form-control"></select>
                         </div>
                     </div>
                 </div>
             </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="k-rtl">
+                        @(Html.Kendo().Grid<UserGroupViewModel>().Name("UserGroup").
+                              Columns(column =>
+                              {
+                                   column.Bound(c => c.GroupTitle).Filterable(ftb => ftb.Cell(cell => cell.Operator("contains").SuggestionOperator(FilterType.Contains)));
+                                  column.Bound(c => c.Id).Title("دستورات").Filterable(false).ClientTemplate("<a  class='btn btn-warning' href='" + Url.Action("Edit") + "?Id=#=Id#'" + "><i class=' fa fa-edit'></i>ویرایش</a> <a  class='btn btn-success' href='" + Url.Action("EditUserGroup") + "?Id=#=Id#'" + "><i class=' fa fa-lock'></i>سطح دسترسی</a>");
+                              }).Pageable()
+                              .Filterable(ftb => ftb.Mode(GridFilterMode.Row))
+                              .DataSource(x => x.Ajax().Read(read => read.Action("UserGroup_Read", "User").Data("GetAdditionalData"))
+                                  .Model(m => m.Id(g => g.Id))))
+                    </div>
+                </div>
+            </div>
         </div>
-    </section>
+    </div>
+</section>
+@section scripts
+{
+    <script src="~/Lib/Select2/js/select2.js"></script>
+    <script>
 
+      $("#groupdropdown").select2({
+                dir: 'rtl',
+                placeholder: 'گروه را انتخاب کنید',
+                selectOnClose: true,
+                ajax: {
+                    url: '@Url.Action("Get_Group", "Group")',
+                    dataType: 'json',
+                    processResults: function(data) {
+                        return {
+                            results: $.map(data,
+                                function(item) {
+                                    return {
+                                        text: item.Text,
+                                        id: item.Value
+                                    }
+                                })
+                        }
+                    }
+                }
+      });
+           $("#userdropdown").select2({
+                dir: 'rtl',
+                placeholder: 'کاربر را انتخاب کنید',
+                selectOnClose: true,
+                ajax: {
+                    url: '@Url.Action("Get_User", "User")',
+                    dataType: 'json',
+                    processResults: function(data) {
+                        return {
+                            results: $.map(data,
+                                function(item) {
+                                    return {
+                                        text: item.Text,
+                                        id: item.Value
+                                    }
+                                })
+                        }
+                    }
+                }
+            });
+
+        $('#dropdown').change(function () {
+            var grid = $("#UserGroup").data("kendoGrid");
+            grid.dataSource.read();
+        })
+
+         function GetAdditionalData() {
+
+                     return {
+                userId:  $('#userdropdown').val()
+
+            }
+        }
+
+    </script>
+}
