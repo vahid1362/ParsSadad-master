@@ -106,7 +106,7 @@ namespace QtasHelpDesk.Areas.Admin.Controllers
                 await _emailSender.SendEmailAsync(
                            email: user.Email,
                            subject: "اطلاع رسانی تغییر کلمه‌ی عبور",
-                           viewNameOrPath: "~/Areas/Identity/Views/EmailTemplates/_ChangePasswordNotification.cshtml",
+                           viewNameOrPath: "~/Areas/Admin/Views/EmailTemplates/_ChangePasswordNotification.cshtml",
                            model: new ChangePasswordNotificationViewModel
                            {
                                User = user,

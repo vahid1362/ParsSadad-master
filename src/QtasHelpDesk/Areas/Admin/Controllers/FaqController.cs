@@ -4,6 +4,7 @@ using System.Linq;
 using DNTBreadCrumb.Core;
 using Kendo.Mvc.Extensions;
 using Kendo.Mvc.UI;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using NToastNotify;
@@ -12,11 +13,12 @@ using QtasHelpDesk.Domain.Content;
 using QtasHelpDesk.Services.Content;
 using QtasHelpDesk.Services.Contracts.Content;
 using QtasHelpDesk.Services.Contracts.Identity;
+using QtasHelpDesk.Services.Identity;
 using QtasHelpDesk.ViewModels.Content;
 
 namespace QtasHelpDesk.Areas.Admin.Controllers
-{   
-    [Area("Admin")]
+{
+    [Authorize(Policy = ConstantPolicies.DynamicPermission)]
     [BreadCrumb(Title = "سوالات متداول", UseDefaultRouteUrl = true, Order = 0)]
     public class FaqController : Controller
     {
