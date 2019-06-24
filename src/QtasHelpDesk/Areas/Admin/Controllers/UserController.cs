@@ -193,13 +193,10 @@ namespace QtasHelpDesk.Areas.Admin.Controllers
             {
                 return Json("اطلاعات وارد شده معتبر نیست.");
             }
-
             var user = await _userManager.FindByIdAsync(id);
             user.UserName = username;
-
             var result = await _userValidator.ValidateAsync((UserManager<User>)_userManager, user);
             return Json(result.Succeeded ? "true" : result.DumpErrors(useHtmlNewLine: true));
-
         }
 
         [BreadCrumb(Title = "سطح دسترسی کاربران", Order = 1)]
@@ -209,6 +206,7 @@ namespace QtasHelpDesk.Areas.Admin.Controllers
             userId.CheckArgumentIsNull(nameof(userId));
              return View(new UserGroupViewModel());
         }
+
 
         public async Task<IActionResult> UserGroup_Read([DataSourceRequest]DataSourceRequest request, int? userId)
         {
@@ -220,6 +218,7 @@ namespace QtasHelpDesk.Areas.Admin.Controllers
 
           return Json(userGroupsViewModel.ToDataSourceResult(request));
         }
+
         public async Task<IActionResult> Get_User()
         {
             var units = await _userManager.GetAllUsersAsync(); ;
@@ -246,6 +245,16 @@ namespace QtasHelpDesk.Areas.Admin.Controllers
            });
           await _userManager.UpdateAsync(user);
             return Json("ok");
+        }
+
+        public ActionResult UserGroup_Delete([DataSourceRequest] DataSourceRequest request, UserGroupViewModel model)
+        {
+            if (model != null)
+            {
+                _groupService.DeleteUserGroup(model.Id);
+            }
+
+            return Json(new[] { model }.ToDataSourceResult(request, ModelState));
         }
     }
 }

@@ -11,7 +11,7 @@ using QtasHelpDesk.ViewModels.Identity;
 
 namespace QtasHelpDesk.Services.Content
 {
-   public class GroupService:IGroupService
+    public class GroupService : IGroupService
     {
         private readonly IUnitOfWork _uow;
         private readonly DbSet<Group> _groups;
@@ -37,7 +37,7 @@ namespace QtasHelpDesk.Services.Content
 
         public string GetGroupName(int groupId)
         {
-            return _groups.FirstOrDefault(x => x.Id==groupId)?.Title;
+            return _groups.FirstOrDefault(x => x.Id == groupId)?.Title;
         }
 
         public Group GetGroupById(long id)
@@ -55,7 +55,7 @@ namespace QtasHelpDesk.Services.Content
             return _groups.Where(x => x.ParentId == groupId).Select(x => new GroupViewModel()
             {
                 Id = x.Id,
-                Title =  x.Title
+                Title = x.Title
 
 
             }).ToList();
@@ -63,12 +63,12 @@ namespace QtasHelpDesk.Services.Content
 
         public List<GroupViewModel> GetParentGroup(int? parentId)
         {
-            return _groups.Where(x => x.ParentId == parentId).Select(x=>new GroupViewModel()
+            return _groups.Where(x => x.ParentId == parentId).Select(x => new GroupViewModel()
             {
                 Id = x.Id,
                 Title = x.Title,
-               hasChildren=_groups.Any(y=>y.ParentId==x.Id)
-              
+                hasChildren = _groups.Any(y => y.ParentId == x.Id)
+
             }).ToList();
         }
 
@@ -76,10 +76,19 @@ namespace QtasHelpDesk.Services.Content
         {
             return _userGroups.Where(x => x.UserId == userId).Select(x => new UserGroupViewModel()
             {
+                Id = x.Id,
                 UserId = x.UserId,
                 GroupTitle = x.Group.Title,
                 GroupId = x.GroupId
             }).ToList();
+        }
+
+        public void DeleteUserGroup(int userGroupId)
+        {
+            var userGroup = _userGroups.FirstOrDefault(x => x.Id == userGroupId);
+            userGroup.CheckArgumentIsNull(nameof(userGroup));
+            _userGroups.Remove(userGroup);
+            _uow.SaveChanges();
         }
     }
 }

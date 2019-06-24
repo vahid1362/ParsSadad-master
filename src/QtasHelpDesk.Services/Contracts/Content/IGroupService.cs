@@ -23,5 +23,7 @@ namespace QtasHelpDesk.Services.Contracts.Content
 
         List<UserGroupViewModel> GetUserGroups(int userId);
 
+        void DeleteUserGroup(int userGroupId);
+
     }
 }
