@@ -1,5 +1,5 @@
 ﻿@using Kendo.Mvc.UI
-
+@model UserGroupViewModel;
 @{
     ViewData["Title"] = "EditUserGroup";
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
@@ -17,20 +17,33 @@
         </div>
         <div class="box-body">
             <div class="row">
-                <div class="col-md-offset-3 col-md-6 col-sm-9">
-                    <div class="form-group row">
-                        <label class="control-label col-md-3 text-left "> کاربران</label>
-                        <div class="col-md-9">
-                            <select id="userdropdown" class="form-control"></select>
+                <form id="userGroupForm">
+
+                    <div class="col-md-offset-3 col-md-6 col-sm-9">
+                        <div class="form-group row">
+                            <label class="control-label col-md-3 text-left "> کاربران</label>
+                            <div class="col-md-9">
+                                <select id="userdropdown" asp-for="UserId" class="form-control"></select>
+                                <span asp-validation-for="GroupId" class="text-danger"></span>
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label class="control-label col-md-3 text-left "> گروه ها</label>
+                            <div class="col-md-9">
+                                <select id="groupdropdown" asp-for="UserId" class="form-control"></select>
+                                <span asp-validation-for="GroupId" class="text-danger"></span>
+                            </div>
                         </div>
                     </div>
-                    <div class="form-group row">
-                        <label class="control-label col-md-3 text-left "> گروه ها</label>
-                        <div class="col-md-9">
-                            <select id="groupdropdown" class="form-control"></select>
+                    <div class="col-md-offset-3 col-md-6 col-sm-9">
+                        <div class="form-group row">
+                            <div class="float-left">
+                                <button id="btnSave" type="submit" class="btn btn-primary"> <i class="fa fa-save"></i>ذخیره</button>
+                            </div>
                         </div>
                     </div>
-                </div>
+                </form>
             </div>
             <div class="row">
                 <div class="col-md-12">
@@ -54,6 +67,30 @@
 {
     <script src="~/Lib/Select2/js/select2.js"></script>
     <script>
+        $("#userGroupForm").submit(function(e) {
+            e.preventDefault();
+            $("#btnSave").prop("disabled", true);
+
+
+            var userGroup = {
+                userId: $('#userdropdown').val(),
+                groupId: $("#groupdropdown").val()
+            }
+            $.ajax({
+                    type: 'POST',
+                    url: '@Url.Action("AddUserToGroup","User")',
+                    dataType: 'json',
+                    contentType: 'application/json; charset=utf-8',
+                    data: JSON.stringify(userGroup)
+                })
+                .done(function(result) {
+                    if (result != null) {
+                        var grid = $("#UserGroup").data("kendoGrid");
+                        grid.dataSource.read();
+                        $("#btnSave").prop("disabled", false);
+                    }
+                });
+        });
 
       $("#groupdropdown").select2({
                 dir: 'rtl',
@@ -75,7 +112,7 @@
                     }
                 }
       });
-           $("#userdropdown").select2({
+      $("#userdropdown").select2({
                 dir: 'rtl',
                 placeholder: 'کاربر را انتخاب کنید',
                 selectOnClose: true,
@@ -96,10 +133,10 @@
                 }
             });
 
-        $('#dropdown').change(function () {
-            var grid = $("#UserGroup").data("kendoGrid");
-            grid.dataSource.read();
-        })
+      $('#userdropdown').change(function() {
+          var grid = $("#UserGroup").data("kendoGrid");
+          grid.dataSource.read();
+      });
 
          function GetAdditionalData() {
 

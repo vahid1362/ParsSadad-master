@@ -15,6 +15,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using NToastNotify;
 using QtasHelpDesk.Common.GuardToolkit;
 using QtasHelpDesk.CrossCutting.IdentityToolkit;
+using QtasHelpDesk.Domain.Content;
 using QtasHelpDesk.Domain.Identity;
 using QtasHelpDesk.Services.Contracts.Content;
 using QtasHelpDesk.Services.Contracts.Identity;
@@ -206,12 +207,16 @@ namespace QtasHelpDesk.Areas.Admin.Controllers
         public async Task<IActionResult> EditUserGroup(int userId)
         {
             userId.CheckArgumentIsNull(nameof(userId));
-             return View();
+             return View(new UserGroupViewModel());
         }
 
-        public async Task<IActionResult> UserGroup_Read([DataSourceRequest]DataSourceRequest request, int userId)
+        public async Task<IActionResult> UserGroup_Read([DataSourceRequest]DataSourceRequest request, int? userId)
         {
-          var userGroupsViewModel=  _groupService.GetUserGroups(userId);
+            if (userId == null)
+            {
+                return Json("");
+            }
+          var userGroupsViewModel=  _groupService.GetUserGroups(userId.GetValueOrDefault());
 
           return Json(userGroupsViewModel.ToDataSourceResult(request));
         }
@@ -225,6 +230,22 @@ namespace QtasHelpDesk.Areas.Admin.Controllers
             }).ToList();
 
             return Json(unitViewModels);
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> AddUserToGroup([FromBody]UserGroupViewModel userGroupViewModel)
+        {
+            var user = _userManager.FindById(userGroupViewModel.UserId);
+            if (user == null)
+            {
+                return null;
+            }
+           user.UserGroups.Add(new UserGroup()
+           {
+               GroupId = userGroupViewModel.GroupId
+           });
+          await _userManager.UpdateAsync(user);
+            return Json("ok");
         }
     }
 }

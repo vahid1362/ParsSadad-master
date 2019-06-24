@@ -24,6 +24,7 @@ namespace QtasHelpDesk.DataLayer.Mappings
 
             model.Entity<Faq>().ToTable("Faq");
             model.Entity<Faq>().HasOne(x => x.Group).WithMany().HasForeignKey(x => x.GroupId);
+            model.Entity<UserGroup>().ToTable("UserGroups");
 
 
         }
