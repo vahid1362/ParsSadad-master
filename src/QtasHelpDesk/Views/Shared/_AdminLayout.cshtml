@@ -76,33 +76,13 @@
                                     @User.Identity.GetUserFullName()
                                 </span>
                             </a>
-                            @*<ul class="dropdown-menu">
-                                <li class="user-header">
-                                    <img src='@imagesrc' class="img-circle" alt="User Image">
-                                    <p>
-                                        @User.Identity.GetUserFullName()
-                                    </p>
-                                    <div class="user-footer">
-                                        <div class="pull-right k-fontSize">
-                                            <a href="#" class="btn btn-block btn-success"> نمایه </a>
-                                        </div>
-                                        <div class="pull-left k-fontSize">
-                                            <a  href="/home/LogOff"
-                                                class="btn btn-block btn-danger">خروج</a>
-                                        </div>
-                                    </div>
-                                    
-
-                                </li>
-
-                            </ul>*@
-                            <ul class="dropdown-menu">
+                               <ul class="dropdown-menu">
 
                                 <!-- User image -->
                                 <li class="user-header">
                                     <img src="~/images/avatar.png" class="img-circle" alt="User Image">
-
-                                    <p>
+                                  <p>
+                                      
                                         @User.Identity.GetUserFullName()
                                     </p>
                                 </li>
@@ -118,7 +98,7 @@
                                         @*<a href="#" class="btn btn-default btn-flat">Profile</a>*@
                                     </div>
                                 </li>
-                            </ul>
+                            </ul>          
                         </li>
                     </ul>
                 </div>
@@ -130,7 +110,7 @@
         <div class="content-wrapper">
             <breadcrumb asp-homepage-title="خانه"
                         asp-bootstrap-version="V4"
-                        asp-homepage-url="@Url.Action("Index", "Home", values: new { area = "Identity" })"
+                        asp-homepage-url="@Url.Action("Index", "Home", values: new { area = "Admin" })"
                         asp-homepage-glyphicon="fas fa-home"></breadcrumb>
             @RenderBody()
         </div>

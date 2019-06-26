@@ -35,41 +35,55 @@
                     <span> داشبورد</span>
                 </a>
             </li>
-            <li class="treeview">
-                <a href="#">
-                    <i class="fa fa-user"></i>
-                    <span>کاربران</span>
-                    <span class="fa fa-angle-left pull-left"></span>
-                </a>
-                <ul class="treeview-menu">
-                    <li>
-                        <a href="/@AreaConstants.AdminArea/User">
-                            <span> مدیریت کاربران</span>
-                        </a>
-                    </li>
+            @if(User.IsInRole("Admin"))
+            { <li class="treeview">
+    <a href="#">
+        <i class="fa fa-user"></i>
+        <span>کاربران</span>
+        <span class="fa fa-angle-left pull-left"></span>
+    </a>
+    <ul class="treeview-menu">
+        <li>
+            <a href="/@AreaConstants.AdminArea/User">
+                <span> مدیریت کاربران</span>
+            </a>
+        </li>
 
-                </ul>
-                <ul class="treeview-menu">
-                    <li>
-                        <a href="/@AreaConstants.AdminArea/RolesManager">
-                            <span> مدیریت نقش ها</span>
-                        </a>
-                    </li>
+    </ul>
+    <ul class="treeview-menu">
+        <li>
+            <a href="/@AreaConstants.AdminArea/RolesManager">
+                <span> مدیریت نقش ها</span>
+            </a>
+        </li>
 
-                </ul>
-            </li>
-            <li class="treeview">
-                <a href="#">
-                    <i class="fa fa-tasks"></i>
-                    <span>محتوی</span>
-                    <span class="fa fa-angle-left pull-left"></span>
-                </a>
-                <ul class="treeview-menu">
-                    <li>
-                        <a href="/@AreaConstants.AdminArea/Group">
-                            <span> مدیریت گروه ها</span>
-                        </a>
-                    </li>
+    </ul>
+    <ul class="treeview-menu">
+        <li>
+            <a href="/@AreaConstants.AdminArea/User/EditUserGroup">
+                <span> مدیریت سطوح دسترسی</span>
+            </a>
+        </li>
+
+    </ul>
+</li>}
+            
+        <li class="treeview">
+            <a href="#">
+                <i class="fa fa-tasks"></i>
+                <span>محتوی</span>
+                <span class="fa fa-angle-left pull-left"></span>
+            </a>
+           
+            <ul class="treeview-menu">
+              @if (User.IsInRole("Admin"))
+              {
+                  <li>
+                      <a href="/@AreaConstants.AdminArea/Group">
+                          <span> مدیریت گروه ها</span>
+                      </a>
+                  </li>
+              }
                     <li>
                         <a href="/@AreaConstants.AdminArea/Post">
                             <span> مدیریت پست ها </span>
@@ -80,17 +94,11 @@
                             <span> مدیریت سوالات متداول </span>
                         </a>
                     </li>
-                </ul>
-            </li>
+            </ul>
+        </li>
 
             }
-
-
-
-
-
-
-        </ul>
+            </ul>
     </section>
     <!-- /.sidebar -->
 </aside>

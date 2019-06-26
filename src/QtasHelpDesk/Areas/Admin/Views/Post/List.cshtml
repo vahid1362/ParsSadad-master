@@ -25,14 +25,12 @@
                               {
                                   column.Bound(c => c.Title).Filterable(ftb => ftb.Cell(cell => cell.Operator("contains").SuggestionOperator(FilterType.Contains)));
                                   column.Bound(c => c.GroupName).Filterable(ftb => ftb.Cell(cell => cell.Operator("contains").SuggestionOperator(FilterType.Contains)));
-                                  column.Bound(c => c.Id).Title("دستورات").ClientTemplate("<a  class='btn btn-warning' href='" + Url.Action("Edit","Post") + "?postId=#=Id#'" +
-                                                                                          "><i class=' fa fa-edit'></i>ویرایش</a>").Filterable(false);
+                                  column.Bound(c => c.Id).Title("دستورات").ClientTemplate("<a  class='btn btn-warning' href='" + Url.Action("Edit","Post") + "?postId=#=Id#'" +"><i class=' fa fa-edit'></i>ویرایش</a>").Filterable(false);
                                   column.Command(c => c.Destroy().Text("حذف"));
-
 
                               })
                               .Pageable() //Ena
-                              .Editable(editable => editable.Mode(GridEditMode.InLine).DisplayDeleteConfirmation("آیا از حذف این سطر مطمئن هستید؟"))   
+                              .Editable(editable => editable.Mode(GridEditMode.InLine).DisplayDeleteConfirmation("آیا از حذف این سطر مطمئن هستید؟"))
                               .Filterable(filterable=>filterable.Mode(GridFilterMode.Row))
                               .DataSource(x => x.Ajax()
                                   .Read(read => read.Action("Post_Read", "Post"))

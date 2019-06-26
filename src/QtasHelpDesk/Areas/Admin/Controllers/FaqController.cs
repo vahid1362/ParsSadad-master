@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using DNTBreadCrumb.Core;
 using Kendo.Mvc.Extensions;
@@ -19,6 +20,7 @@ using QtasHelpDesk.ViewModels.Content;
 namespace QtasHelpDesk.Areas.Admin.Controllers
 {
     [Authorize(Policy = ConstantPolicies.DynamicPermission)]
+    [DisplayName("بخش سوالات متداول")]
     [BreadCrumb(Title = "سوالات متداول", UseDefaultRouteUrl = true, Order = 0)]
     public class FaqController : Controller
     {

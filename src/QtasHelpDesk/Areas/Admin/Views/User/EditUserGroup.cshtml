@@ -53,7 +53,7 @@
                               Columns(column =>
                               {
                                    column.Bound(c => c.GroupTitle).Filterable(ftb => ftb.Cell(cell => cell.Operator("contains").SuggestionOperator(FilterType.Contains)));
-                                  column.Bound(c => c.Id).Title("دستورات").Filterable(false).ClientTemplate("<a  class='btn btn-warning' href='" + Url.Action("Edit") + "?Id=#=Id#'" + "><i class=' fa fa-edit'></i>ویرایش</a> <a  class='btn btn-success' href='" + Url.Action("EditUserGroup") + "?Id=#=Id#'" + "><i class=' fa fa-lock'></i>سطح دسترسی</a>");
+                               
                                   column.Command(command => command.Destroy().Text("حذف"));
                               }).Pageable()
                               .Filterable(ftb => ftb.Mode(GridFilterMode.Row))

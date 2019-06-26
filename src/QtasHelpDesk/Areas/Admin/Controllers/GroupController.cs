@@ -7,10 +7,8 @@ using DNTBreadCrumb.Core;
 using Kendo.Mvc.Extensions;
 using Kendo.Mvc.UI;
 using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
-using Microsoft.Net.Http.Headers;
 using NToastNotify;
 using QtasHelpDesk.Domain.Content;
 using QtasHelpDesk.Services.Content;
@@ -20,9 +18,10 @@ using QtasHelpDesk.ViewModels.Content;
 
 namespace QtasHelpDesk.Areas.Admin.Controllers
 {
-    [Authorize(Policy = ConstantPolicies.DynamicPermission)]
+   
     [DisplayName("بخش گروه")]
     [Area("Admin")]
+    [Authorize(Roles = ConstantRoles.Admin)]
     [BreadCrumb(Title = "گروه ها", UseDefaultRouteUrl = false, RemoveAllDefaultRouteValues = true,
         Order = 0, GlyphIcon = "glyphicon glyphicon-link")]
     public class GroupController : Controller
@@ -32,16 +31,16 @@ namespace QtasHelpDesk.Areas.Admin.Controllers
         private readonly IMapper _mapper;
         private readonly IGroupService _groupService;
         private readonly IToastNotification _toastNotification;
- 
+
 
         #endregion
 
         #region Ctor
 
-        public GroupController(IMapper mapper,  IToastNotification toastNotification, IGroupService groupService)
+        public GroupController(IMapper mapper, IToastNotification toastNotification, IGroupService groupService)
         {
             _mapper = mapper;
-         
+
             _toastNotification = toastNotification;
             _groupService = groupService;
         }
@@ -54,12 +53,14 @@ namespace QtasHelpDesk.Areas.Admin.Controllers
         {
             return RedirectToAction("List");
         }
+
         [DisplayName("نمایش گروه ها")]
         [BreadCrumb(Title = "لیست گروه ها", Order = 1)]
         public IActionResult List()
         {
             return View();
         }
+
         [DisplayName("نمایش صفحه  ایجاد گروه")]
         [BreadCrumb(Title = "ایجاد گروه جدید", Order = 1)]
         public IActionResult Create()
@@ -69,10 +70,10 @@ namespace QtasHelpDesk.Areas.Admin.Controllers
             return View(new GroupViewModel()
             {
                 AvaiableGroup = groups
-               
+
 
             });
-            
+
         }
 
         [DisplayName("ایجاد گروه")]
@@ -114,9 +115,9 @@ namespace QtasHelpDesk.Areas.Admin.Controllers
             var groupViewModel = _mapper.Map<GroupViewModel>(group);
 
             var groups = PrepareGroupSelectedListItem();
-            
+
             groupViewModel.AvaiableGroup = groups;
-           return View(groupViewModel);
+            return View(groupViewModel);
         }
 
         [DisplayName("ویرایش گروه")]
@@ -129,16 +130,16 @@ namespace QtasHelpDesk.Areas.Admin.Controllers
             var group = _groupService.GetGroupById(model.Id);
 
             if (group == null)
-             return   RedirectToAction("List");
+                return RedirectToAction("List");
 
-        
-                group.Title = model.Title;
-                group.ParentId = model.ParentId;
-                group.Priority = model.Priority;
-              group.IsPrivate = model.IsPrivate;
+
+            group.Title = model.Title;
+            group.ParentId = model.ParentId;
+            group.Priority = model.Priority;
+            group.IsPrivate = model.IsPrivate;
 
             _groupService.EditGroup(@group);
-           
+
 
             _toastNotification.AddSuccessToastMessage("عملیات  با موفقیت صورت پذیرفت");
 
@@ -153,7 +154,7 @@ namespace QtasHelpDesk.Areas.Admin.Controllers
                 Value = x.Id.ToString(),
                 Text = x.GetFormattedBreadCrumb(_groupService)
             }).ToList();
-            groups.Insert(0,new SelectListItem(null,null));
+            groups.Insert(0, new SelectListItem(null, null));
             return groups;
         }
 
@@ -175,8 +176,6 @@ namespace QtasHelpDesk.Areas.Admin.Controllers
 
         public async Task<IActionResult> Get_Group()
         {
-    
-
             return Json(PrepareGroupSelectedListItem());
         }
     }

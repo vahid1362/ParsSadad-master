@@ -5,6 +5,7 @@ using QtasHelpDesk.Common.GuardToolkit;
 using QtasHelpDesk.DataLayer.Context;
 using QtasHelpDesk.Domain.Content;
 using QtasHelpDesk.Services.Contracts.Content;
+using QtasHelpDesk.Services.Contracts.Identity;
 using QtasHelpDesk.ViewModels.Content;
 using QtasHelpDesk.ViewModels.Identity;
 
@@ -14,19 +15,31 @@ namespace QtasHelpDesk.Services.Content
     public class GroupService : IGroupService
     {
         private readonly IUnitOfWork _uow;
+        private readonly IApplicationUserManager _userManager;
         private readonly DbSet<Group> _groups;
         private readonly DbSet<UserGroup> _userGroups;
 
-        public GroupService(IUnitOfWork uow)
+        public GroupService(IUnitOfWork uow,IApplicationUserManager userManager)
         {
             _uow = uow;
             _uow.CheckArgumentIsNull(nameof(_uow));
             _groups = _uow.Set<Group>();
+            _groups.CheckArgumentIsNull(nameof(_groups));
             _userGroups = _uow.Set<UserGroup>();
-        }
+            _userGroups.CheckArgumentIsNull(nameof(_userGroups));
+            _userManager = userManager;
+          }
+
         public List<Group> GetGroups()
         {
-            return _groups.AsNoTracking().IgnoreQueryFilters().ToList();
+            var user = _userManager.GetCurrentUser();
+            var isUserInAdminRole = _userManager.IsInRoleAsync(user, "Admin");
+            if (isUserInAdminRole.Result)
+            {
+                return _groups.AsNoTracking().IgnoreQueryFilters().ToList();
+              
+            }
+            return _userGroups.Where(x => x.UserId == user.Id).Select(x => x.Group).ToList();
         }
 
         public void AddGroup(Group @group)
