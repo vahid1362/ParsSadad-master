@@ -24,8 +24,34 @@
             <div class="form-group">
                 @Html.LabelFor(model => model.Summary, htmlAttributes: new { @class = "control-label col-md-1" })
                 <div class="col-md-6">
-                    <textarea asp-for="Summary" rows="11" class="bg-info"
-                              style="width: 100%;  font-size: 14px; line-height: 18px; border: 1px none #dddddd; padding: 10px;"></textarea>
+                    @*<textarea asp-for="Summary" rows="11" class="bg-info"
+                              style="width: 100%;  font-size: 14px; line-height: 18px; border: 1px none #dddddd; padding: 10px;"></textarea>*@
+                    @(Html.Kendo().EditorFor(x => x.Summary)
+                        .HtmlAttributes(new {style = "height:440px"})
+                          .Tools(tools => tools.Clear()
+                              .FontName()
+                              .Bold()
+                              .Underline()
+                              .JustifyRight()
+                               .JustifyCenter()
+                              .JustifyLeft()
+                              .JustifyFull()
+                              .Indent()
+                              .Outdent()
+                              .CreateLink()
+                              .Unlink()
+                              .TableEditing()
+                              .InsertImage()
+                              .ViewHtml()
+                             
+                          )
+                          .ImageBrowser(imageBrowser => imageBrowser
+                              .Image("~/shared/Images/{0}").Read("Read", "ImageBrowser")
+                              .Create("Create", "ImageBrowser")
+                              .Destroy("Destroy", "ImageBrowser")
+                              .Upload("Upload", "ImageEditor")).Value( @WebUtility.HtmlDecode(@Model.Summary))
+                             
+                          )
                     @Html.ValidationMessageFor(model => model.Summary, "", new { @class = "text-danger" })
                 </div>
             </div>
@@ -75,6 +101,7 @@
 
 </div>
 <script>
+
     function onDataBound(e) {
         var defaultItem = e.sender.dataSource.at(0);
         e.sender.value(defaultItem.ProductID);

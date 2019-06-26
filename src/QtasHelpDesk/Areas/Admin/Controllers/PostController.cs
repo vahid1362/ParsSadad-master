@@ -109,8 +109,7 @@ namespace QtasHelpDesk.Areas.Admin.Controllers
             postId.CheckArgumentIsNull(nameof(postId));
 
           var postViewModel=_postService.GetPostById(postId.GetValueOrDefault());
-
-          var groups = PrepareGroupSelectedListItem();
+           var groups = PrepareGroupSelectedListItem();
             postViewModel.SelectListItems = groups;
             return View(postViewModel);
         }

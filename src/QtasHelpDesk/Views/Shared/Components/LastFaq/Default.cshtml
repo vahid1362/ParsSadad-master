@@ -1,0 +1,25 @@
+﻿@using QtasHelpDesk.ViewModels.Content
+@model FaqViewModel
+
+<div class="card ">
+    <div class="card-header bg-info" style="max-height: 50px">
+        <h5 class="card-title text-white">
+            <span class="fa fa-question " aria-hidden="true"></span>
+            آخرین پرسش
+        </h5>
+    </div>
+    <div class="card-body">
+         @Model.Question
+    </div>
+    <div class="card-footer">
+        <div class="row">
+            <div class="col-md-12">
+                <a class="previous pagerSpan pull-left" href="@Url.Action("ShowFaq","Faq",new{faqId=@Model.Id})">
+                    بیشتر
+                    <span aria-hidden="true">←</span>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+

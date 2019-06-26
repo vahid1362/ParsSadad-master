@@ -20,7 +20,6 @@ namespace QtasHelpDesk.ViewModels.Content
 
         //[Required(ErrorMessage = "وارد کردن چکیده ضروری است")]
         [DisplayName("چکیده")]
-     
         public string Summary { get; set; }
 
         //[Required(ErrorMessage = "وارد کردن عنوان ضروری است")]

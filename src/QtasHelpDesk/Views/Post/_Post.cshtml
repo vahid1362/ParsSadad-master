@@ -1,4 +1,5 @@
-﻿@model QtasHelpDesk.ViewModels.Content.PostViewModel
+﻿@using NToastNotify.Helpers
+@model QtasHelpDesk.ViewModels.Content.PostViewModel
 
 
 <div class="card">
@@ -9,7 +10,7 @@
     </div>
 
     <div class="card-body">
-        @Model.Summary
+       @Html.Raw( @WebUtility.HtmlDecode(@Model.Summary))
 
     </div>
     <div class="card-footer">

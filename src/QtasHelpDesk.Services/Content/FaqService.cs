@@ -64,11 +64,24 @@ namespace QtasHelpDesk.Services.Content
                 UserFullName = faq.User?.DisplayName,
                 Date = faq.RegisteDate.ToLongPersianDateString()
 
-            }
-                ;
+            };
         }
 
-     
+        public FaqViewModel GetLastFaq()
+        {
+            var lastFaq = _faqs.OrderByDescending(x => x.Id).FirstOrDefault();
+            if (lastFaq == null)
+            {
+                return  new FaqViewModel();
+                }
+            return  new FaqViewModel()
+            {
+                Id =lastFaq.Id,
+                Question = lastFaq.Question,
+                Reply = lastFaq.Reply
+            };
+        }
+
 
         public List<FaqViewModel> Search(string text)
         {

@@ -1,18 +1,19 @@
 ﻿<div name="Groups">
-    @*@await Component.InvokeAsync("Group")*@
-        <div class="card ">
-        <div class="card-header bg-info" style="max-height: 50px">
-            <h5 class="card-title text-white">
-                <span class="fa fa-archive " aria-hidden="true"></span>
-                گروه ها
-            </h5>
-        </div>
-        <div class="card-body">
-            <div id="tree">
+   @await Component.InvokeAsync("LastFaq")
+   <div class="card " style="margin-top: 20px">
+       <div class="card-header bg-info" style="max-height: 50px">
+           <h5 class="card-title text-white">
+               <span class="fa fa-archive " aria-hidden="true"></span>
+               گروه ها
+           </h5>
+       </div>
+       <div class="card-body">
+           <div id="tree">
 
-            </div>
-        </div>
-    </div>
+           </div>
+       </div>
+   </div>
+   @*@await Component.InvokeAsync("OnlineUsers")*@
 </div>
 
 
