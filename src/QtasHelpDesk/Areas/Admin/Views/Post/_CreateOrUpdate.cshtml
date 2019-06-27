@@ -1,7 +1,6 @@
 ﻿@using Kendo.Mvc.UI
 @model QtasHelpDesk.ViewModels.Content.PostViewModel
 <div class="box-body">
-
     @Html.HiddenFor(x => x.Id)
     <input type="hidden" asp-for="FilePath" />
     <div class="row">
@@ -22,11 +21,19 @@
                 </div>
             </div>
             <div class="form-group">
+
                 @Html.LabelFor(model => model.Summary, htmlAttributes: new { @class = "control-label col-md-1" })
                 <div class="col-md-6">
-                    @*<textarea asp-for="Summary" rows="11" class="bg-info"
-                              style="width: 100%;  font-size: 14px; line-height: 18px; border: 1px none #dddddd; padding: 10px;"></textarea>*@
-                    @(Html.Kendo().EditorFor(x => x.Summary)
+                   <textarea asp-for="Summary" rows="11" class="bg-info"
+                              style="width: 100%;  font-size: 14px; line-height: 18px; border: 1px none #dddddd; padding: 10px;"></textarea>
+                    @Html.ValidationMessageFor(model => model.Summary, "", new { @class = "text-danger" })
+                </div>
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(model => model.Summary, htmlAttributes: new { @class = "control-label col-md-1" })
+                <div class="col-md-6">
+           
+                    @(Html.Kendo().EditorFor(x => x.Description)
                         .HtmlAttributes(new {style = "height:440px"})
                           .Tools(tools => tools.Clear()
                               .FontName()
@@ -43,14 +50,14 @@
                               .TableEditing()
                               .InsertImage()
                               .ViewHtml()
-                             
+
                           )
                           .ImageBrowser(imageBrowser => imageBrowser
                               .Image("~/shared/Images/{0}").Read("Read", "ImageBrowser")
                               .Create("Create", "ImageBrowser")
                               .Destroy("Destroy", "ImageBrowser")
                               .Upload("Upload", "ImageEditor")).Value( @WebUtility.HtmlDecode(@Model.Summary))
-                             
+
                           )
                     @Html.ValidationMessageFor(model => model.Summary, "", new { @class = "text-danger" })
                 </div>

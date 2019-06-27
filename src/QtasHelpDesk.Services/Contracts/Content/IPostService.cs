@@ -8,7 +8,7 @@ namespace QtasHelpDesk.Services.Contracts.Content
     public interface IPostService
     {
 
-        void Add(Post post);
+        void Add(PostViewModel post);
 
         void Edit(PostViewModel post);
 

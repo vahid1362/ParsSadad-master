@@ -11,6 +11,7 @@ using QtasHelpDesk.Common.GuardToolkit;
 using QtasHelpDesk.ViewModels.Content;
 using QtasHelpDesk.ViewModels.Search;
 using System.IO;
+using QtasHelpDesk.Services.Contracts.Identity;
 
 namespace QtasHelpDesk.Services.Content
 {
@@ -21,8 +22,9 @@ namespace QtasHelpDesk.Services.Content
         private readonly DbSet<Group> _groups;
         private readonly IGroupService _groupService;
         private readonly IHostingEnvironment _hostingEnvironment;
+        private readonly IApplicationUserManager _userManager;
 
-        public PostService(IUnitOfWork uow,IHostingEnvironment hostingEnvironment,IGroupService groupService)
+        public PostService(IUnitOfWork uow, IHostingEnvironment hostingEnvironment, IGroupService groupService, IApplicationUserManager userManager)
         {
             _uow = uow;
             _uow.CheckArgumentIsNull(nameof(_uow));
@@ -31,40 +33,49 @@ namespace QtasHelpDesk.Services.Content
             _hostingEnvironment = hostingEnvironment;
             _hostingEnvironment.CheckArgumentIsNull(nameof(_hostingEnvironment));
             _groupService = groupService;
+            _userManager = userManager;
+            _userManager.CheckArgumentIsNull(nameof(userManager));
             _groupService.CheckArgumentIsNull(nameof(_groupService));
         }
 
-        public void Add(Post post)
+        public void Add(PostViewModel postViewModel)
         {
+            var post = new Post()
+            {
+                Title = postViewModel.Title,
+                Summary = postViewModel.Summary,
+                GroupId = postViewModel.GroupId,
+                Decription = postViewModel.Description,
+                FilePath = postViewModel.FilePath,
+                User = _userManager.GetCurrentUser(),
+                RegisteDate = DateTime.Now,
+                IsArticle = true,
+
+            };
             _posts.Add(post);
             _uow.SaveChanges();
         }
 
         public void Edit(PostViewModel postViewModel)
         {
-            var post = _posts.FirstOrDefault(x=>x.Id==postViewModel.Id);
-
+            var post = _posts.FirstOrDefault(x => x.Id == postViewModel.Id);
             post.CheckArgumentIsNull(nameof(post));
             post.Title = postViewModel.Title;
             post.Summary = postViewModel.Summary;
-            post.Decription = postViewModel.Decription;
+            post.Decription = postViewModel.Description;
             post.GroupId = postViewModel.GroupId;
-           
 
-           
-
-            if(postViewModel.DeletePreviousFile)
+            if (postViewModel.DeletePreviousFile)
             {
-                if(post.FilePath.Equals(postViewModel.FilePath))
+                if (post.FilePath.Equals(postViewModel.FilePath))
                 {
                     DeleteFile(post.FilePath);
                     post.FilePath = null;
                 }
-                
-              
+
             }
             else
-          if(postViewModel.FilePath!=null)
+          if (postViewModel.FilePath != null)
             {
                 if (!post.FilePath.Equals(postViewModel.FilePath))
                 {
@@ -83,7 +94,7 @@ namespace QtasHelpDesk.Services.Content
                 Title = x.Title,
                 Summary = x.Summary,
                 UserFullName = x.User.DisplayName,
-                FilePath=x.FilePath,
+                FilePath = x.FilePath,
                 Date = x.RegisteDate.ToLongPersianDateString()
             }).OrderByDescending(x => x.Id).Take(10).ToList();
         }
@@ -94,44 +105,45 @@ namespace QtasHelpDesk.Services.Content
             var post = _posts.FirstOrDefault(x => x.Id == id);
             post.CheckArgumentIsNull(nameof(post));
 
-            return new PostViewModel(){
+            return new PostViewModel()
+            {
                 Id = post.Id,
                 Title = post.Title,
                 Summary = post.Summary,
                 Date = post.RegisteDate.ToFriendlyPersianDateTextify(),
-                FilePath=post.FilePath,
+                FilePath = post.FilePath,
                 UserFullName = post.User?.DisplayName
             };
         }
 
         public List<SearchResultViewModel> Search(string text)
         {
-            var result = _posts.Where(x => EF.Functions.Like(x.Title, "%" + text + "%")).Select(x=>new SearchResultViewModel
+            var result = _posts.Where(x => EF.Functions.Like(x.Title, "%" + text + "%")).Select(x => new SearchResultViewModel
             {
                 Id = x.Id,
                 Title = x.Title
-                
+
             }).ToList();
             return result;
 
         }
 
-        public List<PostViewModel> GetPostsByGroupId(int groupId ,int numRecord=10)
+        public List<PostViewModel> GetPostsByGroupId(int groupId, int numRecord = 10)
         {
-           
-            var groups = _groups.FromSql($"[dbo].[GetChildGroup] {groupId}").Select(x=>
-             
+
+            var groups = _groups.FromSql($"[dbo].[GetChildGroup] {groupId}").Select(x =>
+
                 x.Id
             ).ToList();
             groups.Add(groupId);
-           
-            return _posts.Where(x =>groups.Contains(x.GroupId)).Include(x=>x.User).Select(x => new PostViewModel()
+
+            return _posts.Where(x => groups.Contains(x.GroupId)).Include(x => x.User).Select(x => new PostViewModel()
             {
                 Id = x.Id,
                 Title = x.Title,
                 Summary = x.Summary,
                 UserFullName = x.User.DisplayName,
-                FilePath=x.FilePath,
+                FilePath = x.FilePath,
                 Date = x.RegisteDate.ToLongPersianDateString()
             }).OrderByDescending(x => x.Id).Take(numRecord).ToList();
         }
@@ -144,7 +156,7 @@ namespace QtasHelpDesk.Services.Content
                 Title = x.Title,
                 //GroupName=x.Group.GetFormattedBreadCrumb(_groupService,"-->"),
                 Summary = x.Summary,
-                FilePath=x.FilePath,
+                FilePath = x.FilePath,
                 UserFullName = x.User.DisplayName,
                 Date = x.RegisteDate.ToLongPersianDateString()
             }).OrderByDescending(x => x.Id).ToList();
@@ -152,16 +164,12 @@ namespace QtasHelpDesk.Services.Content
 
         public void Delete(int postId)
         {
-           postId.CheckArgumentIsNull(nameof(postId));
-           var post = _posts.FirstOrDefault(x => x.Id == postId);
-           _posts.Remove(post);
-           _uow.SaveChanges();
-           if(!string.IsNullOrEmpty(post.FilePath))
-              DeleteFile(post.FilePath);
-
-
-
-
+            postId.CheckArgumentIsNull(nameof(postId));
+            var post = _posts.FirstOrDefault(x => x.Id == postId);
+            _posts.Remove(post);
+            _uow.SaveChanges();
+            if (!string.IsNullOrEmpty(post.FilePath))
+                DeleteFile(post.FilePath);
         }
 
         private void DeleteFile(string fileName)

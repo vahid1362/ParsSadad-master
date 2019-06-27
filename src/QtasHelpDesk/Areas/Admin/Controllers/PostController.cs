@@ -82,19 +82,8 @@ namespace QtasHelpDesk.Areas.Admin.Controllers
         {
             if (ModelState.IsValid)
             {
-                var post = new Post()
-                {
-                    Title = model.Title,
-                    Summary = model.Summary,
-                    GroupId = model.GroupId,
-                    Decription = model.Decription,
-                    FilePath = model.FilePath,
-                    User = _userManager.GetCurrentUser(),
-                    RegisteDate = DateTime.Now,
-                    IsArticle = true,
-
-                };
-                _postService.Add(post);
+               
+                _postService.Add(model);
                 _toastNotification.AddSuccessToastMessage("محتوی با موفقیت درج شد");
               return RedirectToAction("List");
             }

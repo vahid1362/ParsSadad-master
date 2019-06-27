@@ -19,7 +19,7 @@ namespace QtasHelpDesk.Services.Content
         private readonly DbSet<Group> _groups;
         private readonly DbSet<UserGroup> _userGroups;
 
-        public GroupService(IUnitOfWork uow,IApplicationUserManager userManager)
+        public GroupService(IUnitOfWork uow, IApplicationUserManager userManager)
         {
             _uow = uow;
             _uow.CheckArgumentIsNull(nameof(_uow));
@@ -28,24 +28,37 @@ namespace QtasHelpDesk.Services.Content
             _userGroups = _uow.Set<UserGroup>();
             _userGroups.CheckArgumentIsNull(nameof(_userGroups));
             _userManager = userManager;
-          }
+        }
 
         public List<Group> GetGroups()
         {
             var user = _userManager.GetCurrentUser();
-            var isUserInAdminRole = _userManager.IsInRoleAsync(user, "Admin");
-            if (isUserInAdminRole.Result)
+            if (IsUserAdmin())
             {
                 return _groups.AsNoTracking().IgnoreQueryFilters().ToList();
-              
+
             }
             return _userGroups.Where(x => x.UserId == user.Id).Select(x => x.Group).ToList();
         }
 
         public void AddGroup(Group @group)
         {
+            if (!IsUserAdmin())
+            {
+                if (group.ParentId == null)
+                    return;
+            }
+
+
             _groups.Add(group);
             _uow.SaveChanges();
+        }
+
+        private bool IsUserAdmin()
+        {
+            var user = _userManager.GetCurrentUser();
+            var isUserInAdminRole = _userManager.IsInRoleAsync(user, "Admin");
+            return isUserInAdminRole.Result;
         }
 
         public string GetGroupName(int groupId)
@@ -69,8 +82,6 @@ namespace QtasHelpDesk.Services.Content
             {
                 Id = x.Id,
                 Title = x.Title
-
-
             }).ToList();
         }
 

@@ -76,14 +76,12 @@
             </a>
            
             <ul class="treeview-menu">
-              @if (User.IsInRole("Admin"))
-              {
-                  <li>
+                    <li>
                       <a href="/@AreaConstants.AdminArea/Group">
                           <span> مدیریت گروه ها</span>
                       </a>
                   </li>
-              }
+           
                     <li>
                         <a href="/@AreaConstants.AdminArea/Post">
                             <span> مدیریت پست ها </span>
@@ -97,8 +95,7 @@
             </ul>
         </li>
 
-            }
-            </ul>
+          </ul>
     </section>
     <!-- /.sidebar -->
 </aside>

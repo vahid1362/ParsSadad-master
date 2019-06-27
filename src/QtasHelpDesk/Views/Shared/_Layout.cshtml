@@ -15,121 +15,231 @@
     <link href="~/css/site.min.css" rel="stylesheet" asp-append-version="true" />
     <link href="~/css/gijgo.min.css" rel="stylesheet" />
     <link href="~/Lib/EasyAutocomplete-master/dist/easy-autocomplete.css" rel="stylesheet" />
+    <style>
 
+        .header_section .nav {
+            background-color: #f5f4f4;
+        }
+        .header_section .header_top_menu {
+            background: #56a0d3;
+        }
+        header_section .nav .nav_section {
+            display: -webkit-box;
+            display: -webkit-flex;
+            display: -ms-flexbox;
+            display: flex;
+            padding: 15px;
+            -webkit-box-pack: justify;
+            -ms-flex-pack: justify;
+            -webkit-justify-content: space-between;
+            justify-content: space-between;
+            -webkit-box-align: center;
+            -webkit-align-items: center;
+            -ms-flex-align: center;
+            align-items: center;
+            min-height: 50px;
+        }
+        .header_section .nav .nav_section .title span {
+            color: #e74c3c;
+        }
+        .header_section .nav .nav_section .search_box input {
+            width: 100%;
+            padding: 15px;
+            outline: none;
+            padding-left: 0;
+            -webkit-border-radius: 3px;
+            border-radius: 3px;
+            border: 1px solid rgba(0,0,0,.1);
+        }
+        .header_section .nav .nav_section .search_box button {
+            position: absolute;
+            top: 0;
+            left: 0;
+            padding: 15px;
+            height: 100%;
+            border: none;
+            background-color: #e74c3c;
+            color: #fff;
+            -webkit-border-bottom-left-radius: 3px;
+            border-bottom-left-radius: 3px;
+            -webkit-border-top-left-radius: 3px;
+            border-top-left-radius: 3px;
+            cursor: pointer;
+            -webkit-transition: all .2s;
+            -o-transition: .2s all;
+            transition: all .2s;
+        }
+        .header_section .header_top_menu .container, .header_section .header_top_menu .container ul {
+            display: -webkit-box;
+            display: -webkit-flex;
+            display: -ms-flexbox;
+            display: flex;
+            -webkit-flex-wrap: wrap;
+            -ms-flex-wrap: wrap;
+            flex-wrap: wrap;
+        }
+        header_section .header_top_menu .container ul li {
+            display: -webkit-box;
+            display: -webkit-flex;
+            display: -ms-flexbox;
+            display: flex;
+        }
+        .header_section .header_top_menu .container ul li a {
+            color: #aeb6b8;
+            padding: 15px;
+            -webkit-transition: all .2s;
+            -o-transition: .2s all;
+            transition: all .2s;
+        }
+        .header_section .header_top_menu .container, .header_section .header_top_menu .container ul {
+            display: -webkit-box;
+            display: -webkit-flex;
+            display: -ms-flexbox;
+            display: flex;
+            -webkit-flex-wrap: wrap;
+            -ms-flex-wrap: wrap;
+            flex-wrap: wrap;
+        }
+       .search_box {
+           width: 100%;
+           padding: 15px;
+           outline: none;
+           padding-left: 0;
+           -webkit-border-radius: 3px;
+           border-radius: 3px;
+           border: 1px solid rgba(0,0,0,.1);
+            }
+      
+    </style>
     
 </head>
 <body>
-    <div class="navbar bg-info navbar-dark navbar-expand-sm fixed-top">
-        <div class="container">
-            
-            @if (User.IsInRole(ConstantRoles.Admin))
-            {
-                <partial name="_AdminMenu" />
-            }
-           
-            <a asp-area="" asp-controller="Home" asp-action="Index" class="navbar-brand d-none d-sm-inline-block">
-                <img src="~/images/logo.png" />
-                <span class="text-white"> پشتیان افزار رایانه ای سداد</span>
-            </a>
-            <div class="col-md-4">
-                <input type="search" placeholder="جستجو ..." id="term">
+    <header class="header_section">
+        <nav>
+            <div class="header_top_menu">
+                <div class="container">
+                    <div class="ml-auto">
+                        @if (User.IsInRole(ConstantRoles.Admin))
+        {
+            <partial name="_AdminMenu" />
+        }
+                    </div>
+                    <div class="ml-auto">
+                        <h5 class="text-white"> پشتیبان افزار رایانه ای پارس</h5>
+                    </div>
+                    <div class="col-md-4">
+                    </div>
+                    <div class="mr-auto">
 
-            </div>
-            <div class="pull-left">
-                <span class="navbar-text d-none d-xl-inline-block text-white"><i class="fa fa-calendar"></i> @DateTime.Now.ToPersianDateTextify()</span>
-                <a href="/home/LogOff"  class="text-red"><i class="fa fa-power-off"></i></a>
-            </div>
+                        <span class="navbar-text d-none d-xl-inline-block text-white"><i class="fa fa-calendar"></i> @DateTime.Now.ToPersianDateTextify()</span>
+                        <a href="/home/LogOff" class="text-red"><i class="fa fa-power-off"></i></a>
 
-        </div>
-    </div>
+                    </div>
+                    
+
+                </div>
+            </div>
+           </nav>
+    </header>
+<div class="navbar   navbar-expand-sm " style="background-color:#0091cd ">
     <div class="container">
-        <div class="row">
-            <div class="col-md-12 mt-5 pt-5">
-                <breadcrumb asp-homepage-title="خانه"
-                            asp-bootstrap-version="V4"
-                            asp-homepage-url="@Url.Action("Index", "Home", values: new { area = "" })"
-                            asp-homepage-glyphicon="fas fa-home"></breadcrumb>
-            </div>
+      <a asp-area="" asp-controller="Home" asp-action="Index" class="navbar-brand d-none d-sm-inline-block">
+          <h3 class="mr-auto">   <span class="text-white">پایگاه دانش شرکت پارس</span></h3>
+        </a>
+        <div class="col-md-6 ml-auto">
+            <input class="search_box" type="search" placeholder="جستجو ..." id="term">
+        </div>
+     </div>
+</div>
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-12 mt-5 pt-5">
+            <breadcrumb asp-homepage-title="خانه"
+                        asp-bootstrap-version="V4"
+                        asp-homepage-url="@Url.Action("Index", "Home", values: new {area = ""})"
+                        asp-homepage-glyphicon="fas fa-home"></breadcrumb>
         </div>
     </div>
-    <div class="container mb-5">
-        <div class="row">
-            <div class="col-md-8 order-md-8  col-sm-8 order-sm-8">
-                @RenderBody()
-            </div>
-            <div class="col-md-4 order-md-4 col-sm-4 order-sm-4">
-                <partial name="_SidebarMenu" />
+</div>
+<div class="container mb-5">
+    <div class="row">
+        <div class="col-md-8 order-md-8  col-sm-8 order-sm-8">
+            @RenderBody()
+        </div>
+        <div class="col-md-4 order-md-4 col-sm-4 order-sm-4">
+            <partial name="_SidebarMenu"/>
 
-            </div>
         </div>
     </div>
-    <footer id="footer" dir="ltr" class="navbar bg-light navbar-light navbar-expand-sm fixed-bottom">
-        <div class="container">
-            <div class="text-center footer-text">
-                <span class="copyright-text">
-                    <span class="fas fa-copyright" style="color:DarkRed" aria-hidden="true"></span>
-                    <a href="http://www.bmi.ir/" target="_blank">Bank Melli Iran - Copyright ©2019کلیه حقوق این سایت برای شرکت پشتیبان افزار رایانه ای پار س  محفوظ است.</a>
-                </span>
-            </div>
+</div>
+<footer id="footer" dir="ltr" class="navbar bg-light navbar-light navbar-expand-sm fixed-bottom">
+    <div class="container">
+        <div class="text-center footer-text">
+            <span class="copyright-text">
+                <span class="fas fa-copyright" style="color: DarkRed" aria-hidden="true"></span>
+                <a href="http://www.bmi.ir/" target="_blank">Bank Melli Iran - Copyright ©2019کلیه حقوق این سایت برای شرکت پشتیبان افزار رایانه ای پار س محفوظ است.</a>
+            </span>
         </div>
-    </footer>
-    <script src="~/js/site.min.js" type="text/javascript" asp-append-version="true"></script>
-    <script src="~/js/gijgo.min.js"></script>
+    </div>
+</footer>
+<script src="~/js/site.min.js" type="text/javascript" asp-append-version="true"></script>
+<script src="~/js/gijgo.min.js"></script>
 
-    <script src="~/Lib/EasyAutocomplete-master/dist/jquery.easy-autocomplete.js"></script>
-    <script>
+<script src="~/Lib/EasyAutocomplete-master/dist/jquery.easy-autocomplete.js"></script>
+<script>
 
     // Collapse/Expand icon
 
     @*EnableSearchAutocomplete('@searchsUrl', '@bulletImage');*@
-        $(document).ready(function () {
+    $(document).ready(function() {
 
-            var options = {
+        var options = {
+            url: function(phrase) {
+                return "/post/Search?keyword=" + phrase;
+            },
 
-  url: function(phrase) {
-		return "/post/Search?keyword=" + phrase ;
-	},
+            getValue: "Title",
 
-  getValue: "Title",
-
-list: {
-		match: {
-			enabled: true
-		},
-		maxNumberOfElements:10,
-
-		
-	},
-   template: {
-        type: "links",
-        fields: {
-            link: "Link"
-        }
+            list: {
+                match: {
+                    enabled: true
                 },
-   requestDelay: 500,
+                maxNumberOfElements: 10,
 
-  theme: "round"
-};
 
-$("#term").easyAutocomplete(options);
+            },
+            template: {
+                type: "links",
+                fields: {
+                    link: "Link"
+                }
+            },
+            requestDelay: 500,
+
+            theme: "round"
+        };
+
+        $("#term").easyAutocomplete(options);
 
 
         $('#tree').tree({
             uiLibrary: 'bootstrap4',
             dataSource: '/Post/GetGroups',
-             hasChildrenField:'hasChildren',
+            hasChildrenField: 'hasChildren',
             primaryKey: 'Id',
             textField: 'Title',
-             lazyLoading: true,
+            lazyLoading: true,
             icons: {
                 expand: '<i class="fas fa-plus-square"></i>',
                 collapse: '<i class="fas fa-minus-square"></i>'
-                },   border: true
+            },
+            border: true
 
         });
     });
-    </script>
-    @await RenderSectionAsync("Scripts", required: false)
+</script>
+@await RenderSectionAsync("Scripts", required: false)
 </body>
 
 </html>

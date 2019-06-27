@@ -71,9 +71,7 @@ namespace QtasHelpDesk.Areas.Admin.Controllers
             {
                 AvaiableGroup = groups
 
-
             });
-
         }
 
         [DisplayName("ایجاد گروه")]
@@ -82,8 +80,7 @@ namespace QtasHelpDesk.Areas.Admin.Controllers
         public IActionResult Create(GroupViewModel groupViewModel)
         {
             if (ModelState.IsValid)
-            {
-                var group = _mapper.Map<Group>(groupViewModel);
+            {   var group = _mapper.Map<Group>(groupViewModel);
                 _groupService.AddGroup(group);
                 if (group.Id > 0)
                 {
@@ -131,16 +128,12 @@ namespace QtasHelpDesk.Areas.Admin.Controllers
 
             if (group == null)
                 return RedirectToAction("List");
-
-
+            
             group.Title = model.Title;
             group.ParentId = model.ParentId;
             group.Priority = model.Priority;
             group.IsPrivate = model.IsPrivate;
-
             _groupService.EditGroup(@group);
-
-
             _toastNotification.AddSuccessToastMessage("عملیات  با موفقیت صورت پذیرفت");
 
             return RedirectToAction("List");
@@ -154,7 +147,12 @@ namespace QtasHelpDesk.Areas.Admin.Controllers
                 Value = x.Id.ToString(),
                 Text = x.GetFormattedBreadCrumb(_groupService)
             }).ToList();
-            groups.Insert(0, new SelectListItem(null, null));
+
+            if (User.IsInRole("Admin"))
+            {
+                groups.Insert(0, new SelectListItem(null, null));
+            }
+
             return groups;
         }
 

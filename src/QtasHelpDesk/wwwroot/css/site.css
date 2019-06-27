@@ -1,6 +1,9 @@
 ﻿body {
   margin-top: 65px;
 }
+.panel_heading {
+    background-color: #004b79;
+}
 .navbar-header {
   position: relative;
   top: -4px;
@@ -82,4 +85,3 @@
 }
 
 
-/******************************jquery.autocomplete*******************************/
