@@ -18,10 +18,9 @@ using QtasHelpDesk.ViewModels.Content;
 
 namespace QtasHelpDesk.Areas.Admin.Controllers
 {
-   
+    [Authorize(Policy = ConstantPolicies.DynamicPermission)]
     [DisplayName("بخش گروه")]
     [Area("Admin")]
-    [Authorize(Roles = ConstantRoles.Admin)]
     [BreadCrumb(Title = "گروه ها", UseDefaultRouteUrl = false, RemoveAllDefaultRouteValues = true,
         Order = 0, GlyphIcon = "glyphicon glyphicon-link")]
     public class GroupController : Controller

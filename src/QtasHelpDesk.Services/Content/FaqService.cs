@@ -100,6 +100,7 @@ namespace QtasHelpDesk.Services.Content
 
                 x.Id
             ).ToList();
+
             groups.Add(groupId);
             return _faqs.Where(x => groups.Contains(x.GroupId)).OrderByDescending(x=>x.Id).Take(numRecord).Select(x => new FaqViewModel()
             {

@@ -18,11 +18,7 @@ namespace QtasHelpDesk.ViewComponents
         public async Task<IViewComponentResult> InvokeAsync()
         {
             var groupViewModels = _groupService.GetParentGroup(null);
-            foreach (var groupViewModel in groupViewModels)
-            {
-                groupViewModel.children = _groupService.GetSubGroup(groupViewModel.Id);
-            }
-
+           
           
             return View(viewName: "~/Views/Shared/Components/Groups/Default.cshtml",
                 model: groupViewModels);

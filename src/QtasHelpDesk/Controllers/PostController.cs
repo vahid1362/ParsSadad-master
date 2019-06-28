@@ -47,19 +47,26 @@ namespace QtasHelpDesk.Controllers
         [BreadCrumb(Title = "ایندکس", Order = 1)]
         public IActionResult Index()
         {
-
-            //var postViewModels = GetLastPosts();
-            //var faqViewModels = GetLastFaq();
+                  
 
             var informationViewModel = new InformationViewModel();
-            //informationViewModel.PostViewModels = postViewModels;
-            //informationViewModel.FaqViewModels = faqViewModels;
+
             return PartialView(informationViewModel);
 
 
 
         }
 
+        public IActionResult GetSlider()
+        {
+            var postViewModels = GetLastPosts();
+
+            return PartialView("_Slider", new InformationViewModel()
+            {
+                PostViewModels=postViewModels
+            }
+                );
+        }
         public IActionResult GetPosts()
         {
             var postViewModels = GetLastPosts();
@@ -67,11 +74,6 @@ namespace QtasHelpDesk.Controllers
             return PartialView("_Posts", postViewModels);
         }
 
-        private List<FaqViewModel> GetLastFaq()
-        {
-            var faqViewModels = _faqService.GetFaqs();
-            return faqViewModels;
-        }
 
         private List<PostViewModel> GetLastPosts()
         {
@@ -183,47 +185,6 @@ namespace QtasHelpDesk.Controllers
             }
 
             return Json(groupViewModels);
-
-
-
-            //      groupViewModel.Title = "<a href='" +
-            //                               @Url.Action("index", "Group", new {groupId = groupViewModel.Id}) + "' > " +
-            //                               groupViewModel.Title + "</a>";
-
-
-            //foreach (var groupViewModel in groupViewModels)
-            //{
-            //    var subgroups= _groupService.GetSubGroup(groupViewModel.Id);
-            //      groupViewModel.Title = "<a href='" +
-            //                               @Url.Action("index", "Group", new {groupId = groupViewModel.Id}) + "' > " +
-            //                               groupViewModel.Title + "</a>";
-
-
-            //    //groupViewModel.children = subgroups;
-
-            //    //foreach (var  subgroup in subgroups)
-            //    //{
-            //    //    var childGroupViewModel = _groupService.GetSubGroup(subgroup.Id);
-
-            //    //        subgroup.Title = "<a href='" +
-            //    //                               @Url.Action("index", "Group", new { groupId = subgroup.Id }) + "' > " +
-            //    //                               subgroup.Title + "</a>";
-
-
-            //    //    subgroup.children = childGroupViewModel;
-            //    //    foreach (var childSubGroup in subgroup.children)
-            //    //    {
-            //    //        childSubGroup.Title = "<a href='" +
-            //    //                         @Url.Action("index", "Group", new { groupId = childSubGroup.Id }) + "' > " +
-            //    //                         childSubGroup.Title + "</a>";
-
-
-            //    //    }
-
-            //    //}
-
-            //}
-
 
 
         }

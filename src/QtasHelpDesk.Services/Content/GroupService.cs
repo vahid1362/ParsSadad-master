@@ -38,6 +38,8 @@ namespace QtasHelpDesk.Services.Content
                 return _groups.AsNoTracking().IgnoreQueryFilters().ToList();
 
             }
+
+           
             return _userGroups.Where(x => x.UserId == user.Id).Select(x => x.Group).ToList();
         }
 
@@ -76,13 +78,15 @@ namespace QtasHelpDesk.Services.Content
             _uow.SaveChanges();
         }
 
-        public List<GroupViewModel> GetSubGroup(int groupId)
+        public List<int> GetSubGroup(int groupId)
         {
-            return _groups.Where(x => x.ParentId == groupId).Select(x => new GroupViewModel()
-            {
-                Id = x.Id,
-                Title = x.Title
-            }).ToList();
+
+            var groupsId = _groups.FromSql($"[dbo].[GetChildGroup] {groupId}").Select(x =>
+
+                x.Id
+            ).ToList();
+            return groupsId;
+          
         }
 
         public List<GroupViewModel> GetParentGroup(int? parentId)

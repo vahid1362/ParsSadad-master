@@ -28,21 +28,9 @@ namespace QtasHelpDesk.Controllers
                     Title = x.Title
                 }).ToList();
 
-            return View(GetGeroupsWithSubGroup(groupViewModels));
+            return View();
         }
 
-        private List<GroupViewModel> GetGeroupsWithSubGroup(List<GroupViewModel> groupViewModels)
-        {
-            foreach (var groupviewModel in groupViewModels)
-            {
-                var groups = _groupService.GetSubGroup(groupviewModel.Id);
-                if (!groups.Any())
-                    continue;
-                var subggroups = groups;
 
-                groupviewModel.children = subggroups;
-            }
-            return groupViewModels;
-        }
     }
 }

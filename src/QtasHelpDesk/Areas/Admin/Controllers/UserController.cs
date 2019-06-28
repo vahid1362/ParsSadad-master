@@ -235,14 +235,22 @@ namespace QtasHelpDesk.Areas.Admin.Controllers
         public async Task<IActionResult> AddUserToGroup([FromBody]UserGroupViewModel userGroupViewModel)
         {
             var user = _userManager.FindById(userGroupViewModel.UserId);
+
             if (user == null)
             {
                 return null;
             }
-           user.UserGroups.Add(new UserGroup()
-           {
-               GroupId = userGroupViewModel.GroupId
-           });
+            var groupsId=_groupService.GetSubGroup(userGroupViewModel.GroupId);
+            groupsId.Add(userGroupViewModel.GroupId);
+            foreach(var groupId in groupsId)
+            {
+                user.UserGroups.Add(new UserGroup()
+                {
+                    GroupId = groupId
+                });
+
+            }
+          
           await _userManager.UpdateAsync(user);
             return Json("ok");
         }

@@ -17,7 +17,7 @@ namespace QtasHelpDesk.Services.Contracts.Content
 
         void EditGroup(Group group);
 
-        List<GroupViewModel> GetSubGroup(int groupId);
+        List<int> GetSubGroup(int groupId);
 
         List<GroupViewModel> GetParentGroup(int? parentId);
 
