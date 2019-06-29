@@ -60,16 +60,20 @@ namespace QtasHelpDesk.Controllers
         public IActionResult GetSlider()
         {
             var postViewModels = GetLastPosts();
+            var faqViewModels = GetLastFaqs();
 
             return PartialView("_Slider", new InformationViewModel()
             {
-                PostViewModels=postViewModels
+                PostViewModels=postViewModels,
+                FaqViewModels=faqViewModels
+
             }
                 );
         }
         public IActionResult GetPosts()
         {
             var postViewModels = GetLastPosts();
+         
 
             return PartialView("_Posts", postViewModels);
         }
@@ -81,6 +85,11 @@ namespace QtasHelpDesk.Controllers
             return postViewModels;
         }
 
+        private List<FaqViewModel> GetLastFaqs()
+        {
+            var faqViewModels = _faqService.GetLastFaqs();
+            return faqViewModels;
+        }
         public virtual ActionResult Search(string keyword)
         {
             if (string.IsNullOrWhiteSpace(keyword))

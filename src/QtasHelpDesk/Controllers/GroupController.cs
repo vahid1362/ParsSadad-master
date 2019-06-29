@@ -1,9 +1,8 @@
 ﻿using System.Collections.Generic;
-using System.Linq;
 using DNTBreadCrumb.Core;
-using DNTPersianUtils.Core;
 using Microsoft.AspNetCore.Mvc;
 using QtasHelpDesk.Common.GuardToolkit;
+using QtasHelpDesk.Services.Content;
 using QtasHelpDesk.Services.Contracts.Content;
 using QtasHelpDesk.ViewModels.Content;
 
@@ -34,7 +33,7 @@ namespace QtasHelpDesk.Controllers
         public IActionResult Index(int? groupId)
         {
             groupId.CheckArgumentIsNull(nameof(groupId));
-            var groupName = _groupService.GetGroupName(groupId.GetValueOrDefault());
+            var group = _groupService.GetGroupById(groupId.GetValueOrDefault());
 
             var postViewModels = GetLastPosts(groupId.GetValueOrDefault());
             var faqViewModels = GetLastFaq(groupId.GetValueOrDefault());
@@ -42,7 +41,7 @@ namespace QtasHelpDesk.Controllers
             var informationViewModel = new InformationViewModel();
             informationViewModel.PostViewModels = postViewModels;
             informationViewModel.FaqViewModels = faqViewModels;
-            this.SetCurrentBreadCrumbTitle(groupName);
+            this.SetCurrentBreadCrumbTitle(group.GetFormattedBreadCrumb(_groupService, "/"));
             return View(informationViewModel);
         }
         private List<FaqViewModel> GetLastFaq(int groupId)

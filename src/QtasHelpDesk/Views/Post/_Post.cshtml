@@ -10,8 +10,12 @@
     </div>
 
     <div class="card-body">
-       @Html.Raw( @WebUtility.HtmlDecode(@Model.Summary))
-
+        <p>
+          @Model.Summary
+        </p>
+                <p>
+            @Html.Raw(@WebUtility.HtmlDecode(@Model.Description))
+        </p>
     </div>
     <div class="card-footer">
         <i class="fa fa-user-circle"></i> نوشته شده توسط :@Model.UserFullName<i class="fa fa-clock-o"></i>  @Model.Date
