@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using DNTBreadCrumb.Core;
 using DNTPersianUtils.Core;
 using Microsoft.AspNetCore.Mvc;
 using QtasHelpDesk.Common.GuardToolkit;
@@ -7,6 +8,8 @@ using QtasHelpDesk.ViewModels.Content;
 
 namespace QtasHelpDesk.Controllers
 {
+    [BreadCrumb(Title = "سوالات نتداول", UseDefaultRouteUrl = true, RemoveAllDefaultRouteValues = true,
+        Order = 0, GlyphIcon = "glyphicon glyphicon-link")]
     public class FaqController : Controller
     {
         #region Feild
@@ -23,6 +26,7 @@ namespace QtasHelpDesk.Controllers
 
 
         #endregion
+        [BreadCrumb(Title = "ایندکس", Order = 1)]
         public IActionResult Index()
         {
             return View();
@@ -31,15 +35,17 @@ namespace QtasHelpDesk.Controllers
         public IActionResult ShowFaq(int? faqId)
         {
             faqId.CheckArgumentIsNull(nameof(faqId));
+           
             var faqViewModel= _faqService.GetFaqById(faqId.GetValueOrDefault());
-             return View(faqViewModel);
+            this.SetCurrentBreadCrumbTitle(faqViewModel.Question);
+            return View(faqViewModel);
         }
 
 
         public IActionResult GetFaqs()
         {
             var faqViewModels = GetLastFaq();
-         
+          
             return PartialView("_faqs", faqViewModels);
         }
 

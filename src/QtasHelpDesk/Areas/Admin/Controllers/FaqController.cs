@@ -20,6 +20,7 @@ using QtasHelpDesk.ViewModels.Content;
 namespace QtasHelpDesk.Areas.Admin.Controllers
 {
     [Authorize(Policy = ConstantPolicies.DynamicPermission)]
+    [Area("Admin")]
     [DisplayName("بخش سوالات متداول")]
     [BreadCrumb(Title = "سوالات متداول", UseDefaultRouteUrl = true, Order = 0)]
     public class FaqController : Controller
@@ -39,18 +40,20 @@ namespace QtasHelpDesk.Areas.Admin.Controllers
         }
 
         #endregion
-       
 
+        [DisplayName("ایندکس")]
         public IActionResult Index()
         {
             return RedirectToAction("List");
         }
+        [DisplayName("لیست")]
         [BreadCrumb(Title = "لیست",  Order = 1)]
         public IActionResult List()
         {
             return View();
         }
 
+        [DisplayName("نمایش صفحه ایجاد")]
         [BreadCrumb(Title = "ایجاد", Order = 1)]
         public IActionResult Create()
         {  var groups = PrepareGroupSelectedListItem();
@@ -59,7 +62,8 @@ namespace QtasHelpDesk.Areas.Admin.Controllers
                 SelectListItems = groups
             });
         }
-        
+
+        [DisplayName("ثبت سوال جدید ")]
         [HttpPost,ValidateAntiForgeryToken]
         public IActionResult Create(FaqViewModel model)
         {
@@ -81,6 +85,7 @@ namespace QtasHelpDesk.Areas.Admin.Controllers
             model.SelectListItems = groups;
             return View(model);
         }
+        [DisplayName("نمایش  صفحه ویرایش")]
         [BreadCrumb(Title = "ویرایش", Order = 1)]
         public IActionResult Edit(int? faqId)
         {
@@ -103,7 +108,7 @@ namespace QtasHelpDesk.Areas.Admin.Controllers
 
             });
         }
-
+        [DisplayName("ثبت ویرایش")]
         [HttpPost, ValidateAntiForgeryToken]
         public IActionResult Edit(FaqViewModel faqViewModel)
         {
@@ -114,7 +119,7 @@ namespace QtasHelpDesk.Areas.Admin.Controllers
 
 
         }
-
+        [DisplayName("لیست سوالات به صورت ای جاکس")]
         public IActionResult Faq_Read([DataSourceRequest]DataSourceRequest request)
         {
             var postViewModels = _faqService.GetFaqs().Select(x => new FaqViewModel()
@@ -126,7 +131,7 @@ namespace QtasHelpDesk.Areas.Admin.Controllers
             return Json(postViewModels.ToDataSourceResult(request));
         }
 
-
+        [DisplayName("حذف")]
         public ActionResult Faq_Delete([DataSourceRequest] DataSourceRequest request, FaqViewModel model)
         {
             if (model != null)

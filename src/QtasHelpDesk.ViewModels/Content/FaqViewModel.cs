@@ -21,6 +21,8 @@ namespace QtasHelpDesk.ViewModels.Content
         [DisplayName("پاسخ")]
         public string Reply { get; set; }
 
+        public string GroupName { get; set; }
+
         public string UserFullName { get; set; }
         public string Date { get; set; }
 

@@ -44,25 +44,22 @@
                     {
                         <div class="carousel-item active">
                             <h6 class="border-bottom">
-                                <a href="@Url.Action("ShowFaq","Faq",new {faqId=faqtModel.Id})" target="_blank">     <i class="fa fa-question-circle-o"></i>  @faqtModel.Question </a>
-</h6>
-                            <span class="fa fa-user">@faqtModel.UserFullName</span>
-                            <span class="fa fa-clock">@faqtModel.Date</span>
-                            <p>
-                                @faqtModel.Reply
-                            </p>
-                        </div>
+                                <a href="@Url.Action("ShowFaq","Faq",new {faqId=faqtModel.Id})" target="_blank">  @faqtModel.Question </a>
+                            
+                                </h6>
+                            <span ><i class="fa fa-user"></i>@faqtModel.UserFullName</span>
+                            <span >@faqtModel.Date </span>
+                          </div>
                     }
                     else
                     {
                         <div class="carousel-item ">
                             <h6 class="border-bottom">
-                                <a href="@Url.Action("ShowFaq","Faq",new {faqId=faqtModel.Id})" target="_blank">     <i class="fa fa-question-circle-o"></i>  @faqtModel.Question </a>
-                            </h6>           <span aria-hidden="true" class="fa fa-user">@faqtModel.UserFullName</span>
-                            <span aria-hidden="true" class="imgleft fa fa-clock-o"></span>
-                            <p>
-                                @faqtModel.Reply
-                            </p>
+                                <a href="@Url.Action("ShowFaq","Faq",new {faqId=faqtModel.Id})" target="_blank">  @faqtModel.Question </a>
+                                
+                            </h6>
+                            <span ><i class="fa fa-user"></i>@faqtModel.UserFullName </span>
+                            <span >@faqtModel.Date </span>
                         </div>
                     }
 
@@ -71,31 +68,30 @@
                 {
                     if (postModel.Id == Model.PostViewModels.FirstOrDefault()?.Id)
                     {
-                        <div class="carousel-item active">
-                            <h6 class="border-bottom">
-                                <a href="@Url.Action("ShowPost","Post",new {postId=postModel.Id})" target="_blank">     <i class="fa fa-question-circle-o"></i>  @postModel.Title </a>
-                            </h6>
-                            <span class="fa fa-user">@postModel.UserFullName</span>
-                            <span class="fa fa-clock">@postModel.Date</span>
-                            <p>
-                                @postModel.Summary
-                            </p>
-                        </div>
+            <div class="carousel-item active">
+                <h6 class="border-bottom">
+                    <a href="@Url.Action("ShowPost", "Post", new {postId = postModel.Id})" target="_blank"> <i class="fa fa-question-circle-o"></i> @postModel.Title </a>
+
+                </h6>
+                <span ><i class="fa fa-user"></i>@postModel.UserFullName </span>
+                <span >@postModel.Date </span>
+
+            </div>
                     }
                     else
                     {
-                        <div class="carousel-item ">
-                          
-                                <h6 class="border-bottom">
-                                    <a href="@Url.Action("ShowPost","Post",new {postId=postModel.Id})" target="_blank">     <i class="fa fa-question-circle-o"></i>  @postModel.Title </a>
-                                </h6>
-                          
-                            <span aria-hidden="true" class="fa fa-user">@postModel.UserFullName</span>
-                            <span aria-hidden="true" class="imgleft fa fa-clock-o"></span>
-                            <p>
-                                @postModel.Summary
-                            </p>
-                        </div>
+            <div class="carousel-item ">
+                <i class="fa fa-information"></i>
+                <h6 class="border-bottom">
+                   <a href="@Url.Action("ShowPost","Post",new {postId=postModel.Id})" target="_blank">     <i class="fa fa-question-circle-o"></i>  @postModel.Title </a>
+
+                
+                </h6>
+
+                <span><i class="fa fa-user"></i>@postModel.UserFullName </span>
+                <span >@postModel.Date </span>
+
+            </div>
                     }
 
                 }

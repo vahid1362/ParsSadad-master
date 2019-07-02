@@ -15,10 +15,12 @@ namespace QtasHelpDesk.Services.Content
         private readonly IUnitOfWork _uow;
         private readonly DbSet<Faq> _faqs;
         private readonly DbSet<Group> _groups;
+        private readonly IGroupService _groupService;
 
-        public FaqService(IUnitOfWork uow)
+        public FaqService(IUnitOfWork uow, IGroupService groupService)
         {
             _uow = uow;
+            _groupService = groupService;
             _uow.CheckArgumentIsNull(nameof(_uow));
             _faqs = _uow.Set<Faq>();
             _groups = _uow.Set<Group>();
@@ -54,13 +56,14 @@ namespace QtasHelpDesk.Services.Content
         public FaqViewModel GetFaqById(int id)
         {
 
-            var faq = _faqs.Include(x=>x.User).FirstOrDefault(x => x.Id == id);
+            var faq = _faqs.FirstOrDefault(x => x.Id == id);
             faq.CheckArgumentIsNull(nameof(faq));
             return new FaqViewModel() {
                 Id = faq.Id,
                 Question = faq.Question,
                 Reply = faq.Reply,
                 GroupId=faq.GroupId,
+              //  GroupName = faq.Group.GetFormattedBreadCrumb(_groupService,"/"),
                 UserFullName = faq.User?.DisplayName,
                 Date = faq.RegisteDate.ToLongPersianDateString()
 

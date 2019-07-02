@@ -60,13 +60,13 @@ namespace QtasHelpDesk.Areas.Admin.Controllers
         {
             return RedirectToAction("List");
         }
-        [DisplayName("نمایش مقالات")]
+        [DisplayName("لیست")]
         [BreadCrumb(Title = "لیست",  Order = 1)]
         public IActionResult List()
         {
             return View();
         }
-        [DisplayName("صفحه ایجاد مقاله")]
+        [DisplayName("نمایش صفحه ایجاد")]
         [BreadCrumb(Title = "ایجاد", Order = 1)]
         public IActionResult Create()
         {  var groups = PrepareGroupSelectedListItem();
@@ -76,7 +76,7 @@ namespace QtasHelpDesk.Areas.Admin.Controllers
             });
         }
 
-        [DisplayName("صفحه ثبت مقاله جدید")]
+        [DisplayName("ثبت مقاله جدید")]
         [HttpPost,ValidateAntiForgeryToken]
         public IActionResult Create(PostViewModel model)
         {
@@ -91,7 +91,7 @@ namespace QtasHelpDesk.Areas.Admin.Controllers
             model.SelectListItems = groups;
             return View(model);
         }
-        [DisplayName("صفحه ویرایش مقاله")]
+        [DisplayName("نمایش  صفحه ویرایش")]
         [BreadCrumb(Title = "ویرایش", Order = 1)]
         public IActionResult Edit(int? postId)
         {
@@ -103,7 +103,7 @@ namespace QtasHelpDesk.Areas.Admin.Controllers
             return View(postViewModel);
         }
 
-        [DisplayName("صفحه ثبت ویرایش مقاله")]
+        [DisplayName("ثبت ویرایش")]
         [HttpPost, ValidateAntiForgeryToken]
         public IActionResult Edit(PostViewModel postViewModel)
         {
@@ -118,7 +118,7 @@ namespace QtasHelpDesk.Areas.Admin.Controllers
 
 
         }
-        [DisplayName("لیست کردن مقاله")]
+        [DisplayName("لیست مقاله به صورت ای جاکس")]
         public IActionResult Post_Read([DataSourceRequest]DataSourceRequest request)
         {
             var postViewModels = _postService.GetPosts();
@@ -151,7 +151,7 @@ namespace QtasHelpDesk.Areas.Admin.Controllers
                filePath= relativePath
             });
         }
-        [DisplayName("حذف پست")]
+        [DisplayName("حذف ")]
         public ActionResult Post_Delete([DataSourceRequest] DataSourceRequest request, PostViewModel model)
         {
             if (model != null)

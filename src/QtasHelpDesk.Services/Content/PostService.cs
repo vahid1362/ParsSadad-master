@@ -20,9 +20,11 @@ namespace QtasHelpDesk.Services.Content
         private readonly IUnitOfWork _uow;
         private readonly DbSet<Post> _posts;
         private readonly DbSet<Group> _groups;
+        private readonly DbSet<UserGroup> _userGroups;
         private readonly IGroupService _groupService;
         private readonly IHostingEnvironment _hostingEnvironment;
         private readonly IApplicationUserManager _userManager;
+
 
         public PostService(IUnitOfWork uow, IHostingEnvironment hostingEnvironment, IGroupService groupService, IApplicationUserManager userManager)
         {
@@ -30,6 +32,7 @@ namespace QtasHelpDesk.Services.Content
             _uow.CheckArgumentIsNull(nameof(_uow));
             _posts = _uow.Set<Post>();
             _groups = _uow.Set<Group>();
+            _userGroups= _uow.Set<UserGroup>();
             _hostingEnvironment = hostingEnvironment;
             _hostingEnvironment.CheckArgumentIsNull(nameof(_hostingEnvironment));
             _groupService = groupService;
@@ -111,6 +114,7 @@ namespace QtasHelpDesk.Services.Content
                 Title = post.Title,
                 Summary = post.Summary,
                 Date = post.RegisteDate.ToFriendlyPersianDateTextify(),
+              //  GroupName = post.Group.GetFormattedBreadCrumb(_groupService,"/"),
                 FilePath = post.FilePath,
                 UserFullName = post.User?.DisplayName
             };
@@ -150,16 +154,36 @@ namespace QtasHelpDesk.Services.Content
 
         public List<PostViewModel> GetPosts()
         {
-            return _posts.Where(x => x.IsArticle).Select(x => new PostViewModel()
+
+            var user = _userManager.GetCurrentUser();
+            var isAdminUser=_userManager.IsInRoleAsync(user, "Admin");
+            if (isAdminUser.Result)
+            {
+                return _posts.Where(x => x.IsArticle).Select(x => new PostViewModel()
+                {
+                    Id = x.Id,
+                    Title = x.Title,
+                    //GroupName=x.Group.GetFormattedBreadCrumb(_groupService,"-->"),
+                    Summary = x.Summary,
+                    FilePath = x.FilePath,
+                    //UserFullName = x.User.DisplayName,
+                    Date = x.RegisteDate.ToLongPersianDateString()
+                }).OrderByDescending(x => x.Id).ToList();
+            }
+
+            var userGroups = _userGroups.Where(x => x.UserId == user.Id).Select(x=>x.GroupId).ToList();
+            return _posts.Where(x => userGroups.Contains(x.GroupId)).Select(x => new PostViewModel()
             {
                 Id = x.Id,
                 Title = x.Title,
                 //GroupName=x.Group.GetFormattedBreadCrumb(_groupService,"-->"),
                 Summary = x.Summary,
                 FilePath = x.FilePath,
-                UserFullName = x.User.DisplayName,
+                //UserFullName = x.User.DisplayName,
                 Date = x.RegisteDate.ToLongPersianDateString()
             }).OrderByDescending(x => x.Id).ToList();
+
+
         }
 
         public void Delete(int postId)
