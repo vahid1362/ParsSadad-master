@@ -4,8 +4,9 @@
 
 <div class="card">
     <div class="card-header" >
-        <h6 class="panel-title text-white" itemprop="headline_name">
-            <a class="card-link text-white" href="@Url.Action("ShowPost", "Post", new {postId = Model.Id})">    <i class="fa fa-info-circle"></i>@Model.Title </a>   
+        <h6 class="panel-title " itemprop="headline_name">
+            <i class="fa fa-info-circle "></i>
+          @Model.Title;
         </h6>
     </div>
 
@@ -23,9 +24,13 @@
         {
             <a href="@Url.Action("ShowPdf", "Post", new {postId = Model.Id})" class="btn btn-success" target="_blank">
                 <i class="fa fa-tag"></i>
-                دریافت فایل
+                فایل
             </a>
         }
+        <a class="previous pagerSpan float-left" href="@Url.Action("ShowPost", "Post", new {postId = Model.Id})">
+            بیشتر
+            <span aria-hidden="true">←</span>
+        </a>
 
     </div>
 

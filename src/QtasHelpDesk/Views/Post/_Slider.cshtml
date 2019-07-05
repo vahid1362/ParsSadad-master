@@ -6,7 +6,7 @@
 
 <div class="card">
     <div class="card-header">
-        <h6 class="panel-title text-gray" itemprop="headline_name">
+        <h6 class="panel-title" itemprop="headline_name">
             آخرین مطالب
         </h6>
     </div>
@@ -44,7 +44,7 @@
                     {
                         <div class="carousel-item active">
                             <h6 class="border-bottom">
-                                <a href="@Url.Action("ShowFaq","Faq",new {faqId=faqtModel.Id})" target="_blank">  @faqtModel.Question </a>
+                             <i class="fa fa-question-circle" style="color:black"></i>   <a href="@Url.Action("ShowFaq","Faq",new {faqId=faqtModel.Id})" target="_blank">  @faqtModel.Question </a>
                             
                                 </h6>
                             <span ><i class="fa fa-user"></i>@faqtModel.UserFullName</span>
@@ -55,7 +55,7 @@
                     {
                         <div class="carousel-item ">
                             <h6 class="border-bottom">
-                                <a href="@Url.Action("ShowFaq","Faq",new {faqId=faqtModel.Id})" target="_blank">  @faqtModel.Question </a>
+                                <i class="fa fa-question-circle" style="color:black"></i>    <a href="@Url.Action("ShowFaq","Faq",new {faqId=faqtModel.Id})" target="_blank">  @faqtModel.Question </a>
                                 
                             </h6>
                             <span ><i class="fa fa-user"></i>@faqtModel.UserFullName </span>
