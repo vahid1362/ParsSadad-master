@@ -1,19 +1,45 @@
 ﻿<div name="Groups">
-   @await Component.InvokeAsync("LastFaq")
-   <div class="card " style="margin-top: 20px">
-       <div class="card-header " style="max-height: 50px">
-           <h5 class="card-title ">
-               <span class="fa fa-archive " aria-hidden="true"></span>
-               گروه ها
-           </h5>
-       </div>
-       <div class="card-body">
-           <div id="tree">
 
-           </div>
-       </div>
-   </div>
-   @*@await Component.InvokeAsync("OnlineUsers")*@
+    @await Component.InvokeAsync("LastFaq")
+    <div class="card " style="margin-top: 20px">
+        <div class="card-header " style="max-height: 50px">
+            <h5 class="card-title ">
+                <span class="fa fa-filter"aria-hidden="true"></span>
+                فیلتر
+            </h5>
+        </div>
+        <div class="card-body">
+            <div class="form-check">
+                <label class="form-check-label">
+                    <input type="checkbox" id="chkQuestion" class="form-check-input" checked="checked"> سوال
+                </label>
+            </div>
+            <div class="form-check">
+                <label class="form-check-label">
+                    <input type="checkbox" id="chkArticle" class="form-check-input" checked="checked" >مقاله
+                </label>
+            </div>
+        </div>
+        <div class="card-footer">
+            <button type="button" id="btnFilter" class="btn btn-primary">
+                اعمال
+            </button>
+        </div>
+    </div>
+    <div class="card " style="margin-top: 20px">
+        <div class="card-header " style="max-height: 50px">
+            <h5 class="card-title ">
+                <span class="fa fa-archive " aria-hidden="true"></span>
+                گروه ها
+            </h5>
+        </div>
+        <div class="card-body">
+            <div id="tree">
+
+            </div>
+        </div>
+    </div>
+    @*@await Component.InvokeAsync("OnlineUsers")*@
 </div>
 
 

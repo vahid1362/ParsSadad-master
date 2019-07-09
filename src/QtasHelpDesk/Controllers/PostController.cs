@@ -197,5 +197,28 @@ namespace QtasHelpDesk.Controllers
 
 
         }
+
+        [HttpPost]
+        public IActionResult FilterContent([FromBody]FilterViewModel model)
+        {
+
+            if(model.ShowArticle && !model.ShowQuestion)
+            {
+                var postViewModels = GetLastPosts();
+
+
+                return PartialView("_Posts", postViewModels);
+            }
+            if (!model.ShowArticle && model.ShowQuestion)
+            {
+                var faqViewModels = GetLastFaqs();
+
+
+                return PartialView("_faqs",faqViewModels);
+            }
+
+            return View("");
+        }
+
     }
 }

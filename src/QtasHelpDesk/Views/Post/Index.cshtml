@@ -79,6 +79,35 @@
             }
         });
 
+ $("#btnFilter").click(function () {
+     var article;
+     var question;
+     if ($('#chkArticle').is(":checked")) {
+         article = true;
+     }
+
+      if ($('#chkQuestion').is(":checked")) {
+         question = true;
+     }
+     var data = {
+        ShowArticle:article,
+        ShowQuestion:question
+        } 
+     $.ajax({
+         type: 'POST',
+         url: '@Url.Action("FilterContent","Post")',
+         dataType: 'json',
+         contentType: 'application/json; charset=utf-8',
+         data: JSON.stringify(data),
+         success: function (response) {
+             alert("ok");
+         }
+     });
+ })
+
+
+
+
     </script>
 
 
