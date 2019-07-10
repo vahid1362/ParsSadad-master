@@ -1,0 +1,38 @@
+﻿@using NToastNotify.Helpers
+@model QtasHelpDesk.ViewModels.Content.PostViewModel
+
+
+<div class="card">
+    <div class="card-header" >
+        <h6 class="panel-title " itemprop="headline_name">
+            <i class="fa fa-info-circle "></i>
+          @Model.Title;
+        </h6>
+    </div>
+
+    <div class="card-body">
+        <p>
+          @Model.Summary
+        </p>
+                <p>
+            @Html.Raw(@WebUtility.HtmlDecode(@Model.Description))
+        </p>
+    </div>
+    <div class="card-footer">
+        <i class="fa fa-user-circle"></i> نوشته شده توسط :@Model.UserFullName<i class="fa fa-clock-o"></i>  @Model.Date
+        @if (Model.FilePath != null)
+        {
+            <a href="@Url.Action("ShowPdf", "Post", new {postId = Model.Id})" class="btn btn-success" target="_blank">
+                <i class="fa fa-tag"></i>
+                فایل
+            </a>
+        }
+        <a class="previous pagerSpan float-left" href="@Url.Action("ShowPost", "Post", new {postId = Model.Id})">
+            بیشتر
+            <span aria-hidden="true">←</span>
+        </a>
+
+    </div>
+
+</div>
+

@@ -56,14 +56,14 @@ namespace QtasHelpDesk.Services.Content
         public FaqViewModel GetFaqById(int id)
         {
 
-            var faq = _faqs.FirstOrDefault(x => x.Id == id);
+            var faq = _faqs.Include(x=>x.Group).FirstOrDefault(x => x.Id == id);
             faq.CheckArgumentIsNull(nameof(faq));
             return new FaqViewModel() {
                 Id = faq.Id,
                 Question = faq.Question,
                 Reply = faq.Reply,
                 GroupId=faq.GroupId,
-              //  GroupName = faq.Group.GetFormattedBreadCrumb(_groupService,"/"),
+                GroupName = faq.Group.GetFormattedBreadCrumb(_groupService, "/"),
                 UserFullName = faq.User?.DisplayName,
                 Date = faq.RegisteDate.ToLongPersianDateString()
 

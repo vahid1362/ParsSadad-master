@@ -105,7 +105,7 @@ namespace QtasHelpDesk.Services.Content
         public PostViewModel GetPostById(int id)
         {
 
-            var post = _posts.FirstOrDefault(x => x.Id == id);
+            var post = _posts.Include(x=>x.Group).FirstOrDefault(x => x.Id == id);
             post.CheckArgumentIsNull(nameof(post));
 
             return new PostViewModel()
@@ -114,7 +114,7 @@ namespace QtasHelpDesk.Services.Content
                 Title = post.Title,
                 Summary = post.Summary,
                 Date = post.RegisteDate.ToFriendlyPersianDateTextify(),
-              //  GroupName = post.Group.GetFormattedBreadCrumb(_groupService,"/"),
+                GroupName = post.Group.GetFormattedBreadCrumb(_groupService,"/"),
                 FilePath = post.FilePath,
                 UserFullName = post.User?.DisplayName
             };

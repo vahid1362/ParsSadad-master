@@ -82,10 +82,8 @@
                     {
             <div class="carousel-item ">
               <h6 class="border-bottom">
-                  <i class="fa fa-info-circle fa-2x" style="color:black"></i>    <a href="@Url.Action("ShowPost","Post",new {postId=postModel.Id})" target="_blank">     <i class="fa fa-question-circle-o"></i>  @postModel.Title </a>
-
-                
-                </h6>
+                  <i class="fa fa-info-circle" style="color:black"></i>    <a href="@Url.Action("ShowPost","Post",new {postId=postModel.Id})" target="_blank">     <i class="fa fa-question-circle-o"></i>  @postModel.Title </a>
+               </h6>
 
                 <span><i class="fa fa-user"></i>@postModel.UserFullName </span>
                 <span >@postModel.Date </span>

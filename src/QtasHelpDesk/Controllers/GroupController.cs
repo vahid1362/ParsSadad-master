@@ -35,16 +35,16 @@ namespace QtasHelpDesk.Controllers
             groupId.CheckArgumentIsNull(nameof(groupId));
             var group = _groupService.GetGroupById(groupId.GetValueOrDefault());
 
-            var postViewModels = GetLastPosts(groupId.GetValueOrDefault());
-            var faqViewModels = GetLastFaq(groupId.GetValueOrDefault());
+            //var postViewModels = GetLastPosts(groupId.GetValueOrDefault());
+            //var faqViewModels = GetLastFaqs(groupId.GetValueOrDefault());
 
             var informationViewModel = new InformationViewModel();
-            informationViewModel.PostViewModels = postViewModels;
-            informationViewModel.FaqViewModels = faqViewModels;
+            //informationViewModel.PostViewModels = postViewModels;
+            //informationViewModel.FaqViewModels = faqViewModels;
             this.SetCurrentBreadCrumbTitle(group.GetFormattedBreadCrumb(_groupService, "/"));
-            return View(informationViewModel);
+            return View();
         }
-        private List<FaqViewModel> GetLastFaq(int groupId)
+        private List<FaqViewModel> GetLastFaqs(int groupId)
         {
             var faqViewModels = _faqService.GetFaqsByGroupId(groupId,int.MaxValue);
             return faqViewModels;
@@ -55,5 +55,41 @@ namespace QtasHelpDesk.Controllers
             var postViewModels = _postService.GetPostsByGroupId(groupId,int.MaxValue);
             return postViewModels;
         }
+
+
+        [Route("/post/FilterContent/{showPost}/{showfaq}/{groupId}")]
+        [HttpPost]
+        public IActionResult FilterContent(bool showPost, bool showFaq, int groupId)
+        {
+            if ((showPost && !showFaq))
+            {
+                var postViewModels = GetLastPosts(groupId);
+                return PartialView("_Posts", postViewModels);
+            }
+            if (!showPost && showFaq)
+            {
+                var faqViewModels = GetLastFaqs(groupId);
+
+
+                return PartialView("_faqs", faqViewModels);
+            }
+
+            if (showPost && showFaq)
+            {
+                var faqViewModels = GetLastFaqs(groupId);
+                var postViewModels = GetLastPosts(groupId);
+
+                return PartialView("_MainContent", new InformationViewModel()
+                {
+                    FaqViewModels = faqViewModels,
+                    PostViewModels = postViewModels
+                });
+            }
+
+            return PartialView("");
+        }
+
     }
+
+
 }

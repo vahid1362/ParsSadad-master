@@ -1,6 +1,5 @@
 ﻿using System.Collections.Generic;
 using DNTBreadCrumb.Core;
-using DNTPersianUtils.Core;
 using Microsoft.AspNetCore.Mvc;
 using QtasHelpDesk.Common.GuardToolkit;
 using QtasHelpDesk.Services.Contracts.Content;
@@ -26,22 +25,22 @@ namespace QtasHelpDesk.Controllers
 
 
         #endregion
+
         [BreadCrumb(Title = "ایندکس", Order = 1)]
         public IActionResult Index()
         {
             return View();
         }
-
+        [BreadCrumb(Title = "ایندکس", Order = 1)]
         public IActionResult ShowFaq(int? faqId)
         {
             faqId.CheckArgumentIsNull(nameof(faqId));
            
             var faqViewModel= _faqService.GetFaqById(faqId.GetValueOrDefault());
-            this.SetCurrentBreadCrumbTitle(faqViewModel.Question);
+            this.SetCurrentBreadCrumbTitle(faqViewModel.GroupName);
             return View(faqViewModel);
         }
-
-
+        
         public IActionResult GetFaqs()
         {
             var faqViewModels = GetLastFaq();

@@ -3,8 +3,6 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.28803.452
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "QtasHelpDesk", "src\QtasHelpDesk\QtasHelpDesk.csproj", "{A9C433A2-A6D8-4DB4-A555-C5250C0EE362}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "QtasHelpDesk.CrossCutting", "src\QtasHelpDesk.Common\QtasHelpDesk.CrossCutting.csproj", "{18D94086-33CD-4496-B56F-995A0E780DAD}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "QtasHelpDesk.Domain", "src\QtasHelpDesk.Entities\QtasHelpDesk.Domain.csproj", "{345B9AE4-2BA8-48FF-A373-5AE222BF7D17}"
@@ -17,16 +15,14 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "QtasHelpDesk.ViewModels", "
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "QtasHelpDesk.IocConfig", "src\QtasHelpDesk.IocConfig\QtasHelpDesk.IocConfig.csproj", "{1CFDE340-62A8-4C2C-AA81-A87C5D8C5E8C}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "QtasHelpDesk", "src\QtasHelpDesk\QtasHelpDesk.csproj", "{FEFB1B2E-4B4F-4C76-9BD4-E445AD10551E}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{A9C433A2-A6D8-4DB4-A555-C5250C0EE362}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{A9C433A2-A6D8-4DB4-A555-C5250C0EE362}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{A9C433A2-A6D8-4DB4-A555-C5250C0EE362}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{A9C433A2-A6D8-4DB4-A555-C5250C0EE362}.Release|Any CPU.Build.0 = Release|Any CPU
 		{18D94086-33CD-4496-B56F-995A0E780DAD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{18D94086-33CD-4496-B56F-995A0E780DAD}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{18D94086-33CD-4496-B56F-995A0E780DAD}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -51,6 +47,10 @@ Global
 		{1CFDE340-62A8-4C2C-AA81-A87C5D8C5E8C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1CFDE340-62A8-4C2C-AA81-A87C5D8C5E8C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1CFDE340-62A8-4C2C-AA81-A87C5D8C5E8C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FEFB1B2E-4B4F-4C76-9BD4-E445AD10551E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FEFB1B2E-4B4F-4C76-9BD4-E445AD10551E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FEFB1B2E-4B4F-4C76-9BD4-E445AD10551E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FEFB1B2E-4B4F-4C76-9BD4-E445AD10551E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

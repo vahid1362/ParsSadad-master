@@ -1,55 +1,55 @@
-﻿@model QtasHelpDesk.ViewModels.Content.InformationViewModel
+﻿
 
 @{
     ViewData["Title"] = "Index";
 
 }
-<div class="card" >
-    <div class="card-header" style="">
-        <h6 class="panel-title" itemprop="headline_name">
-            <i class="fa fa-question-circle"></i>
-            سوالات  متداول
-        </h6>
-    </div>
-    <div class="card-body" >
-
-
-        @foreach (var faqwModel in Model.FaqViewModels)
-        {
-            <div class="alert alert-success">
-                <strong><i class="fa fa-question-circle">:</i></strong>@faqwModel.Question
-            </div>
-            <div class="alert alert-info" style="margin-right: 20px">
-                <strong><i class="fa fa-reply"></i>:</strong>@faqwModel.Reply
-            </div>
-        }
-    </div>
+<div id="content">
+    <div class="loader"></div>
 </div>
-
-<br/>
-
-@foreach (var postviewModel in Model.PostViewModels)
+@section Scripts
 {
-  <div class="card">
-    <div class="card-header">
-        <h5 class="panel-title " itemprop="headline_name">
-            @postviewModel.Title
-        </h5>
-    </div>
+    <script>
+        ShowContent();
+        $("#btnFilter").click(function () {
+            ShowContent();
+        });
+        function ShowContent() {
+            var showPost;
+            var showFaq;
+            var groupId = getUrlVars()["groupId"];
+          
+            if ($('#chkArticle').is(":checked")) {
+                showPost = true;
+            }
 
-    <div class="card-body">
-        @postviewModel.Summary
+            if ($('#chkQuestion').is(":checked")) {
+                showFaq = true;
+            }
 
-    </div>
-    <div class="card-footer">
-        <i class="fa fa-user-circle"></i> نوشته شده توسط :@postviewModel.UserFullName<i class="fa fa-clock-o"></i>  @postviewModel.Date
-        <a href="@Url.Action("ShowPdf", "Post", new {postId = postviewModel.Id})" class="btn btn-success" target="_blank">
-            <i class="fa fa-tag"></i>
-            دریافت فایل
-        </a>
-    </div>
+            $.ajax({
+                type: 'POST',
+                url: "/post/FilterContent/" + showPost + "/" + showFaq+"/"+groupId,
+                success: function (result) {
+                    $("#content").html(result)
+                },
+                error: function (xhr, status, error) {
+                    alert(error.message);
+                }
+            });
+        }
 
-</div>
+        function getUrlVars() {
+            var vars = [], hash;
+            var hashes = window.location.href.slice(window.location.href.indexOf('?') + 1).split('&');
+            for (var i = 0; i < hashes.length; i++) {
+                hash = hashes[i].split('=');
+                vars.push(hash[0]);
+                vars[hash[0]] = hash[1];
+            }
+            return vars;
+        }
+
+
+    </script>
 }
-
-

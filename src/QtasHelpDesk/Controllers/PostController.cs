@@ -142,7 +142,7 @@ namespace QtasHelpDesk.Controllers
             }
 
            
-            this.SetCurrentBreadCrumbTitle(postViewModel.Title);
+            this.SetCurrentBreadCrumbTitle(postViewModel.GroupName);
             return View(postViewModel);
 
         }
@@ -192,24 +192,19 @@ namespace QtasHelpDesk.Controllers
                                          @Url.Action("index", "Group", new { groupId = groupViewModel.Id }) + "' > " +
                                          groupViewModel.Title + "</a>";
             }
-
-            return Json(groupViewModels);
-
-
+             return Json(groupViewModels);
         }
 
+        [Route("/post/FilterContent/{showPost}/{showfaq}")]
         [HttpPost]
-        public IActionResult FilterContent([FromBody]FilterViewModel model)
+        public IActionResult FilterContent(bool showPost,bool showFaq)
         {
-
-            if(model.ShowArticle && !model.ShowQuestion)
+            if(( showPost && !showFaq))
             {
                 var postViewModels = GetLastPosts();
-
-
                 return PartialView("_Posts", postViewModels);
             }
-            if (!model.ShowArticle && model.ShowQuestion)
+            if (!showPost && showFaq)
             {
                 var faqViewModels = GetLastFaqs();
 
@@ -217,7 +212,20 @@ namespace QtasHelpDesk.Controllers
                 return PartialView("_faqs",faqViewModels);
             }
 
-            return View("");
+            if (showPost && showFaq)
+            {
+                var faqViewModels = GetLastFaqs();
+                var postViewModels = GetLastPosts();
+
+                return PartialView("_MainContent", new InformationViewModel() {
+                    FaqViewModels=faqViewModels,
+                    PostViewModels=postViewModels
+                }
+                    
+                    );
+            }
+
+            return PartialView("");
         }
 
     }

@@ -4,4 +4,13 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<partial name="_Post" model=@Model/>
+<partial name="_Post" model=@Model />
+
+@section scripts
+{
+    <script>
+    $("#filter").html("");
+      $("#filter").removeClass("card ");
+    </script>
+
+}
